@@ -1,9 +1,9 @@
-#Magic
+# Magic
 -This is a magic datapack I made, with inspiration from the book series The Wheel of Time.
 -The spells are made by combining 5 powers (air, fire, earth, water, spirit)
 -Based on how these are combined different things can be accomplished.
 
-###How to use?
+### How to use?
 -Dowload the datapack
 -Add it to the datapack folder of your would
 -/reload to reload all the datapacks
