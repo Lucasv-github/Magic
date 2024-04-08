@@ -1,0 +1,2 @@
+scoreboard players operation Temp reg_1 = @s player_id
+execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used] if score @s player_id = Temp reg_1 run function magic:remove_cleanup
