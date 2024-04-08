@@ -16,6 +16,8 @@
 
 Click the "Add ability" checkmark in the panel visible by once again typing /trigger magic_admin
 
+Finally "Give cheat book" can be clicked to give the player 2 guide books
+
 
 ### Contributing?
 -The code is currently **very** messy as the contents have been reworked quite frequently, something everyone should be aware of
