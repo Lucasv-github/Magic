@@ -16,6 +16,7 @@ tag @a[tag=to_be_circle_owner] add circle_owner
 execute if entity @a[tag=to_be_circle_owner] run function magic:exit
 execute if entity @a[tag=to_be_circle_owner] run tag @s remove circle_owner
 execute if entity @a[tag=to_be_circle_owner] run tag @s add circled
+execute if entity @a[tag=to_be_circle_owner] run scoreboard players operation @s circled_owner_id = @a[tag=to_be_circle_owner] player_id
 
 #Need to be last
 tag @a[tag=to_be_circle_owner] remove to_be_circle_owner
