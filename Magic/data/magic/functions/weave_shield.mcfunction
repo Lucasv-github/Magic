@@ -31,7 +31,7 @@ scoreboard players operation @a[tag=can_use, tag=using, tag=shield_me] reg_1 += 
 execute if score @s current_held > @a[tag=can_use, tag=shield_me, limit=1] reg_1 run scoreboard players set @a[tag=can_use, tag=shield_me, limit=1] shilded 20
 execute if score @s current_held > @a[tag=can_use, tag=shield_me, limit=1] reg_1 as @a[tag=can_use, tag=shield_me, limit=1] run function magic:remove_cleanup_player_all
 
-execute if entity @a[tag=can_use, tag=shield_me,scores={shilded=1..}] as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_2 at @s run playsound minecraft:block.anvil.place ambient @s
-execute unless entity @a[tag=can_use, tag=shield_me,scores={shilded=1..}] as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_2 run function magic:stun
+execute as @s[tag=!tied_off] if entity @a[tag=can_use, tag=shield_me,scores={shilded=1..}] as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_2 at @s run playsound minecraft:block.anvil.place ambient @s
+execute as @s[tag=!tied_off] unless entity @a[tag=can_use, tag=shield_me,scores={shilded=1..}] as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_2 run function magic:stun
 
 tag @a remove shield_me
