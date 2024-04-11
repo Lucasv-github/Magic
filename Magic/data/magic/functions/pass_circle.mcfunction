@@ -9,10 +9,13 @@ execute as @a[tag=can_use] if score @s player_id = Temp reg_2 run tag @s add to_
 execute as @a[tag=to_be_circle_owner] run function magic:open
 scoreboard players operation @a[tag=to_be_circle_owner] cumulative_halve_amount_hold = @s cumulative_halve_amount_hold
 scoreboard players operation @a[tag=to_be_circle_owner] current_held = @s current_held
+
 tag @a[tag=to_be_circle_owner] remove circled
 tag @a[tag=to_be_circle_owner] add circle_owner
-tag @a[tag=to_be_circle_owner] remove to_be_circle_owner
 
-execute as @s run function magic:exit
-tag @s remove circle_owner
-tag @s add circled
+execute if entity @a[tag=to_be_circle_owner] run function magic:exit
+execute if entity @a[tag=to_be_circle_owner] run tag @s remove circle_owner
+execute if entity @a[tag=to_be_circle_owner] run tag @s add circled
+
+#Need to be last
+tag @a[tag=to_be_circle_owner] remove to_be_circle_owner
