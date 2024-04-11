@@ -177,7 +177,7 @@ execute in minecraft:overworld run forceload add 0 0
 #To allow console log on servers
 setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[type=minecraft:armor_stand,tag=console_writer,limit=1]"} destroy
 
-tellraw @a {"text":"Magic 0.5.1 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic 0.5.2 loaded","bold":true,"color":"gold"}
 
 scoreboard players set Temp reg_1 0
 function magic:detect_permission
