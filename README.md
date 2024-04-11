@@ -9,7 +9,7 @@
 ### How to use?
 -Dowload the datapack  
 
--Add it to the datapack folder of your would  
+-Add it to the datapack folder of your world  
 
 -/reload to reload all the datapacks  
 
