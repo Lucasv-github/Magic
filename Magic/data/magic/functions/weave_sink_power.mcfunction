@@ -8,6 +8,7 @@ execute if data entity @e[tag=sink_power_angreal,limit=1] Item.tag.Angreal_base 
 
 
 execute if data entity @e[tag=sink_power_angreal,limit=1] Item.tag.Angreal_base unless data entity @e[tag=sink_power_angreal,limit=1] Item.tag.Angreal_top store result score Temp reg_1 run data get entity @e[tag=sink_power_angreal,limit=1] Item.tag.Power_sinked
+scoreboard players operation Temp reg_2 /= 10 reg_1
 scoreboard players operation Temp reg_1 += Temp reg_2
 tellraw @a[tag=can_see,distance=..10] {"score":{"name":"Temp","objective":"reg_1"},"color":"gold"}
 execute store result entity @e[tag=sink_power_angreal,limit=1] Item.tag.Power_sinked int 1 run scoreboard players get Temp reg_1
