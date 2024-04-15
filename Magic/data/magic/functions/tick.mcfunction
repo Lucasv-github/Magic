@@ -25,16 +25,16 @@ execute as @a[tag=can_use,tag=!barmode,tag=using] unless score @s use_items matc
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players operation magic_settings magic_debug_state = @s magic_debug_state
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players set @s magic_debug_state 0
 
-execute as @a[scores={magic_give_book=1..}] run function magic:give_cheat_book
-execute as @a[scores={magic_remove_ability=1..}] run function magic:remove_ability
-execute as @a[scores={magic_re_add_ability=1..}] run function magic:re_add_ability
-execute as @a[scores={magic_add_ability=1..}] run function magic:add_ability
-execute as @a[scores={magic_admin=1..}] run function magic:admin
+execute as @a[scores={give_book=1..}] run function magic:give_cheat_book
+execute as @a[scores={remove_ability=1..}] run function magic:remove_ability
+execute as @a[scores={re_add_ability=1..}] run function magic:re_add_ability
+execute as @a[scores={add_ability=1..}] run function magic:add_ability
+execute as @a[scores={admin_panel=1..}] run function magic:admin
 
-scoreboard players enable @a[tag=magic_admin] select_player
-scoreboard players enable @a[tag=magic_admin] magic_debug_state
-scoreboard players enable @a[tag=magic_admin] set_halve_hold
-scoreboard players enable @a[tag=magic_admin] set_regenerated
+scoreboard players enable @a[tag=admin] select_player
+scoreboard players enable @a[tag=admin] magic_debug_state
+scoreboard players enable @a[tag=admin] set_halve_hold
+scoreboard players enable @a[tag=admin] set_regenerated
 
 execute as @a[tag=using,tag=can_use,scores={current_held=1..}] run function magic:actionbar_display
 
@@ -78,7 +78,7 @@ execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 #Rod in offhand: Pick up
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run give @s minecraft:carrot_on_a_stick{CustomModelData:0,display:{Name:'[{"text":"Target","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:7} 1
 execute as @a[tag=can_use, tag=using,tag=!built] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:pick_up
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.offhand with air
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.offhand with minecraft:air
 
 #Magic in offhand: Circle
 execute as @a[tag=can_use, tag=using, tag=!circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:create_circle
@@ -92,7 +92,7 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Invent
 execute at @e[type=minecraft:eye_of_ender] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw
 
 #Target
-execute as @a[scores={click=1..}, tag=using, tag=can_use] at @s run function magic:new_ray
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:7}}}] at @s run function magic:new_ray
 
 #Id
 scoreboard players add @a player_id 0
@@ -101,11 +101,11 @@ scoreboard players operation @p[scores={player_id=0}] player_id = #next_id playe
 
 #Enable triggers
 scoreboard players enable @a[tag=can_use] use_items
-scoreboard players enable @a[tag=can_use] air
-scoreboard players enable @a[tag=can_use] earth
-scoreboard players enable @a[tag=can_use] fire
-scoreboard players enable @a[tag=can_use] water
-scoreboard players enable @a[tag=can_use] spirit
+scoreboard players enable @a[tag=can_use] a
+scoreboard players enable @a[tag=can_use] e
+scoreboard players enable @a[tag=can_use] f
+scoreboard players enable @a[tag=can_use] w
+scoreboard players enable @a[tag=can_use] s
 scoreboard players enable @a[tag=can_use] state
 scoreboard players enable @a[tag=can_use] open
 scoreboard players enable @a[tag=can_use] break_tied
@@ -118,11 +118,17 @@ scoreboard players enable @a[tag=can_use] build
 scoreboard players enable @a[tag=can_use] slow_down
 scoreboard players enable @a[tag=can_use] tie_strenght
 
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:light_gray_dye",tag:{Force:1}}]}] run trigger air set 1
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:lime_dye",tag:{Force:2}}]}] run trigger earth set 2
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:red_dye",tag:{Force:3}}]}] run trigger fire set 3
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:blue_dye",tag:{Force:4}}]}] run trigger water set 4
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:white_dye",tag:{Force:5}}]}] run trigger spirit set 5
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:1}}]}] run trigger a set 1
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:2}}]}] run trigger e set 2
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:3}}]}] run trigger f set 3
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:4}}]}] run trigger w set 4
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:5}}]}] run trigger s set 5
+
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:1}}}] at @s run trigger a set 1
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:2}}}] at @s run trigger e set 2
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:3}}}] at @s run trigger f set 3
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:4}}}] at @s run trigger w set 4
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:5}}}] at @s run trigger s set 5
 
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:7}}]}] run function magic:clear_targets
 
@@ -130,11 +136,11 @@ execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minec
 execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",tag:{Force:6}}]}] run clear @s ender_eye{Force:6}
 
 #Detect when one starts
-execute as @a[tag=using, tag=can_use, scores={air=1..}] run function magic:build
-execute as @a[tag=using, tag=can_use, scores={earth=1..}] run function magic:build
-execute as @a[tag=using, tag=can_use, scores={fire=1..}] run function magic:build
-execute as @a[tag=using, tag=can_use, scores={water=1..}] run function magic:build
-execute as @a[tag=using, tag=can_use, scores={spirit=1..}] run function magic:build
+execute as @a[tag=using, tag=can_use, scores={a=1..}] run function magic:build
+execute as @a[tag=using, tag=can_use, scores={e=1..}] run function magic:build
+execute as @a[tag=using, tag=can_use, scores={f=1..}] run function magic:build
+execute as @a[tag=using, tag=can_use, scores={w=1..}] run function magic:build
+execute as @a[tag=using, tag=can_use, scores={s=1..}] run function magic:build
 
 execute as @a[tag=using, tag=can_use, scores={build=1..}] run function magic:entire_weave
 
@@ -191,7 +197,7 @@ kill @e[type=minecraft:armor_stand,tag=target_point, scores={weave_despawn_time=
 
 #Doomed smite
 execute at @a[scores={doomed=100..}] run summon lightning_bolt
-execute at @a[scores={doomed=100..}] run summon fireball ~ ~-1 ~ {ExplosionPower:10,Motion:[0.0,-5.0,0.0]}
+execute at @a[scores={doomed=100..}] run summon minecraft:fireball ~ ~-1 ~ {ExplosionPower:10,Motion:[0.0,-5.0,0.0]}
 scoreboard players remove @a[scores={doomed=100..}] doomed 100
 
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run kill @s

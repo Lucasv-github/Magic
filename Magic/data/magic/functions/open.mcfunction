@@ -8,7 +8,7 @@ execute as @s unless score @s use_items matches 0 run tag @s add barmode
 #Store this to make use easier
 function magic:store_hotbar
 
-tellraw @s ["",{"text":"###","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger air set 1"}},{"text":" ","color":"aqua"},{"text":"###","color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger earth set 2"}},{"text":" ","color":"dark_green"},{"text":"###","color":"red","clickEvent":{"action":"run_command","value":"/trigger fire set 3"}},{"text":" ","color":"red"},{"text":"###","color":"dark_blue","clickEvent":{"action":"run_command","value":"/trigger water set 4"}},{"text":" ","color":"dark_blue"},{"text":"###","clickEvent":{"action":"run_command","value":"/trigger spirit set 5"}},{"text":" "},{"text":"->","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}},{"text":" ","color":"black"},{"text":"[]","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 2"}},{"text":" ","color":"black"},{"text":"X","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 4"}},{"text":" ","color":"black"},{"text":"<-","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 3"}}]
+tellraw @s ["",{"text":"###","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":" ","color":"aqua"},{"text":"###","color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":" ","color":"dark_green"},{"text":"###","color":"red","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":" ","color":"red"},{"text":"###","color":"dark_blue","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":" ","color":"dark_blue"},{"text":"###","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" "},{"text":"->","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}},{"text":" ","color":"black"},{"text":"[]","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 2"}},{"text":" ","color":"black"},{"text":"X","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 4"}},{"text":" ","color":"black"},{"text":"<-","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 3"}}]
 
 scoreboard players set @s open 0
 
@@ -18,21 +18,21 @@ scoreboard players operation @s player_weave_index_current = @s player_weave_ind
 scoreboard players set @s stage 0
 scoreboard players set @s state 0
 
-scoreboard players set @s air 0
-scoreboard players set @s earth 0
-scoreboard players set @s fire 0
-scoreboard players set @s water 0
-scoreboard players set @s spirit 0
+scoreboard players set @s a 0
+scoreboard players set @s e 0
+scoreboard players set @s f 0
+scoreboard players set @s w 0
+scoreboard players set @s s 0
 
-give @s[scores={use_items=1}] minecraft:light_gray_dye{CustomModelData:0,display:{Name:'[{"text":"Air","italic":false,"color":"aqua"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:1} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:1,display:{Name:'[{"text":"Air","italic":false,"color":"aqua"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:1} 1
 
-give @s[scores={use_items=1}] minecraft:lime_dye{CustomModelData:0,display:{Name:'[{"text":"Earth","italic":false,"color":"dark_green"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:2} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:2,display:{Name:'[{"text":"Earth","italic":false,"color":"dark_green"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:2} 1
 
-give @s[scores={use_items=1}] minecraft:red_dye{CustomModelData:0,display:{Name:'[{"text":"Fire","italic":false,"color":"red"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:3} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:3,display:{Name:'[{"text":"Fire","italic":false,"color":"red"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:3} 1
 
-give @s[scores={use_items=1}] minecraft:blue_dye{CustomModelData:0,display:{Name:'[{"text":"Water","italic":false,"color":"dark_blue"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:4} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:4,display:{Name:'[{"text":"Water","italic":false,"color":"dark_blue"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:4} 1
 
-give @s[scores={use_items=1}] minecraft:white_dye{CustomModelData:0,display:{Name:'[{"text":"Spirit","italic":false,"color":"white"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:5} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:5,display:{Name:'[{"text":"Spirit","italic":false,"color":"white"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:5} 1
 
 #32, perfectly balanced
 give @s minecraft:ender_eye{CustomModelData:0,display:{Name:'[{"text":"Force","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:6} 32

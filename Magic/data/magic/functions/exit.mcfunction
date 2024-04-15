@@ -18,11 +18,11 @@ execute as @e[type=minecraft:armor_stand, tag=destroy] if score Temp reg_1 = @s 
 #Remove bridge builder
 execute as @e[tag=build_bridge] if score @s player_id = Temp reg_1 run kill @s
 
-clear @s minecraft:light_gray_dye{Force:1}
-clear @s minecraft:lime_dye{Force:2}
-clear @s minecraft:red_dye{Force:3}
-clear @s minecraft:blue_dye{Force:4}
-clear @s minecraft:white_dye{Force:5}
+clear @s minecraft:carrot_on_a_stick{Force:1}
+clear @s minecraft:carrot_on_a_stick{Force:2}
+clear @s minecraft:carrot_on_a_stick{Force:3}
+clear @s minecraft:carrot_on_a_stick{Force:4}
+clear @s minecraft:carrot_on_a_stick{Force:5}
 clear @s carrot_on_a_stick{Force:7}
 clear @s enchanted_book{Force:8}
 clear @s lead{Force:10}

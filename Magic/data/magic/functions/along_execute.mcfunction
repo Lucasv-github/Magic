@@ -1,5 +1,5 @@
 #Bridge
-execute at @s[tag=build_bridge] run fill ~-4 ~-2 ~-4 ~-2 ~-3 ~-2 minecraft:glass replace air
+execute at @s[tag=build_bridge] run fill ~-4 ~-2 ~-4 ~-2 ~-3 ~-2 minecraft:glass replace minecraft:air
 execute at @s[tag=build_bridge] run summon armor_stand ~-2 ~1 ~-2 {Tags:["destroy","bridge"], NoGravity:1, Invisible:1b}
 #Only set bride to 5 as we will add 10 VERY soon. Can't be to low either
 execute at @s[tag=build_bridge] as @e[type=armor_stand, tag=destroy] run scoreboard players set @s bridge 5

@@ -6,21 +6,21 @@ tag @s[tag=circled] remove circled
 scoreboard players set @s leave_detect 0
 
 function magic:detect_op
-tag @s[tag=op_detected] add magic_admin
+tag @s[tag=op_detected] add admin
 tellraw @s[tag=op_detected] {"text":"Welcome admin!","bold":true,"color":"gold"}
-tellraw @s[tag=!op_detected,tag=magic_admin] {"text":"Welcome admin!","bold":true,"color":"gold"}
+tellraw @s[tag=!op_detected,tag=admin] {"text":"Welcome admin!","bold":true,"color":"gold"}
 tag @s[tag=op_detected] remove op_detected
 
 #Enable
-scoreboard players enable @s[tag=magic_admin] magic_admin
-scoreboard players enable @s[tag=magic_admin] select_player
-scoreboard players enable @s[tag=magic_admin] magic_debug_state
-scoreboard players enable @s[tag=magic_admin] magic_remove_ability
-scoreboard players enable @s[tag=magic_admin] magic_re_add_ability
-scoreboard players enable @s[tag=magic_admin] magic_give_book
-scoreboard players enable @s[tag=magic_admin] magic_add_ability
-scoreboard players enable @s[tag=magic_admin] set_halve_hold
-scoreboard players enable @s[tag=magic_admin] set_regenerated
+scoreboard players enable @s[tag=admin] admin_panel
+scoreboard players enable @s[tag=admin] select_player
+scoreboard players enable @s[tag=admin] magic_debug_state
+scoreboard players enable @s[tag=admin] remove_ability
+scoreboard players enable @s[tag=admin] re_add_ability
+scoreboard players enable @s[tag=admin] give_book
+scoreboard players enable @s[tag=admin] add_ability
+scoreboard players enable @s[tag=admin] set_halve_hold
+scoreboard players enable @s[tag=admin] set_regenerated
 
 #Reset all these so math works
 scoreboard players add @s regenerated_strenght 0

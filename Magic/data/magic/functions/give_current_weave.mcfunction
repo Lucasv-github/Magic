@@ -25,13 +25,13 @@ execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Ite
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].tag.T_19 int 1.0 run scoreboard players get @s t_19
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].tag.T_20 int 1.0 run scoreboard players get @s t_20
 
-#Move out item if present in slot 8 but do NOT move out a weave, just destroy that else remove cleanup will fire and oh boy
+#Move out item if present in slot 8 but do NOT move out a weave, just destroy that else remove cleanup will f and oh boy
 execute at @s[nbt={Inventory:[{Slot:8b}]}] unless data entity @s Inventory[{Slot:8b}].tag.Force run summon chest_minecart ~ ~ ~ {CustomName:'{"text":"move_slot_8"}', Invulnerable:1b, Tags:["move_slot_8"], NoGravity:1}
 execute at @s[nbt={Inventory:[{Slot:8b}]}] unless data entity @s Inventory[{Slot:8b}].tag.Force run item replace entity @e[tag=move_slot_8,sort=nearest,limit=1] container.0 from entity @s hotbar.8
 kill @e[tag=move_slot_8]
 
 item replace entity @s hotbar.8 from entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0
 
-#Prevent dropped item which would fire remove cleanup player single
+#Prevent dropped item which would f remove cleanup player single
 item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 with minecraft:air
 kill @e[limit=1,sort=nearest, tag=give_current_weave]

@@ -8,11 +8,11 @@ scoreboard objectives add second_counter dummy
 
 scoreboard objectives add shields_blocked dummy
 
-scoreboard objectives add magic_admin trigger
-scoreboard objectives add magic_give_book trigger
-scoreboard objectives add magic_remove_ability trigger
-scoreboard objectives add magic_re_add_ability trigger
-scoreboard objectives add magic_add_ability trigger
+scoreboard objectives add admin_panel trigger
+scoreboard objectives add give_book trigger
+scoreboard objectives add remove_ability trigger
+scoreboard objectives add re_add_ability trigger
+scoreboard objectives add add_ability trigger
 scoreboard objectives add select_player trigger
 scoreboard objectives add set_halve_hold trigger
 scoreboard objectives add set_regenerated trigger
@@ -79,11 +79,11 @@ scoreboard objectives add position_x dummy
 scoreboard objectives add position_y dummy
 scoreboard objectives add position_z dummy
 
-scoreboard objectives add air trigger
-scoreboard objectives add earth trigger
-scoreboard objectives add fire trigger
-scoreboard objectives add water trigger
-scoreboard objectives add spirit trigger
+scoreboard objectives add a trigger
+scoreboard objectives add e trigger
+scoreboard objectives add f trigger
+scoreboard objectives add w trigger
+scoreboard objectives add s trigger
 scoreboard objectives add build trigger
 
 
@@ -177,7 +177,7 @@ execute in minecraft:overworld run forceload add 0 0
 #To allow console log on servers
 setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[type=minecraft:armor_stand,tag=console_writer,limit=1]"} destroy
 
-tellraw @a {"text":"Magic 0.5.1 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic 0.5.2 loaded","bold":true,"color":"gold"}
 
 scoreboard players set Temp reg_1 0
 function magic:detect_permission

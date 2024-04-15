@@ -33,67 +33,67 @@ execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=0}] r
 
 
 #Fireball FFF
-execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=0}] run summon fireball ~ ~1 ~ {ExplosionPower:2,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:2,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=0}] run tag @s add weave_damaged
 
 #Fireball FF
-execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=0}] run summon fireball ~ ~1 ~ {ExplosionPower:2}
+execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:2}
 
 #Small explosion EFE
 execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=0}] run summon tnt ~ ~1 ~
 execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=0}] run tag @s add weave_damaged
 
 #Medium explosion EFEF
-execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=3,t_5=0}] run summon fireball ~ ~1 ~ {ExplosionPower:4,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=3,t_5=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:4,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=3,t_5=0}] run tag @s add weave_damaged
 
 #Medium+ explosion EFEFF
-execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=3,t_5=3,t_6=0}] run summon fireball ~ ~1 ~ {ExplosionPower:6,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=3,t_5=3,t_6=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:6,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=3,t_5=3,t_6=0}] run tag @s add weave_damaged
 
 #Large explosion EFEFFF
-execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_2=3,t_4=3, t_4=3, t_6=3, t_7=0}] run summon fireball ~ ~1 ~ {ExplosionPower:10,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_2=3,t_4=3, t_4=3, t_6=3, t_7=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:10,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_2=3,t_4=3, t_4=3, t_6=3, t_7=0}] run tag @s add weave_damaged
 
 #Large explosion EFEEFEFFF
-execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=2, t_5=3, t_6=2, t_7=3,t_8=3,t_9=3, t_10=0}] run summon fireball ~ ~1 ~ {ExplosionPower:20,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=2, t_5=3, t_6=2, t_7=3,t_8=3,t_9=3, t_10=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:20,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=2, t_5=3, t_6=2, t_7=3,t_8=3,t_9=3, t_10=0}] run tag @s add weave_damaged
 
 #Large explosion EFEEFEEFEFFF
-execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=2, t_5=3, t_6=2, t_7=2,t_8=3,t_9=2, t_10=3, t_11=3,t_12=3, t_13=0}] run summon fireball ~ ~1 ~ {ExplosionPower:40,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=2, t_5=3, t_6=2, t_7=2,t_8=3,t_9=2, t_10=3, t_11=3,t_12=3, t_13=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:40,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=2,t_2=3,t_3=2,t_4=2, t_5=3, t_6=2, t_7=2,t_8=3,t_9=2, t_10=3, t_11=3,t_12=3, t_13=0}] run tag @s add weave_damaged
 
-#Small fire F
-execute at @s[tag=current_target,scores={t_1=3,t_2=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:fire replace air
+#Small f F
+execute at @s[tag=current_target,scores={t_1=3,t_2=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:fire replace minecraft:air
 
 
-#Large fire FFFFFFFF
-execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:fire replace air
+#Large f FFFFFFFF
+execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:fire replace minecraft:air
 
 #Fire ray continue FFFFF
-execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=3,t_6=0}] run fill ~2 ~2 ~2 ~-2 ~-2 ~-2 minecraft:fire replace air
+execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=3,t_6=0}] run fill ~2 ~2 ~2 ~-2 ~-2 ~-2 minecraft:fire replace minecraft:air
 execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=3,t_6=0}] as @e[distance=..4] run damage @s 10 minecraft:in_fire
 
 #Large Extinguish WWFWW
-execute at @s[tag=current_target,scores={t_1=4,t_2=4,t_3=3,t_4=4,t_5=4,t_6=0}] run fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air replace fire
+execute at @s[tag=current_target,scores={t_1=4,t_2=4,t_3=3,t_4=4,t_5=4,t_6=0}] run fill ~-5 ~-5 ~-5 ~5 ~5 ~5 minecraft:air replace minecraft:fire
 
-#Small water W
-execute at @s[tag=current_target,scores={t_1=4,t_2=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:water replace air
+#Small w W
+execute at @s[tag=current_target,scores={t_1=4,t_2=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:water replace minecraft:air
 
-#Large water WWWW
-execute at @s[tag=current_target,scores={t_1=4,t_2=4,t_3=4,t_4=4,t_5=0}] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:water replace air
+#Large w WWWW
+execute at @s[tag=current_target,scores={t_1=4,t_2=4,t_3=4,t_4=4,t_5=0}] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:water replace minecraft:air
 
-#Clear water small
-execute at @s[tag=current_target,scores={t_1=3,t_2=4,t_3=1,t_4=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:air replace water
+#Clear w small
+execute at @s[tag=current_target,scores={t_1=3,t_2=4,t_3=1,t_4=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:air replace minecraft:water
 
-#Clear water large FFFFWA
-execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=4,t_6=1,t_7=0}] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air replace water
+#Clear w large FFFFWA
+execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=4,t_6=1,t_7=0}] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:air replace minecraft:water
 
 #Ice WFWF
-execute at @s[tag=current_target,scores={t_1=4,t_2=3,t_3=4,t_4=3,t_5=0}] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:ice replace water
+execute at @s[tag=current_target,scores={t_1=4,t_2=3,t_3=4,t_4=3,t_5=0}] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:ice replace minecraft:water
 
 #Ice WF
-execute at @s[tag=current_target,scores={t_1=4,t_2=3,t_3=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:ice replace water
+execute at @s[tag=current_target,scores={t_1=4,t_2=3,t_3=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:ice replace minecraft:water
 
 #Cutting SFE
 execute at @s[tag=current_target,scores={t_1=5,t_2=3,t_3=2,t_4=0}] run function magic:weave_cut_hard
@@ -101,7 +101,7 @@ execute at @s[tag=current_target,scores={t_1=5,t_2=3,t_3=2,t_4=0}] run tag @s ad
 
 
 #Light AFA
-execute at @s[tag=current_target,scores={t_1=1,t_2=3,t_3=1,t_4=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:light replace air
+execute at @s[tag=current_target,scores={t_1=1,t_2=3,t_3=1,t_4=0}] run fill ~ ~-1 ~ ~ ~1 ~ minecraft:light replace minecraft:air
 
 #Blindness AFAAAFA
 execute at @s[tag=current_target,scores={t_1=1,t_2=3,t_3=1,t_4=1,t_5=1,t_6=3,t_7=1,t_8=0}] as @a[tag=can_use] if score @s player_id = @e[limit=1, tag=current_target] weave_execute_id run effect give @s blindness 10 255 true
@@ -146,7 +146,7 @@ execute at @s[tag=current_target,scores={t_1=2,t_2=0}] run fill ~ ~-1 ~ ~ ~1 ~ m
 execute at @s[tag=current_target,scores={t_1=2,t_2=0}] run tag @s add weave_damaged
 
 #Level ground EEEEEE
-execute at @s[tag=current_target,scores={t_1=2,t_2=2,t_3=2,t_4=2, t_5=2,t_6=2,t_7=0}] run fill ~-5 ~1 ~-5 ~5 ~4 ~5 air replace #magic:balefire_destroyable
+execute at @s[tag=current_target,scores={t_1=2,t_2=2,t_3=2,t_4=2, t_5=2,t_6=2,t_7=0}] run fill ~-5 ~1 ~-5 ~5 ~4 ~5 minecraft:air replace #magic:balefire_destroyable
 execute at @s[tag=current_target,scores={t_1=2,t_2=2,t_3=2,t_4=2, t_5=2,t_6=2,t_7=0}] run tag @s add weave_damaged
 
 #Bridge (renew mainly)

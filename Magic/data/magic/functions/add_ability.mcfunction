@@ -1,5 +1,5 @@
-scoreboard players set @s magic_add_ability 0
-scoreboard players enable @s[tag=magic_admin] magic_add_ability
+scoreboard players set @s add_ability 0
+scoreboard players enable @s[tag=admin] add_ability
 
 scoreboard players operation Temp reg_1 = @s select_player
 execute as @a if score @s player_id = Temp reg_1 run tag @s add can_see

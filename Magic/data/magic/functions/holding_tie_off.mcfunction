@@ -24,5 +24,5 @@ execute if score @s current_held matches 1.. as @e[type=minecraft:armor_stand,ta
 execute if score @s current_held matches 1.. as @e[type=minecraft:armor_stand,tag=target_point, tag=actively_held] if score @s player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run tag @s remove actively_held
 
 #Clear all items
-item replace entity @s weapon.mainhand with air
-item replace entity @s weapon.offhand with air
+item replace entity @s weapon.mainhand with minecraft:air
+item replace entity @s weapon.offhand with minecraft:air
