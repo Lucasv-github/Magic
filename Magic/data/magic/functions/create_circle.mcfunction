@@ -1,7 +1,7 @@
 execute at @s run tellraw @a[tag=using, tag=can_use, distance=..10] ["",{"selector":"@s","color":"gold"},{"text":" Circle ","color":"gold"},{"text":"~~~~","color":"gold","clickEvent":{"action":"run_command","value":"/trigger state set 10"}}]
 tag @s add circle_owner
 
-give @s minecraft:lead{CustomModelData:0,display:{Name:'[{"text":"Circle","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:10} 1
+give @s minecraft:lead[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:10}] 1
 
 #Base hold from owner (will work with angreal)
 
