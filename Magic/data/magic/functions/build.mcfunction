@@ -14,15 +14,15 @@ scoreboard players set @s s 0
 
 tag @s add built
 
-execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:1}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:1,display:{Name:'[{"text":"Air","italic":false,"color":"aqua"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:1} 1
+execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:1}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Air","italic":false,"color":"aqua"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=1,custom_data={Force:1}] 1
 
-execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:2}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:2,display:{Name:'[{"text":"Earth","italic":false,"color":"dark_green"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:2} 1
+execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:2}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Earth","italic":false,"color":"dark_green"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=2,custom_data={Force:2}] 1
 
-execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:3}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:3,display:{Name:'[{"text":"Fire","italic":false,"color":"red"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:3} 1
+execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:3}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Fire","italic":false,"color":"red"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=3,custom_data={Force:3}] 1
 
-execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:4}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:4,display:{Name:'[{"text":"Water","italic":false,"color":"dark_blue"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:4} 1
+execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:4}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Water","italic":false,"color":"dark_blue"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=4,custom_data={Force:4}] 1
 
-execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:5}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:5,display:{Name:'[{"text":"Spirit","italic":false,"color":"white"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:5} 1
+execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:5}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Spirit","italic":false,"color":"white"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=5,custom_data={Force:5}] 1
 
 scoreboard players add @s stage 1
 
@@ -62,7 +62,8 @@ tellraw @s ["",{"text":"###","color":"aqua","clickEvent":{"action":"run_command"
 
 #Remove old if not in same slot (deprecated)
 #clear @s minecraft:enchanted_book{Magic_temp_weave:1,Force:8}
-function magic:give_current_weave
+function magic:
+_current_weave
 
 scoreboard players remove @s current_held 10
 #Lost hold of it

@@ -24,18 +24,18 @@ scoreboard players set @s f 0
 scoreboard players set @s w 0
 scoreboard players set @s s 0
 
-give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:1,display:{Name:'[{"text":"Air","italic":false,"color":"aqua"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:1} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Air","italic":false,"color":"aqua"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=1,custom_data={Force:1}] 1
 
-give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:2,display:{Name:'[{"text":"Earth","italic":false,"color":"dark_green"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:2} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Earth","italic":false,"color":"dark_green"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=2,custom_data={Force:2}] 1
 
-give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:3,display:{Name:'[{"text":"Fire","italic":false,"color":"red"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:3} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Fire","italic":false,"color":"red"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=3,custom_data={Force:3}] 1
 
-give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:4,display:{Name:'[{"text":"Water","italic":false,"color":"dark_blue"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:4} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Water","italic":false,"color":"dark_blue"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=4,custom_data={Force:4}] 1
 
-give @s[scores={use_items=1}] minecraft:carrot_on_a_stick{CustomModelData:5,display:{Name:'[{"text":"Spirit","italic":false,"color":"white"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:5} 1
+give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Spirit","italic":false,"color":"white"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=5,custom_data={Force:5}] 1
 
 #32, perfectly balanced
-give @s minecraft:ender_eye{CustomModelData:0,display:{Name:'[{"text":"Force","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:6} 32
+give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:6}] 32
 
 
 #Open with a start amount of power based on (sneaktime)*halve_amount_hold/50
