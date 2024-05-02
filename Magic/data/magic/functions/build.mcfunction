@@ -62,8 +62,7 @@ tellraw @s ["",{"text":"###","color":"aqua","clickEvent":{"action":"run_command"
 
 #Remove old if not in same slot (deprecated)
 #clear @s minecraft:enchanted_book{Magic_temp_weave:1,Force:8}
-function magic:
-_current_weave
+function magic:give_current_weave
 
 scoreboard players remove @s current_held 10
 #Lost hold of it
