@@ -19,13 +19,13 @@ execute as @s[scores={reg_1=..-1}] run scoreboard players operation @s current_h
 
 #At 1:1
 #Self draw increase: 1
-execute as @s[tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0,halve_amount_hold=10..}] if score @s current_held > @s cumulative_halve_amount_hold run give @s minecraft:ender_eye{CustomModelData:0,display:{Name:'[{"text":"Force","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:6} 1
+execute as @s[tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0,halve_amount_hold=10..}] if score @s current_held > @s cumulative_halve_amount_hold run give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:6}] 1
 
 #At 2:1
 #Self draw increase: 4
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 += @s cumulative_halve_amount_hold
-execute as @s[tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0,halve_amount_hold=10..}] if score @s current_held > @s reg_1 run give @s minecraft:ender_eye{CustomModelData:0,display:{Name:'[{"text":"Force","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:6} 4
+execute as @s[tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0,halve_amount_hold=10..}] if score @s current_held > @s reg_1 run give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:6}] 4
 
 #At 4:1
 #Self draw decrease: -12 Makes it harder to blow up
