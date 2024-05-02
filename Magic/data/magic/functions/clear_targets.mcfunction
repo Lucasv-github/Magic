@@ -1,4 +1,4 @@
-give @s minecraft:carrot_on_a_stick{CustomModelData:0,display:{Name:'[{"text":"Target","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:7} 1
+give @s minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Target","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:7}] 1
 
 scoreboard players operation Temp reg_1 = @s player_id
 
