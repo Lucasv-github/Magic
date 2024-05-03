@@ -71,7 +71,7 @@ execute as @a[scores={open=1..,regenerated_strenght=1.., shilded=1..}, tag=!usin
 execute as @a[scores={open=1..,shilded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled] run tag @s remove can_break_free
 execute as @a[scores={open=1..,regenerated_strenght=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players set @s open 0
 
-execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",tag:{Force:6}}]}] run function magic:exit
+execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run function magic:exit
 execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
 
@@ -92,7 +92,7 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Invent
 execute at @e[type=minecraft:eye_of_ender] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw
 
 #Target
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:7}}}] at @s run function magic:new_ray
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] at @s run function magic:new_ray
 
 #Id
 scoreboard players add @a player_id 0
@@ -118,22 +118,22 @@ scoreboard players enable @a[tag=can_use] build
 scoreboard players enable @a[tag=can_use] slow_down
 scoreboard players enable @a[tag=can_use] tie_strenght
 
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:1}}]}] run trigger a set 1
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:2}}]}] run trigger e set 2
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:3}}]}] run trigger f set 3
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:4}}]}] run trigger w set 4
-execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:5}}]}] run trigger s set 5
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:1}}}]}] run trigger a set 1
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:2}}}]}] run trigger e set 2
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:3}}}]}] run trigger f set 3
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:4}}}]}] run trigger w set 4
+execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:5}}}]}] run trigger s set 5
 
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:1}}}] at @s run trigger a set 1
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:2}}}] at @s run trigger e set 2
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:3}}}] at @s run trigger f set 3
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:4}}}] at @s run trigger w set 4
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Force:5}}}] at @s run trigger s set 5
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:1}}}}] at @s run trigger a set 1
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:2}}}}] at @s run trigger e set 2
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:3}}}}] at @s run trigger f set 3
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:4}}}}] at @s run trigger w set 4
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:5}}}}] at @s run trigger s set 5
 
-execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:7}}]}] run function magic:clear_targets
+execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run function magic:clear_targets
 
 #Clear eye if holding when not having tag using
-execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",tag:{Force:6}}]}] run clear @s ender_eye[custom_data={Force:6}]
+execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run clear @s ender_eye[custom_data={Force:6}]
 
 #Detect when one starts
 execute as @a[tag=using, tag=can_use, scores={a=1..}] run function magic:build
@@ -147,10 +147,10 @@ execute as @a[tag=using, tag=can_use, scores={build=1..}] run function magic:ent
 execute as @a[tag=using, tag=can_use, scores={slow_down=1..}] run function magic:tracked_force_slow
 
 #Dropped lead: draw from circle
-execute as @a[tag=can_use,tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:lead",tag:{Force:10}}]}] run function magic:circle_draw
+execute as @a[tag=can_use,tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:lead",components:{"minecraft:custom_data":{Force:10}}}]}] run function magic:circle_draw
 
 #Book slot selected: run weaves
-execute as @a[tag=can_use, tag=using,tag=!more_blocked, tag=active, nbt={Inventory:[{id:"minecraft:enchanted_book",tag:{Force:8}}]}] if entity @s[nbt={SelectedItem:{id:"minecraft:enchanted_book"}}] run function magic:holding_run_first
+execute as @a[tag=can_use, tag=using,tag=!more_blocked, tag=active, nbt={Inventory:[{id:"minecraft:enchanted_book",components:{"minecraft:custom_data":{Force:8}}}]}] if entity @s[nbt={SelectedItem:{id:"minecraft:enchanted_book"}}] run function magic:holding_run_first
 execute as @a[tag=can_use,tag=using] unless data entity @s {SelectedItem:{id:"minecraft:enchanted_book"}} run tag @s remove more_blocked
 tag @a[tag=can_use, tag=using, nbt={SelectedItem:{id:"minecraft:enchanted_book"}}] add active
 
@@ -178,16 +178,16 @@ execute as @a[tag=can_use, scores={state=10}, tag=using, tag=!circled, tag=!circ
 execute as @a[tag=can_use, scores={state=20}, tag=using] run function magic:shield_active_responde
 execute as @a[tag=can_use, scores={state=30}, tag=using] run function magic:sever_active_responde
 
-kill @e[type=item,nbt={Item:{tag:{Force:1}}}]
-kill @e[type=item,nbt={Item:{tag:{Force:2}}}]
-kill @e[type=item,nbt={Item:{tag:{Force:3}}}]
-kill @e[type=item,nbt={Item:{tag:{Force:4}}}]
-kill @e[type=item,nbt={Item:{tag:{Force:5}}}]
-kill @e[type=item,nbt={Item:{tag:{Force:6}}}]
-kill @e[type=item,nbt={Item:{tag:{Force:7}}}]
-execute as @e[type=item,nbt={Item:{tag:{Force:8}}}] run function magic:remove_cleanup_player_single
-kill @e[type=item,nbt={Item:{tag:{Force:10}}}]
-kill @e[type=item,nbt={Item:{tag:{Force:20}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:1}}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:2}}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:3}}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:4}}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:5}}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:6}}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:7}}}}]
+execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:8}}}}] run function magic:remove_cleanup_player_single
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:10}}}}]
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:20}}}}]
 
 #Prevent put in container
 clear @a[tag=!using] minecraft:golden_sword[custom_data={Force:20}]
