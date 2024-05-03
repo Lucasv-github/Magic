@@ -76,7 +76,7 @@ execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
 
 #Rod in offhand: Pick up
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run give @s minecraft:carrot_on_a_stick{CustomModelData:0,display:{Name:'[{"text":"Target","italic":false,"color":"dark_purple"}]',Lore:['[{"text":"Force","italic":false}]']},Enchantments:[{}],Force:7} 1
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run give @s minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Target","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:7}] 1
 execute as @a[tag=can_use, tag=using,tag=!built] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:pick_up
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.offhand with minecraft:air
 
@@ -133,7 +133,7 @@ execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{Force:7}}]}] run function magic:clear_targets
 
 #Clear eye if holding when not having tag using
-execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",tag:{Force:6}}]}] run clear @s ender_eye{Force:6}
+execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",tag:{Force:6}}]}] run clear @s ender_eye[custom_data={Force:6}]
 
 #Detect when one starts
 execute as @a[tag=using, tag=can_use, scores={a=1..}] run function magic:build
@@ -190,7 +190,7 @@ kill @e[type=item,nbt={Item:{tag:{Force:10}}}]
 kill @e[type=item,nbt={Item:{tag:{Force:20}}}]
 
 #Prevent put in container
-clear @a[tag=!using] minecraft:golden_sword{Force:20}
+clear @a[tag=!using] minecraft:golden_sword[custom_data={Force:20}]
 
 #Clean old weaves
 kill @e[type=minecraft:armor_stand,tag=target_point, scores={weave_despawn_time=0},tag=!actively_held]
