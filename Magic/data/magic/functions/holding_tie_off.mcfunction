@@ -7,7 +7,7 @@ function magic:holding_run_first
 
 #Need to make them tied off
 scoreboard players operation Temp reg_1 = @s player_id
-execute as @s store result score Temp reg_2 run data get entity @s SelectedItem.tag.Player_weave_index
+execute as @s store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 scoreboard players operation Temp reg_3 = @s tie_strenght
 
 #Consume 1 power for each 20 seconds

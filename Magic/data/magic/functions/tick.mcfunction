@@ -158,15 +158,15 @@ tag @a[tag=can_use, tag=using, nbt={SelectedItem:{id:"minecraft:enchanted_book"}
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:enchanted_book"}]}] run function magic:holding_tie_off
 
 #If book index does not match placed need to change them
-execute as @a[tag=using,tag=can_use] if data entity @s Inventory[{Slot:8b}].tag.Player_weave_index store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].tag.Player_weave_index
-execute as @a[tag=using,tag=can_use,tag=!built] if data entity @s Inventory[{Slot:8b}].tag.Player_weave_index unless score @s reg_1 = @s player_weave_index run function magic:update_placed_index
+execute as @a[tag=using,tag=can_use] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
+execute as @a[tag=using,tag=can_use,tag=!built] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index unless score @s reg_1 = @s player_weave_index run function magic:update_placed_index
 
 #New if removed from build slot
-execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{Slot:8b}].tag.Player_weave_index run function magic:new_weave
+execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run function magic:new_weave
 
 #Angreal
 scoreboard players set @a reg_1 0
-execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].tag.Amplification
+execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
 execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
 
 #Only way to exit is via dropping the power, this allows for free offhand
