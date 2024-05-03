@@ -7,7 +7,7 @@
 
 
 ### How to use?
--Dowload the datapack  
+-Download the datapack  
 
 -Add it to the datapack folder of your world  
 
