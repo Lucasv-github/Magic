@@ -226,6 +226,10 @@ execute as @e[tag=ray] run function magic:along_execute
 #Check for legacy target hits. Throws should also not consume here
 execute as @e[tag=ray,tag=!begin_throw] at @s unless entity @e[distance=..1, type=minecraft:snowball,tag=hit_ray_done] run function magic:landed
 
+#Throw
+execute as @e[tag=getting_thrown] at @s unless entity @e[limit=1,sort=nearest,type=minecraft:snowball,tag=ray] run tag @s remove getting_thrown
+execute as @e[tag=getting_thrown] at @s run ride @s mount @e[limit=1,sort=nearest,type=minecraft:snowball,tag=ray]
+
 #Bind
 #Either work with tied off or held
 execute as @e[scores={bound=2..}] at @s run ride @s mount @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=target_point,scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=0}]
