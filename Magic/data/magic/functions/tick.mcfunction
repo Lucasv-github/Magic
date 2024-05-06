@@ -227,7 +227,7 @@ execute as @e[tag=ray] run function magic:along_execute
 execute as @e[tag=ray,tag=!begin_throw] at @s unless entity @e[distance=..1, type=minecraft:snowball,tag=hit_ray_done] run function magic:landed
 
 #Throw
-execute as @e[tag=getting_thrown] at @s unless entity @e[limit=1,sort=nearest,type=minecraft:snowball,tag=ray] run tag @s remove getting_thrown
+execute as @e[tag=getting_thrown] at @s unless entity @e[limit=1,sort=nearest,type=minecraft:snowball,tag=ray,distance=..2] run tag @s remove getting_thrown
 execute as @e[tag=getting_thrown] at @s run ride @s mount @e[limit=1,sort=nearest,type=minecraft:snowball,tag=ray]
 
 #Bind
