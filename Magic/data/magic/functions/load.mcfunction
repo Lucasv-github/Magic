@@ -1,5 +1,15 @@
 scoreboard objectives add magic_debug_state trigger
+scoreboard objectives add magic_auto_ability_state trigger
+
+scoreboard objectives add magic_max_strenght dummy
+scoreboard objectives add magic_min_strenght dummy
+scoreboard objectives add magic_debug_state trigger
+
+scoreboard objectives add normal_distributed dummy
+function magic:create_normal_distributed
+
 execute unless score magic_settings magic_debug_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_state 1
+execute unless score magic_settings magic_auto_ability_state matches -2147483647.. run scoreboard players set magic_settings magic_auto_ability_state 2
 
 gamerule commandModificationBlockLimit 1000000000
 
@@ -184,5 +194,8 @@ function magic:detect_permission
 execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}
 
 setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Temp reg_1 1"} destroy
+
+scoreboard players set magic_settings magic_min_strenght 100
+scoreboard players set magic_settings magic_max_strenght 2000
 
 schedule function magic:command_block_message 2s replace

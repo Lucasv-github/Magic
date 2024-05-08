@@ -25,6 +25,9 @@ execute as @a[tag=can_use,tag=!barmode,tag=using] unless score @s use_items matc
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players operation magic_settings magic_debug_state = @s magic_debug_state
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players set @s magic_debug_state 0
 
+execute as @a[scores={magic_auto_ability_state=1..}] run scoreboard players operation magic_settings magic_auto_ability_state = @s magic_auto_ability_state
+execute as @a[scores={magic_auto_ability_state=1..}] run scoreboard players set @s magic_auto_ability_state 0
+
 execute as @a[scores={give_book=1..}] run function magic:give_cheat_book
 execute as @a[scores={remove_ability=1..}] run function magic:remove_ability
 execute as @a[scores={re_add_ability=1..}] run function magic:re_add_ability
@@ -33,6 +36,7 @@ execute as @a[scores={admin_panel=1..}] run function magic:admin
 
 scoreboard players enable @a[tag=admin] select_player
 scoreboard players enable @a[tag=admin] magic_debug_state
+scoreboard players enable @a[tag=admin] magic_auto_ability_state
 scoreboard players enable @a[tag=admin] set_halve_hold
 scoreboard players enable @a[tag=admin] set_regenerated
 

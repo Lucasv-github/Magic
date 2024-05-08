@@ -13,14 +13,16 @@ tag @s[tag=op_detected] remove op_detected
 
 #Enable
 scoreboard players enable @s[tag=admin] admin_panel
-scoreboard players enable @s[tag=admin] select_player
-scoreboard players enable @s[tag=admin] magic_debug_state
 scoreboard players enable @s[tag=admin] remove_ability
 scoreboard players enable @s[tag=admin] re_add_ability
 scoreboard players enable @s[tag=admin] give_book
 scoreboard players enable @s[tag=admin] add_ability
-scoreboard players enable @s[tag=admin] set_halve_hold
-scoreboard players enable @s[tag=admin] set_regenerated
+
+scoreboard players enable @a[tag=admin] select_player
+scoreboard players enable @a[tag=admin] magic_debug_state
+scoreboard players enable @a[tag=admin] magic_auto_ability_state
+scoreboard players enable @a[tag=admin] set_halve_hold
+scoreboard players enable @a[tag=admin] set_regenerated
 
 #Reset all these so math works
 scoreboard players add @s regenerated_strenght 0
@@ -58,3 +60,7 @@ scoreboard players add @s shilded 0
 scoreboard players add @s progressive_shielded 0
 
 execute unless score @s use_items matches -2147483647.. run scoreboard players set @s use_items 1
+
+execute as @s[tag=!joined_before] if score magic_settings magic_auto_ability_state matches 2 run function magic:auto_add_ability
+
+tag @s add joined_before

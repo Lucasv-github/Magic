@@ -1,7 +1,8 @@
 tag @s add admin
 
 tellraw @s {"text":"----------------------------------------","color":"gold"}
-tellraw @s ["",{"text":"Debug:      ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_debug_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger magic_debug_state set 1"}}]
+tellraw @s ["",{"text":"Debug: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_debug_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger magic_debug_state set 1"}}]
+tellraw @s ["",{"text":"Auto add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_auto_ability_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger magic_auto_ability_state set 1"}}]
 tellraw @s ["",{"text":"Remove ability: ","color":"gold"},{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger remove_ability set 1"}}]
 tellraw @s ["",{"text":"Re-add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger re_add_ability set 1"}}]
 tellraw @s ["",{"text":"Add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger add_ability set 1"}}]
