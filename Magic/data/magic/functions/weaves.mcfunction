@@ -255,4 +255,7 @@ execute at @s[tag=current_target,scores={t_1=3,t_2=2,t_3=3,t_4=0}] run tag @s ad
 execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=2,t_6=3,t_7=3,t_8=3,t_9=3,t_10=0}] run fill ~-4 ~-4 ~-4 ~4 ~4 ~4 lava replace #magic:lavable
 execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=2,t_6=3,t_7=3,t_8=3,t_9=3,t_10=0}] run tag @s add weave_damaged
 
+#Delve SSWA
+execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=4,t_4=1,t_5=0}] run function magic:weave_delve
+
 tag @s remove current_target
