@@ -34,12 +34,12 @@ execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=0}] r
 
 #Lightning+crater FAFFFFF
 execute at @s[tag=current_target,scores={t_1=3,t_2=1,t_3=3,t_4=3,t_5=3,t_6=3,t_7=0}] run summon minecraft:lightning_bolt
-execute at @s[tag=current_target,scores={t_1=3,t_2=1,t_3=3,t_4=3,t_5=3,t_6=3,t_7=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:10,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=3,t_2=1,t_3=3,t_4=3,t_5=3,t_6=3,t_7=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:6,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=3,t_2=1,t_3=3,t_4=3,t_5=3,t_6=3,t_7=0}] run tag @s add weave_damaged
 
 #Big lightning+crater FFAFFFFFF
 execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run summon minecraft:lightning_bolt
-execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:10,Motion:[0.0,-10.0,0.0]}
+execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run summon minecraft:fireball ~ ~1 ~ {ExplosionPower:6,Motion:[0.0,-10.0,0.0]}
 execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] as @e[distance=..5] run damage @s 20 minecraft:lightning_bolt
 execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run tag @s add weave_damaged
 
