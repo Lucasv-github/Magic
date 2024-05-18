@@ -6,13 +6,9 @@ tag @s add current_target
 
 function magic:calculate_distance
 
-execute at @s[tag=!inverted] run tellraw @a[tag=can_see,tag=truly_see] ["",{"score":{"name":"@s","objective":"current_held"},"color":"gold"},{"text":" : "},{"score":{"name":"@s","objective":"position_x"},"color":"gold"},{"text":" : "},{"score":{"name":"@s","objective":"position_y"},"color":"gold"},{"text":" : "},{"score":{"name":"@s","objective":"position_z"},"color":"gold"}]
-
 #Remove truly_see from all but self if inverted
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @s[tag=inverted] as @a[tag=truly_see] unless score @s player_id = Temp reg_1 run tag @s remove truly_see
-
-execute at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] ["",{"score":{"name":"@s","objective":"current_held"},"color":"gold"},{"text":" : "},{"score":{"name":"@s","objective":"position_x"},"color":"gold"},{"text":" : "},{"score":{"name":"@s","objective":"position_y"},"color":"gold"},{"text":" : "},{"score":{"name":"@s","objective":"position_z"},"color":"gold"},{"text":"****","color":"gold"}]
 
 function magic:display_composition
 
