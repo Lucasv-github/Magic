@@ -134,12 +134,14 @@ execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=5,t_4=0}] run function 
 
 #Shield active S*14
 execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=5,t_6=5,t_7=5,t_8=5,t_9=5,t_10=5,t_11=5,t_12=5,t_13=5,t_14=5,t_15=0}] run function magic:weave_shield_active
+execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=5,t_6=5,t_7=5,t_8=5,t_9=5,t_10=5,t_11=5,t_12=5,t_13=5,t_14=5,t_15=0}] run tag @s add weave_damaged
 
 #Shield destroy/strike back S*18
 execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=5,t_6=5,t_7=5,t_8=5,t_9=5,t_10=5,t_11=5,t_12=5,t_13=5,t_14=5,t_15=5,t_16=5,t_17=5,t_18=5,t_19=0}] run function magic:weave_destroy_shield
 
 #Sever active S*17
 execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=5,t_6=5,t_7=5,t_8=5,t_9=5,t_10=5,t_11=5,t_12=5,t_13=5,t_14=5,t_15=5,t_16=5,t_17=5,t_18=0}] run function magic:weave_sever_active
+execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=5,t_6=5,t_7=5,t_8=5,t_9=5,t_10=5,t_11=5,t_12=5,t_13=5,t_14=5,t_15=5,t_16=5,t_17=5,t_18=0}] run tag @s add weave_damaged
 
 #Finder SSSSS
 execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=5,t_6=0}] run function magic:weave_finder
