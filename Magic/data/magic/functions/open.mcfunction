@@ -13,7 +13,7 @@ tellraw @s ["",{"text":"###","color":"aqua","clickEvent":{"action":"run_command"
 scoreboard players set @s open 0
 
 scoreboard players set @s player_weave_index 1
-scoreboard players operation @s player_weave_index_current = @s player_weave_index
+#scoreboard players operation @s player_weave_index_current = @s player_weave_index
 
 scoreboard players set @s stage 0
 scoreboard players set @s state 0

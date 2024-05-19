@@ -1,8 +1,13 @@
+say landed
+
 #summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:0b,Marker:0b,Tags:["temp_target_point"]}
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b,Tags:["temp_target_point"]}
 
 scoreboard players operation Temp reg_1 = @s player_id
-scoreboard players operation Temp reg_2 = @s player_weave_index_current
+
+scoreboard players operation Temp reg_2 = @s player_weave_index
+#Use player_weave_index if non selected
+execute store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_id = Temp reg_1
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_weave_index = Temp reg_2
@@ -41,14 +46,14 @@ execute as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run fu
 #Things triggered by arrow imidiately should also use force
 
 #Run weave when landed
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use,tag=built] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
 
 #Cutting bypass
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] run tag @s remove ward_connected
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] run tag @s remove ward_connected
 
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] as @a[tag=using,tag=can_use,tag=built] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] as @a[tag=using,tag=can_use,tag=built] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
 
 tag @e[tag=target_point,type=armor_stand] remove temp_target_point
 

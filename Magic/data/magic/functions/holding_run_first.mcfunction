@@ -1,4 +1,6 @@
-say hrf
+#say hrf
+
+function magic:update_placed_index
 
 scoreboard players operation Temp reg_1 = @s player_id
 
@@ -6,7 +8,7 @@ execute as @s store result score Temp reg_2 run data get entity @s SelectedItem.
 
 
 #Use previous if not holding book
-execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_2 = @s player_weave_index_current
+execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_2 = @s player_weave_index
 
 execute as @e[type=minecraft:armor_stand,tag=target_point, tag=actively_held] if score @s player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run tag @s add current_to_be_run
 

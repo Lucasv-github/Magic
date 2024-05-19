@@ -4,7 +4,7 @@ data modify storage projectiles:motion Motion set value [0.0,0.0,0.0]
 
 #Hit will survive
 scoreboard players operation @e[tag=ray,limit=1, type=snowball, sort=nearest] player_id = @a[limit=1, tag=using, sort=nearest] player_id
-scoreboard players operation @e[tag=ray,limit=1, type=snowball, sort=nearest] player_weave_index_current = @a[limit=1, tag=using, sort=nearest] player_weave_index_current
+scoreboard players operation @e[tag=ray,limit=1, type=snowball, sort=nearest] player_weave_index = @a[limit=1, tag=using, sort=nearest] player_weave_index
 scoreboard players operation @e[tag=ray,limit=1, type=snowball, sort=nearest] weave_execute_random_number = #random_id player_id
 
 #Specific weaves that execute along the snowball(0)

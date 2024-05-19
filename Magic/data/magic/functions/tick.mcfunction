@@ -83,7 +83,7 @@ execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
 
 #Rod in offhand: toggle between hotbar mode
-execute as @a[tag=can_use, tag=using,tag=!built] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:toggle_hotbarmode
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:toggle_hotbarmode
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.offhand with minecraft:air
 
@@ -168,8 +168,8 @@ tag @a[tag=can_use, tag=using, nbt={SelectedItem:{id:"minecraft:carrot_on_a_stic
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:holding_tie_off
 
 #If book index does not match placed need to change them
-execute as @a[tag=using,tag=can_use] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
-execute as @a[tag=using,tag=can_use,tag=!built] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index unless score @s reg_1 = @s player_weave_index run function magic:update_placed_index
+#execute as @a[tag=using,tag=can_use] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
+#execute as @a[tag=using,tag=can_use,tag=!built] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index unless score @s reg_1 = @s player_weave_index run function magic:update_placed_index
 
 #New if removed from build slot
 execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run function magic:new_weave
