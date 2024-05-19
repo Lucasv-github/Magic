@@ -1,4 +1,3 @@
-#Can't hold weave when picking up
 execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @s add getting_picked_up
 execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @a[tag=using,tag=!built, sort=nearest, limit=1] add picking_up
 
@@ -43,3 +42,5 @@ execute as @s[tag=picking_up] run function magic:give_current_weave
 
 tag @e remove getting_picked_up
 tag @s remove picking_up
+
+scoreboard players set @s sneak_time 0

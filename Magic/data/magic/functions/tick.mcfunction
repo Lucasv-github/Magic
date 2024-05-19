@@ -53,6 +53,9 @@ execute as @a[scores={sneak_time=50..}, tag=!using, tag=can_use] at @s run plays
 execute as @a[scores={sneak_time=50..}, tag=!using, tag=can_use] run tellraw @s {"text":"~~~~","color":"gold","clickEvent":{"action":"run_command","value":"/trigger open set 48303"}}
 execute as @a[scores={sneak_time=50..}, tag=!using, tag=can_use] run scoreboard players set @s sneak_time 0
 
+#Picking up
+execute as @a[tag=using,tag=can_use,scores={sneak_time=50..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] run function magic:pick_up
+
 #Enable breaking out
 execute as @a[scores={sneak_time=1, open=48303}, tag=!using, tag=can_use] run function magic:try_break_tied
 
@@ -79,9 +82,9 @@ execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minec
 execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
 
-#Rod in offhand: Pick up
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run give @s minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Target","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:7}] 1
-execute as @a[tag=can_use, tag=using,tag=!built] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:pick_up
+#Rod in offhand: toggle between hotbar mode
+execute as @a[tag=can_use, tag=using,tag=!built] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:toggle_hotbarmode
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.offhand with minecraft:air
 
 #Magic in offhand: Circle
