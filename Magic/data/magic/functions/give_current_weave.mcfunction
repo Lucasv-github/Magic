@@ -1,5 +1,5 @@
 execute at @s run summon minecraft:chest_minecart ~ ~ ~ {CustomName:'{"text":"give_current_weave"}', Invulnerable:1b, Tags:["give_current_weave"], NoGravity:1}
-item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 with minecraft:enchanted_book[custom_data={Force:8,Player_weave_index:0,T_1:0,T_2:0,T_3:0,T_4:0,T_5:0,T_6:0,T_7:0,T_8:0,T_9:0,T_10:0,T_11:0,T_12:0,T_13:0,T_14:0,T_15:0,T_16:0,T_17:0,T_18:0,T_19:0,T_20:0}]
+item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 with minecraft:carrot_on_a_stick[custom_data={Force:8,Player_weave_index:0,T_1:0,T_2:0,T_3:0,T_4:0,T_5:0,T_6:0,T_7:0,T_8:0,T_9:0,T_10:0,T_11:0,T_12:0,T_13:0,T_14:0,T_15:0,T_16:0,T_17:0,T_18:0,T_19:0,T_20:0},custom_name='["",{"text":"Weave","italic":false,"color":"dark_purple"}]',enchantment_glint_override=1b]
 
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.Player_weave_index int 1.0 run scoreboard players get @s player_weave_index
 

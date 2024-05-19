@@ -61,7 +61,7 @@ execute as @s[scores={stage=20}] run scoreboard players operation @s t_20 = @s r
 tellraw @s ["",{"text":"###","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":" ","color":"aqua"},{"text":"###","color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":" ","color":"dark_green"},{"text":"###","color":"red","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":" ","color":"red"},{"text":"###","color":"dark_blue","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":" ","color":"dark_blue"},{"text":"###","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" "}]
 
 #Remove old if not in same slot (deprecated)
-#clear @s minecraft:enchanted_book{Magic_temp_weave:1,Force:8}
+#clear @s minecraft:carrot_on_a_stick{Magic_temp_weave:1,Force:8}
 function magic:give_current_weave
 
 scoreboard players remove @s current_held 10
