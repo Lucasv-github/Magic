@@ -1,7 +1,5 @@
 #say hrf
 
-function magic:update_placed_index
-
 scoreboard players operation Temp reg_1 = @s player_id
 
 execute as @s store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index

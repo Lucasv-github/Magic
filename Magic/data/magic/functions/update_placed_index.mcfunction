@@ -1,5 +1,3 @@
-#say upi
-
 execute store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 tag @s add built
 

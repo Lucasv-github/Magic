@@ -102,6 +102,7 @@ execute at @e[type=minecraft:eye_of_ender] as @a[tag=using,tag=can_use,sort=near
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] at @s run function magic:new_ray
 
 #Weave click
+execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}}] run function magic:update_placed_index
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}}] at @s run function magic:new_ray
 
 #Id

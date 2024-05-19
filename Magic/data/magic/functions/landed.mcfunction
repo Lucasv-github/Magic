@@ -1,5 +1,3 @@
-say landed
-
 #summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:0b,Marker:0b,Tags:["temp_target_point"]}
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b,Tags:["temp_target_point"]}
 
