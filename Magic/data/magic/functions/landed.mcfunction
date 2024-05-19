@@ -3,9 +3,10 @@ summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible
 
 scoreboard players operation Temp reg_1 = @s player_id
 
-scoreboard players operation Temp reg_2 = @s player_weave_index
-#Use player_weave_index if non selected
 execute store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
+
+#Use player_weave_index if non selected
+execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_2 = @s player_weave_index
 
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_id = Temp reg_1
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_weave_index = Temp reg_2
