@@ -20,9 +20,10 @@ scoreboard players enable @s[tag=admin] add_ability
 
 scoreboard players enable @a[tag=admin] select_player
 scoreboard players enable @a[tag=admin] magic_debug_state
-scoreboard players enable @a[tag=admin] magic_auto_ability_state
 scoreboard players enable @a[tag=admin] set_halve_hold
 scoreboard players enable @a[tag=admin] set_regenerated
+scoreboard players enable @s[tag=admin] magic_balefire_ban
+scoreboard players enable @s[tag=admin] magic_auto_ability_state
 
 #Reset all these so math works
 scoreboard players add @s regenerated_strenght 0

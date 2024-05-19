@@ -1,5 +1,6 @@
 execute as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] run particle minecraft:snowflake ~ ~2 ~ 0 0 0 0 10 normal @a
-execute unless entity @s[distance=..5] as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] as @e[distance=..2] run function magic:ban
+execute unless entity @s[distance=..5] as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] as @e[distance=..2] if score magic_settings magic_balefire_ban matches 1 run function magic:kick
+execute unless entity @s[distance=..5] as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] as @e[distance=..2] if score magic_settings magic_balefire_ban matches 2 run function magic:ban
 execute unless entity @s[distance=..5] as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] as @e[distance=..2] run tp @s ~ ~-200 ~
 execute as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] store result score Temp reg_1 run fill ~ ~ ~ ~ ~ ~ minecraft:air replace #magic:balefire_destroyable
 execute as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] run scoreboard players operation Ray_data reg_4 -= Temp reg_1

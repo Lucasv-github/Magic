@@ -1,5 +1,6 @@
 scoreboard objectives add magic_debug_state trigger
 scoreboard objectives add magic_auto_ability_state trigger
+scoreboard objectives add magic_balefire_ban trigger
 
 scoreboard objectives add magic_max_strenght dummy
 scoreboard objectives add magic_min_strenght dummy
@@ -10,6 +11,7 @@ function magic:create_normal_distributed
 
 execute unless score magic_settings magic_debug_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_state 1
 execute unless score magic_settings magic_auto_ability_state matches -2147483647.. run scoreboard players set magic_settings magic_auto_ability_state 2
+execute unless score magic_settings magic_balefire_ban matches -2147483647.. run scoreboard players set magic_settings magic_balefire_ban 2
 
 gamerule commandModificationBlockLimit 1000000000
 
