@@ -48,9 +48,7 @@ scoreboard players operation Give_force reg_1 = @s reg_1
 scoreboard players add Give_force reg_1 1
 function magic:give_force_amount_consume
 
-
-
-scoreboard players set @s sneak_time 0
+#scoreboard players set @s sneak_time 0
 
 tag @s add using
 
