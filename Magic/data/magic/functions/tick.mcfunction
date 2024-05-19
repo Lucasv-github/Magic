@@ -256,6 +256,9 @@ execute as @e[tag=target_point,tag=weave_damaged] run function magic:damaged_wea
 execute as @a[scores={circle_timer=1}] run function magic:circle_remover
 scoreboard players remove @a[scores={circle_timer=1..}] circle_timer 1
 
+#Remove signs
+execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]
+
 scoreboard players add Temp tick_counter 1
 
 execute if score Temp tick_counter matches 6 run function magic:fourth_sec

@@ -25,6 +25,11 @@ execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Ite
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.T_19 int 1.0 run scoreboard players get @s t_19
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.T_20 int 1.0 run scoreboard players get @s t_20
 
+#execute store result score Temp reg_1 run clear @s carrot_on_a_stick[custom_data~{Force:8}] 0
+scoreboard players operation Temp reg_1 = @s player_weave_index
+execute in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['["",{"text":"Weave: ","italic":false,"color":"dark_purple"},{"score":{"name":"Temp","objective":"reg_1"},"color":"dark_purple","italic":false}]','{"text":""}','{"text":""}','{"text":""}']}} destroy
+data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_name set from block 0 0 0 front_text.messages[0]
+
 #Move out item if present in slot 8 but do NOT move out a weave, just destroy that else remove cleanup will f and oh boy
 execute at @s[nbt={Inventory:[{Slot:8b}]}] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Force run summon chest_minecart ~ ~ ~ {CustomName:'{"text":"move_slot_8"}', Invulnerable:1b, Tags:["move_slot_8"], NoGravity:1}
 execute at @s[nbt={Inventory:[{Slot:8b}]}] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Force run item replace entity @e[tag=move_slot_8,sort=nearest,limit=1] container.0 from entity @s hotbar.8
