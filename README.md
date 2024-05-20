@@ -13,12 +13,14 @@
 
 -/reload to reload all the datapacks  
 
+### Configuration?
+
 -/trigger magic_admin to open the admin panel  
 
 
-/trigger set_halve_hold 500 set the hold strenght to **500** which is high, this is obviously adjustable  
+/trigger set_halve_hold 500 set the hold strenght to **50** (scaled by a factor of 10)
 
-/trigger set_regenerated 10000 set the regeneration strenght to **10000** which is high, this is obviously adjustable  
+/trigger set_regenerated 10000 set the regeneration strenght to **10000** (can think of this as stamina)
 
 
 /trigger select_player set 1 **That is the id of the player which will be able to use magic**, ids are visible in the tab menue  
@@ -27,7 +29,7 @@
 Click the "Add ability" checkmark in the panel visible by once again typing /trigger magic_admin  
 
 
-Finally "Give cheat book" can be clicked to give the player 2 guide books  
+Finally "Give cheat book" can be clicked to give the player 2 guide books with more information
 
 
 
