@@ -6,5 +6,5 @@ $execute as @e[tag=target_point] if score @s player_id = Temp reg_1 if score @s 
 
 #TODO we should not force any remove cleanup if 1 no book 2 no tied off or held
 
-$say $(index)
+#$say $(index)
 $clear @s minecraft:carrot_on_a_stick[custom_data~{Player_weave_index:$(index)}]
