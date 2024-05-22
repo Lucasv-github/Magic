@@ -31,7 +31,7 @@ scoreboard players operation @s t_17 = @a[limit=1,tag=set_weave_from_my_score] t
 scoreboard players operation @s t_18 = @a[limit=1,tag=set_weave_from_my_score] t_18
 scoreboard players operation @s t_19 = @a[limit=1,tag=set_weave_from_my_score] t_19
 scoreboard players operation @s t_20 = @a[limit=1,tag=set_weave_from_my_score] t_20
-execute as @a[limit=1,tag=set_weave_from_my_score] run say from score
+#execute as @a[limit=1,tag=set_weave_from_my_score] run say from score
 
 
 #If entity is needed here
@@ -55,7 +55,7 @@ execute if entity @a[limit=1,tag=set_weave_from_my_hand] store result score @s t
 execute if entity @a[limit=1,tag=set_weave_from_my_hand] store result score @s t_18 run data get entity @a[limit=1,tag=set_weave_from_my_hand] SelectedItem.components.minecraft:custom_data.T_18
 execute if entity @a[limit=1,tag=set_weave_from_my_hand] store result score @s t_19 run data get entity @a[limit=1,tag=set_weave_from_my_hand] SelectedItem.components.minecraft:custom_data.T_19
 execute if entity @a[limit=1,tag=set_weave_from_my_hand] store result score @s t_20 run data get entity @a[limit=1,tag=set_weave_from_my_hand] SelectedItem.components.minecraft:custom_data.T_20
-execute as @a[limit=1,tag=set_weave_from_my_hand] run say from hand
+#execute as @a[limit=1,tag=set_weave_from_my_hand] run say from hand
 
 execute as @s[tag=!no_weave] run function magic:pre_weaves
 
