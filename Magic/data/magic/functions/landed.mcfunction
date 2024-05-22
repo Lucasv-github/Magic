@@ -40,19 +40,22 @@ tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] a
 #Still we should lock neareset player
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s weave_execute_id = @a[limit=1, sort=nearest, distance=..5] player_id
 
-execute as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:resync
+#execute as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:resync
+#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:set_weave_from_player
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run function magic:set_weave_from_player
 
 #Things triggered by arrow imidiately should also use force
 
 #Run weave when landed
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+
 
 #Cutting bypass
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] run tag @s remove ward_connected
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] run tag @s remove ward_connected
+#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] run tag @s remove ward_connected
+#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] run tag @s remove ward_connected
 
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
 
 tag @e[tag=target_point,type=armor_stand] remove temp_target_point
 

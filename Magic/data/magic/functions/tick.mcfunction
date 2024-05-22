@@ -11,7 +11,7 @@ execute as @a[tag=in_tar] at @s unless dimension magic:tar run function magic:ex
 
 tag @a[tag=!using,tag=next_sever] remove can_use
 tag @a[tag=!using,tag=next_sever] remove next_sever
-tag @a[tag=!can_use] remove more_blocked
+tag @a[tag=!can_use] remove holding_run_blocked
 tag @a[tag=can_use,tag=!using] remove built
 tag @a[tag=!can_use] remove active
 tag @a[tag=!can_use] remove using
@@ -88,9 +88,9 @@ execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
 
 #Rod in offhand: toggle between hotbar mode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:toggle_hotbarmode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run item replace entity @s weapon.offhand with minecraft:air
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run function magic:toggle_hotbarmode
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run item replace entity @s weapon.offhand with minecraft:air
 
 #Magic in offhand: Circle
 execute as @a[tag=can_use, tag=using, tag=!circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:create_circle
@@ -107,7 +107,6 @@ execute at @e[type=minecraft:eye_of_ender] as @a[tag=using,tag=can_use,sort=near
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] at @s run function magic:new_ray
 
 #Weave click
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}}] run function magic:update_placed_index
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}}] at @s run function magic:new_ray
 
 #Id
@@ -166,16 +165,16 @@ execute as @a[tag=using, tag=can_use, scores={slow_down=1..}] run function magic
 execute as @a[tag=can_use,tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:lead",components:{"minecraft:custom_data":{Force:10}}}]}] run function magic:circle_draw
 
 #Book slot selected: run weaves
-execute as @a[tag=can_use, tag=using,tag=!more_blocked, tag=active, nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}]}] if entity @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick"}}] run function magic:holding_run_first
-execute as @a[tag=can_use,tag=using] unless data entity @s {SelectedItem:{id:"minecraft:carrot_on_a_stick"}} run tag @s remove more_blocked
+execute as @a[tag=using] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
+execute as @a[tag=using,scores={reg_1=1..}] unless score @s reg_1 = @s held_player_weave_index run function magic:holding_run
+#If reg_1=0 we are unselecting, still need to set held_player_weave_index to 0
+execute as @a[tag=using,scores={reg_1=0}] unless score @s reg_1 = @s held_player_weave_index run scoreboard players set @s held_player_weave_index 0
+
+#TODO is this needed
 tag @a[tag=can_use, tag=using, nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick"}}] add active
 
 #Book in offhand with selection: tie off
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick"}]}] run function magic:holding_tie_off
-
-#If book index does not match placed need to change them
-#execute as @a[tag=using,tag=can_use] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
-#execute as @a[tag=using,tag=can_use,tag=!built] if data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index unless score @s reg_1 = @s player_weave_index run function magic:update_placed_index
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}]}] run function magic:holding_tie_off
 
 #New if removed from build slot
 execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run function magic:new_weave

@@ -100,7 +100,7 @@ scoreboard objectives add build trigger
 
 
 scoreboard objectives add player_weave_index dummy
-#scoreboard objectives add player_weave_index_current dummy
+scoreboard objectives add held_player_weave_index dummy
 
 scoreboard objectives add state trigger
 

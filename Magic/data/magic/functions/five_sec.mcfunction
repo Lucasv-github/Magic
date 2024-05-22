@@ -7,7 +7,7 @@ execute as @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores=
 tag @e[type=minecraft:armor_stand,tag=target_point,tag=tied_off, scores={weave_remaining_time=1..},tag=!ward_connected,tag=!ward_trigger] remove running_tied
 
 #Run held
-execute as @a[tag=can_use,tag=using] run function magic:periodic_held
+execute as @e[tag=actively_held,tag=!no_weave] run function magic:pre_weaves
 
 execute as @a[scores={regenerated_strenght=1.., shilded=1..,click_counter=10..,break_tied=0}, tag=!using, tag=can_use, tag=!circled,tag=!can_break_free] run function magic:try_break_held
 
