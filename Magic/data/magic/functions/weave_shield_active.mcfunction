@@ -1,10 +1,13 @@
 scoreboard players operation Temp reg_1 = @s weave_execute_id
 execute as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_1 run tag @s add shield_active_me
+
+#Prevent self
+execute if score Temp reg_1 = @s player_id run tag @a remove shield_active_me
+
 tag @a[tag=shield_active_me,scores={shields_blocked=1..}] remove shield_active_me
 
 scoreboard players operation Temp reg_1 = @s player_id
 
-#TODO prevent this from being tied off probably
 #Find person shielding, get held strenght
 #Reset in case we find none (e.g tied of)
 scoreboard players set @s reg_2 0
