@@ -31,6 +31,11 @@ execute if entity @s[distance=200..] run scoreboard players set Ray_data reg_2 0
 #Don't stop at entity if balefire/fire ray
 execute unless entity @s[scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=1,t_7=3,t_8=3,t_9=0}] unless entity @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] if score Ray_data reg_2 matches 1 as @e[distance=..2,type=!item,limit=1,tag=!ray_done,tag=!hit_ray,tag=!ray,tag=!target_point,tag=!bridge] unless score @s player_id = Ray_data reg_1 run scoreboard players set Ray_data reg_2 0
 
+#But do stop at tied off or active weaves
+execute unless entity @s[scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=1,t_7=3,t_8=3,t_9=0}] unless entity @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] if score Ray_data reg_2 matches 1 as @e[distance=..2,tag=actively_held] unless score @s player_id = Ray_data reg_1 run scoreboard players set Ray_data reg_2 0
+
+execute unless entity @s[scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=1,t_7=3,t_8=3,t_9=0}] unless entity @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] if score Ray_data reg_2 matches 1 as @e[distance=..2,tag=tied_off,scores={weave_remaining_time=1..}] unless score @s player_id = Ray_data reg_1 run scoreboard players set Ray_data reg_2 0
+
 execute if entity @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ #magic:balefire_destroyable run scoreboard players set Ray_data reg_2 0
 execute unless entity @s[scores={t_1=3,t_2=3,t_3=1,t_4=3,t_5=3,t_6=1,t_7=3,t_8=3,t_9=0}] unless entity @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] unless block ~ ~ ~ minecraft:air run scoreboard players set Ray_data reg_2 0
 
