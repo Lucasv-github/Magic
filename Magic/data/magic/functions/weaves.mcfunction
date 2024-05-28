@@ -256,4 +256,6 @@ execute at @s[tag=current_target,scores={t_1=3,t_2=3,t_3=3,t_4=3,t_5=2,t_6=3,t_7
 #Delve SSWA
 execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=4,t_4=1,t_5=0}] run function magic:weave_delve
 
+execute at @s[scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=3,t_6=4,t_7=3,t_8=4,t_9=3,t_10=1,t_11=1,t_12=1,t_13=1}] run function magic:light_beam
+
 tag @s remove current_target

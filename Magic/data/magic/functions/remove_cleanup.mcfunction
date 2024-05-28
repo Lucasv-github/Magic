@@ -3,6 +3,7 @@
 #Travel: This is supposed to run as the "main" else everything will fail
 
 #Remove gateway from mail
+#TODO branch out
 execute at @s[tag=holds_travel] run function magic:travel_dismantle
 execute as @s[tag=holds_travel] run scoreboard players operation Temp reg_1 = @s weave_execute_random_number
 execute as @s[tag=holds_travel] run scoreboard players operation Temp reg_2 = @s weave_despawn_time
@@ -10,6 +11,8 @@ execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute
 execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 at @s run function magic:travel_dismantle
 execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 at @s run tag @s remove gateway_end
 execute as @s[tag=holds_travel] in minecraft:overworld positioned 0 -80 0 as @e[type=minecraft:armor_stand,distance=..1,tag=gateway_blocked] if score @s weave_execute_random_number = Temp reg_1 run kill @s
+
+execute at @s[scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=3,t_6=4,t_7=3,t_8=4,t_9=3,t_10=1,t_11=1,t_12=1,t_13=1}] run function magic:remove_light_beam
 
 #Handle cut at both sides
 execute as @s[tag=gateway_end] run function magic:travel_dismantle
