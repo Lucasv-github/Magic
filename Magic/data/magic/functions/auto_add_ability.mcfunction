@@ -18,5 +18,5 @@ scoreboard players operation @s reg_2 += magic_settings magic_min_strenght
 scoreboard players operation @s halve_amount_hold = @s reg_2
 
 #TODO scale these also
-scoreboard players set @s max_regenerated_strenght 10000
-scoreboard players set @s regenerated_strenght 10000
+scoreboard players set @s max_regenerated_strength 10000
+scoreboard players set @s regenerated_strength 10000

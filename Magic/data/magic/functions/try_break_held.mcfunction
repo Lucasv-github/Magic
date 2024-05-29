@@ -65,7 +65,7 @@ damage @s 1 minecraft:magic
 effect give @s minecraft:nausea 5
 
 scoreboard players operation @s reg_3 *= 10 reg_1
-scoreboard players operation @s regenerated_strenght -= @s reg_3
-scoreboard players set @s[scores={regenerated_strenght=..0}] regenerated_strenght 0
+scoreboard players operation @s regenerated_strength -= @s reg_3
+scoreboard players set @s[scores={regenerated_strength=..0}] regenerated_strength 0
 
 tag @s remove trying_to_break_free_held

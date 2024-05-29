@@ -26,7 +26,7 @@ scoreboard players enable @s[tag=admin] magic_balefire_ban
 scoreboard players enable @s[tag=admin] magic_auto_ability_state
 
 #Reset all these so math works
-scoreboard players add @s regenerated_strenght 0
+scoreboard players add @s regenerated_strength 0
 
 #Level should be one normaly
 scoreboard players add @s angreal_level 0

@@ -1,7 +1,7 @@
-scoreboard players operation @s reg_2 = @s max_regenerated_strenght
+scoreboard players operation @s reg_2 = @s max_regenerated_strength
 scoreboard players operation @s reg_2 *= @s angreal_level
 
-scoreboard players operation @s reg_1 = @s regenerated_strenght
+scoreboard players operation @s reg_1 = @s regenerated_strength
 scoreboard players operation @s reg_1 *= 10 reg_1
 scoreboard players operation @s reg_1 /= @s reg_2
 

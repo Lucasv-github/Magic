@@ -39,8 +39,8 @@ scoreboard objectives add angreal_level dummy
 
 scoreboard objectives add halve_amount_hold dummy
 scoreboard objectives add cumulative_halve_amount_hold dummy
-scoreboard objectives add max_regenerated_strenght dummy
-scoreboard objectives add regenerated_strenght dummy
+scoreboard objectives add max_regenerated_strength dummy
+scoreboard objectives add regenerated_strength dummy
 
 #Won't be used on player, but instead on weave
 scoreboard objectives add current_strenght dummy

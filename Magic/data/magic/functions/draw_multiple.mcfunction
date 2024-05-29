@@ -1,7 +1,7 @@
 #First factor in tiredness
-scoreboard players operation @s reg_1 = @s regenerated_strenght 
+scoreboard players operation @s reg_1 = @s regenerated_strength 
 scoreboard players operation @s reg_1 *= 100 reg_1
-scoreboard players operation @s reg_1 /= @s max_regenerated_strenght
+scoreboard players operation @s reg_1 /= @s max_regenerated_strength
 scoreboard players operation Draw_force reg_1 *= @s reg_1
 scoreboard players operation Draw_force reg_1 /= 100 reg_1
 execute if score Draw_force reg_1 matches 0 run scoreboard players set Draw_force reg_1 1
