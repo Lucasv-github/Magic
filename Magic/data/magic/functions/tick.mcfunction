@@ -72,7 +72,7 @@ execute as @a[scores={sneak_time=50..}, tag=!using, tag=stilled] at @s run plays
 execute as @a[scores={sneak_time=50..}, tag=!using, tag=stilled] run tellraw @s {"text":"~~~~","color":"gold","clickEvent":{"action":"run_command","value":"/trigger open set 48303"}}
 execute as @a[scores={sneak_time=50..}, tag=!using, tag=stilled] run scoreboard players set @s sneak_time 0
 
-execute as @a[scores={open=48303, regenerated_strength=1.., shilded=0}, tag=!using, tag=can_use, tag=!circled] run function magic:open
+execute as @a[scores={open=48303, regenerated_strength=1..}, tag=!using, tag=can_use, tag=!circled] run function magic:open
 
 #Count to break free tied
 execute as @a[scores={open=1..,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players add @s click_counter 1
