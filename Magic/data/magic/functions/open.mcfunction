@@ -46,11 +46,11 @@ scoreboard players operation @s reg_1 *= @s halve_amount_hold
 scoreboard players operation @s reg_1 /= 50 reg_1
 scoreboard players operation Give_force reg_1 = @s reg_1
 scoreboard players add Give_force reg_1 1
-function magic:give_force_amount_consume
-
-#scoreboard players set @s sneak_time 0
+function magic:give_force_amount
 
 tag @s add using
+
+#scoreboard players set @s sneak_time 0
 
 
 #Reset weave

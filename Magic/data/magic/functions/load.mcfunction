@@ -168,11 +168,14 @@ scoreboard objectives add death_detect deathCount
 
 scoreboard players set 2 reg_1 2
 scoreboard players set 3 reg_1 3
+scoreboard players set 4 reg_1 4
 scoreboard players set 5 reg_1 5
+scoreboard players set 6 reg_1 6
 scoreboard players set 10 reg_1 10
 scoreboard players set 16 reg_1 16
-scoreboard players set 4 reg_1 4
+scoreboard players set 30 reg_1 30
 scoreboard players set 20 reg_1 20
+scoreboard players set 60 reg_1 60
 scoreboard players set 100 reg_1 100
 scoreboard players set 1000 reg_1 1000
 scoreboard players set 10000 reg_1 10000

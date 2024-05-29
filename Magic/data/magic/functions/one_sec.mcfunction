@@ -32,6 +32,15 @@ scoreboard players remove @e[type=minecraft:armor_stand,tag=target_point, scores
 execute at @e[scores={t_1=5,t_2=1,t_3=5,t_4=1,t_5=5,t_6=0}] if entity @a[distance=..5] run function magic:ward_player_detected
 execute at @e[scores={t_1=5,t_2=1,t_3=2,t_4=1,t_5=5,t_6=0}] if entity @e[distance=..5,type=!player,tag=!target_point,type=!item] run function magic:ward_entity_detected
 
+
+#consume (((held*100)/cumulative_halve_amount_hold)*halve_amount_hold)/100
+execute as @a[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 = @s current_held
+execute as @a[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 *= 100 reg_1
+execute as @a[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 /= @s cumulative_halve_amount_hold
+execute as @a[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 *= @s halve_amount_hold
+execute as @a[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 /= 100 reg_1
+execute as @a[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s regenerated_strength -= @s reg_1
+
 scoreboard players add Temp second_counter 1
 
 execute if score Temp second_counter matches 6 run function magic:five_sec

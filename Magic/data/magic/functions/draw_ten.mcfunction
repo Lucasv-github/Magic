@@ -13,7 +13,6 @@ execute at @s[tag=possible_to_draw,scores={disguise=0}] run particle minecraft:g
 
 #Add if possible
 execute as @s[scores={regenerated_strength=1..},tag=possible_to_draw] run scoreboard players add @s current_held 10
-execute as @s[scores={regenerated_strength=1..},tag=possible_to_draw] run scoreboard players remove @s regenerated_strength 10
 
 #Just limited elsewhere if in a circle
 
