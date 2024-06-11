@@ -20,8 +20,8 @@ scoreboard players remove @e[scores={sever_active_time=1..}] sever_active_time 1
 scoreboard players remove @a[scores={shilded=1..}] shilded 1
 scoreboard players remove @a[scores={progressive_shielded =1..}] progressive_shielded 1
 
-scoreboard players remove @e[tag=destroy, scores={bridge=1..}] bridge 1
-execute as @e[tag=destroy, scores={bridge=0}] run function magic:remove_bridge
+scoreboard players remove @e[tag=destroy_bridge, scores={bridge=1..}] bridge 1
+execute as @e[tag=destroy_bridge, scores={bridge=0}] run function magic:remove_bridge
 
 scoreboard players remove @e[type=minecraft:armor_stand,tag=target_point, scores={weave_remaining_time=1..},tag=!actively_held] weave_remaining_time 1
 

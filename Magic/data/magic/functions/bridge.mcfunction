@@ -8,9 +8,9 @@ execute as @s[tag=!holds_bridge] run scoreboard players add #random_id player_id
 
 scoreboard players operation Temp reg_1 = @s weave_execute_random_number
 
-execute as @e[type=minecraft:armor_stand, tag=destroy] if score @s weave_execute_random_number = Temp reg_1 run scoreboard players set @s bridge 20
+execute as @e[type=minecraft:armor_stand, tag=destroy_bridge] if score @s weave_execute_random_number = Temp reg_1 run scoreboard players set @s bridge 20
 
 #Tied off, lower
-execute as @s[tag=running_tied] as @e[type=minecraft:armor_stand, tag=destroy, scores={bridge=..10}] if score @s weave_execute_random_number = Temp reg_1 run scoreboard players set @s bridge 10
+execute as @s[tag=running_tied] as @e[type=minecraft:armor_stand, tag=destroy_bridge, scores={bridge=..10}] if score @s weave_execute_random_number = Temp reg_1 run scoreboard players set @s bridge 10
 
 tag @s add holds_bridge

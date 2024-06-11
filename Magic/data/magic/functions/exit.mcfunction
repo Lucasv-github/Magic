@@ -13,7 +13,7 @@ scoreboard players operation Temp reg_1 = @s player_id
 function magic:remove_cleanup_player_all
 
 #Mark bridges made on this run(tied off), can't be destroyed by grabbing power again
-execute as @e[type=minecraft:armor_stand, tag=destroy] if score Temp reg_1 = @s player_id run tag @s add previous_bridge
+execute as @e[type=minecraft:armor_stand, tag=destroy_bridge] if score Temp reg_1 = @s player_id run tag @s add previous_bridge
 
 #Remove bridge builder
 execute as @e[tag=build_bridge] if score @s player_id = Temp reg_1 run kill @s

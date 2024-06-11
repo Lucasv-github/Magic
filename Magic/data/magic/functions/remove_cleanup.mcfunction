@@ -33,7 +33,7 @@ execute at @s[scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] ru
 execute as @s[scores={t_1=1,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=0}] as @a if score @s player_id = Temp reg_2 run clear @s golden_sword
 
 scoreboard players operation Temp reg_1 = @s weave_execute_random_number
-execute as @e[type=minecraft:armor_stand, tag=destroy, tag=!previous_bridge] if score Temp reg_1 = @s weave_execute_random_number run function magic:remove_bridge
+execute as @e[type=minecraft:armor_stand, tag=destroy_bridge, tag=!previous_bridge] if score Temp reg_1 = @s weave_execute_random_number run function magic:remove_bridge
 
 #Handle bound
 execute as @s[scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=0}] on passengers run scoreboard players set @s bound 1
