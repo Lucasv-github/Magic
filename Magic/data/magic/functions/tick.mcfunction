@@ -131,7 +131,7 @@ scoreboard players enable @a[tag=can_use] destination_y
 scoreboard players enable @a[tag=can_use] destination_z
 scoreboard players enable @a[tag=can_use] build
 scoreboard players enable @a[tag=can_use] slow_down
-scoreboard players enable @a[tag=can_use] tie_strenght
+scoreboard players enable @a[tag=can_use] tie_strength
 
 execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:1}}}]}] run trigger a set 1
 execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:2}}}]}] run trigger e set 2

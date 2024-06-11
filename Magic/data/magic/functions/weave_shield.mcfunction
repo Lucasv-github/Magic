@@ -12,17 +12,17 @@ effect give @a[tag=shield_me] minecraft:blindness 1
 
 scoreboard players operation Temp reg_1 = @s player_id
 
-#Find person shielding, get held strenght
+#Find person shielding, get held strength
 #Reset in case we find none (e.g tied of)
 scoreboard players set @s reg_1 0
 execute as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_2 run scoreboard players operation @s reg_1 = @s current_held
 
 
 
-#Get strenght of person being shilded
+#Get strength of person being shilded
 execute as @a[tag=can_use, tag=shield_me] run scoreboard players operation @s reg_1 = @s current_held
 
-#To sever you need x4 strenght, double to just that
+#To sever you need x4 strength, double to just that
 scoreboard players operation @a[tag=can_use, tag=using, tag=shield_me] reg_1 += @a[tag=can_use, tag=shield_me, limit=1] reg_1
 scoreboard players operation @a[tag=can_use, tag=using, tag=shield_me] reg_1 += @a[tag=can_use, tag=shield_me, limit=1] reg_1
 

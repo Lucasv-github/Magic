@@ -18,7 +18,7 @@ scoreboard players operation @s reg_1 = Temp reg_1
 
 scoreboard players set Temp reg_1 0
 
-#Count their strenght
+#Count their strength
 #TODO store this in armor stand
 execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 += @s halve_amount_hold
 execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 += @s halve_amount_hold

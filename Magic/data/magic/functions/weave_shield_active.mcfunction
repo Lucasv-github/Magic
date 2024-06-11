@@ -8,7 +8,7 @@ tag @a[tag=shield_active_me,scores={shields_blocked=1..}] remove shield_active_m
 
 scoreboard players operation Temp reg_1 = @s player_id
 
-#Find person shielding, get held strenght
+#Find person shielding, get held strength
 #Reset in case we find none (e.g tied of)
 scoreboard players set @s reg_2 0
 execute as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_1 run scoreboard players operation @s reg_2 = @s current_held

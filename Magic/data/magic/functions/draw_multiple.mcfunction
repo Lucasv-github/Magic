@@ -1,7 +1,7 @@
 #First factor in tiredness
 scoreboard players operation @s reg_1 = @s regenerated_strength
 
-#Try to reduce low strenght effects a bit
+#Try to reduce low strength effects a bit
 scoreboard players operation @s reg_1 *= 2 reg_1
 execute if score @s reg_1 > @s regenerated_strength run scoreboard players operation @s reg_1 = @s regenerated_strength
 

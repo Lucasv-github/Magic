@@ -10,10 +10,10 @@ function magic:holding_run
 #Need to make them tied off
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @s store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
-scoreboard players operation Temp reg_3 = @s tie_strenght
+scoreboard players operation Temp reg_3 = @s tie_strength
 
 #Consume 1 power for each 20 seconds
-scoreboard players operation @s current_held -= @s tie_strenght
+scoreboard players operation @s current_held -= @s tie_strength
 scoreboard players operation Temp reg_3 *= 20 reg_1
 
 #Need current held check as it is possible for the player to drop power

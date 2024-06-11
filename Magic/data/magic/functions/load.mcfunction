@@ -2,8 +2,8 @@ scoreboard objectives add magic_debug_state trigger
 scoreboard objectives add magic_auto_ability_state trigger
 scoreboard objectives add magic_balefire_ban trigger
 
-scoreboard objectives add magic_max_strenght dummy
-scoreboard objectives add magic_min_strenght dummy
+scoreboard objectives add magic_max_strength dummy
+scoreboard objectives add magic_min_strength dummy
 scoreboard objectives add magic_debug_state trigger
 
 scoreboard objectives add normal_distributed dummy
@@ -43,7 +43,7 @@ scoreboard objectives add max_regenerated_strength dummy
 scoreboard objectives add regenerated_strength dummy
 
 #Won't be used on player, but instead on weave
-scoreboard objectives add current_strenght dummy
+scoreboard objectives add current_strength dummy
 
 scoreboard objectives add progressive_shielded dummy
 scoreboard objectives add progressive_shield_current dummy
@@ -108,8 +108,8 @@ scoreboard objectives add state trigger
 #Open trigger
 scoreboard objectives add open trigger
 
-#Tie off strenght
-scoreboard objectives add tie_strenght trigger
+#Tie off strength
+scoreboard objectives add tie_strength trigger
 
 #Break tied off
 scoreboard objectives add break_tied trigger
@@ -201,7 +201,7 @@ execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn'
 
 setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Temp reg_1 1"} destroy
 
-scoreboard players set magic_settings magic_min_strenght 100
-scoreboard players set magic_settings magic_max_strenght 2000
+scoreboard players set magic_settings magic_min_strength 100
+scoreboard players set magic_settings magic_max_strength 2000
 
 schedule function magic:command_block_message 2s replace

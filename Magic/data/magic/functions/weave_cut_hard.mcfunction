@@ -45,4 +45,4 @@ execute as @e[tag=getting_cut,limit=1,sort=arbitrary] as @a[tag=using,tag=can_us
 
 tag @e remove getting_cut
 
-#TODO hard snapback based on greate/less strenght
+#TODO hard snapback based on greate/less strength
