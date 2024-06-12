@@ -2,7 +2,7 @@ execute store result entity @s Pos[0] double 1 run scoreboard players get @s des
 execute store result entity @s Pos[1] double 1 run scoreboard players get @s destination_y
 execute store result entity @s Pos[2] double 1 run scoreboard players get @s destination_z
 
-execute as @s[tag=in_tar] positioned as @s in magic:tar run forceload add ~ ~
+execute as @s[tag=in_tar] positioned as @s in magic_commons:tar run forceload add ~ ~
 execute as @s[tag=!in_tar] positioned as @s in minecraft:overworld run forceload add ~ ~
 
 execute positioned as @s run setblock ~ ~ ~ minecraft:barrier
@@ -49,7 +49,7 @@ tag @s remove gateway_end_temp
 #To make work with sense
 tag @s add target_point
 
-#Somehow this works but not quick enough, that is why I need to have execute in magic:tar before this function
+#Somehow this works but not quick enough, that is why I need to have execute in magic_commons:tar before this function
 #This seems to mess with other stuff, putting down here for now
-execute as @s[tag=in_tar] positioned as @s in magic:tar run tp @s ~ ~ ~
+execute as @s[tag=in_tar] positioned as @s in magic_commons:tar run tp @s ~ ~ ~
 execute as @s[tag=!in_tar] positioned as @s in minecraft:overworld run tp @s ~ ~ ~
