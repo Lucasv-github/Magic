@@ -1,4 +1,4 @@
-say copying
+#say copying
 
 #This apparently sleeps while loading
 scoreboard players set Temp reg_3 0
