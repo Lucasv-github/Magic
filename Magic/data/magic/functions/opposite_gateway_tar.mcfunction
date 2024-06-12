@@ -30,11 +30,11 @@ execute positioned as @s run setblock ~2 ~1 ~ minecraft:nether_portal
 execute positioned as @s run setblock ~1 ~0 ~ minecraft:nether_portal
 execute positioned as @s run setblock ~2 ~0 ~ minecraft:nether_portal
 
-execute as @s[tag=in_tar] positioned as @s run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:exit_tar"}
-execute as @s[tag=in_tar] positioned as @s run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:exit_tar"}
+execute as @s[tag=in_tar] positioned as @s run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
+execute as @s[tag=in_tar] positioned as @s run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
 
-execute as @s[tag=!in_tar] positioned as @s run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:enter_tar"}
-execute as @s[tag=!in_tar] positioned as @s run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:enter_tar"}
+execute as @s[tag=!in_tar] positioned as @s run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
+execute as @s[tag=!in_tar] positioned as @s run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
 
 #Set position to return
 scoreboard players operation @s destination_x = @s return_x

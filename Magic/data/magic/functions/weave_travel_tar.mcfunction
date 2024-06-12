@@ -76,11 +76,11 @@ setblock ~2 ~1 ~ minecraft:nether_portal
 setblock ~1 ~0 ~ minecraft:nether_portal
 setblock ~2 ~0 ~ minecraft:nether_portal
 
-execute if dimension magic:tar run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:exit_tar"}
-execute if dimension magic:tar run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:exit_tar"}
+execute if dimension magic:tar run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
+execute if dimension magic:tar run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
 
-execute if dimension minecraft:overworld run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:enter_tar"}
-execute if dimension minecraft:overworld run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:enter_tar"}
+execute if dimension minecraft:overworld run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
+execute if dimension minecraft:overworld run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
 
 scoreboard players operation Temp reg_1 = @s player_id
 
