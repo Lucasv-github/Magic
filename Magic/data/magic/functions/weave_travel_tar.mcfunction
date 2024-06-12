@@ -21,7 +21,7 @@ scoreboard players operation @s reg_2 *= 16 reg_1
 
 execute store result storage tar_coordinates x int 1 run scoreboard players get @s return_x
 execute store result storage tar_coordinates y int 1 run scoreboard players get @s return_z
-execute if dimension minecraft:overworld run function magic:copy_chunks_tar_imidiately with storage minecraft:tar_coordinates
+execute if dimension minecraft:overworld run function magic_commons:copy_chunks_tar_imidiately with storage minecraft:tar_coordinates
 
 
 scoreboard players operation @s reg_1 = @s destination_x
@@ -42,7 +42,7 @@ scoreboard players operation @s reg_2 *= 16 reg_1
 
 execute store result storage tar_coordinates x int 1 run scoreboard players get @s reg_1
 execute store result storage tar_coordinates y int 1 run scoreboard players get @s reg_2
-execute if dimension minecraft:overworld run function magic:copy_chunks_tar_imidiately with storage minecraft:tar_coordinates
+execute if dimension minecraft:overworld run function magic_commons:copy_chunks_tar_imidiately with storage minecraft:tar_coordinates
 
 
 #Need to lock these to prevent removing until gateway is removed
@@ -76,8 +76,8 @@ setblock ~2 ~1 ~ minecraft:nether_portal
 setblock ~1 ~0 ~ minecraft:nether_portal
 setblock ~2 ~0 ~ minecraft:nether_portal
 
-execute if dimension magic:tar run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
-execute if dimension magic:tar run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
+execute if dimension magic_commons:tar run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
+execute if dimension magic_commons:tar run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
 
 execute if dimension minecraft:overworld run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
 execute if dimension minecraft:overworld run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
@@ -143,7 +143,7 @@ tag @s add holds_travel
 execute if dimension minecraft:overworld run tag @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] add in_tar
 
 #Need to be below holds travel
-execute if dimension minecraft:overworld as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in magic:tar run function magic_commons:opposite_gateway_tar
-execute if dimension magic:tar as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in minecraft:overworld run function magic_commons:opposite_gateway_tar
+execute if dimension minecraft:overworld as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in magic_commons:tar run function magic_commons:opposite_gateway_tar
+execute if dimension magic_commons:tar as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in minecraft:overworld run function magic_commons:opposite_gateway_tar
 
 scoreboard players add @s destination_z 2
