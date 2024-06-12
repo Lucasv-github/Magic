@@ -143,7 +143,7 @@ tag @s add holds_travel
 execute if dimension minecraft:overworld run tag @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] add in_tar
 
 #Need to be below holds travel
-execute if dimension minecraft:overworld as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in magic_commons:tar run function magic_commons:opposite_gateway_tar
-execute if dimension magic_commons:tar as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in minecraft:overworld run function magic_commons:opposite_gateway_tar
+execute if dimension minecraft:overworld as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in magic_commons:tar run function magic:opposite_gateway_tar
+execute if dimension magic_commons:tar as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in minecraft:overworld run function magic:opposite_gateway_tar
 
 scoreboard players add @s destination_z 2
