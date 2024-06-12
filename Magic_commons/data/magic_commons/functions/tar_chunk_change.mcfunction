@@ -15,4 +15,4 @@ execute unless score @s tar_current_chunk_y = @s reg_2 run scoreboard players op
 scoreboard players operation @s reg_1 *= 16 reg_1
 scoreboard players operation @s reg_2 *= 16 reg_1
 
-execute as @s[scores={reg_3=1}] run function magic:copy_chunks_tar
+execute as @s[scores={reg_3=1}] run function magic_commons:copy_chunks_tar

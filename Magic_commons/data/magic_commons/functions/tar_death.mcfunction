@@ -1,3 +1,3 @@
-function magic:tar_drop_inventory
-function magic:exit_tar
+function magic_commons:tar_drop_inventory
+function magic_commons:exit_tar
 tag @s remove died_in_tar
