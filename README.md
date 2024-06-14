@@ -11,7 +11,7 @@
 
 -Add them to the datapack folder of your world  
 
--Download the resource pack (Magic_resourcepack  
+-Download the resource pack (Magic_resourcepack)  
 
 -Add that to your resource pack folder
 
