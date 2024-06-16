@@ -1,3 +1,5 @@
+execute at @s run playsound minecraft:entity.item.pickup player @s
+
 #This is needed for all the functions that use t_1 instead of both. E.g. bridge, throw or fire ray
 execute store result score @s t_1 run data get entity @s SelectedItem.components.minecraft:custom_data.T_1
 execute store result score @s t_2 run data get entity @s SelectedItem.components.minecraft:custom_data.T_2

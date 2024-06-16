@@ -1,3 +1,5 @@
+execute at @s run playsound minecraft:block.lever.click player @s
+
 execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @s add getting_picked_up
 execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @a[tag=using,tag=!built, sort=nearest, limit=1] add picking_up
 

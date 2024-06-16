@@ -1,3 +1,5 @@
+execute at @s run playsound minecraft:block.lever.click player @s
+
 #say holding tie off
 
 #Need to setup for holding_run_first
