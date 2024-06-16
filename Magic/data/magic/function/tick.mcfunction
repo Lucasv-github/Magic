@@ -51,6 +51,15 @@ execute as @a[scores={sneak_time=10}, tag=!using, tag=can_use] run tellraw @s {"
 #Enable breaking out
 execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use] run function magic:try_break_tied
 
+#Count to break free tied
+execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players add @s click_counter 1
+execute as @a[scores={sneak_time=1.., reg_1=-90,progressive_shielded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled] run tag @s remove can_break_free
+execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players set @s sneak_time 0
+
+execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players add @s click_counter 1
+execute as @a[scores={sneak_time=1.., reg_1=-90,shilded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled] run tag @s remove can_break_free
+execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players set @s sneak_time 0
+
 #Opening
 execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled] run function magic:open
 
@@ -65,14 +74,6 @@ execute as @a[tag=using,tag=can_use,scores={sneak_time=50..},nbt={SelectedItem:{
 #Death detect
 execute as @a[scores={death_detect=1..}] run function magic:death
 
-#Count to break free tied
-execute as @a[scores={open=1..,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players add @s click_counter 1
-execute as @a[scores={open=1..,progressive_shielded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled] run tag @s remove can_break_free
-execute as @a[scores={open=1..,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players set @s open 0
-
-execute as @a[scores={open=1..,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players add @s click_counter 1
-execute as @a[scores={open=1..,shilded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled] run tag @s remove can_break_free
-execute as @a[scores={open=1..,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players set @s open 0
 
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run function magic:exit
 execute as @a[tag=using, scores={shilded=1..}] run function magic:exit

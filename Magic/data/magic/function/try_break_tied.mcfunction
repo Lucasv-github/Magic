@@ -11,6 +11,4 @@ execute as @e[type=armor_stand,tag=target_point, tag=tied_off, scores={weave_rem
 
 tellraw @a[tag=trying_to_break_free, limit=1] {"text":"----------","color":"gold"}
 
-scoreboard players set @s open 0
-
 tag @a remove trying_to_break_free

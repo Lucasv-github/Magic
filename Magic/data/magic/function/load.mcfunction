@@ -104,10 +104,6 @@ scoreboard objectives add held_player_weave_index dummy
 
 scoreboard objectives add state trigger
 
-
-#Open trigger
-scoreboard objectives add open trigger
-
 #Tie off strength
 scoreboard objectives add tie_strength trigger
 
