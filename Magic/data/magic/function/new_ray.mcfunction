@@ -40,7 +40,7 @@ scoreboard players set Ray_data reg_3 0
 scoreboard players set @s click 0
 
 #Bridge and throw will use the old snowball system
-execute unless entity @e[tag=hit_ray] positioned ^ ^1 ^1 run function magic:ray_iteration
+execute unless entity @e[tag=hit_ray] positioned ^ ^2 ^1 run function magic:ray_iteration
 
 tag @e[tag=hit_ray] add hit_ray_done
 tag @e[tag=hit_ray] remove hit_ray
