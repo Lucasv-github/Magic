@@ -8,11 +8,12 @@ scoreboard players set @s angreal_level 1
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode
 
 #Give starting amount
-scoreboard players operation @s reg_1 = @s sneak_time
+scoreboard players set @s reg_1 110
+scoreboard players operation @s reg_1 -= @s sneak_time
 scoreboard players operation @s reg_1 *= @s halve_amount_hold
-scoreboard players operation @s reg_1 /= 50 reg_1
+scoreboard players operation @s reg_1 /= 100 reg_1
 scoreboard players operation Give_force reg_1 = @s reg_1
-scoreboard players add Give_force reg_1 1
+execute if score Give_force reg_1 matches ..10 run scoreboard players set Give_force reg_1 10
 function magic:give_force_amount
 
 #Will exit if we are unable to tap

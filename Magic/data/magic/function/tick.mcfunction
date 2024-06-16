@@ -42,26 +42,28 @@ execute as @a[tag=can_use, tag=using,tag=!circle_owner,tag=!angrealed,scores={pr
 #Join detect, also work first time when leave detect will be set to undef
 execute as @a unless score @s leave_detect matches 0 run function magic:join
 
+#Sneak
+execute as @a[scores={sneak_time=1..}, tag=!using, tag=can_use] store result score @s reg_1 run data get entity @s Rotation[1]
+execute as @a[scores={sneak_time=..10, reg_1=-90}, tag=!using, tag=can_use] run scoreboard players set @s sneak_time 0
+execute as @a[scores={sneak_time=10}, tag=!using, tag=can_use] at @s run playsound minecraft:block.vault.activate player @s
+execute as @a[scores={sneak_time=10}, tag=!using, tag=can_use] run tellraw @s {"text":"~~~~","color":"gold"}
+
+#Enable breaking out
+execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use] run function magic:try_break_tied
+
+#Opening
+execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled] run function magic:open
+
 #Sneak reset
-execute as @a[scores={sneak_time=50..}, tag=!using, tag=can_use] at @s run playsound minecraft:block.anvil.place ambient @s
-execute as @a[scores={sneak_time=50..}, tag=!using, tag=can_use] run tellraw @s {"text":"~~~~","color":"gold","clickEvent":{"action":"run_command","value":"/trigger open set 48303"}}
-execute as @a[scores={sneak_time=50..}, tag=!using, tag=can_use] run scoreboard players set @s sneak_time 0
+execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking run scoreboard players set @s sneak_time 0
+
 
 #Picking up
 execute as @a[tag=using,tag=can_use,scores={sneak_time=50..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] run function magic:pick_up
 
-#Enable breaking out
-execute as @a[scores={sneak_time=1, open=48303}, tag=!using, tag=can_use] run function magic:try_break_tied
 
 #Death detect
 execute as @a[scores={death_detect=1..}] run function magic:death
-
-#Also in case of stilled
-execute as @a[scores={sneak_time=50..}, tag=!using, tag=stilled] at @s run playsound minecraft:block.anvil.place ambient @s
-execute as @a[scores={sneak_time=50..}, tag=!using, tag=stilled] run tellraw @s {"text":"~~~~","color":"gold","clickEvent":{"action":"run_command","value":"/trigger open set 48303"}}
-execute as @a[scores={sneak_time=50..}, tag=!using, tag=stilled] run scoreboard players set @s sneak_time 0
-
-execute as @a[scores={open=48303, regenerated_strength=1..}, tag=!using, tag=can_use, tag=!circled] run function magic:open
 
 #Count to break free tied
 execute as @a[scores={open=1..,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled] run scoreboard players add @s click_counter 1
