@@ -9,7 +9,7 @@ execute as @s[tag=angrealed] if score @s current_held > @s reg_1 run tag @s remo
 execute as @s[scores={progressive_shielded=1..}] if score @s current_held > @s reg_1 run tag @s remove possible_to_draw
 execute as @s[scores={halve_amount_hold=..50}] if score @s current_held > @s reg_1 run tag @s remove possible_to_draw
 
-execute at @s[tag=possible_to_draw,scores={disguise=0}] run particle minecraft:glow ~ ~4 ~ 0 0 0 0 1 normal @a[tag=can_see]
+execute at @s[tag=possible_to_draw,scores={disguise=0}] run particle minecraft:glow ~ ~4 ~ 0 -1 0 0 1 normal @a[tag=can_see]
 
 #Add if possible
 execute as @s[scores={regenerated_strength=1..},tag=possible_to_draw] run scoreboard players add @s current_held 10

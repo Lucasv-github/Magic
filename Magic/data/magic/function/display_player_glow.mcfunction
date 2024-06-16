@@ -1,3 +1,4 @@
-execute at @s run particle minecraft:glow ~ ~2 ~ 0 0 0 0 1 normal @a[tag=can_see]
-scoreboard players remove @s reg_1 10
-execute if score @s reg_1 matches 1.. run function magic:display_player_glow
+#$execute at @s run particle minecraft:glow ~ ~5 ~ 1 1 1 1 $(count) normal @a[tag=can_see]
+
+#Distance 0.1.. is to prevent self
+$execute at @s run particle minecraft:glow ~ ~5 ~ 1 1 1 1 $(count) normal @a[tag=can_see,distance=0.1..]
