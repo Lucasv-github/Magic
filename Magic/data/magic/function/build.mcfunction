@@ -1,3 +1,5 @@
+execute at @s run playsound minecraft:entity.item.pickup player @s
+
 scoreboard players set @s reg_1 0
 
 scoreboard players operation @s reg_1 += @s a
