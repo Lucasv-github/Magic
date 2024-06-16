@@ -1,0 +1,9 @@
+tag @s remove magic_help_interactive_tutorial_wait_kill_2
+tag @s remove magic_help_interactive_tutorial
+
+give @s written_book[written_book_content={pages:["[[\"FAF: Lightning\\n\\nFFF: Small fball\\n\\nEFE: Explosion\\n\\nEFEF: Explosion+\\n\\nEFEFF: Explosion++\\n\\nEFEFFF: Explosion++\"]]","[[\"EFEEFEFFF: Big explosion\\n\\nEFEEFEEFEFFF:Huge explosion\\n\\nFF: Throwable fball\\n\\nF: Small f\\n\\nFFFFFFFF: Large f\\n\\nFFFFF: f ray\"]]","[[\"SFE: Hard cut\\n\\nAAAFA: Bridge\\n\\nAFA: Light\\n\\nSSSS: Shield\\n\\nSSS: Progressive shield\\n\\nSSSSSSSSSSSSSS: Shield while active\"]]","[[\"ASW:Stun\\n\\nSSSSSSSS: Disguise\\n\\nE: Small hole\\n\\nEEEEEE: Large hole\\n\\nW: Small w\\n\\nWWWW: Large w\"]]","[[\"WF: Ice\\n\\nWFWF: Large ice\\n\\nSSSSSSS: Sever\\n\\nSSSSSSSSSSSSSSSSS: Sever while active\\n\\nSS: Invert\\n\\nAAFF: a shield\"]]","[[\"AAFAA Aim blocker\\n\\nAAAFFFAAA: Walkable a shield\\n\\nAA: Levitate\\n\\nAAA: Slow\\n\\nAAAA: Bind in a\\n\\nFWA: Clear w small\"]]","[[\"FFFFWA: Clear w large\\n\\nAAAAA: Throw\\n\\nEEEFWFASSSAFWFEEEE: Basic travel\\n\\nAASW: Heal\\n\\nSSWWFFEEAA: Sense\\n\\nWWFWW: Extinguish\"]]","[[\"AAFFAA: Invisibility\\n\\nAFAAAFA: Blind\\n\\nSSSSS: Basic tracker\\n\\nFA: Remove armor\\n\\nAFAFFF: f sword\\n\\nEFFWFFE: Damage\"]]","[[\"FFSFFS: Pain\\n\\nSA: Progressive shield block\\n\\nFEF: Small lava\\n\\nFFFFEFFFF: Large lava\\n\\nEEEFWASSAWFEEE: Tar travel\\n\\nSSSSSSSSSSSSSSSSSS: Shield strike back\"]]","[[\"SSSSSAAAAA: Shield counter\"]]"],title:"Magic cheat book",author:"GreatBreakerBob",generation:0}]
+
+effect clear @s resistance
+effect clear @s saturation
+
+function magic:teleport
