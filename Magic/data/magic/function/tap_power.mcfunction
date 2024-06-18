@@ -18,30 +18,30 @@ scoreboard players operation @s reg_1 /= 2 reg_1
 
 #At 1/2:1: Night vision
 #Weak resistace
-execute if score @s current_held >= @s reg_1 run effect give @s minecraft:night_vision 20 1 true
-execute if score @s current_held >= @s reg_1 run effect give @s minecraft:resistance 10 1 true
+execute if score @s current_held > @s reg_1 run effect give @s minecraft:night_vision 20 1 true
+execute if score @s current_held > @s reg_1 run effect give @s minecraft:resistance 10 1 true
 
-#At 1:1 Damage
+#Above 1:1 Damage
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
-execute if score @s current_held >= @s reg_1 run damage @s 1 minecraft:magic
+execute if score @s current_held > @s reg_1 run damage @s 1 minecraft:magic
 
-#At 2:1 More damage
+#Above 2:1 More damage
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 2 reg_1
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
-execute if score @s current_held >= @s reg_1 run damage @s 4 minecraft:magic
+execute if score @s current_held > @s reg_1 run damage @s 4 minecraft:magic
 
 
-#At 1:4 Invurnability+Lose ability
+#Above 1:4 Invurnability+Lose ability
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 4 reg_1
-execute if score @s current_held >= @s reg_1 run effect give @s minecraft:resistance 10 255 true
-execute if score @s current_held >= @s reg_1 run tag @s add next_sever
+execute if score @s current_held > @s reg_1 run effect give @s minecraft:resistance 10 255 true
+execute if score @s current_held > @s reg_1 run tag @s add next_sever
 
-#At 1:8 It is over
+#Above 1:8 It is over
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 8 reg_1
-execute if score @s current_held >= @s reg_1 run scoreboard players operation @s doomed = @s current_held
-execute if score @s current_held >= @s reg_1 run function magic:exit
+execute if score @s current_held > @s reg_1 run scoreboard players operation @s doomed = @s current_held
+execute if score @s current_held > @s reg_1 run function magic:exit
  
 

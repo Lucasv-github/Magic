@@ -114,7 +114,6 @@ scoreboard players enable @a[tag=can_use] f
 scoreboard players enable @a[tag=can_use] w
 scoreboard players enable @a[tag=can_use] s
 scoreboard players enable @a[tag=can_use] state
-scoreboard players enable @a[tag=can_use] open
 scoreboard players enable @a[tag=can_use] break_tied
 
 scoreboard players enable @a[tag=can_use] destination

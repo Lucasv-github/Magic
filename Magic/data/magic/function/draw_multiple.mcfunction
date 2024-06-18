@@ -5,10 +5,16 @@ scoreboard players operation @s reg_1 = @s regenerated_strength
 scoreboard players operation @s reg_1 *= 2 reg_1
 execute if score @s reg_1 > @s regenerated_strength run scoreboard players operation @s reg_1 = @s regenerated_strength
 
-scoreboard players operation @s reg_1 *= 100 reg_1
-scoreboard players operation @s reg_1 /= @s max_regenerated_strength
+#Doing this z=(x/(y/100)) instead of z=(x*100/y) to try to prevent hitting int limit
+scoreboard players operation @s reg_2 = @s max_regenerated_strength
+scoreboard players operation @s reg_2 /= 100 reg_1
+
+scoreboard players operation @s reg_1 /= @s reg_2
+
 scoreboard players operation Draw_force reg_1 *= @s reg_1
 scoreboard players operation Draw_force reg_1 /= 100 reg_1
+
+tellraw @p {"score":{"name":"Draw_force","objective":"reg_1"}}
 
 execute if score Draw_force reg_1 matches 0 run scoreboard players set Draw_force reg_1 1
 
