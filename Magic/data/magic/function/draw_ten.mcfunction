@@ -4,8 +4,8 @@ tag @s add possible_to_draw
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 #scoreboard players operation @s reg_1 += @s cumulative_halve_amount_hold
 
-execute as @s[tag=circle_owner] if score @s current_held > @s reg_1 run tag @s remove possible_to_draw
-execute as @s[tag=angrealed] if score @s current_held > @s reg_1 run tag @s remove possible_to_draw
+execute as @s[tag=circle_owner] if score @s current_held >= @s reg_1 run tag @s remove possible_to_draw
+execute as @s[tag=angrealed] if score @s current_held >= @s reg_1 run tag @s remove possible_to_draw
 
 execute as @s[scores={progressive_shielded=1..}] if score @s current_held > @s reg_1 run tag @s remove possible_to_draw
 execute as @s[scores={halve_amount_hold=..50}] if score @s current_held > @s reg_1 run tag @s remove possible_to_draw

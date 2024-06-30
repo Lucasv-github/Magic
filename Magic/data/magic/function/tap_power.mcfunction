@@ -28,7 +28,6 @@ execute if score @s current_held > @s reg_1 run damage @s 1 minecraft:magic
 #Above 2:1 More damage
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 2 reg_1
-scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 execute if score @s current_held > @s reg_1 run damage @s 4 minecraft:magic
 
 
