@@ -1,4 +1,3 @@
-give @s minecraft:lead[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:10}] 1
 scoreboard players operation Temp reg_1 = @s player_id
 
 #If circled prevent more than x1

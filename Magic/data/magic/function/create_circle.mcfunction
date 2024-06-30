@@ -1,8 +1,6 @@
 execute at @s run tellraw @a[tag=using, tag=can_use, distance=..10] ["",{"selector":"@s","color":"gold"},{"text":" Circle ","color":"gold"},{"text":"~~~~","color":"gold","clickEvent":{"action":"run_command","value":"/trigger state set 10"}}]
 tag @s add circle_owner
 
-give @s minecraft:lead[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:10}] 1
-
 #Base hold from owner (will work with angreal)
 
 execute at @s run playsound minecraft:block.anvil.place ambient @s
@@ -16,4 +14,4 @@ item replace entity @s weapon.offhand from entity @e[tag=swap_held,sort=nearest,
 
 tp @e[tag=swap_held] ~ ~-1000 ~
 
-scoreboard players set @s circle_timer 41
+#scoreboard players set @s circle_timer 41

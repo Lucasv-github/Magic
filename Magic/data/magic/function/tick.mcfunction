@@ -152,9 +152,6 @@ execute as @a[tag=using, tag=can_use, scores={build=1..}] run function magic:ent
 
 execute as @a[tag=using, tag=can_use, scores={slow_down=1..}] run function magic:tracked_force_slow
 
-#Dropped lead: draw from circle
-execute as @a[tag=can_use,tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:lead",components:{"minecraft:custom_data":{Force:10}}}]}] run function magic:circle_draw
-
 #Book slot selected: run weaves
 execute as @a[tag=using] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 execute as @a[tag=using,scores={reg_1=1..}] unless score @s reg_1 = @s held_player_weave_index run function magic:holding_run
