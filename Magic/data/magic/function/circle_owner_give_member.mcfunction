@@ -1,1 +1,0 @@
-$give @a[limit=1,sort=nearest, distance=..10, tag=can_use, tag=using, tag=circle_owner] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force: $(player_id)","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:9,Player_id:$(player_id)}] 32
