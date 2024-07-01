@@ -76,6 +76,7 @@ execute as @a[scores={death_detect=1..}] run function magic:death
 
 
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run function magic:exit
+execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:9}}}]}] run function magic:exit
 execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
 
@@ -93,7 +94,8 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Invent
 #Only way to exit is via dropping the power, this allows for free offhand
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:exit
 
-execute at @e[type=minecraft:eye_of_ender] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw
+execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Force:6}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw
+execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Force:9}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw_circle
 
 #Target
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] at @s run function magic:new_ray
@@ -189,6 +191,7 @@ kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:5}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:6}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:7}}}}]
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:8}}}}] run function magic:remove_cleanup_player_single
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:9}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:10}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:20}}}}]
 

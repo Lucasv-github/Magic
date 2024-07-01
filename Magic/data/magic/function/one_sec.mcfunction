@@ -1,4 +1,5 @@
 execute as @a[tag=can_use, tag=using] unless entity @s[nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}}] run function magic:periodic_draw
+execute as @a[tag=can_use, tag=using,tag=circle_owner] unless entity @s[nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:9}}}}] run function magic:periodic_draw_circle
 
 execute as @e[tag=target_point,tag=tied_off,scores={weave_remaining_time=1..}] at @s run function magic:display_composition_calculate_distance
 execute as @e[tag=target_point,tag=gateway_end,scores={weave_remaining_time=1..}] at @s run function magic:display_composition_calculate_distance
@@ -34,6 +35,9 @@ execute at @e[scores={t_1=5,t_2=1,t_3=2,t_4=1,t_5=5,t_6=0}] if entity @e[distanc
 
 
 execute as @a[tag=using,tag=can_use] run function magic:tap_power
+
+execute as @a[tag=circled] run function magic:tap_power_circle_member
+execute as @a[tag=circle_owner] run function magic:tap_power_circle_member
 
 scoreboard players add Temp second_counter 1
 

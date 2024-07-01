@@ -37,6 +37,7 @@ scoreboard objectives add current_held dummy
 
 scoreboard objectives add angreal_level dummy
 
+scoreboard objectives add my_draw_amount dummy
 scoreboard objectives add halve_amount_hold dummy
 scoreboard objectives add cumulative_halve_amount_hold dummy
 scoreboard objectives add max_regenerated_strength dummy

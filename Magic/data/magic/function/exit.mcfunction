@@ -25,6 +25,7 @@ clear @s minecraft:carrot_on_a_stick[custom_data~{Force:4}]
 clear @s minecraft:carrot_on_a_stick[custom_data~{Force:5}]
 clear @s carrot_on_a_stick[custom_data~{Force:7}]
 clear @s carrot_on_a_stick[custom_data~{Force:8}]
+clear @s carrot_on_a_stick[custom_data~{Force:9}]
 
 execute at @s run kill @e[type=minecraft:eye_of_ender, sort=nearest, limit=1]
 

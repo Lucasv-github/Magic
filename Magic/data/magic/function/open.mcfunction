@@ -19,6 +19,8 @@ function magic:give_force_amount
 #Will exit if we are unable to tap
 function magic:tap_power
 
+scoreboard players operation @s my_draw_amount = @s current_held
+
 #Store this to make use easier
 execute as @s[tag=using] run function magic:store_hotbar
 
