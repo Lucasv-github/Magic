@@ -44,7 +44,7 @@ echo(
 set /P choice=[Change] [Update] [close]
 IF "%choice%"=="change" goto change
 IF "%choice%"=="update" goto update
-IF "%choice%"=="close" goto echoto1
+IF "%choice%"=="close" goto close
 
 goto question
 
