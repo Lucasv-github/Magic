@@ -9,9 +9,6 @@ if exist %MINECRAFT_TRY_1% (
 	set /p MINECRAFT_FOLDER="Enter minecraft folder location: "
 )
 
-::if defined MINECRAFT_FOLDER (
-::)
-
 echo Minecraft folder exists at: %MINECRAFT_FOLDER%
 echo(
 
@@ -25,9 +22,6 @@ IF EXIST "%MINECRAFT_FOLDER%\Magic_workspace_location.txt" (
 	  goto workspace_exists
   )
 )
-
-::set /p WORKSPACE_WORLD=<"C:\Users\Omistaja\AppData\Roaming\.minecraft\Magic_workspace_location.txt"
-::echo TEST %WORKSPACE_WORLD%
 
 :get_worspace_folder
 set /p WORKSPACE_WORLD="Enter workspace world: "
