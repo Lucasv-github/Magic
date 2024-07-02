@@ -41,20 +41,49 @@ echo %WORKSPACE_FOLDER% Set as workspace.
 echo(
 
 :question
-set /P choice=[Change] [Update] [close]
+set WORKSPACE_RESOURCEPACK_FOLDER=%MINECRAFT_FOLDER%\resourcepacks
+set WORKSPACE_DATAPACK_FOLDER=%WORKSPACE_FOLDER%\datapacks
+
+:question_loop
+echo(
+set choice=""
+set /P choice=[Change] [Update] [Close] [Build]
 IF "%choice%"=="change" goto change
 IF "%choice%"=="update" goto update
 IF "%choice%"=="close" goto close
+IF "%choice%"=="build" goto build
 
-goto question
+goto question_loop
+
+:build
+SET BUILD_FOLDER=%WORKSPACE_DATAPACK_FOLDER%\Build\
+echo Building to: %BUILD_FOLDER%
+if exist "%BUILD_FOLDER%" rd /q /s "%BUILD_FOLDER%"
+mkdir "%BUILD_FOLDER%"
+
+rem Using the '' to prevent powershell from being stupid and stripping them.
+
+cd "%WORKSPACE_DATAPACK_FOLDER%\Magic\"
+powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic.zip'"
+
+cd "%WORKSPACE_DATAPACK_FOLDER%\Magic_commons\"
+powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic_commons.zip'"
+
+cd "%WORKSPACE_DATAPACK_FOLDER%\Magic_help\"
+powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic_help.zip'"
+
+cd "%WORKSPACE_RESOURCEPACK_FOLDER%\Magic_resourcepack\"
+powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic_resourcepack.zip'"
+
+echo Done
+goto question_loop
+
 
 :change
 del "%MINECRAFT_FOLDER%\Magic_workspace_location.txt"
 goto minecraft_folde_exists
 
 :update
-set WORKSPACE_RESOURCEPACK_FOLDER=%MINECRAFT_FOLDER%\resourcepacks
-set WORKSPACE_DATAPACK_FOLDER=%WORKSPACE_FOLDER%\datapacks
 echo(
 echo %WORKSPACE_RESOURCEPACK_FOLDER%
 echo %WORKSPACE_DATAPACK_FOLDER%
@@ -77,12 +106,12 @@ if exist "%WORKSPACE_RESOURCEPACK_FOLDER%\Magic_resourcepack\" rd /q /s "%WORKSP
 echo(
 
 echo Download started to: %TEMP%\Magic_entire.zip
-powershell -command "Invoke-WebRequest -Uri "https://github.com/Lucasv-github/Magic/archive/refs/heads/main.zip" -OutFile "%TEMP%\Magic_entire.zip""
+powershell -command "Invoke-WebRequest -Uri 'https://github.com/Lucasv-github/Magic/archive/refs/heads/main.zip' -OutFile '%TEMP%\Magic_entire.zip'"
 
 SET EXTRACT_LOCATION=%TEMP%\Magic-main\
 
 echo Extract started to: %EXTRACT_LOCATION%
-powershell -command "Expand-Archive -Force %TEMP%\Magic_entire.zip %TEMP%"
+powershell -command "Expand-Archive -Force '%TEMP%\Magic_entire.zip' '%TEMP%'"
 
 xcopy /s "%EXTRACT_LOCATION%\Magic\" "%WORKSPACE_DATAPACK_FOLDER%\Magic\"
 xcopy /s "%EXTRACT_LOCATION%\Magic_commons\" "%WORKSPACE_DATAPACK_FOLDER%\Magic_commons\"
@@ -92,7 +121,7 @@ xcopy /s "%EXTRACT_LOCATION%\Magic_resourcepack\" "%WORKSPACE_RESOURCEPACK_FOLDE
 
 echo(
 echo Done
-goto question
+goto question_loop
 
 :close
 exit
