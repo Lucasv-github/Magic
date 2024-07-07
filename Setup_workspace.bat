@@ -63,17 +63,18 @@ mkdir "%BUILD_FOLDER%"
 
 rem Using the '' to prevent powershell from being stupid and stripping them.
 
+::Doing this with tar as Compress-Archive seems to create files that minecraft won't accept
 cd "%WORKSPACE_DATAPACK_FOLDER%\Magic\"
-powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic.zip'"
+tar.exe acvf "%BUILD_FOLDER%\Magic.zip" *
 
 cd "%WORKSPACE_DATAPACK_FOLDER%\Magic_commons\"
-powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic_commons.zip'"
+tar.exe acvf "%BUILD_FOLDER%\Magic_commons.zip" *
 
 cd "%WORKSPACE_DATAPACK_FOLDER%\Magic_help\"
-powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic_help.zip'"
+tar.exe acvf "%BUILD_FOLDER%\Magic_help.zip" *
 
 cd "%WORKSPACE_RESOURCEPACK_FOLDER%\Magic_resourcepack\"
-powershell -command "Compress-Archive -Path * -DestinationPath '%BUILD_FOLDER%\Magic_resourcepack.zip'"
+tar.exe acvf "%BUILD_FOLDER%\Magic_resourcepack.zip" *
 
 echo Done
 goto question_loop
