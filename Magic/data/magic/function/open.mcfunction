@@ -49,7 +49,7 @@ give @s[tag=using,scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_
 give @s[tag=using,scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Spirit","italic":false,"color":"white"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=5,custom_data={Force:5}] 1
 
 #32, perfectly balanced
-give @s[tag=using] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=0,custom_data={Force:6}] 32
+give @s[tag=using] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=1,custom_data={Force:6}] 32
 
 #scoreboard players set @s sneak_time 0
 

@@ -144,6 +144,7 @@ execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minec
 
 #Clear eye if holding when not having tag using
 execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run clear @s ender_eye[custom_data={Force:6}]
+execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:9}}}]}] run clear @s ender_eye[custom_data={Force:9}]
 
 #Detect when one starts
 execute as @a[tag=using, tag=can_use, scores={a=1..}] run function magic:build
@@ -250,7 +251,7 @@ scoreboard players set @e[scores={bound=1}] bound 0
 #Handle destroyed
 execute as @e[tag=target_point,tag=weave_damaged] run function magic:damaged_weave
 
-execute as @a[scores={circle_timer=1}] run function magic:circle_remover
+execute as @a[scores={circle_timer=1}] run function magic:exit
 scoreboard players remove @a[scores={circle_timer=1..}] circle_timer 1
 
 #Remove signs

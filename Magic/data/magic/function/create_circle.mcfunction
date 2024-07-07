@@ -16,6 +16,6 @@ item replace entity @s weapon.offhand from entity @e[tag=swap_held,sort=nearest,
 
 tp @e[tag=swap_held] ~ ~-1000 ~
 
-give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Circle","italic":false}]'],custom_model_data=0,custom_data={Force:9}] 32
+give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Circle","italic":false}]'],custom_model_data=1,custom_data={Force:9}] 32
 
 scoreboard players set @s circle_timer 41
