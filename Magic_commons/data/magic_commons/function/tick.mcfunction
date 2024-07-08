@@ -1,3 +1,6 @@
+#Death detect
+execute as @a[scores={deaths=1..}] run function magic_commons:death
+
 scoreboard players enable @a[nbt={Dimension:"magic_commons:tar"}] tar_survival
 scoreboard players enable @a[nbt={Dimension:"magic_commons:tar"}] tar_creative
 
