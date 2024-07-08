@@ -1,7 +1,5 @@
 #say AAA
 
-execute at @s if dimension magic_commons:tar run tag @s add died_in_tar
-
 execute at @s run function magic:drop_hotbar
 execute as @s[tag=circle_owner] run function magic:remove_circle
 scoreboard players operation Temp reg_1 = @s circled_owner_id
