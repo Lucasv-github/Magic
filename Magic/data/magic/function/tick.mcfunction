@@ -69,10 +69,6 @@ execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!c
 execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking run scoreboard players set @s sneak_time 0
 
 
-#Picking up
-execute as @a[tag=using,tag=can_use,scores={sneak_time=50..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] run function magic:pick_up
-
-
 #Death detect
 execute as @a[scores={death_detect=1..}] run function magic:death
 
@@ -82,13 +78,13 @@ execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inve
 execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
 
-#Rod in offhand: toggle between hotbar mode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run function magic:toggle_hotbarmode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run item replace entity @s weapon.offhand with minecraft:air
+#Force in offhand: toggle between hotbar mode
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run function magic:toggle_hotbarmode
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run item replace entity @s weapon.offhand with minecraft:air
 
 #Magic in offhand: Circle
-execute as @a[tag=can_use, tag=using, tag=!circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:create_circle
+#execute as @a[tag=can_use, tag=using, tag=!circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:create_circle
 
 #Magic in offhand while: Circled
 execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:pass_circle
@@ -100,7 +96,7 @@ execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:cust
 execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Force:9}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw_circle
 
 #Target
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] at @s run function magic:new_ray
+#execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}}] at @s run function magic:new_ray
 
 #Weave click
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}}] at @s run function magic:new_ray
@@ -140,8 +136,6 @@ execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:4}}}}] at @s run trigger w set 4
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:5}}}}] at @s run trigger s set 5
 
-execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:7}}}]}] run function magic:clear_targets
-
 #Clear eye if holding when not having tag using
 execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run clear @s ender_eye[custom_data={Force:6}]
 execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:9}}}]}] run clear @s ender_eye[custom_data={Force:9}]
@@ -173,12 +167,9 @@ execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,i
 execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run function magic:new_weave
 
 #Angreal
-scoreboard players set @a reg_1 0
-execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
-execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
-
-#Only way to exit is via dropping the power, this allows for free offhand
-#execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=angrealed,tag=!circled] run function magic:exit
+#scoreboard players set @a reg_1 0
+#execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
+#execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
 
 #Circle
 execute as @a[tag=can_use, scores={state=10}, tag=using, tag=!circled, tag=!circle_owner] run function magic:enter_circle
@@ -192,7 +183,6 @@ kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:3}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:4}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:5}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:6}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:7}}}}]
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:8}}}}] run function magic:remove_cleanup_player_single
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:9}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Force:10}}}}]
@@ -250,9 +240,6 @@ scoreboard players set @e[scores={bound=1}] bound 0
 
 #Handle destroyed
 execute as @e[tag=target_point,tag=weave_damaged] run function magic:damaged_weave
-
-execute as @a[scores={circle_timer=1}] run function magic:exit
-scoreboard players remove @a[scores={circle_timer=1..}] circle_timer 1
 
 #Remove signs
 execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]

@@ -21,8 +21,16 @@ function magic:tap_power
 
 scoreboard players operation @s my_draw_amount = @s current_held
 
+#Angreal here already
+scoreboard players set @s reg_1 0
+execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Amplification
+execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
+
 #Store this to make use easier
 execute as @s[tag=using] run function magic:store_hotbar
+
+#Needs to be below store hotbar as it adds item that shouldn't be stored
+execute as @s[scores={sneak_time=100..}] run function magic:create_circle
 
 tellraw @s[tag=using] ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" -> ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}},{"text":" [] ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 2"}},{"text":" X ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 4"}},{"text":" <- ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 3"}}]
 
@@ -51,7 +59,7 @@ give @s[tag=using,scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_
 #32, perfectly balanced
 give @s[tag=using] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Force","italic":false}]'],custom_model_data=1,custom_data={Force:6}] 32
 
-#scoreboard players set @s sneak_time 0
+scoreboard players set @s sneak_time 0
 
 
 #Reset weave

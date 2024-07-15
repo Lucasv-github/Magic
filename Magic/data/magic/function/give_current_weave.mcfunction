@@ -3,7 +3,6 @@ item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0
 
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.Player_weave_index int 1.0 run scoreboard players get @s player_weave_index
 
-
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.T_1 int 1.0 run scoreboard players get @s t_1
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.T_2 int 1.0 run scoreboard players get @s t_2
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.T_3 int 1.0 run scoreboard players get @s t_3
@@ -27,7 +26,9 @@ execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Ite
 
 #execute store result score Temp reg_1 run clear @s carrot_on_a_stick[custom_data~{Force:8}] 0
 scoreboard players operation Temp reg_1 = @s player_weave_index
-execute in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['["",{"text":"Weave: ","italic":false,"color":"dark_purple"},{"score":{"name":"Temp","objective":"reg_1"},"color":"dark_purple","italic":false}]','{"text":""}','{"text":""}','{"text":""}']}} destroy
+
+function magic:get_composition
+execute in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['{"nbt":"text[]","storage":"minecraft:print_composition","interpret":true,"separator":""}','{"text":""}','{"text":""}','{"text":""}']}} destroy
 data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_name set from block 0 0 0 front_text.messages[0]
 
 #Move out item if present in slot 8 but do NOT move out a weave, just destroy that else remove cleanup will f and oh boy

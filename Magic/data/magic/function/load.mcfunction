@@ -145,7 +145,6 @@ scoreboard objectives add weave_execute_id dummy
 scoreboard objectives add weave_execute_random_number dummy
 scoreboard objectives add player_id dummy
 scoreboard objectives add circled_owner_id dummy
-scoreboard objectives add circle_timer dummy
 
 #Set to 0 as undefined breaks calculations
 #Can't reset as that wreaks havoc
