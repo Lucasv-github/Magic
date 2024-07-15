@@ -45,4 +45,4 @@ execute as @s[tag=picking_up] run function magic:give_current_weave
 tag @e remove getting_picked_up
 tag @s remove picking_up
 
-scoreboard players set @s sneak_time 0
+scoreboard players set @s state 0

@@ -171,6 +171,9 @@ execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{
 #execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
 #execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
 
+#Pick up
+execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circle_owner] run function magic:pick_up
+
 #Circle
 execute as @a[tag=can_use, scores={state=10}, tag=using, tag=!circled, tag=!circle_owner] run function magic:enter_circle
 
