@@ -77,6 +77,8 @@ execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minec
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:9}}}]}] run function magic:exit
 execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
 
+#Part of force in offhand: invite to circle
+execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run function magic:invite_to_circle
 
 #Force in offhand: toggle between hotbar mode
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run function magic:toggle_hotbarmode
