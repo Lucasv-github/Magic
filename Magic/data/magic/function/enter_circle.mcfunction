@@ -6,6 +6,8 @@ execute at @s run scoreboard players operation @a[limit=1, sort=nearest, distanc
 #Person can't do anything if not owner of circle
 execute at @s if entity @a[limit=1, sort=nearest, distance=..10, tag=can_use, tag=using, tag=circle_owner] run function magic:exit
 execute at @s if entity @a[limit=1, sort=nearest, distance=..10, tag=can_use, tag=using, tag=circle_owner] run tag @s add circled
+
+#Reset to prevent owner loosing
 execute at @s run scoreboard players set @a[limit=1, sort=nearest, distance=..10, tag=can_use, tag=using, tag=circle_owner] circle_timer 0
 
 #Get id of owner
