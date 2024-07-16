@@ -193,7 +193,7 @@ execute at @s[tag=current_target,scores={t_1=2,t_2=2,t_3=2,t_4=3,t_5=4,t_6=1,t_7
 execute at @s[tag=current_target,scores={t_1=1,t_2=1,t_3=5,t_4=4,t_5=0}] run function magic:weave_heal
 
 #Sword AFAFFF
-execute at @s[tag=current_target,scores={t_1=1,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=0}] as @a[tag=can_use] if score @s player_id = @e[limit=1, tag=current_target] player_id unless entity @s[nbt={Inventory:[{id:"minecraft:golden_sword",components:{"minecraft:custom_data":{Force:20}}}]}] run give @s golden_sword[unbreakable={show_in_tooltip:0b},enchantments={levels:{fire_aspect:20,sharpness:20},show_in_tooltip:0b},custom_name='[{"text":"Fire sword","italic":false}]',lore=['[{"text":"Force","italic":false}]'],custom_data={Force:20}] 1
+execute at @s[tag=current_target,scores={t_1=1,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=0}] as @a[tag=can_use] if score @s player_id = @e[limit=1, tag=current_target] player_id unless entity @s[nbt={Inventory:[{id:"minecraft:golden_sword",components:{"minecraft:custom_data":{Force:20}}}]}] run give @s golden_sword[unbreakable={show_in_tooltip:0b},enchantments={levels:{fire_aspect:20,sharpness:20},show_in_tooltip:0b},custom_name='[{"text":"Fire sword","italic":false}]',lore=['[{"text":"Controls your power","italic":false}]'],custom_data={Force:20}] 1
 
 #Sense weaves SSWWFFEEAA
 execute at @s[tag=current_target,scores={t_1=5,t_2=5,t_3=4,t_4=4,t_5=3,t_6=3,t_7=2,t_8=2,t_9=1,t_10=1,t_11=0}] run function magic:weave_sense
