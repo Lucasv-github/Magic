@@ -21,6 +21,7 @@ scoreboard players operation Temp reg_1 = @s weave_execute_id
 scoreboard players operation Temp reg_2 = @s player_id
 
 #TODO only if lone
+execute as @s[scores={t_1=1,t_2=1,t_3=1,t_4=0}] as @a[tag=can_use] if score @s player_id = Temp reg_1 run effect clear @s slowness
 execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
 execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s progressive_shielded 0
 
