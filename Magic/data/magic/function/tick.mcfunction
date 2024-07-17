@@ -110,11 +110,6 @@ execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:cust
 #Weave click
 execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8}}}}] at @s run function magic:new_ray
 
-#Id
-scoreboard players add @a player_id 0
-execute as @p[scores={player_id=0}] run scoreboard players add #next_id player_id 1
-scoreboard players operation @p[scores={player_id=0}] player_id = #next_id player_id
-
 #Enable triggers
 scoreboard players enable @a[tag=can_use] use_items
 scoreboard players enable @a[tag=can_use] a

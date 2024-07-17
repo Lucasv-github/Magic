@@ -137,21 +137,12 @@ scoreboard objectives add t_20 dummy
 
 scoreboard objectives add stage dummy
 
-
 #Click
 scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
 
 scoreboard objectives add weave_execute_id dummy
 scoreboard objectives add weave_execute_random_number dummy
-scoreboard objectives add player_id dummy
 scoreboard objectives add circled_owner_id dummy
-
-#Set to 0 as undefined breaks calculations
-#Can't reset as that wreaks havoc
-scoreboard players add #random_id player_id 0
-
-#Set id after player
-scoreboard objectives setdisplay list player_id
 
 #Sneak detect
 scoreboard objectives add sneak_time minecraft.custom:minecraft.sneak_time
