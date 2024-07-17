@@ -20,14 +20,14 @@
 -You will need to exit and re-enter the world to get everything ready
 
 ### Configuration?
-
--/trigger magic_admin to open the admin panel  
+-/function magic:admin to open the admin panel  
+-/trigger magic_admin to open the admin panel on a server where you have op  
 
 
 
 
 ### Contributing?
--The code is currently **very** messy as the contents have been reworked quite frequently, something everyone should be aware of  
+-The code is currently **pretty** messy as the contents have been reworked quite frequently, something everyone should be aware of  
 
 -Any help is appreciated though  
 
