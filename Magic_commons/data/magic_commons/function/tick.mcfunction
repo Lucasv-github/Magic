@@ -1,3 +1,8 @@
+#Player id
+scoreboard players add @a player_id 0
+execute as @p[scores={player_id=0}] run scoreboard players add #next_id player_id 1
+scoreboard players operation @p[scores={player_id=0}] player_id = #next_id player_id
+
 #Death detect
 execute as @a[scores={deaths=1..}] run function magic_commons:death
 
