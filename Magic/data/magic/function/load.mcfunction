@@ -108,9 +108,6 @@ scoreboard objectives add state trigger
 #Tie off strength
 scoreboard objectives add tie_strength trigger
 
-#Break tied off
-scoreboard objectives add break_tied trigger
-
 #Track slow down
 scoreboard objectives add slow_down trigger
 

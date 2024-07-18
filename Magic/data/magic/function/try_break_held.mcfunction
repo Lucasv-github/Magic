@@ -8,7 +8,7 @@ scoreboard players set Temp reg_1 0
 execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players add Temp reg_1 1
 execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players add Temp reg_1 1
 
-scoreboard players remove @s click_counter 10
+scoreboard players remove @s click_counter 1
 
 scoreboard players operation Temp reg_1 *= @s click_counter
 

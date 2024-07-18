@@ -57,23 +57,20 @@ execute as @a[scores={sneak_time=..10, reg_1=-90}, tag=!using, tag=stilled,tag=!
 execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] at @s run playsound minecraft:block.vault.activate player @s
 execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] run tellraw @s {"text":"~~~~","color":"gold"}
 
-#Enable breaking out
-execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run function magic:try_break_tied
-
 #Count to break free tied
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
-execute as @a[scores={sneak_time=1.., reg_1=-90,progressive_shielded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run tag @s remove can_break_free
+#execute as @a[scores={sneak_time=1.., reg_1=-90,progressive_shielded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run tag @s remove can_break_free
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
-execute as @a[scores={sneak_time=1.., reg_1=-90,shilded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run tag @s remove can_break_free
+#execute as @a[scores={sneak_time=1.., reg_1=-90,shilded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run tag @s remove can_break_free
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 
 #Opening
 execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:open
 
 #Sneak reset
-execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking run scoreboard players set @s sneak_time 0
+execute as @a[scores={sneak_time=1..,bound=0}] unless predicate magic:is_sneaking run scoreboard players set @s sneak_time 0
 
 
 #Death detect
@@ -116,7 +113,6 @@ scoreboard players enable @a[tag=can_use] f
 scoreboard players enable @a[tag=can_use] w
 scoreboard players enable @a[tag=can_use] s
 scoreboard players enable @a[tag=can_use] state
-scoreboard players enable @a[tag=can_use] break_tied
 
 scoreboard players enable @a[tag=can_use] destination
 scoreboard players enable @a[tag=can_use] destination_x
@@ -218,13 +214,8 @@ execute as @a[tag=using,tag=can_use,scores={sever_active_time=1}] run function m
 execute as @a[scores={sever_active_time=1}] run scoreboard players set @s sever_active_time 0
 
 #Break free
-#TODOTODO this should work with both
-execute as @a[scores={progressive_shielded=1..,break_tied=1..,click_counter=14..}, tag=can_break_free] run function magic:break_tied
-execute as @a[scores={shilded=1..,break_tied=1..,click_counter=14..}, tag=can_break_free] run function magic:break_tied
-
-execute as @a[scores={progressive_shielded=1..}] run scoreboard players add @s click_counter 1
-execute as @a[scores={shilded=1..,break_tied=1..}] run scoreboard players add @s click_counter 1
-execute as @a[scores={break_tied=1..}] run scoreboard players set @s break_tied 0
+execute as @a[scores={progressive_shielded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
+execute as @a[scores={shilded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
 
 #Things like the bridge
 execute as @e[tag=ray] run function magic:along_execute

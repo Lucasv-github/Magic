@@ -9,7 +9,8 @@ tag @e[type=minecraft:armor_stand,tag=target_point,tag=tied_off, scores={weave_r
 #Run held
 execute as @e[tag=actively_held,tag=!no_weave] run function magic:pre_weaves
 
-execute as @a[scores={regenerated_strength=1.., shilded=1..,click_counter=10..,break_tied=0}, tag=!using, tag=can_use, tag=!circled,tag=!can_break_free] run function magic:try_break_held
+#Enable breaking out
+execute as @a[scores={regenerated_strength=1.., shilded=1..,click_counter=2..}, tag=!using, tag=can_use, tag=!circled,tag=!can_break_free,tag=!tap_blocked] run function magic:try_break_held
 
 #Messages
 execute as @a[tag=can_use, tag=using, tag=circle_owner] run function magic:circle_info
