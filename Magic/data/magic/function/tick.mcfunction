@@ -179,7 +179,7 @@ execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_o
 execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circle_owner] run function magic:pick_up
 
 #Circle, do not remove tag=!using
-execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner] run function magic:enter_circle
+execute as @a[tag=can_use, scores={state=10,shilded=0,progressive_shielded=0}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:enter_circle
 
 execute as @a[tag=can_use, scores={state=20}, tag=using] run function magic:shield_active_responde
 execute as @a[tag=can_use, scores={state=30}, tag=using] run function magic:sever_active_responde
