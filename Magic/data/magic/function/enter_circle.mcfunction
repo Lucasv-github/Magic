@@ -13,7 +13,10 @@ execute at @s run scoreboard players operation @a[limit=1, sort=nearest, distanc
 #Execute at prevents this from working if no one nerby is a circle owner anymore
 
 #Person can't do anything if not owner of circle
-execute at @s if entity @a[limit=1, sort=nearest, distance=..10, tag=can_use, tag=circle_owner] run function magic:exit
+
+#This can't be used here as it will drop what we have just stored. And they you think: oh just move it above "magic:store_hotbar". DO NOT DO THAT. Exit will drop your hotbar and you will pick it up, thus duplicating your stuff. This function should only ever be run when someone is comming from NOT using the power, thus exit should not be needed
+#execute at @s if entity @a[limit=1, sort=nearest, distance=..10, tag=can_use, tag=circle_owner] run function magic:exit
+
 execute at @s if entity @a[limit=1, sort=nearest, distance=..10, tag=can_use, tag=circle_owner] run tag @s add circled
 
 #Get id of owner

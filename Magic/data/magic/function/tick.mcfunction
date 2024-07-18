@@ -92,11 +92,9 @@ execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,i
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:6}}}]}] run item replace entity @s weapon.offhand with minecraft:air
 
-#Magic in offhand: Circle
-#execute as @a[tag=can_use, tag=using, tag=!circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:create_circle
 
-#Magic in offhand while: Circled
-execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:pass_circle
+#Circle power in offhand while circled: Pass circle
+execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Force:9}}}]}] run function magic:pass_circle
 
 #Only way to exit is via dropping the power, this allows for free offhand
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:exit
@@ -180,8 +178,8 @@ execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_o
 #Pick up
 execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circle_owner] run function magic:pick_up
 
-#Circle
-execute as @a[tag=can_use, scores={state=10}, tag=using, tag=!circled, tag=!circle_owner] run function magic:enter_circle
+#Circle, do not remove tag=!using
+execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner] run function magic:enter_circle
 
 execute as @a[tag=can_use, scores={state=20}, tag=using] run function magic:shield_active_responde
 execute as @a[tag=can_use, scores={state=30}, tag=using] run function magic:sever_active_responde
