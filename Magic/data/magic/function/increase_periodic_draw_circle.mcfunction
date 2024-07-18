@@ -1,2 +1,2 @@
 kill @e[limit=1,distance=..2,type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Force:9}}}}]
-give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Circle","italic":false}]'],custom_model_data=1,custom_data={Force:9}] 2
+give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power from circle","italic":false}]'],custom_model_data=1,custom_data={Force:9}] 2
