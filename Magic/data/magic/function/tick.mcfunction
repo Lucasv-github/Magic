@@ -229,7 +229,8 @@ execute as @e[tag=getting_thrown] at @s unless entity @e[limit=1,sort=nearest,ty
 execute as @e[tag=getting_thrown] at @s at @e[limit=1,sort=nearest,type=minecraft:snowball,tag=ray,distance=..5] run tp @s ~ ~2 ~
 
 #Bind
-#Either work with tied off or held
+#Make opening possible while bound
+execute as @e[scores={bound=2..}] unless predicate magic:has_vehicle run scoreboard players add @s sneak_time 1
 execute as @e[scores={bound=2..}] at @s run ride @s mount @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=target_point,scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=0}]
 
 #Unbind
