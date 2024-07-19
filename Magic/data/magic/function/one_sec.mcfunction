@@ -21,6 +21,12 @@ scoreboard players remove @e[scores={sever_active_time=1..}] sever_active_time 1
 scoreboard players remove @a[scores={shilded=1..}] shilded 1
 scoreboard players remove @a[scores={progressive_shielded =1..}] progressive_shielded 1
 
+#Progressive sheild limiter
+execute as @a[tag=can_use,scores={progressive_shielded=1..}] if score @s current_held > @s progressive_shield_current run scoreboard players operation @s reg_1 = @s current_held
+execute as @a[tag=can_use,scores={progressive_shielded=1..}] if score @s current_held > @s progressive_shield_current run scoreboard players operation @s reg_1 /= 10 reg_1
+execute as @a[tag=can_use,scores={progressive_shielded=1..}] if score @s current_held > @s progressive_shield_current run scoreboard players operation @s current_held -= @s reg_1
+execute as @a[tag=can_use,scores={progressive_shielded=1..}] if score @s current_held < @s progressive_shield_current run scoreboard players operation @s current_held = @s progressive_shield_current
+
 scoreboard players remove @e[tag=destroy_bridge, scores={bridge=1..}] bridge 1
 execute as @e[tag=destroy_bridge, scores={bridge=0}] run function magic:remove_bridge
 
