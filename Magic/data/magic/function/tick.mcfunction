@@ -57,14 +57,13 @@ execute as @a[scores={sneak_time=..10, reg_1=-90}, tag=!using, tag=stilled,tag=!
 execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] at @s run playsound minecraft:block.vault.activate player @s
 execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] run tellraw @s {"text":"~~~~","color":"gold"}
 
-#Enable breaking out
-execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run function magic:try_break_tied
-
 #Count to break free tied
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
+#execute as @a[scores={sneak_time=1.., reg_1=-90,progressive_shielded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run tag @s remove can_break_free
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
+#execute as @a[scores={sneak_time=1.., reg_1=-90,shilded=1..,sneak_time=0}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run tag @s remove can_break_free
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 
 #Opening
@@ -168,9 +167,10 @@ execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{
 #Angreal
 #coreboard players set @a reg_1 0
 execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
+execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run tag @s add angrealed_held
 execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
 
-execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_owner,tag=angrealed] run function magic:exit_angreal
+execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_owner,tag=angrealed,tag=angrealed_held] run function magic:remove_angreal
 
 #Pick up
 execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circle_owner] run function magic:pick_up
