@@ -241,7 +241,8 @@ execute as @e[scores={bound=1}] run ride @s dismount
 scoreboard players set @e[scores={bound=1}] bound 0
 
 #Handle destroyed
-execute as @e[tag=target_point,tag=weave_damaged] run function magic:damaged_weave
+execute as @e[tag=target_point,tag=weave_damaged] run function magic:remove_weave
+tag @e[tag=target_point,tag=weave_damaged] remove weave_damaged
 
 #Remove signs
 execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]
