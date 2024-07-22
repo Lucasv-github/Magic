@@ -7,10 +7,17 @@ scoreboard players set @s angreal_level 1
 #Prevent dual items when opening first time
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode
 
+scoreboard players operation @s my_draw_amount = @s current_held
+
+#Angreal here already
+scoreboard players set @s reg_1 0
+execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Amplification
+execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
+
 #Give starting amount
 scoreboard players set @s reg_1 110
 scoreboard players operation @s reg_1 -= @s sneak_time
-scoreboard players operation @s reg_1 *= @s halve_amount_hold
+scoreboard players operation @s reg_1 *= @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 /= 100 reg_1
 scoreboard players operation Give_force reg_1 = @s reg_1
 execute if score Give_force reg_1 matches ..10 run scoreboard players set Give_force reg_1 10
@@ -18,13 +25,6 @@ function magic:give_force_amount
 
 #Will exit if we are unable to tap
 function magic:tap_power
-
-scoreboard players operation @s my_draw_amount = @s current_held
-
-#Angreal here already
-scoreboard players set @s reg_1 0
-execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Amplification
-execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
 
 #Store this to make use easier
 execute as @s[tag=using] run function magic:store_hotbar

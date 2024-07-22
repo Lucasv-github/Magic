@@ -40,7 +40,7 @@ scoreboard players enable @a[tag=admin] set_regenerated
 execute as @a[tag=using,tag=can_use,scores={current_held=1..}] run function magic:actionbar_display
 
 #Reset halve if not in circle/angrealed/progressive shielded
-execute as @a[tag=can_use, tag=using,tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0}] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
+execute as @a[tag=can_use,tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0}] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
 
 #Join detect, also work first time when leave detect will be set to undef
 execute as @a unless score @s leave_detect matches 0 run function magic:join
