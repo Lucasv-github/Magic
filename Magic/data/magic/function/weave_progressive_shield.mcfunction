@@ -5,10 +5,8 @@ tag @a[tag=progressive_shield_me,scores={shields_blocked=1..}] remove progressiv
 
 
 #TODO subtract with shielder strength instead of 10
-execute as @a[tag=progressive_shield_me,scores={progressive_shielded=0, shilded=0}] run scoreboard players operation @s progressive_shield_current = @s halve_amount_hold
+execute as @a[tag=progressive_shield_me,scores={progressive_shielded=0, shilded=0}] run scoreboard players operation @s progressive_shield_current = @s cumulative_halve_amount_hold
 execute as @s[tag=!tied_off] run scoreboard players remove @a[tag=progressive_shield_me,scores={progressive_shielded=1.., shilded=0}] progressive_shield_current 10
-execute as @s[tag=!tied_off] run scoreboard players operation @a[tag=progressive_shield_me,scores={progressive_shielded=1.., shilded=0}] cumulative_halve_amount_hold = @a[tag=progressive_shield_me,scores={progressive_shielded=1.., shilded=0}] progressive_shield_current
-
 scoreboard players set @a[tag=progressive_shield_me,scores={shilded=0}] progressive_shielded 20
 
 #Regular shield if driven to 0
