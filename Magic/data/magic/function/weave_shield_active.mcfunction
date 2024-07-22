@@ -19,4 +19,5 @@ execute as @a[tag=shield_active_me] at @s run playsound minecraft:block.anvil.pl
 
 execute unless score @a[tag=shield_active_me,limit=1] shield_active_time matches 1.. run scoreboard players set @a[tag=shield_active_me,limit=1] shield_active_time 4
 execute as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_1 run scoreboard players operation @a[tag=shield_active_me] shield_active_amount = @s reg_2
+scoreboard players operation @a[tag=shield_active_me] shield_active_amount /= 2 reg_1
 tag @a remove shield_active_me
