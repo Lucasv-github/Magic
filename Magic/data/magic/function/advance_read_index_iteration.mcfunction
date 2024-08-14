@@ -11,7 +11,7 @@ execute unless score @s reg_2 matches 1.. run scoreboard players add @s weave_re
 
 #Check if ends, if so repeat
 $execute unless score @s reg_2 matches 1.. store result score @s reg_4 run data get storage magic:weave_$(index) Elements
-execute if score @s reg_4 < @s reg_3 run scoreboard players set @s weave_read_index 0
-execute if score @s reg_4 < @s reg_3 run tag @s add weave_lapsed
+execute unless score @s reg_2 matches 1.. if score @s reg_4 < @s reg_3 run scoreboard players set @s weave_read_index 0
+execute unless score @s reg_2 matches 1.. if score @s reg_4 < @s reg_3 run tag @s add weave_lapsed
 
 execute if score @s reg_2 matches 1.. run function magic:advance_read_index_iteration with storage magic:advance_read_index_iteration
