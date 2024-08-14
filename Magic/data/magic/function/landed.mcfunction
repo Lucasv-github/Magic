@@ -10,6 +10,7 @@ execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_
 
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_id = Temp reg_1
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_weave_index = Temp reg_2
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players set @s weave_read_index 0
 
 #Wards
 scoreboard players operation Temp reg_1 = @s player_id

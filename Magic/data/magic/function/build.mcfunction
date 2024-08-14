@@ -14,6 +14,10 @@ scoreboard players set @s f 0
 scoreboard players set @s w 0
 scoreboard players set @s s 0
 
+#TODO need unique at times
+execute store result storage magic:weave_add_element index int 1 run scoreboard players get @s player_weave_index
+function magic:weave_add_element with storage magic:weave_add_element
+
 tag @s add built
 
 execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:1}}}]}] run give @s[scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name='[{"text":"Air","italic":false,"color":"aqua"}]',lore=['[{"text":"One of the 5 elements","italic":false}]'],custom_model_data=1,custom_data={Force:1}] 1

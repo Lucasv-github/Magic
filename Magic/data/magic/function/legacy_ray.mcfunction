@@ -1,6 +1,6 @@
 #Pretty much only option when trowing/bridge
 summon snowball ^ ^ ^1 {Tags:["hit_ray"],life:1200,Silent:1b,Health:1f,Passengers:[{id:snowball,Tags:["ray"]}]}
-data modify storage projectiles:motion Motion set value [0.0,0.0,0.0]
+data modify storage magic:legacy_ray Motion set value [0.0,0.0,0.0]
 
 #Hit will survive
 scoreboard players operation @e[tag=ray,limit=1, type=snowball, sort=nearest] player_id = @a[limit=1, tag=using, sort=nearest] player_id
@@ -14,19 +14,17 @@ execute as @e[tag=ray,limit=1,tag=!throw_active] if score @a[limit=1, tag=using,
 execute store result score @s reg_1 run data get entity @s Pos[0] 1000
 execute as @e[tag=hit_ray,limit=1,sort=nearest] store result score @s reg_1 run data get entity @s Pos[0] 1000
 scoreboard players operation @e[tag=hit_ray,limit=1,sort=nearest] reg_1 -= @s reg_1
-execute store result storage projectiles:motion Motion[0] double 0.002 run scoreboard players get @e[tag=hit_ray,limit=1,sort=nearest] reg_1
+execute store result storage magic:legacy_ray Motion[0] double 0.002 run scoreboard players get @e[tag=hit_ray,limit=1,sort=nearest] reg_1
 
 execute store result score @s reg_1 run data get entity @s Pos[1] 1000
 execute as @e[tag=hit_ray,limit=1,sort=nearest] store result score @s reg_1 run data get entity @s Pos[1] 1000
 scoreboard players operation @e[tag=hit_ray,limit=1,sort=nearest] reg_1 -= @s reg_1
-execute store result storage projectiles:motion Motion[1] double 0.002 run scoreboard players get @e[tag=hit_ray,limit=1,sort=nearest] reg_1
+execute store result storage magic:legacy_ray Motion[1] double 0.002 run scoreboard players get @e[tag=hit_ray,limit=1,sort=nearest] reg_1
 
 execute store result score @s reg_1 run data get entity @s Pos[2] 1000
 execute as @e[tag=hit_ray,limit=1,sort=nearest] store result score @s reg_1 run data get entity @s Pos[2] 1000
 scoreboard players operation @e[tag=hit_ray,limit=1,sort=nearest] reg_1 -= @s reg_1
-execute store result storage projectiles:motion Motion[2] double 0.002 run scoreboard players get @e[tag=hit_ray,limit=1,sort=nearest] reg_1
+execute store result storage magic:legacy_ray Motion[2] double 0.002 run scoreboard players get @e[tag=hit_ray,limit=1,sort=nearest] reg_1
 
 execute anchored eyes run tp @e[tag=hit_ray,limit=1,sort=nearest] ^ ^ ^2
-data modify entity @e[tag=hit_ray,limit=1,sort=nearest] Motion set from storage projectiles:motion Motion
-
-data remove storage projectiles:motion Motion
+data modify entity @e[tag=hit_ray,limit=1,sort=nearest] Motion set from storage magic:legacy_ray Motion

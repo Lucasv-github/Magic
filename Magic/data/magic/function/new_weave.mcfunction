@@ -1,7 +1,9 @@
 scoreboard players set @s[tag=built] state 0
 scoreboard players set @s[tag=built] stage 0
 
-scoreboard players add @s[tag=built] player_weave_index 1
+#scoreboard players add @s[tag=built] player_weave_index 1
+#We can live with this collision risk
+execute store result score @s player_weave_index run random value 0..2147483646
 
 tag @s remove built
 tag @s remove active

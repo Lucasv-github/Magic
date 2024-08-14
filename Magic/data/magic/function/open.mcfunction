@@ -34,8 +34,8 @@ execute as @s[scores={sneak_time=100..}] run function magic:create_circle
 
 tellraw @s[tag=using] ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" ↑ ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}}]
 
-scoreboard players set @s player_weave_index 1
-#scoreboard players operation @s player_weave_index_current = @s player_weave_index
+#We can live with this collision risk
+execute store result score @s player_weave_index run random value 0..2147483646
 
 scoreboard players set @s stage 0
 scoreboard players set @s state 0

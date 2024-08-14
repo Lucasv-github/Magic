@@ -1,0 +1,1 @@
+$execute at @s run summon minecraft:fireball ~ ~2 ~ {ExplosionPower:$(size)}

@@ -1,28 +1,11 @@
-#say pre weaves
+execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
+function magic:get_weave_length with storage magic:get_weave_length
+scoreboard players operation Temp reg_3 = Temp reg_1
 
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players set Remove_force reg_1 0
 
-execute if score @s t_1 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_2 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_3 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_4 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_5 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_6 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_7 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_8 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_9 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_10 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_11 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_12 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_13 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_14 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_15 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_16 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_17 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_18 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_19 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
-execute if score @s t_20 matches 1.. as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players add Remove_force reg_1 1
+scoreboard players operation Remove_force reg_1 = Temp reg_3
 
 #First time full, then /10
 execute as @s[tag=!weave_run_yet] run scoreboard players operation Remove_force reg_1 *= 10 reg_1
@@ -42,26 +25,8 @@ scoreboard players operation @s current_held = Temp reg_2
 scoreboard players operation @s weave_despawn_time = @s current_held
 
 #Set despawn time to that multiplied by component count
-execute if score @s t_1 matches 1.. run scoreboard players operation @s reg_1 = @s weave_despawn_time
-execute if score @s t_2 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_3 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_4 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_5 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_6 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_7 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_8 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_9 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_10 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_11 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_12 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_13 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_14 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_15 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_16 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_17 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_18 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_19 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
-execute if score @s t_20 matches 1.. run scoreboard players operation @s reg_1 += @s weave_despawn_time
+scoreboard players operation @s reg_1 = @s weave_despawn_time
+scoreboard players operation @s reg_1 *= Temp reg_3
 
 scoreboard players operation @s weave_despawn_time = @s reg_1
 

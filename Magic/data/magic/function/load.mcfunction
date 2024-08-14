@@ -70,10 +70,12 @@ scoreboard objectives add shilded dummy
 scoreboard objectives add weave_remaining_time dummy
 scoreboard objectives add weave_despawn_time dummy
 
+#For use in calculations but idealy not between different files as that easily creates conflicts
 scoreboard objectives add reg_1 dummy
 scoreboard objectives add reg_2 dummy
 scoreboard objectives add reg_3 dummy
 scoreboard objectives add reg_4 dummy
+scoreboard objectives add reg_5 dummy
 
 scoreboard objectives add destination trigger
 
@@ -132,6 +134,18 @@ scoreboard objectives add t_18 dummy
 scoreboard objectives add t_19 dummy
 scoreboard objectives add t_20 dummy
 
+scoreboard objectives add weave_air_count dummy
+scoreboard objectives add weave_earth_count dummy
+scoreboard objectives add weave_fire_count dummy
+scoreboard objectives add weave_fire_count_1 dummy
+scoreboard objectives add weave_water_count dummy
+scoreboard objectives add weave_spirit_count dummy
+scoreboard objectives add weave_spirit_count_1 dummy
+
+scoreboard objectives add weave_explosion_count dummy
+scoreboard objectives add weave_lightning_count dummy
+scoreboard objectives add weave_cut_count dummy
+
 scoreboard objectives add stage dummy
 
 #Click
@@ -140,6 +154,7 @@ scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add weave_execute_id dummy
 scoreboard objectives add weave_execute_random_number dummy
 scoreboard objectives add circled_owner_id dummy
+scoreboard objectives add weave_read_index dummy
 
 #Sneak detect
 scoreboard objectives add sneak_time minecraft.custom:minecraft.sneak_time
@@ -150,6 +165,9 @@ scoreboard objectives add leave_detect minecraft.custom:minecraft.leave_game
 #Death detect
 scoreboard objectives add death_detect deathCount
 
+
+scoreboard players set 0 reg_1 0
+scoreboard players set 1 reg_1 1
 scoreboard players set 2 reg_1 2
 scoreboard players set 3 reg_1 3
 scoreboard players set 4 reg_1 4
@@ -183,7 +201,8 @@ scoreboard players set Temp reg_1 0
 function magic:detect_permission
 execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}
 
-setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Temp reg_1 1"} destroy
+scoreboard players set Detect_command_blocks reg_1 0
+setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Detect_command_blocks reg_1 1"} destroy
 
 scoreboard players set magic_settings magic_min_strength 100
 scoreboard players set magic_settings magic_max_strength 2000

@@ -1,6 +1,6 @@
 #say holding run
 
-#Prevent same running every tick
+#Prevent tick spam
 scoreboard players operation @s held_player_weave_index = @s reg_1
 
 #TODO sync everything that is not placed
