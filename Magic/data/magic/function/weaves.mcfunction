@@ -102,24 +102,29 @@ execute store result storage magic:weave_size size int 1 run scoreboard players 
 execute at @s[scores={weave_fire_count=4..}] run function magic:base_weaves/weave_fire with storage magic:weave_size
 execute at @s[scores={weave_fire_count=1}] run function magic:base_weaves/weave_fire with storage magic:weave_size
 
+#Earth
 scoreboard players operation Temp reg_1 = @s weave_earth_count
 function magic:math/cube_root
 scoreboard players remove Temp reg_1 1
 execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
-execute at @s[scores={weave_earth_count=1..}] run function magic:base_weaves/weave_earth with storage magic:weave_size
+execute at @s[scores={weave_earth_count=1..}] unless score @s weave_earth_count = @s weave_fire_count_1 run function magic:base_weaves/weave_earth with storage magic:weave_size
 
+#Water
 scoreboard players operation Temp reg_1 = @s weave_water_count
 function magic:math/cube_root
 scoreboard players remove Temp reg_1 1
 execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
 execute at @s[scores={weave_water_count=1..}] run function magic:base_weaves/weave_water with storage magic:weave_size
 
+#Explosion
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_explosion_count
 execute at @s[scores={weave_explosion_count=1..}] run function magic:base_weaves/weave_explosion with storage magic:weave_size
 
+#Lightning
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_lightning_count
 execute at @s[scores={weave_lightning_count=1..}] run function magic:base_weaves/weave_lightning with storage magic:weave_size
 
+#Cutting
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_cut_count
 execute at @s[scores={weave_cut_count=1..}] run function magic:base_weaves/weave_cut with storage magic:weave_size
 
@@ -137,8 +142,13 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 
 #Fireball land
 #A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
-execute as @s[scores={weave_read_index=1..,weave_fire_count=1..}] if score @s weave_fire_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_fire_count_1
+execute as @s[scores={weave_read_index=1..,weave_fire_count=1..}] if score @s weave_fire_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_fire_count
 execute as @s[scores={weave_read_index=1..,weave_fire_count=1..}] if score @s weave_fire_count = @s weave_fire_count_1 run function magic:base_weaves/weave_land_fireball with storage magic:weave_size
+
+#Resistance
+#A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
+execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
+execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 run function magic:base_weaves/weave_resistance with storage magic:weave_size
 
 #Using @e if by some chance we get more than 1 (server stop?)
 tag @e remove current_target
