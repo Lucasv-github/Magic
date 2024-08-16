@@ -1,4 +1,4 @@
-scoreboard players operation Temp reg_1 = @s weave_execute_id
+scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 execute as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_1 run tag @s add sever_active_me
 
 #Prevent self

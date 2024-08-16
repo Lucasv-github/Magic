@@ -1,4 +1,4 @@
-scoreboard players operation Temp reg_1 = @s weave_execute_id
+scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 execute as @a if score @s player_id = Temp reg_1 run tag @s add heal_me
 
 #Prevent self

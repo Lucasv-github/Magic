@@ -17,7 +17,7 @@ execute at @s[scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=3,t_6=4,t_7=3,t_8=4,t_9=3,t_10
 #Handle cut at both sides
 execute as @s[tag=gateway_end] run function magic:travel_dismantle
 
-scoreboard players operation Temp reg_1 = @s weave_execute_id
+scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 scoreboard players operation Temp reg_2 = @s player_id
 
 #TODO only if lone

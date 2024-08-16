@@ -8,7 +8,7 @@ execute as @s[tag=using, tag=can_use, scores={shield_active_time=2..}] run score
 #Invalid id if we somehow don't find anything
 scoreboard players set Temp reg_2 0
 scoreboard players operation Temp reg_1 = @s player_id
-execute as @e[tag=target_point,tag=actively_held] if score @s weave_execute_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s player_id
+execute as @e[tag=target_point,tag=actively_held] if score @s weave_locked_player_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s player_id
 
 #This won't touch reg_2 which could be problematic if it did
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run function magic:stun

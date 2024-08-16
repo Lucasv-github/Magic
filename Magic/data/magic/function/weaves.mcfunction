@@ -15,7 +15,7 @@ function magic:display_composition
 
 function magic:print_weave_composition
 
-#Weaves directed at a person will be locked directly when it land and can be accesed with weave_execute_id
+#Weaves directed at a person will be locked directly when it land and can be accesed with weave_locked_player_id
 
 tag @s[tag=current_target,tag=unused] add hold_used
 
@@ -139,6 +139,9 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 
 #Shield
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=3,weave_spirit_count_1=1}] run function magic:base_weaves/weave_shield
+
+#Throw
+execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0}] run function magic:base_weaves/weave_throw
 
 #Fireball land
 #A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again

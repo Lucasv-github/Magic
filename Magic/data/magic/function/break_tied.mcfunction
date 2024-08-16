@@ -1,7 +1,7 @@
 tag @s add managed_to_break_free
 
-execute as @e[type=armor_stand,tag=target_point, tag=tied_off, scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_execute_id = @a[tag=managed_to_break_free, limit=1] player_id run tag @s add break_posible_fail
-execute as @e[type=armor_stand,tag=target_point,tag=tied_off, scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_execute_id = @a[tag=managed_to_break_free, limit=1] player_id run tag @s add break_posible_fail
+execute as @e[type=armor_stand,tag=target_point, tag=tied_off, scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_locked_player_id = @a[tag=managed_to_break_free, limit=1] player_id run tag @s add break_posible_fail
+execute as @e[type=armor_stand,tag=target_point,tag=tied_off, scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_locked_player_id = @a[tag=managed_to_break_free, limit=1] player_id run tag @s add break_posible_fail
 
 #TODO change based on strength (halve_hold)
 scoreboard players set @e[limit=1,sort=random, tag=break_posible_fail] weave_remaining_time 0

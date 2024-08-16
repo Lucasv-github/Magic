@@ -4,7 +4,7 @@ execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=
 execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @a[tag=using,tag=!built, sort=nearest, limit=1] add picking_up
 
 #Make sure we can pick up something
-scoreboard players operation Temp reg_1 = @s[tag=picking_up] weave_execute_id
+scoreboard players operation Temp reg_1 = @s[tag=picking_up] weave_locked_player_id
 
 #execute as @e[tag=getting_picked_up] run say getting_picked_up
 #execute as @s[tag=picking_up] run say picking_up

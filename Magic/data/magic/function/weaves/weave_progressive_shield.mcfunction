@@ -1,4 +1,4 @@
-scoreboard players operation Temp reg_1 = @s weave_execute_id
+scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 scoreboard players operation Temp reg_2 = @s player_id
 execute as @a[tag=can_use] if score @s player_id = Temp reg_1 unless score @s player_id = Temp reg_2 run tag @s add progressive_shield_me
 tag @a[tag=progressive_shield_me,scores={shields_blocked=1..}] remove progressive_shield_me

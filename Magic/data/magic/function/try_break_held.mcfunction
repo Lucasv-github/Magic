@@ -5,8 +5,8 @@ tag @s add trying_to_break_free_held
 scoreboard players set Temp reg_1 0
 
 #Count how many shielding, use multiply by the amount the shielded tried to open with (click-10 (10 might change))
-execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players add Temp reg_1 1
-execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players add Temp reg_1 1
+execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_locked_player_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players add Temp reg_1 1
+execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_locked_player_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players add Temp reg_1 1
 
 scoreboard players remove @s click_counter 1
 
@@ -20,8 +20,8 @@ scoreboard players set Temp reg_1 0
 
 #Count their strength
 #TODO store this in armor stand
-execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 += @s halve_amount_hold
-execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 += @s halve_amount_hold
+execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0}] if score @s weave_locked_player_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 += @s halve_amount_hold
+execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] if score @s weave_locked_player_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 += @s halve_amount_hold
 
 #Enemy draw factor (unlikely to be anything unless you are stronger than shielder)
 #Copy
@@ -51,8 +51,8 @@ scoreboard players operation Remove_force reg_1 = @s reg_1
 #tellraw @a {"score":{"name":"Temp","objective":"reg_2"}}
 
 #Find enemy (on of shielders it is fine to find many, only last random id will be used)
-execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0},sort=random] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 = @s player_id
-execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0},sort=random] if score @s weave_execute_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 = @s player_id
+execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=0},sort=random] if score @s weave_locked_player_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 = @s player_id
+execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0},sort=random] if score @s weave_locked_player_id = @a[tag=trying_to_break_free_held, limit=1] player_id run scoreboard players operation Temp reg_1 = @s player_id
 
 
 #Enemy

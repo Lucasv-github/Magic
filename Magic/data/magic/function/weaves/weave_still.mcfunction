@@ -1,6 +1,6 @@
 #Can't be stilled if using power, also need x3
 
-scoreboard players operation Temp reg_1 = @s weave_execute_id
+scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 scoreboard players operation Temp reg_2 = @s player_id
 
 scoreboard players set Temp reg_3 0
