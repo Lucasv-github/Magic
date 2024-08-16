@@ -7,4 +7,4 @@ execute store result storage magic:weave_size size int 1 run scoreboard players 
 
 function magic:base_weaves/weave_fireball with storage magic:weave_size
 
-function magic:advance_read_index
+function magic:weave_processing/advance_read_index

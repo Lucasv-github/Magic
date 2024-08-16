@@ -81,7 +81,7 @@ scoreboard players operation @s weave_earth_count -= @s weave_cut_count
 
 
 #Needs to be below all primary detections
-function magic:advance_read_index
+function magic:weave_processing/advance_read_index
 
 #Secondary detection
 scoreboard players set @s weave_fire_count_1 0

@@ -14,6 +14,6 @@ tag @e[limit=1,type=minecraft:snowball,tag=weave_thrower_temp] add weave_thrower
 
 tag @e[type=snowball] remove weave_thrower_temp
 
-function magic:advance_read_index
+function magic:weave_processing/advance_read_index
 
 tag @s add weave_damaged

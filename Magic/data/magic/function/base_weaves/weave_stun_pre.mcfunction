@@ -8,4 +8,4 @@ execute store result storage magic:weave_size size int 1 run scoreboard players 
 
 function magic:base_weaves/weave_stun with storage magic:weave_size
 
-function magic:advance_read_index with storage magic:weave_size
+function magic:weave_processing/advance_read_index with storage magic:weave_size
