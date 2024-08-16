@@ -3,6 +3,10 @@ scoreboard players add @a player_id 0
 execute as @p[scores={player_id=0}] run scoreboard players add #next_id player_id 1
 scoreboard players operation @p[scores={player_id=0}] player_id = #next_id player_id
 
+#Entity id
+#We can live with this collision risk
+execute as @e unless score @s entity_id matches 0.. store result score @s entity_id run random value 0..2147483646
+
 #Death detect
 execute as @a[scores={deaths=1..}] run function magic_commons:death
 
