@@ -12,7 +12,7 @@ execute as @e[tag=target_point,tag=actively_held] if score @s weave_locked_playe
 
 #This won't touch reg_2 which could be problematic if it did
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run function magic:stun
-execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run clear @s ender_eye[custom_data={Force:9}] 14
+execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run clear @s ender_eye[custom_data={Magic:9}] 14
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run function magic:remove_force_amount
 
 #Shouldn't matter

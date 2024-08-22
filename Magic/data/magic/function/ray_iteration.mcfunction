@@ -1,7 +1,7 @@
 #TODO this function could be made a lot cleaner
 
 execute as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] run particle minecraft:snowflake ~ ~2 ~ 0 0 0 0 10 normal @a
-execute if score Ray_data reg_3 matches 0 as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] if entity @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Force:8,T_1:1,T_2:1,T_3:2,T_4:2,T_5:3,T_6:3,T_7:4,T_8:4,T_9:5,T_10:5,T_11:5,T_12:5,T_13:4,T_14:4,T_15:3,T_16:3,T_17:2,T_18:2,T_19:1,T_20:1}}}]}] run scoreboard players set Ray_data reg_3 1
+execute if score Ray_data reg_3 matches 0 as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] if entity @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8,T_1:1,T_2:1,T_3:2,T_4:2,T_5:3,T_6:3,T_7:4,T_8:4,T_9:5,T_10:5,T_11:5,T_12:5,T_13:4,T_14:4,T_15:3,T_16:3,T_17:2,T_18:2,T_19:1,T_20:1}}}]}] run scoreboard players set Ray_data reg_3 1
 execute if score Ray_data reg_3 matches 0 unless entity @s[distance=..5] as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] as @e[distance=..2] if score magic_settings magic_balefire_ban matches 1 run function magic:kick
 execute if score Ray_data reg_3 matches 0 unless entity @s[distance=..5] as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] as @e[distance=..2] if score magic_settings magic_balefire_ban matches 2 run function magic:ban
 execute if score Ray_data reg_3 matches 0 unless entity @s[distance=..5] as @s[scores={t_1=5,t_2=5,t_3=3,t_4=5,t_5=5,t_6=3,t_7=5,t_8=5,t_9=0}] as @e[distance=..2] run tp @s ~ ~-200 ~

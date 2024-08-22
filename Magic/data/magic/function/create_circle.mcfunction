@@ -5,7 +5,7 @@ scoreboard players operation @s[tag=circle_owner] circled_owner_id = @s player_i
 
 execute at @s run playsound minecraft:block.anvil.place ambient @s
 
-give @s[tag=circle_owner] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power from circle","italic":false}]'],custom_model_data=1,custom_data={Force:9}] 32
+give @s[tag=circle_owner] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power from circle","italic":false}]'],custom_model_data=1,custom_data={Magic:9}] 32
 
 execute as @s[tag=!circle_owner] run function magic:exit
 
