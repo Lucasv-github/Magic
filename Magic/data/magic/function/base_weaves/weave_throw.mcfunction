@@ -16,4 +16,5 @@ tag @e[type=snowball] remove weave_thrower_temp
 
 function magic:weave_processing/advance_read_index
 
-tag @s add weave_damaged
+tag @s add weave_throw
+#tag @s add weave_damaged

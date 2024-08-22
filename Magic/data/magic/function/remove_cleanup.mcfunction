@@ -19,16 +19,25 @@ execute as @s[tag=gateway_end] run function magic:travel_dismantle
 
 scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 scoreboard players operation Temp reg_2 = @s player_id
+scoreboard players operation Temp reg_3 = @s weave_locked_entity_id
 
 #TODO only if lone
 execute as @s[scores={t_1=1,t_2=1,t_3=1,t_4=0}] as @a[tag=can_use] if score @s player_id = Temp reg_1 run effect clear @s slowness
 
-execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
-execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s progressive_shielded 0
+#Shields
+execute as @s[tag=weave_shield] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
 
-execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
-execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s progressive_shielded 0
+#Bound
+execute as @s[tag=weave_bind] as @e if score @s entity_id = Temp reg_3 run ride @s dismount
 
+#Throw
+execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s weave_locked_entity_id = Temp reg_3 run kill @s
+
+#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
+#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s progressive_shielded 0
+
+#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
+#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s progressive_shielded 0
 
 execute at @s[scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run fill ~5 ~5 ~5 ~-5 ~-5 ~-5 minecraft:air replace minecraft:glass
 
