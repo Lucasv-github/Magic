@@ -37,7 +37,6 @@ tellraw @s[tag=using] ["",{"text":"  ","clickEvent":{"action":"run_command","
 #We can live with this collision risk
 execute store result score @s player_weave_index run random value 0..2147483646
 
-scoreboard players set @s stage 0
 scoreboard players set @s state 0
 
 scoreboard players set @s a 0
@@ -60,29 +59,6 @@ give @s[tag=using,scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_
 give @s[tag=using] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power","italic":false}]'],custom_model_data=1,custom_data={Force:6}] 32
 
 scoreboard players set @s sneak_time 0
-
-
-#Reset weave
-scoreboard players set @s t_1 0
-scoreboard players set @s t_2 0
-scoreboard players set @s t_3 0
-scoreboard players set @s t_4 0
-scoreboard players set @s t_5 0
-scoreboard players set @s t_6 0
-scoreboard players set @s t_7 0
-scoreboard players set @s t_8 0
-scoreboard players set @s t_9 0
-scoreboard players set @s t_10 0
-scoreboard players set @s t_11 0
-scoreboard players set @s t_12 0
-scoreboard players set @s t_13 0
-scoreboard players set @s t_14 0
-scoreboard players set @s t_15 0
-scoreboard players set @s t_16 0
-scoreboard players set @s t_17 0
-scoreboard players set @s t_18 0
-scoreboard players set @s t_19 0
-scoreboard players set @s t_20 0
 
 tag @s[tag=using] add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:console_write_open

@@ -101,7 +101,6 @@ scoreboard objectives add w trigger
 scoreboard objectives add s trigger
 scoreboard objectives add build trigger
 
-
 scoreboard objectives add player_weave_index dummy
 scoreboard objectives add held_player_weave_index dummy
 
@@ -112,27 +111,6 @@ scoreboard objectives add tie_strength trigger
 
 #Track slow down
 scoreboard objectives add slow_down trigger
-
-scoreboard objectives add t_1 dummy
-scoreboard objectives add t_2 dummy
-scoreboard objectives add t_3 dummy
-scoreboard objectives add t_4 dummy
-scoreboard objectives add t_5 dummy
-scoreboard objectives add t_6 dummy
-scoreboard objectives add t_7 dummy
-scoreboard objectives add t_8 dummy
-scoreboard objectives add t_9 dummy
-scoreboard objectives add t_10 dummy
-scoreboard objectives add t_11 dummy
-scoreboard objectives add t_12 dummy
-scoreboard objectives add t_13 dummy
-scoreboard objectives add t_14 dummy
-scoreboard objectives add t_15 dummy
-scoreboard objectives add t_16 dummy
-scoreboard objectives add t_17 dummy
-scoreboard objectives add t_18 dummy
-scoreboard objectives add t_19 dummy
-scoreboard objectives add t_20 dummy
 
 scoreboard objectives add weave_air_count dummy
 scoreboard objectives add weave_earth_count dummy
@@ -145,8 +123,6 @@ scoreboard objectives add weave_spirit_count_1 dummy
 scoreboard objectives add weave_explosion_count dummy
 scoreboard objectives add weave_lightning_count dummy
 scoreboard objectives add weave_cut_count dummy
-
-scoreboard objectives add stage dummy
 
 #Click
 scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
