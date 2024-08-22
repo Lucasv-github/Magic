@@ -1,1 +1,1 @@
-$execute at @s positioned ~ ~1 ~ run fill ~$(size) ~$(size) ~$(size) ~-$(size) ~ ~-$(size) minecraft:fire replace minecraft:air
+$execute at @s positioned ~ ~1 ~ run fill ~$(size) ~$(size) ~$(size) ~-$(size) ~-$(size) ~-$(size) minecraft:fire replace #magic:fireable
