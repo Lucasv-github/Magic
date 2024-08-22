@@ -1,7 +1,10 @@
+#TODO remove holding from name? as this does not require holding
+#add_line currently does exactly the same without swapping bakc
+#Actually to offhand add line?
+
 item replace entity @s weapon.mainhand from entity @s weapon.offhand
 item replace entity @s weapon.offhand with minecraft:air
 
-#TODO need unique at times
 execute store result storage magic:weave_add_element index int 1 run scoreboard players get @s player_weave_index
 
 #-1 for newline
