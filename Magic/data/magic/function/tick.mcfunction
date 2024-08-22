@@ -235,9 +235,7 @@ execute as @e[tag=ray,tag=!begin_throw] at @s unless entity @e[distance=..1, typ
 execute as @e[tag=weave_thrower] run function magic:throw_lock
 
 #Bind
-#Make opening possible while bound
-execute as @e[scores={bound=2..}] unless predicate magic:has_vehicle run scoreboard players add @s sneak_time 1
-execute as @e[scores={bound=2..}] at @s run ride @s mount @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=target_point,scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=0}]
+execute as @e[tag=weave_bind] run function magic:bind_lock
 
 #Unbind
 execute as @e[scores={bound=1}] run ride @s dismount
