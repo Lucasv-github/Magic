@@ -8,3 +8,5 @@ execute store result storage magic:weave_size size int 1 run scoreboard players 
 function magic:base_weaves/weave_fireball with storage magic:weave_size
 
 function magic:weave_processing/advance_read_index
+
+tag @s add weave_damaged
