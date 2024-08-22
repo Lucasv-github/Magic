@@ -3,6 +3,7 @@
 tag @s add using
 
 scoreboard players set @s angreal_level 1
+scoreboard players set @s weave_length 0
 
 #Prevent dual items when opening first time
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode

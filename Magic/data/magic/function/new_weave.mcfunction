@@ -4,6 +4,8 @@ scoreboard players set @s[tag=built] state 0
 #We can live with this collision risk
 execute store result score @s player_weave_index run random value 0..2147483646
 
+scoreboard players set @s weave_length 0
+
 tag @s remove built
 tag @s remove active
 

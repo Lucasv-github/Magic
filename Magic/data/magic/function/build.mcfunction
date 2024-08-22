@@ -14,6 +14,8 @@ scoreboard players set @s f 0
 scoreboard players set @s w 0
 scoreboard players set @s s 0
 
+scoreboard players add @s weave_length 1
+
 #TODO need unique at times
 execute store result storage magic:weave_add_element index int 1 run scoreboard players get @s player_weave_index
 function magic:weave_add_element with storage magic:weave_add_element
@@ -32,14 +34,11 @@ execute as @s unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"
 
 function magic:calculate_distance
 
-execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
-function magic:get_weave_length with storage magic:get_weave_length
-
-execute as @s[scores={reg_1=1, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"Temp","objective":"reg_1"}},{"text":" \uE000","color":"white"}]
-execute as @s[scores={reg_1=2, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"Temp","objective":"reg_1"}},{"text":" \uE001","color":"white"}]
-execute as @s[scores={reg_1=3, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"Temp","objective":"reg_1"}},{"text":": \uE002","color":"white"}]
-execute as @s[scores={reg_1=4, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"Temp","objective":"reg_1"}},{"text":" \uE003","color":"white"}]
-execute as @s[scores={reg_1=5, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"Temp","objective":"reg_1"}},{"text":" \uE004","color":"white"}]
+execute as @s[scores={reg_1=1, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" \uE000","color":"white"}]
+execute as @s[scores={reg_1=2, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" \uE001","color":"white"}]
+execute as @s[scores={reg_1=3, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" \uE002","color":"white"}]
+execute as @s[scores={reg_1=4, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" \uE003","color":"white"}]
+execute as @s[scores={reg_1=5, invert=0}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" \uE004","color":"white"}]
 
 
 tellraw @s ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" ↑ ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}}]
