@@ -5,4 +5,4 @@ execute as @e[tag=target_point,tag=tied_off, scores={weave_remaining_time=1..}] 
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 execute if score Temp reg_2 matches 1.. run scoreboard players operation @s reg_1 -= Temp reg_2
 
-tellraw @a {"score":{"name":"@s","objective":"reg_1"}}
+#tellraw @a {"score":{"name":"@s","objective":"reg_1"}}
