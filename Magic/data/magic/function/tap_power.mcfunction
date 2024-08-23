@@ -50,8 +50,8 @@ scoreboard players set Temp reg_2 0
 function magic:shielded_strength_get
 
 #Todo obviously allow opening with weak in the future
-execute as @s[tag=opening] unless score @s halve_amount_hold = @s reg_1 run damage @s 1
-execute as @s[tag=opening] unless score @s halve_amount_hold = @s reg_1 run function magic:exit
+execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run damage @s 1
+execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:exit
 
 scoreboard players operation Temp reg_1 = @s reg_1 
 
