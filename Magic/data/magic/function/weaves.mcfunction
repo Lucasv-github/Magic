@@ -68,6 +68,15 @@ scoreboard players operation @s weave_fire_count -= @s weave_lightning_count
 scoreboard players operation @s weave_air_count -= @s weave_lightning_count
 
 
+#Ice
+scoreboard players set Temp reg_1 3
+scoreboard players set Temp reg_2 4
+function magic:weave_processing/count_weave_double
+scoreboard players operation @s weave_ice_count = @s reg_1
+
+scoreboard players operation @s weave_fire_count -= @s weave_ice_count
+scoreboard players operation @s weave_water_count -= @s weave_ice_count
+
 #Cutting
 scoreboard players set Temp reg_1 5
 scoreboard players set Temp reg_2 3
@@ -128,6 +137,9 @@ execute at @s[scores={weave_lightning_count=1..}] run function magic:base_weaves
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_cut_count
 execute at @s[scores={weave_cut_count=1..}] run function magic:base_weaves/weave_cut with storage magic:weave_size
 
+#Ice
+execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_ice_count
+execute at @s[scores={weave_ice_count=1..}] run function magic:base_weaves/weave_ice with storage magic:weave_size
 #Fireball
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=2,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_fireball_pre
 

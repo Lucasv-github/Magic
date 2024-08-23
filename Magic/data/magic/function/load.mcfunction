@@ -125,6 +125,7 @@ scoreboard objectives add weave_spirit_count_1 dummy
 scoreboard objectives add weave_explosion_count dummy
 scoreboard objectives add weave_lightning_count dummy
 scoreboard objectives add weave_cut_count dummy
+scoreboard objectives add weave_ice_count dummy
 
 #Click
 scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
