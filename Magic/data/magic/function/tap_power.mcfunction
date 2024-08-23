@@ -42,5 +42,28 @@ scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 8 reg_1
 execute if score @s current_held > @s reg_1 run scoreboard players operation @s doomed = @s current_held
 execute if score @s current_held > @s reg_1 run function magic:exit
+
+#Shield handling
+scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players set Temp reg_2 0
+
+function magic:shielded_strength_get
+
+#Todo obviously allow opening with weak in the future
+execute as @s[tag=opening] unless score @s halve_amount_hold = @s reg_1 run damage @s 1
+execute as @s[tag=opening] unless score @s halve_amount_hold = @s reg_1 run function magic:exit
+
+scoreboard players operation Temp reg_1 = @s reg_1 
+
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 = @s current_held
+
+#TODO shield tellraw and such
+
+#TODO should drain more for each armorstand placed
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 /= 10 reg_1
+
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s current_held -= @s reg_1
+
+#execute if score Temp reg_1 matches ..-1 run function magic:exit
  
 

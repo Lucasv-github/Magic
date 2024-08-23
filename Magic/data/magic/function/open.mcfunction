@@ -1,6 +1,7 @@
 #Called once one open the power
 
 tag @s add using
+tag @s add opening
 
 scoreboard players set @s angreal_level 1
 scoreboard players set @s weave_length 0
@@ -60,6 +61,8 @@ give @s[tag=using,scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_
 give @s[tag=using] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power","italic":false}]'],custom_model_data=1,custom_data={Magic:6}] 32
 
 scoreboard players set @s sneak_time 0
+
+tag @s remove opening
 
 tag @s[tag=using] add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:console_write_open

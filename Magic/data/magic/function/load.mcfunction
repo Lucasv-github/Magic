@@ -46,12 +46,13 @@ scoreboard objectives add regenerated_strength dummy
 #Won't be used on player, but instead on weave
 scoreboard objectives add current_strength dummy
 
-scoreboard objectives add progressive_shielded dummy
-scoreboard objectives add progressive_shield_current dummy
-scoreboard objectives add shield_active_amount dummy
-scoreboard objectives add shield_active_time dummy
-scoreboard objectives add sever_active_amount dummy
-scoreboard objectives add sever_active_time dummy
+scoreboard objectives add shield_lower_amount dummy
+#scoreboard objectives add progressive_shielded dummy
+#scoreboard objectives add progressive_shield_current dummy
+#scoreboard objectives add shield_active_amount dummy
+#scoreboard objectives add shield_active_time dummy
+#scoreboard objectives add sever_active_amount dummy
+#scoreboard objectives add sever_active_time dummy
 
 scoreboard objectives add finder_owner_id dummy
 scoreboard objectives add finder_time dummy
