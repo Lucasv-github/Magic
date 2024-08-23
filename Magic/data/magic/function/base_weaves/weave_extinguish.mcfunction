@@ -1,0 +1,1 @@
+$execute at @s positioned ~ ~1 ~ run fill ~$(size) ~$(size) ~$(size) ~-$(size) ~-$(size) ~-$(size) minecraft:air replace minecraft:fire
