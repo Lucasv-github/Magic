@@ -161,6 +161,17 @@ scoreboard players remove Temp reg_1 1
 execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
 execute at @s[scores={weave_extinguish_count=1..}] run function magic:base_weaves/weave_extinguish with storage magic:weave_size
 
+#Healing
+scoreboard players set Temp reg_1 1
+scoreboard players set Temp reg_2 5
+scoreboard players set Temp reg_3 4
+function magic:weave_processing/count_weave_tripple
+scoreboard players operation @s weave_heal_count = @s reg_1
+
+scoreboard players operation @s weave_air_count -= @s weave_heal_count
+scoreboard players operation @s weave_spirit_count -= @s weave_heal_count
+scoreboard players operation @s weave_water_count -= @s weave_heal_count
+
 #Fireball
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=2,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_fireball_pre
 
