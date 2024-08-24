@@ -1,1 +1,0 @@
-$execute at @s positioned ~ ~ ~ run fill ~$(size) ~$(size) ~$(size) ~-$(size) ~ ~-$(size) minecraft:air replace #magic:balefire_destroyable
