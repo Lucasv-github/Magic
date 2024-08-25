@@ -71,13 +71,17 @@ execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilde
 #Opening
 execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:open
 
-#Sneak reset
-execute as @a[scores={sneak_time=1..,bound=0}] unless predicate magic:is_sneaking run scoreboard players set @s sneak_time 0
+#Throw
+execute as @e[tag=weave_thrower] run function magic:throw_lock
 
+#Bind
+execute as @e[tag=weave_bind] run function magic:bind_lock
+
+#Sneak reset expect when riding (need to be below Throw, Bind...)
+execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless data entity @s RootVehicle run scoreboard players set @s sneak_time 0
 
 #Death detect
 execute as @a[scores={death_detect=1..}] run function magic:death
-
 
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:exit
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:exit
@@ -236,16 +240,6 @@ execute as @e[tag=ray] run function magic:along_execute
 
 #Check for legacy target hits. Throws should also not consume here
 execute as @e[tag=ray,tag=!begin_throw] at @s unless entity @e[distance=..1, type=minecraft:snowball,tag=hit_ray_done] run function magic:landed
-
-#Throw
-execute as @e[tag=weave_thrower] run function magic:throw_lock
-
-#Bind
-execute as @e[tag=weave_bind] run function magic:bind_lock
-
-#Unbind
-execute as @e[scores={bound=1}] run ride @s dismount
-scoreboard players set @e[scores={bound=1}] bound 0
 
 #Handle destroyed
 execute as @e[tag=target_point,tag=weave_lapsed,tag=weave_damaged] run function magic:remove_weave
