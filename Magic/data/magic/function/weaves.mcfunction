@@ -57,7 +57,6 @@ scoreboard players operation @s weave_explosion_count = @s reg_1
 scoreboard players operation @s weave_earth_count -= @s weave_explosion_count
 scoreboard players operation @s weave_fire_count -= @s weave_explosion_count
 
-
 #Lightning
 scoreboard players set Temp reg_1 3
 scoreboard players set Temp reg_2 1
@@ -98,9 +97,20 @@ scoreboard players operation @s weave_spirit_count -= @s weave_cut_count
 scoreboard players operation @s weave_fire_count -= @s weave_cut_count
 scoreboard players operation @s weave_earth_count -= @s weave_cut_count
 
+#Healing
+scoreboard players set Temp reg_1 1
+scoreboard players set Temp reg_2 5
+scoreboard players set Temp reg_3 4
+function magic:weave_processing/count_weave_tripple
+scoreboard players operation @s weave_heal_count = @s reg_1
+
+scoreboard players operation @s weave_air_count -= @s weave_heal_count
+scoreboard players operation @s weave_spirit_count -= @s weave_heal_count
+scoreboard players operation @s weave_water_count -= @s weave_heal_count
 
 #Needs to be below all primary detections
 function magic:weave_processing/advance_read_index
+
 
 #Secondary detection
 scoreboard players set @s weave_fire_count_1 0
@@ -162,15 +172,9 @@ execute store result storage magic:weave_size size int 1 run scoreboard players 
 execute at @s[scores={weave_extinguish_count=1..}] run function magic:base_weaves/weave_extinguish with storage magic:weave_size
 
 #Healing
-scoreboard players set Temp reg_1 1
-scoreboard players set Temp reg_2 5
-scoreboard players set Temp reg_3 4
-function magic:weave_processing/count_weave_tripple
-scoreboard players operation @s weave_heal_count = @s reg_1
-
-scoreboard players operation @s weave_air_count -= @s weave_heal_count
-scoreboard players operation @s weave_spirit_count -= @s weave_heal_count
-scoreboard players operation @s weave_water_count -= @s weave_heal_count
+scoreboard players operation Temp reg_1 = @s weave_heal_count
+execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
+execute at @s[scores={weave_heal_count=1..}] run function magic:base_weaves/weave_heal with storage magic:weave_size
 
 #Fireball
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=2,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_fireball_pre
