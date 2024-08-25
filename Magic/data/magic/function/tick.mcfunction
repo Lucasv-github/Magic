@@ -248,6 +248,9 @@ tag @e[tag=target_point,tag=weave_lapsed] remove weave_damaged
 #Remove signs
 execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]
 
+#Prevent unhandled clicks (spam with single weave) from registering as something else
+scoreboard players set @a click 0
+
 scoreboard players add Temp tick_counter 1
 
 execute if score Temp tick_counter matches 6 run function magic:fourth_sec
