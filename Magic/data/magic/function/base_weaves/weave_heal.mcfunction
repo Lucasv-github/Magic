@@ -18,7 +18,7 @@ execute unless entity @a[tag=heal_me,distance=..5] run tag @a remove heal_me
 
 $effect give @e[tag=heal_me] minecraft:regeneration $(size) 2
 $effect give @e[tag=heal_me,tag=!using] minecraft:hunger 1 $(size)
-$damage @e[tag=heal_me,limit=1] $(size) minecraft:freeze
+$damage @e[tag=heal_me,limit=1] 0.01 minecraft:freeze
 
 scoreboard players operation Remove_force reg_1 = @a[tag=heal_me,tag=using,tag=can_use,limit=1] halve_amount_hold
 scoreboard players operation Remove_force reg_1 /= 10 reg_1
