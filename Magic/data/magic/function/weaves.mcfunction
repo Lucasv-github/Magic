@@ -212,5 +212,8 @@ execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s w
 #Masking ability
 execute as @s[scores={weave_read_index=1..,weave_spirit_count=9,weave_spirit_count_1=10}] run function magic:base_weaves/weave_mask_ability
 
+#Inverting
+execute as @s[scores={weave_read_index=1..,weave_spirit_count=5,weave_spirit_count_1=4}] run function magic:base_weaves/weave_invert
+
 #Using @e if by some chance we get more than 1 (server stop?)
 tag @e remove current_target
