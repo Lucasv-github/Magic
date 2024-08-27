@@ -209,5 +209,8 @@ execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s 
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 run function magic:base_weaves/weave_resistance with storage magic:weave_size
 
+#Masking ability
+execute as @s[scores={weave_read_index=1..,weave_spirit_count=9,weave_spirit_count_1=10}] run function magic:base_weaves/weave_mask_ability
+
 #Using @e if by some chance we get more than 1 (server stop?)
 tag @e remove current_target
