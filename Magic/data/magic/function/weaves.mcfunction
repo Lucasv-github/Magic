@@ -10,9 +10,6 @@ function magic:calculate_distance
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @s[tag=inverted] as @a[tag=truly_see] unless score @s player_id = Temp reg_1 run tag @s remove truly_see
 
-#TODO will need rewrite
-function magic:display_composition
-
 function magic:print_weave_composition
 
 #Weaves directed at a person will be locked directly when it land and can be accesed with weave_locked_player_id
