@@ -12,14 +12,6 @@ execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_p
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_weave_index = Temp reg_2
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players set @s weave_read_index 0
 
-#Wards
-scoreboard players operation Temp reg_1 = @s player_id
-execute as @e[distance=..10,tag=tied_off,scores={weave_remaining_time=1..,t_1=5,t_2=1,t_3=5,t_4=1,t_5=5,t_6=0}] if score @s player_id = Temp reg_1 run tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] add ward_connected
-execute as @e[distance=..10,tag=tied_off,scores={weave_remaining_time=1..,t_1=5,t_2=1,t_3=2,t_4=1,t_5=5,t_6=0}] if score @s player_id = Temp reg_1 run tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] add ward_connected
-
-#Disguise
-execute as @a[tag=using,tag=can_use,scores={invert=1..}] if score @s player_id = @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] player_id run tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] add inverted
-
 scoreboard players operation Temp_1 reg_1 = @s player_id
 
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] at @s[tag=!inverted] run particle minecraft:glow ~ ~2 ~ 0 0 0 0 10 normal @a[tag=can_see]
@@ -52,14 +44,6 @@ execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_p
 
 #Run weave when landed
 #execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
-
-
-#Cutting bypass
-#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] run tag @s remove ward_connected
-#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] run tag @s remove ward_connected
-
-#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=5,t_2=3,t_3=2,t_4=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
-#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] if entity @s[scores={t_1=1,t_2=3,t_3=0}] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
 
 tag @e[tag=target_point,type=armor_stand] remove temp_target_point
 

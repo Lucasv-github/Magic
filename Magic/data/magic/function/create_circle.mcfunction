@@ -1,4 +1,4 @@
-execute at @s if entity @a[distance=1..,scores={sneak_time=100..},sort=nearest] run tag @s add circle_owner
+execute at @s if entity @a[distance=1..10,scores={sneak_time=100..},sort=nearest] run tag @s add circle_owner
 
 #Needed it owner uses /function/tap_power_circle_member.mcfunction
 scoreboard players operation @s[tag=circle_owner] circled_owner_id = @s player_id
@@ -9,4 +9,4 @@ give @s[tag=circle_owner] minecraft:ender_eye[enchantment_glint_override=1b,cust
 
 execute as @s[tag=!circle_owner] run function magic:exit
 
-execute at @s as @a[distance=1..,scores={sneak_time=100..},limit=1,sort=nearest] run function magic:enter_circle
+execute at @s as @a[distance=1..10,scores={sneak_time=100..},limit=1,sort=nearest] run function magic:enter_circle
