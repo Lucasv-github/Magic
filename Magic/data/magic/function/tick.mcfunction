@@ -120,10 +120,6 @@ scoreboard players enable @a[tag=can_use] w
 scoreboard players enable @a[tag=can_use] s
 scoreboard players enable @a[tag=can_use] state
 
-scoreboard players enable @a[tag=can_use] destination
-scoreboard players enable @a[tag=can_use] destination_x
-scoreboard players enable @a[tag=can_use] destination_y
-scoreboard players enable @a[tag=can_use] destination_z
 scoreboard players enable @a[tag=can_use] build
 scoreboard players enable @a[tag=can_use] slow_down
 scoreboard players enable @a[tag=can_use] tie_strength

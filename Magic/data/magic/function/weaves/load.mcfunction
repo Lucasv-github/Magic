@@ -46,13 +46,12 @@ scoreboard objectives add regenerated_strength dummy
 #Won't be used on player, but instead on weave
 scoreboard objectives add current_strength dummy
 
-scoreboard objectives add shield_lower_amount dummy
-#scoreboard objectives add progressive_shielded dummy
-#scoreboard objectives add progressive_shield_current dummy
-#scoreboard objectives add shield_active_amount dummy
-#scoreboard objectives add shield_active_time dummy
-#scoreboard objectives add sever_active_amount dummy
-#scoreboard objectives add sever_active_time dummy
+scoreboard objectives add progressive_shielded dummy
+scoreboard objectives add progressive_shield_current dummy
+scoreboard objectives add shield_active_amount dummy
+scoreboard objectives add shield_active_time dummy
+scoreboard objectives add sever_active_amount dummy
+scoreboard objectives add sever_active_time dummy
 
 scoreboard objectives add finder_owner_id dummy
 scoreboard objectives add finder_time dummy
@@ -78,6 +77,8 @@ scoreboard objectives add reg_3 dummy
 scoreboard objectives add reg_4 dummy
 scoreboard objectives add reg_5 dummy
 
+scoreboard objectives add destination trigger
+
 scoreboard objectives add destination_x trigger
 scoreboard objectives add destination_y trigger
 scoreboard objectives add destination_z trigger
@@ -100,17 +101,38 @@ scoreboard objectives add w trigger
 scoreboard objectives add s trigger
 scoreboard objectives add build trigger
 
+
 scoreboard objectives add player_weave_index dummy
 scoreboard objectives add held_player_weave_index dummy
 
 scoreboard objectives add state trigger
-scoreboard objectives add weave_length dummy
 
 #Tie off strength
 scoreboard objectives add tie_strength trigger
 
 #Track slow down
 scoreboard objectives add slow_down trigger
+
+scoreboard objectives add t_1 dummy
+scoreboard objectives add t_2 dummy
+scoreboard objectives add t_3 dummy
+scoreboard objectives add t_4 dummy
+scoreboard objectives add t_5 dummy
+scoreboard objectives add t_6 dummy
+scoreboard objectives add t_7 dummy
+scoreboard objectives add t_8 dummy
+scoreboard objectives add t_9 dummy
+scoreboard objectives add t_10 dummy
+scoreboard objectives add t_11 dummy
+scoreboard objectives add t_12 dummy
+scoreboard objectives add t_13 dummy
+scoreboard objectives add t_14 dummy
+scoreboard objectives add t_15 dummy
+scoreboard objectives add t_16 dummy
+scoreboard objectives add t_17 dummy
+scoreboard objectives add t_18 dummy
+scoreboard objectives add t_19 dummy
+scoreboard objectives add t_20 dummy
 
 scoreboard objectives add weave_air_count dummy
 scoreboard objectives add weave_earth_count dummy
@@ -123,9 +145,9 @@ scoreboard objectives add weave_spirit_count_1 dummy
 scoreboard objectives add weave_explosion_count dummy
 scoreboard objectives add weave_lightning_count dummy
 scoreboard objectives add weave_cut_count dummy
-scoreboard objectives add weave_ice_count dummy
-scoreboard objectives add weave_extinguish_count dummy
 scoreboard objectives add weave_heal_count dummy
+
+scoreboard objectives add stage dummy
 
 #Click
 scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
@@ -145,7 +167,7 @@ scoreboard objectives add leave_detect minecraft.custom:minecraft.leave_game
 #Death detect
 scoreboard objectives add death_detect deathCount
 
-scoreboard players set -1 reg_1 -1
+
 scoreboard players set 0 reg_1 0
 scoreboard players set 1 reg_1 1
 scoreboard players set 2 reg_1 2
