@@ -33,6 +33,6 @@ scoreboard players operation @s weave_despawn_time = @s reg_1
 tag @s add current_weave
 
 #If current_held is 0 player has dropped (current held gets reset to zero because no player will be found to se t that from if the player drops)
-execute as @s[tag=!ward_connected] if score @s current_held matches 1.. run function magic:weaves
+execute if score @s current_held matches 1.. run function magic:weaves
 
 tag @s remove current_weave
