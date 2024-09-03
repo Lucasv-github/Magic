@@ -125,6 +125,7 @@ scoreboard objectives add weave_lightning_count dummy
 scoreboard objectives add weave_cut_count dummy
 scoreboard objectives add weave_ice_count dummy
 scoreboard objectives add weave_extinguish_count dummy
+scoreboard objectives add weave_dry_count dummy
 scoreboard objectives add weave_heal_count dummy
 
 #Click

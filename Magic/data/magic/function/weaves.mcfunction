@@ -63,7 +63,6 @@ scoreboard players operation @s weave_lightning_count = @s reg_1
 scoreboard players operation @s weave_fire_count -= @s weave_lightning_count
 scoreboard players operation @s weave_air_count -= @s weave_lightning_count
 
-
 #Ice
 scoreboard players set Temp reg_1 3
 scoreboard players set Temp reg_2 4
@@ -82,6 +81,19 @@ scoreboard players operation @s weave_extinguish_count = @s reg_1
 
 scoreboard players operation @s weave_air_count -= @s weave_extinguish_count
 scoreboard players operation @s weave_water_count -= @s weave_extinguish_count
+
+#Dry
+scoreboard players set Temp reg_1 3
+scoreboard players set Temp reg_2 3
+scoreboard players set Temp reg_3 4
+function magic:weave_processing/count_weave_tripple
+scoreboard players operation @s weave_dry_count = @s reg_1
+
+scoreboard players operation @s weave_fire_count -= @s weave_dry_count
+scoreboard players operation @s weave_fire_count -= @s weave_dry_count
+scoreboard players operation @s weave_water_count -= @s weave_dry_count
+
+scoreboard players operation @s weave_ice_count -= @s weave_dry_count
 
 #Cutting
 scoreboard players set Temp reg_1 5
@@ -167,6 +179,13 @@ function magic:math/square_root
 scoreboard players remove Temp reg_1 1
 execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
 execute at @s[scores={weave_extinguish_count=1..}] run function magic:base_weaves/weave_extinguish with storage magic:weave_size
+
+#Dry
+scoreboard players operation Temp reg_1 = @s weave_dry_count
+function magic:math/square_root
+scoreboard players remove Temp reg_1 1
+execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
+execute at @s[scores={weave_dry_count=1..}] run function magic:base_weaves/weave_dry with storage magic:weave_size
 
 #Healing
 scoreboard players operation Temp reg_1 = @s weave_heal_count
