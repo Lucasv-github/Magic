@@ -53,17 +53,25 @@ function magic:shielded_strength_get
 execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run damage @s 1
 execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:power_handling/exit
 
-scoreboard players operation Temp reg_1 = @s reg_1 
-
-execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 = @s current_held
+#Get shielded strength
+scoreboard players operation Temp reg_1 = @s reg_1
 
 #TODO shield tellraw and such
 
 #TODO should drain more for each armorstand placed
-execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 /= 10 reg_1
+#TODO also based on strength difference
 
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 = @s current_held
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 /= 10 reg_1
 execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s current_held -= @s reg_1
 
-#execute if score Temp reg_1 matches ..-1 run function magic:power_handling/exit
+#Low cutout
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold run scoreboard players operation @s reg_2 = @s cumulative_halve_amount_hold
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold run scoreboard players operation @s reg_2 /= 10 reg_1
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held < @s reg_2 run function magic:exit
+
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held < @s reg_2 run function magic:power_handling/exit
+
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held < @s reg_2 run function magic:tell_shielders
  
 
