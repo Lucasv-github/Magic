@@ -37,8 +37,6 @@ scoreboard players enable @a[tag=admin] magic_balefire_ban
 scoreboard players enable @a[tag=admin] set_halve_hold
 scoreboard players enable @a[tag=admin] set_regenerated
 
-execute as @a[tag=using,tag=can_use,scores={current_held=1..}] run function magic:actionbar_display
-
 #Reset halve if not in circle/angrealed/progressive shielded
 execute as @a[tag=can_use,tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0}] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
 
