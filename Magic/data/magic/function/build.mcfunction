@@ -51,6 +51,6 @@ function magic:give_current_weave
 
 scoreboard players remove @s current_held 10
 #Lost hold of it
-execute as @s[scores={current_held=..0}] run function magic:exit
+execute as @s[scores={current_held=..0}] run function magic:power_handling/exit
 
 scoreboard players set @s click 0

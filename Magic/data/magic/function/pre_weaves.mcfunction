@@ -12,7 +12,7 @@ execute as @s[tag=!weave_run_yet] run scoreboard players operation Remove_force 
 
 tag @s add weave_run_yet
 
-execute as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run function magic:remove_force_amount
+execute as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run function magic:power_handling/remove_force_amount
 
 #Then update current held
 #Reset in case non found (in case of exit)

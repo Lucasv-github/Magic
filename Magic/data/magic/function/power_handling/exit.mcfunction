@@ -2,8 +2,8 @@ tag @s add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:console_write_exit
 tag @s remove current_player_for_log
 
-execute as @s[tag=circle_owner] run function magic:remove_circle
-execute as @s[tag=angrealed] run function magic:remove_angreal
+execute as @s[tag=circle_owner] run function magic:power_handling/remove_circle
+execute as @s[tag=angrealed] run function magic:power_handling/remove_angreal
 
 tag @s remove using
 scoreboard players set @s current_held 0

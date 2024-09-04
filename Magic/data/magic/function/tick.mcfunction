@@ -1,5 +1,5 @@
-execute as @a[tag=can_use] run function magic:check_tap_block
-execute as @a[tag=stilled] run function magic:check_tap_block
+execute as @a[tag=can_use] run function magic:power_handling/check_tap_block
+execute as @a[tag=stilled] run function magic:power_handling/check_tap_block
 
 tag @a[tag=!using,tag=next_sever] remove can_use
 tag @a[tag=!using,tag=next_sever] remove next_sever
@@ -67,7 +67,7 @@ execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilde
 execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 
 #Opening
-execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:open
+execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:power_handling/open
 
 #Throw
 execute as @e[tag=weave_thrower] run function magic:throw_lock
@@ -81,12 +81,12 @@ execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless
 #Death detect
 execute as @a[scores={death_detect=1..}] run function magic:death
 
-execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:exit
-execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:exit
-execute as @a[tag=using, scores={shilded=1..}] run function magic:exit
+execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/exit
+execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/exit
+execute as @a[tag=using, scores={shilded=1..}] run function magic:power_handling/exit
 
 #Part of force in offhand: invite to circle
-execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:invite_to_circle
+execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/invite_to_circle
 
 #Force in offhand: toggle between hotbar mode
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:toggle_hotbarmode
@@ -95,13 +95,13 @@ execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,i
 
 
 #Circle power in offhand while circled: Pass circle
-execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:pass_circle
+execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/pass_circle
 
 #Only way to exit is via dropping the power, this allows for free offhand
-#execute as @a[tag=can_use, tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:exit
+#execute as @a[tag=can_use, tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:power_handling/exit
 
-execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Magic:6}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw
-execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Magic:9}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:increase_periodic_draw_circle
+execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Magic:6}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:power_handling/increase_periodic_draw
+execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Magic:9}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:power_handling/increase_periodic_draw_circle
 
 #Target
 #execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:7}}}}] at @s run function magic:new_ray
@@ -179,15 +179,15 @@ execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{
 #coreboard players set @a reg_1 0
 execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
 execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run tag @s add angrealed_held
-execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:enter_angreal
+execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:power_handling/enter_angreal
 
-execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_owner,tag=angrealed,tag=angrealed_held] run function magic:remove_angreal
+execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_owner,tag=angrealed,tag=angrealed_held] run function magic:power_handling/remove_angreal
 
 #Pick up
 execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circle_owner] run function magic:pick_up
 
 #Circle, do not remove tag=!using
-execute as @a[tag=can_use, scores={state=10,shilded=0,progressive_shielded=0}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:enter_circle
+execute as @a[tag=can_use, scores={state=10,shilded=0,progressive_shielded=0}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:power_handling/enter_circle
 
 execute as @a[tag=can_use, scores={state=20}, tag=using] run function magic:shield_active_responde
 execute as @a[tag=can_use, scores={state=30}, tag=using] run function magic:sever_active_responde
@@ -218,7 +218,7 @@ execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run scoreboard players set @s doomed 0
 
 #Sheild active success (to shield)
-execute as @a[tag=using,tag=can_use,scores={shield_active_time=1}] run function magic:exit
+execute as @a[tag=using,tag=can_use,scores={shield_active_time=1}] run function magic:power_handling/exit
 execute as @a[tag=can_use,scores={shield_active_time=1}] run scoreboard players set @s shield_active_time 0
 
 #Sever active success (to sever)

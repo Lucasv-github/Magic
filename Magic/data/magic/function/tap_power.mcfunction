@@ -9,9 +9,9 @@ execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run score
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 /= 100 reg_1
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s regenerated_strength -= @s reg_1
 
-execute as @s[tag=using,tag=can_use,tag=tap_blocked] run function magic:exit
-execute as @s[tag=using,tag=can_use,scores={regenerated_strength=..0}] run function magic:exit
-execute as @s[tag=using,tag=can_use,scores={shilded=1..}] run function magic:exit
+execute as @s[tag=using,tag=can_use,tag=tap_blocked] run function magic:power_handling/exit
+execute as @s[tag=using,tag=can_use,scores={regenerated_strength=..0}] run function magic:power_handling/exit
+execute as @s[tag=using,tag=can_use,scores={shilded=1..}] run function magic:power_handling/exit
 
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 /= 2 reg_1
@@ -41,7 +41,7 @@ execute if score @s current_held > @s reg_1 run tag @s add next_sever
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 8 reg_1
 execute if score @s current_held > @s reg_1 run scoreboard players operation @s doomed = @s current_held
-execute if score @s current_held > @s reg_1 run function magic:exit
+execute if score @s current_held > @s reg_1 run function magic:power_handling/exit
 
 #Shield handling
 scoreboard players operation Temp reg_1 = @s player_id
@@ -51,7 +51,7 @@ function magic:shielded_strength_get
 
 #Todo obviously allow opening with weak in the future
 execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run damage @s 1
-execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:exit
+execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:power_handling/exit
 
 scoreboard players operation Temp reg_1 = @s reg_1 
 
@@ -64,6 +64,6 @@ execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s cu
 
 execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s current_held -= @s reg_1
 
-#execute if score Temp reg_1 matches ..-1 run function magic:exit
+#execute if score Temp reg_1 matches ..-1 run function magic:power_handling/exit
  
 

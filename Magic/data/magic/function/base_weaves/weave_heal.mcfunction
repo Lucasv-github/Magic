@@ -24,6 +24,6 @@ scoreboard players operation Remove_force reg_1 = @a[tag=heal_me,tag=using,tag=c
 scoreboard players operation Remove_force reg_1 /= 10 reg_1
 $scoreboard players add Remove_force reg_1 $(size)
 
-execute as @a[tag=heal_me,tag=using,tag=can_use] run function magic:remove_force_amount
+execute as @a[tag=heal_me,tag=using,tag=can_use] run function magic:power_handling/remove_force_amount
 
 tag @a remove heal_me

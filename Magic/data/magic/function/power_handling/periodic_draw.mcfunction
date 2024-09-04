@@ -17,7 +17,7 @@ execute as @s[scores={reg_1=..-1}] as @a[tag=can_use,tag=circled] if score @s ci
 
 #Increase
 execute as @s[scores={reg_1=1..}] run scoreboard players operation Draw_force reg_1 = @s reg_1
-execute as @s[scores={reg_1=1..}] run function magic:draw_multiple
+execute as @s[scores={reg_1=1..}] run function magic:power_handling/draw_multiple
 
 #Decrease (+&-=-)
 scoreboard players operation @s reg_1 *= 10 reg_1
@@ -53,6 +53,6 @@ scoreboard players operation @s reg_1 += @s cumulative_halve_amount_hold
 execute as @s[tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0,halve_amount_hold=10..}] if score @s current_held > @s reg_1 run clear @s minecraft:ender_eye 12
 
 #Lost hold of it
-execute as @s[scores={current_held=..0}] run function magic:exit
+execute as @s[scores={current_held=..0}] run function magic:power_handling/exit
 
 #tellraw @a {"score":{"name":"@s","objective":"reg_1"}}

@@ -9,4 +9,4 @@ give @s[tag=circle_owner] minecraft:ender_eye[enchantment_glint_override=1b,cust
 
 execute as @s[tag=!circle_owner] run function magic:exit
 
-execute at @s as @a[distance=1..10,scores={sneak_time=100..},limit=1,sort=nearest] run function magic:enter_circle
+execute at @s as @a[distance=1..10,scores={sneak_time=100..},limit=1,sort=nearest] run function magic:power_handling/enter_circle

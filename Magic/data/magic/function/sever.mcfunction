@@ -1,4 +1,4 @@
-function magic:exit
+function magic:power_handling/exit
 
 effect give @s nausea 600
 effect give @s poison 600

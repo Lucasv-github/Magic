@@ -17,7 +17,7 @@ execute as @a[tag=to_be_circle_owner] run function magic:drop_current_hotbar
 #We want to load it, so that we can store it again
 execute as @a[tag=to_be_circle_owner] run function magic:load_hotbar
 
-execute as @a[tag=to_be_circle_owner] run function magic:open
+execute as @a[tag=to_be_circle_owner] run function magic:power_handling/open
 give @a[tag=to_be_circle_owner] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power from circle","italic":false}]'],custom_model_data=1,custom_data={Magic:9}] 32
 
 scoreboard players operation @a[tag=to_be_circle_owner] cumulative_halve_amount_hold = @s cumulative_halve_amount_hold
@@ -27,7 +27,7 @@ tag @a[tag=to_be_circle_owner] remove circled
 tag @a[tag=to_be_circle_owner] add circle_owner
 
 #And we do not call exit, as that will give back any item that might currently be preserved. Instead we just clear every magic item
-#execute if entity @a[tag=to_be_circle_owner] run function magic:exit
+#execute if entity @a[tag=to_be_circle_owner] run function magic:power_handling/exit
 
 execute if entity @a[tag=to_be_circle_owner] run function magic:clear_magic_items
 

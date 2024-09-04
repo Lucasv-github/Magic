@@ -27,4 +27,4 @@ scoreboard players add @s reg_2 1
 
 execute if score @s reg_1 matches ..64 if score Draw_force reg_1 > @s reg_2 run scoreboard players operation Draw_force reg_1 = @s reg_2
 
-function magic:draw_ten
+function magic:power_handling/draw_ten

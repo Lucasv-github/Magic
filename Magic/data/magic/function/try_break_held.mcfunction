@@ -58,7 +58,7 @@ execute as @e[type=armor_stand,tag=target_point, tag=actively_held,scores={t_1=5
 #Enemy
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run effect give @s minecraft:nausea 5
 scoreboard players operation Remove_force reg_1 *= 10 reg_1
-execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run function magic:remove_force_amount
+execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run function magic:power_handling/remove_force_amount
 
 #Self
 damage @s 1 minecraft:magic

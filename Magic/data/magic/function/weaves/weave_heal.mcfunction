@@ -10,6 +10,6 @@ effect give @a[tag=heal_me,tag=!using] minecraft:hunger 10 255
 scoreboard players operation Remove_force reg_1 = @a[tag=heal_me,tag=using,tag=can_use,limit=1] current_held
 scoreboard players operation Remove_force reg_1 /= 2 reg_1
 scoreboard players add Remove_force reg_1 500
-execute as @a[tag=heal_me,tag=using,tag=can_use] run function magic:remove_force_amount
+execute as @a[tag=heal_me,tag=using,tag=can_use] run function magic:power_handling/remove_force_amount
 
 tag @a remove heal_me

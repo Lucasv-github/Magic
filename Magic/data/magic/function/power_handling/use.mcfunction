@@ -4,4 +4,4 @@
 scoreboard players remove @s current_held 1
 
 #Lost hold of it
-execute as @s[scores={current_held=..0}] run function magic:exit
+execute as @s[scores={current_held=..0}] run function magic:power_handling/exit

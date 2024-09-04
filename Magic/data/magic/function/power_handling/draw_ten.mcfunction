@@ -20,4 +20,4 @@ execute as @s[scores={regenerated_strength=1..},tag=possible_to_draw] run scoreb
 #Just limited elsewhere if in a circle
 
 execute as @s[tag=possible_to_draw] if score Draw_force reg_1 matches 1.. run scoreboard players remove Draw_force reg_1 1
-execute as @s[tag=possible_to_draw] if score Draw_force reg_1 matches 1.. run function magic:draw_ten
+execute as @s[tag=possible_to_draw] if score Draw_force reg_1 matches 1.. run function magic:power_handling/draw_ten
