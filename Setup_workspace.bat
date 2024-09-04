@@ -111,6 +111,9 @@ powershell -command "Invoke-WebRequest -Uri 'https://github.com/Lucasv-github/Ma
 
 SET EXTRACT_LOCATION=%TEMP%\Magic-main\
 
+if exist "%EXTRACT_LOCATION%" echo Removing old extracted: %EXTRACT_LOCATION%
+if exist "%EXTRACT_LOCATION%" rd /q /s "%EXTRACT_LOCATION%"
+
 echo Extract started to: %EXTRACT_LOCATION%
 powershell -command "Expand-Archive -Force '%TEMP%\Magic_entire.zip' '%TEMP%'"
 
