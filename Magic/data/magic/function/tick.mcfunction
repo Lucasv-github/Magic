@@ -24,11 +24,11 @@ execute as @a[scores={magic_auto_ability_state=1..}] run scoreboard players set 
 execute as @a[scores={magic_balefire_ban=1..}] run scoreboard players operation magic_settings magic_balefire_ban = @s magic_balefire_ban
 execute as @a[scores={magic_balefire_ban=1..}] run scoreboard players set @s magic_balefire_ban 0
 
-execute as @a[scores={give_book=1..}] run function magic:give_cheat_book
-execute as @a[scores={remove_ability=1..}] run function magic:remove_ability
-execute as @a[scores={re_add_ability=1..}] run function magic:re_add_ability
-execute as @a[scores={add_ability=1..}] run function magic:add_ability
-execute as @a[scores={admin_panel=1..}] run function magic:admin
+execute as @a[scores={give_book=1..}] run function magic:admin_actions/give_cheat_book
+execute as @a[scores={remove_ability=1..}] run function magic:admin_actions/remove_ability
+execute as @a[scores={re_add_ability=1..}] run function magic:admin_actions/re_add_ability
+execute as @a[scores={add_ability=1..}] run function magic:admin_actions/add_ability
+execute as @a[scores={admin_panel=1..}] run function magic:admin_actions/admin
 
 scoreboard players enable @a[tag=admin] select_player
 scoreboard players enable @a[tag=admin] magic_debug_state
@@ -36,8 +36,6 @@ scoreboard players enable @a[tag=admin] magic_auto_ability_state
 scoreboard players enable @a[tag=admin] magic_balefire_ban
 scoreboard players enable @a[tag=admin] set_halve_hold
 scoreboard players enable @a[tag=admin] set_regenerated
-
-execute as @a[tag=using,tag=can_use,scores={current_held=1..}] run function magic:actionbar_display
 
 #Reset halve if not in circle/angrealed/progressive shielded
 execute as @a[tag=can_use,tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0}] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
