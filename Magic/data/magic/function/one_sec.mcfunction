@@ -29,7 +29,7 @@ scoreboard players remove @e[type=minecraft:armor_stand,tag=target_point, scores
 #Not active signifies that it is still held
 scoreboard players remove @e[type=minecraft:armor_stand,tag=target_point, scores={weave_despawn_time=1..},tag=!actively_held] weave_despawn_time 1
 
-execute as @a[tag=using,tag=can_use] run function magic:tap_power
+execute as @a[tag=using,tag=can_use] run function magic:power_handling/tap_power
 
 execute as @a[tag=circled] run function magic:power_handling/tap_power_circle_member
 execute as @a[tag=circle_owner] run function magic:power_handling/tap_power_circle_member
