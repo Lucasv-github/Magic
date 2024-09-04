@@ -26,7 +26,7 @@ execute if score Give_force reg_1 matches ..10 run scoreboard players set Give_f
 function magic:power_handling/give_force_amount
 
 #Will exit if we are unable to tap
-function magic:tap_power
+function magic:power_handling/tap_power
 
 #Store this to make use easier
 execute as @s[tag=using] run function magic:store_hotbar

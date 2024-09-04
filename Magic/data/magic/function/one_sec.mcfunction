@@ -31,8 +31,8 @@ scoreboard players remove @e[type=minecraft:armor_stand,tag=target_point, scores
 
 execute as @a[tag=using,tag=can_use] run function magic:tap_power
 
-execute as @a[tag=circled] run function magic:tap_power_circle_member
-execute as @a[tag=circle_owner] run function magic:tap_power_circle_member
+execute as @a[tag=circled] run function magic:power_handling/tap_power_circle_member
+execute as @a[tag=circle_owner] run function magic:power_handling/tap_power_circle_member
 
 scoreboard players add Temp second_counter 1
 
