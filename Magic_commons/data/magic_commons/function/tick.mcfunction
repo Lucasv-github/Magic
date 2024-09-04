@@ -1,3 +1,5 @@
+execute as @a run function magic_commons:actionbar_display
+
 #Player id
 scoreboard players add @a player_id 0
 execute as @p[scores={player_id=0}] run scoreboard players add #next_id player_id 1
