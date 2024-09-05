@@ -47,12 +47,6 @@ scoreboard objectives add regenerated_strength dummy
 scoreboard objectives add current_strength dummy
 
 scoreboard objectives add shield_lower_amount dummy
-#scoreboard objectives add progressive_shielded dummy
-#scoreboard objectives add progressive_shield_current dummy
-#scoreboard objectives add shield_active_amount dummy
-#scoreboard objectives add shield_active_time dummy
-#scoreboard objectives add sever_active_amount dummy
-#scoreboard objectives add sever_active_time dummy
 
 scoreboard objectives add finder_owner_id dummy
 scoreboard objectives add finder_time dummy
@@ -67,7 +61,6 @@ scoreboard objectives add invert dummy
 scoreboard objectives add disguise dummy
 scoreboard objectives add bridge dummy
 scoreboard objectives add bound dummy
-scoreboard objectives add shilded dummy
 scoreboard objectives add weave_remaining_time dummy
 scoreboard objectives add weave_despawn_time dummy
 

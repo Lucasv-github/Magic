@@ -217,14 +217,6 @@ scoreboard players remove @a[scores={doomed=100..}] doomed 100
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run kill @s
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run scoreboard players set @s doomed 0
 
-#Sheild active success (to shield)
-execute as @a[tag=using,tag=can_use,scores={shield_active_time=1}] run function magic:power_handling/exit
-execute as @a[tag=can_use,scores={shield_active_time=1}] run scoreboard players set @s shield_active_time 0
-
-#Sever active success (to sever)
-execute as @a[tag=using,tag=can_use,scores={sever_active_time=1}] run function magic:sever
-execute as @a[scores={sever_active_time=1}] run scoreboard players set @s sever_active_time 0
-
 #Break free
 execute as @a[scores={progressive_shielded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
 execute as @a[scores={shilded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied

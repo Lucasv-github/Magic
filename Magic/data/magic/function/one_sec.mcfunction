@@ -14,13 +14,6 @@ scoreboard players remove @e[scores={bound=1..}] bound 1
 scoreboard players remove @e[scores={finder_time=1..}] finder_time 1
 scoreboard players remove @e[scores={projectile_shielded=1..}] projectile_shielded 1
 
-
-scoreboard players remove @e[scores={shield_active_time=1..}] shield_active_time 1
-scoreboard players remove @e[scores={sever_active_time=1..}] sever_active_time 1
-
-scoreboard players remove @a[scores={shilded=1..}] shilded 1
-scoreboard players remove @a[scores={progressive_shielded =1..}] progressive_shielded 1
-
 scoreboard players remove @e[tag=destroy_bridge, scores={bridge=1..}] bridge 1
 execute as @e[tag=destroy_bridge, scores={bridge=0}] run function magic:remove_bridge
 
