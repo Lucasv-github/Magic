@@ -37,8 +37,8 @@ execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_p
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s weave_locked_entity_id = @e[limit=1, sort=nearest, distance=..5,tag=!target_point] entity_id
 
 #execute as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:resync
-#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:set_weave_from_player
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run function magic:set_weave_from_player
+#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:weave_handling/set_weave_from_player
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run function magic:weave_handling/set_weave_from_player
 
 #Things triggered by arrow imidiately should also use force
 

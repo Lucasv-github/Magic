@@ -40,7 +40,7 @@ scoreboard players operation @s[tag=picking_up] t_18 = @e[tag=getting_picked_up]
 scoreboard players operation @s[tag=picking_up] t_19 = @e[tag=getting_picked_up] t_19
 scoreboard players operation @s[tag=picking_up] t_20 = @e[tag=getting_picked_up] t_20
 
-execute as @s[tag=picking_up] run function magic:give_current_weave
+execute as @s[tag=picking_up] run function magic:weave_handling/give_current_weave
 
 tag @e remove getting_picked_up
 tag @s remove picking_up

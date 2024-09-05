@@ -18,7 +18,7 @@ scoreboard players add @s weave_length 1
 
 #TODO need unique at times
 execute store result storage magic:weave_add_element index int 1 run scoreboard players get @s player_weave_index
-function magic:weave_add_element with storage magic:weave_add_element
+function magic:weave_handling/weave_add_element with storage magic:weave_add_element
 
 tag @s add built
 
@@ -47,7 +47,7 @@ tellraw @s ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/tr
 
 #Remove old if not in same slot (deprecated)
 #clear @s minecraft:carrot_on_a_stick{Magic_temp_weave:1,Force:8}
-function magic:give_current_weave
+function magic:weave_handling/give_current_weave
 
 scoreboard players remove @s current_held 10
 #Lost hold of it

@@ -26,5 +26,5 @@ scoreboard players operation Temp reg_1 = @s player_id
 execute as @e[tag=target_point,tag=no_weave,tag=actively_held] if score @s player_id = Temp reg_1 run tag @s add holding_run_temp
 #We are doing it like this because set_weave_from_player will touch the regs
 #sync_weave_from_player is almost identical to set_weave_from_player
-execute as @e[tag=holding_run_temp] run function magic:sync_weave_from_player
+execute as @e[tag=holding_run_temp] run function magic:weave_handling/sync_weave_from_player
 tag @e remove holding_run_temp

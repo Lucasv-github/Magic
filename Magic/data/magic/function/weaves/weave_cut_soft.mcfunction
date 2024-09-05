@@ -39,6 +39,6 @@ scoreboard players operation Temp reg_1 = @e[tag=getting_cut,limit=1,sort=arbitr
 #Get player_weave_index from thing getting cut
 scoreboard players operation Temp reg_2 = @e[tag=getting_cut,limit=1,sort=arbitrary] player_weave_index
 execute as @e[tag=getting_cut,limit=1,sort=arbitrary] store result storage remove_weave_index index int 1 run scoreboard players get Temp reg_2
-execute as @e[tag=getting_cut,limit=1,sort=arbitrary] as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run function magic:player_remove_weave with storage minecraft:remove_weave_index
+execute as @e[tag=getting_cut,limit=1,sort=arbitrary] as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run function magic:weave_handling/player_remove_weave with storage minecraft:remove_weave_index
 
 tag @e remove getting_cut

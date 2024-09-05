@@ -13,7 +13,7 @@ execute store result storage magic:give_current_weave_iteration i int 1 run scor
 
 #Use name
 scoreboard players set Temp reg_3 1
-function magic:give_current_weave_iteration with storage magic:give_current_weave_iteration
+function magic:weave_handling/give_current_weave_iteration with storage magic:give_current_weave_iteration
 
 #function magic:get_composition
 #execute in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['{"nbt":"text[]","storage":"minecraft:print_composition","interpret":true,"separator":""}','{"text":""}','{"text":""}','{"text":""}']}} destroy

@@ -9,4 +9,4 @@ execute as @a[tag=can_use,tag=using] if score @s player_id = Temp reg_1 store re
 scoreboard players operation @s player_weave_index = Temp reg_2
 
 #This function could be largely copied out here. Not sure if that is cleaned though
-function magic:set_weave_from_player
+function magic:weave_handling/set_weave_from_player
