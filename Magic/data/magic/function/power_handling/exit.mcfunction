@@ -1,5 +1,5 @@
 tag @s add current_player_for_log
-execute if score magic_settings magic_debug_state matches 2 run function magic:console_write_exit
+execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_exit
 tag @s remove current_player_for_log
 
 execute as @s[tag=circle_owner] run function magic:power_handling/remove_circle

@@ -181,4 +181,4 @@ setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players
 scoreboard players set magic_settings magic_min_strength 100
 scoreboard players set magic_settings magic_max_strength 2000
 
-schedule function magic:command_block_message 2s replace
+schedule function magic:debug/command_block_message 2s replace
