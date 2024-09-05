@@ -29,25 +29,25 @@ execute as @a[tag=circle_owner] run function magic:power_handling/tap_power_circ
 
 scoreboard players add Temp second_counter 1
 
-execute if score Temp second_counter matches 6 run function magic:five_sec
-execute if score Temp second_counter matches 11 run function magic:five_sec
-execute if score Temp second_counter matches 16 run function magic:five_sec
-execute if score Temp second_counter matches 21 run function magic:five_sec
-execute if score Temp second_counter matches 26 run function magic:five_sec
-execute if score Temp second_counter matches 31 run function magic:five_sec
-execute if score Temp second_counter matches 36 run function magic:five_sec
-execute if score Temp second_counter matches 41 run function magic:five_sec
-execute if score Temp second_counter matches 46 run function magic:five_sec
-execute if score Temp second_counter matches 51 run function magic:five_sec
-execute if score Temp second_counter matches 56 run function magic:five_sec
-execute if score Temp second_counter matches 61 run function magic:five_sec
+execute if score Temp second_counter matches 6 run function magic:events/five_sec
+execute if score Temp second_counter matches 11 run function magic:events/five_sec
+execute if score Temp second_counter matches 16 run function magic:events/five_sec
+execute if score Temp second_counter matches 21 run function magic:events/five_sec
+execute if score Temp second_counter matches 26 run function magic:events/five_sec
+execute if score Temp second_counter matches 31 run function magic:events/five_sec
+execute if score Temp second_counter matches 36 run function magic:events/five_sec
+execute if score Temp second_counter matches 41 run function magic:events/five_sec
+execute if score Temp second_counter matches 46 run function magic:events/five_sec
+execute if score Temp second_counter matches 51 run function magic:events/five_sec
+execute if score Temp second_counter matches 56 run function magic:events/five_sec
+execute if score Temp second_counter matches 61 run function magic:events/five_sec
 
-execute if score Temp second_counter matches 11 run function magic:ten_sec
-execute if score Temp second_counter matches 21 run function magic:ten_sec
-execute if score Temp second_counter matches 31 run function magic:ten_sec
-execute if score Temp second_counter matches 41 run function magic:ten_sec
-execute if score Temp second_counter matches 51 run function magic:ten_sec
-execute if score Temp second_counter matches 61 run function magic:ten_sec
+execute if score Temp second_counter matches 11 run function magic:events/ten_sec
+execute if score Temp second_counter matches 21 run function magic:events/ten_sec
+execute if score Temp second_counter matches 31 run function magic:events/ten_sec
+execute if score Temp second_counter matches 41 run function magic:events/ten_sec
+execute if score Temp second_counter matches 51 run function magic:events/ten_sec
+execute if score Temp second_counter matches 61 run function magic:events/ten_sec
 
-execute if score Temp second_counter matches 61.. run function magic:minute
+execute if score Temp second_counter matches 61.. run function magic:events/minute
 execute if score Temp second_counter matches 61.. run scoreboard players set Temp second_counter 0

@@ -41,7 +41,7 @@ scoreboard players enable @a[tag=admin] set_regenerated
 execute as @a[tag=can_use,tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0}] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
 
 #Join detect, also work first time when leave detect will be set to undef
-execute as @a unless score @s leave_detect matches 0 run function magic:join
+execute as @a unless score @s leave_detect matches 0 run function magic:events/join
 
 #Sneak
 execute as @a[scores={sneak_time=1..}, tag=!using, tag=can_use,tag=!tap_blocked] store result score @s reg_1 run data get entity @s Rotation[1]
@@ -79,7 +79,7 @@ execute as @e[tag=weave_bind] run function magic:bind_lock
 execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless data entity @s RootVehicle run scoreboard players set @s sneak_time 0
 
 #Death detect
-execute as @a[scores={death_detect=1..}] run function magic:death
+execute as @a[scores={death_detect=1..}] run function magic:events/death
 
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/exit
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/exit
@@ -239,10 +239,10 @@ scoreboard players set @a[tag=can_use,tag=using] click 0
 
 scoreboard players add Temp tick_counter 1
 
-execute if score Temp tick_counter matches 6 run function magic:fourth_sec
-execute if score Temp tick_counter matches 11 run function magic:fourth_sec
-execute if score Temp tick_counter matches 16 run function magic:fourth_sec
-execute if score Temp tick_counter matches 21 run function magic:fourth_sec
+execute if score Temp tick_counter matches 6 run function magic:events/fourth_sec
+execute if score Temp tick_counter matches 11 run function magic:events/fourth_sec
+execute if score Temp tick_counter matches 16 run function magic:events/fourth_sec
+execute if score Temp tick_counter matches 21 run function magic:events/fourth_sec
 
-execute if score Temp tick_counter matches 21.. run function magic:one_sec
+execute if score Temp tick_counter matches 21.. run function magic:events/second
 execute if score Temp tick_counter matches 21.. run scoreboard players set Temp tick_counter 0
