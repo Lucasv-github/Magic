@@ -160,7 +160,7 @@ execute as @a[tag=using, tag=can_use, scores={slow_down=1..}] run function magic
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] run function magic:verify_weave_placed
 
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] if score @s reg_1 matches 0 run function magic:weave_handling/holding_add_line
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] if score @s reg_1 matches 1 run function magic:weave_handling/holding_tie_off
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] if score @s reg_1 matches 1 run function magic:holding_tie_off
 
 #Book slot selected: run weaves
 execute as @a[tag=using] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
