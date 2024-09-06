@@ -29,5 +29,5 @@ kill @e[tag=move_slot_8]
 item replace entity @s hotbar.8 from entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0
 
 #Prevent dropped item which would f remove cleanup player single
-item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 with minecraft:air
-kill @e[limit=1,sort=nearest, tag=give_current_weave]
+item replace entity @e[sort=nearest, tag=give_current_weave] container.0 with minecraft:air
+kill @e[sort=nearest, tag=give_current_weave]
