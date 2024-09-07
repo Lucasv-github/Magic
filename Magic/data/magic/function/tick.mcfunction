@@ -82,8 +82,7 @@ execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless
 #Death detect
 execute as @a[scores={death_detect=1..}] run function magic:events/death
 
-#execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/exit
-execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run give @s[tag=using] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power","italic":false}]'],custom_model_data=1,custom_data={Magic:6}] 32
+execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/exit
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/exit
 execute as @a[tag=using, scores={shilded=1..}] run function magic:power_handling/exit
 
@@ -199,8 +198,6 @@ kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:2}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:3}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:4}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:5}}}}]
-#Age 5999s is to prevent newly spawned (given items (give drops the item for some reason))
-execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:6}}}}] unless data entity @s {Age:5999s} unless data entity @s {Item:{count:1}} at @s as @a[limit=1,sort=nearest,tag=using,tag=can_use] run function magic:power_handling/exit
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:6}}}}]
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:8}}}}] run function magic:remove_cleanup_player_single
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:9}}}}]
