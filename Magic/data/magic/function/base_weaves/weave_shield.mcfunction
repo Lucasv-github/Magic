@@ -11,7 +11,7 @@ scoreboard players operation @s shield_lower_amount *= 10 reg_1
 #TODO own function and call that in tap power as well
 
 
-scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_3 = @s cumulative_halve_amount_hold
 scoreboard players operation Temp reg_2 = @s shield_lower_amount
