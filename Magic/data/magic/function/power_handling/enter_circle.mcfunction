@@ -5,6 +5,8 @@ scoreboard players set @s reg_1 0
 execute as @s[tag=can_use] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Amplification
 execute as @s[tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:power_handling/enter_angreal
 
+function magic:clear_magic_items
+
 #Need to be below angreal
 function magic:store_hotbar
 
