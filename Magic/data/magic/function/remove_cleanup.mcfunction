@@ -33,12 +33,6 @@ execute as @s[tag=weave_bind] as @e if score @s entity_id = Temp reg_3 run ride 
 #Throw
 execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s weave_locked_entity_id = Temp reg_3 run kill @s
 
-#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
-#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s progressive_shielded 0
-
-#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
-#execute as @s[scores={t_1=5,t_2=5,t_3=5,t_4=5,t_5=0}] as @a[tag=can_use, scores={progressive_shielded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s progressive_shielded 0
-
 execute at @s[scores={t_1=1,t_2=1,t_3=1,t_4=1,t_5=3,t_6=3,t_7=3,t_8=3,t_9=0}] run fill ~5 ~5 ~5 ~-5 ~-5 ~-5 minecraft:air replace minecraft:glass
 
 execute as @s[scores={t_1=1,t_2=3,t_3=1,t_4=3,t_5=3,t_6=3,t_7=0}] as @a if score @s player_id = Temp reg_2 run clear @s golden_sword

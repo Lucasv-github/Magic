@@ -18,8 +18,6 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] run function magic:circl
 execute as @a[tag=using] run function magic:five_broadcasts
 
 #execute as @a[tag=can_use,tag=!using,scores={disguise=0}] at @s run tellraw @a[tag=can_see,distance=..10] ["",{"selector":"@s","color":"gold"},{"text":" Can use","color":"gold"}]
-execute as @a[tag=can_use, scores={shilded=1..}] at @s run tellraw @a[tag=can_see,distance=..20] ["",{"selector":"@s","color":"gold"},{"text":" Shielded: ","color":"gold"},{"score":{"name":"@s","objective":"shilded"},"color":"gold"}]
-execute as @a[tag=can_use, scores={progressive_shielded=1..}] at @s run tellraw @a[tag=can_see,distance=..20] ["",{"selector":"@s","color":"gold"},{"text":" Shielded: ","color":"gold"},{"score":{"name":"@s","objective":"progressive_shielded"},"color":"gold"}]
 
 execute as @e[scores={finder_time=1..}] run function magic:tracked
 

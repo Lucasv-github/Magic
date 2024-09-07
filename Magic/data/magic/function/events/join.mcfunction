@@ -32,33 +32,10 @@ scoreboard players add @s regenerated_strength 0
 scoreboard players add @s angreal_level 0
 execute as @s if score @s angreal_level matches 0 run scoreboard players set @s angreal_level 1
 
-scoreboard players add @s t_1 0
-scoreboard players add @s t_2 0
-scoreboard players add @s t_3 0
-scoreboard players add @s t_4 0
-scoreboard players add @s t_5 0
-scoreboard players add @s t_6 0
-scoreboard players add @s t_7 0
-scoreboard players add @s t_8 0
-scoreboard players add @s t_9 0
-scoreboard players add @s t_10 0
-scoreboard players add @s t_11 0
-scoreboard players add @s t_12 0
-scoreboard players add @s t_13 0
-scoreboard players add @s t_14 0
-scoreboard players add @s t_15 0
-scoreboard players add @s t_16 0
-scoreboard players add @s t_17 0
-scoreboard players add @s t_18 0
-scoreboard players add @s t_19 0
-scoreboard players add @s t_20 0
-
 scoreboard players add @s stage 0
 
 scoreboard players add @s invert 0
 scoreboard players add @s disguise 0
-scoreboard players add @s shilded 0
-scoreboard players add @s progressive_shielded 0
 
 scoreboard players add @s bound 0
 

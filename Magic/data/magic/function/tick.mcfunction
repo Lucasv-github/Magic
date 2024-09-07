@@ -38,8 +38,8 @@ scoreboard players enable @a[tag=admin] magic_balefire_ban
 scoreboard players enable @a[tag=admin] set_halve_hold
 scoreboard players enable @a[tag=admin] set_regenerated
 
-#Reset halve if not in circle/angrealed/progressive shielded
-execute as @a[tag=can_use,tag=!circle_owner,tag=!angrealed,scores={progressive_shielded=0}] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
+#Reset halve if not in circle/angrealed
+execute as @a[tag=can_use,tag=!circle_owner,tag=!angrealed] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
 
 #Join detect, also work first time when leave detect will be set to undef
 execute as @a unless score @s leave_detect matches 0 run function magic:events/join
@@ -64,8 +64,8 @@ execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=
 #execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
 #execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 
-execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
-execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
+#execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
+#execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 
 #Opening
 execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:power_handling/open
@@ -188,7 +188,7 @@ execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_o
 execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circle_owner] run function magic:weave_handling/pick_up
 
 #Circle, do not remove tag=!using
-execute as @a[tag=can_use, scores={state=10,shilded=0,progressive_shielded=0}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:power_handling/enter_circle
+execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:power_handling/enter_circle
 
 execute as @a[tag=can_use, scores={state=20}, tag=using] run function magic:shield_active_responde
 execute as @a[tag=can_use, scores={state=30}, tag=using] run function magic:sever_active_responde
@@ -219,8 +219,8 @@ execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run scoreboard players set @s doomed 0
 
 #Break free
-execute as @a[scores={progressive_shielded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
-execute as @a[scores={shilded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
+#execute as @a[scores={progressive_shilded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
+#execute as @a[scores={shilded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
 
 #Things like the bridge
 execute as @e[tag=ray] run function magic:along_execute
