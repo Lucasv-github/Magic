@@ -190,9 +190,6 @@ execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circl
 #Circle, do not remove tag=!using
 execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:power_handling/enter_circle
 
-execute as @a[tag=can_use, scores={state=20}, tag=using] run function magic:shield_active_responde
-execute as @a[tag=can_use, scores={state=30}, tag=using] run function magic:sever_active_responde
-
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:1}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:2}}}}]
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:3}}}}]
