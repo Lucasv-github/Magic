@@ -1,4 +1,4 @@
-execute as @s[tag=circled] run function magic:exit
+execute as @s[tag=circled] run function magic:power_handling/exit
 tag @s[tag=circled] remove can_use
 tag @s[tag=circled] remove can_see
 kill @s[tag=circled]

@@ -68,10 +68,11 @@ execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s cu
 #Low cutout
 execute unless score Temp reg_1 = @s cumulative_halve_amount_hold run scoreboard players operation @s reg_2 = @s cumulative_halve_amount_hold
 execute unless score Temp reg_1 = @s cumulative_halve_amount_hold run scoreboard players operation @s reg_2 /= 10 reg_1
-execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held < @s reg_2 run function magic:exit
 
-execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held < @s reg_2 run function magic:power_handling/exit
+execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held < @s reg_2 run tag @s add tap_power_temp_shielded
 
-execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held < @s reg_2 run function magic:tell_shielders
+execute as @s[tag=tap_power_temp_shielded] run function magic:power_handling/exit
+execute as @s[tag=tap_power_temp_shielded] run function magic:tell_shielders
+tag @e remove tap_power_temp_shielded
  
 
