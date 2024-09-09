@@ -39,8 +39,6 @@ execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_p
 #Also lock on nearest entity
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s weave_locked_entity_id = @e[limit=1, sort=nearest, distance=..5,tag=!target_point] entity_id
 
-tellraw @p {"score":{"name":"@e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point]","objective":"weave_locked_entity_id"}}
-
 execute as @s unless score @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] weave_locked_entity_id matches 0 as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 at @s run playsound minecraft:block.iron_door.close ambient @s
 execute as @s unless score @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] weave_locked_player_id matches 0 as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 at @s run playsound minecraft:block.iron_door.close ambient @s
 
