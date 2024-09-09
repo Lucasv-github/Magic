@@ -59,7 +59,7 @@ scoreboard players operation Temp reg_1 = @s reg_1
 #TODO shield tellraw and such
 
 #TODO should drain more for each armorstand placed
-#TODO also based on strength difference
+#TODO also based on strength difference NOT sure about that here as it would make this a lot more complicated
 
 execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 = @s current_held
 execute unless score Temp reg_1 = @s cumulative_halve_amount_hold if score @s current_held > Temp reg_1 run scoreboard players operation @s reg_1 /= 10 reg_1
