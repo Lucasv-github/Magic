@@ -12,12 +12,16 @@ execute if score Temp reg_1 matches 3 run data modify storage magic:give_current
 execute if score Temp reg_1 matches 4 run data modify storage magic:give_current_weave_build text append value '{"text":"\\uE003"}'
 execute if score Temp reg_1 matches 5 run data modify storage magic:give_current_weave_build text append value '{"text":"\\uE004"}'
 
-execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white"}','{"text":""}','{"text":""}','{"text":""}']}} destroy
+#execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white"}','{"text":""}','{"text":""}','{"text":""}']}} destroy
 
-execute if score Temp reg_3 matches 0 if score Temp reg_1 matches -1..0 run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:lore append from block 0 0 0 front_text.messages[0]
+execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 run summon text_display ~ ~ ~ {Tags:["temp_weave_name"],text:'{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white"}'}
 
-execute if score Temp reg_3 matches 1 if score Temp reg_1 matches -1..0 run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_name set from block 0 0 0 front_text.messages[0]
+execute if score Temp reg_3 matches 0 if score Temp reg_1 matches -1..0 run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:lore append from entity @e[tag=temp_weave_name,limit=1] text
+
+execute if score Temp reg_3 matches 1 if score Temp reg_1 matches -1..0 run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_name set from entity @e[tag=temp_weave_name,limit=1] text
 execute if score Temp reg_3 matches 1 if score Temp reg_1 matches -1..0 run scoreboard players set Temp reg_3 0
+
+kill @e[type=text_display,tag=temp_weave_name]
 
 #Clean for next
 execute if score Temp reg_1 matches -1..0 run data merge storage magic:give_current_weave_build {text:[]}
