@@ -2,7 +2,7 @@
 #add_line currently does exactly the same without swapping bakc
 #Actually to offhand add line?
 
-execute at @s run playsound minecraft:entity.item.pickup player @s
+execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 
 item replace entity @s weapon.mainhand from entity @s weapon.offhand
 item replace entity @s weapon.offhand with minecraft:air
