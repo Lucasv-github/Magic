@@ -117,6 +117,7 @@ scoreboard players enable @a[tag=can_use] e
 scoreboard players enable @a[tag=can_use] f
 scoreboard players enable @a[tag=can_use] w
 scoreboard players enable @a[tag=can_use] s
+scoreboard players enable @a[tag=can_use] line
 scoreboard players enable @a[tag=can_use] state
 
 scoreboard players enable @a[tag=can_use] build
@@ -151,6 +152,8 @@ execute as @a[tag=using, tag=can_use, scores={e=1..}] run function magic:weave_h
 execute as @a[tag=using, tag=can_use, scores={f=1..}] run function magic:weave_handling/build
 execute as @a[tag=using, tag=can_use, scores={w=1..}] run function magic:weave_handling/build
 execute as @a[tag=using, tag=can_use, scores={s=1..}] run function magic:weave_handling/build
+
+execute as @a[tag=using, tag=can_use, scores={line=1..}] run function magic:weave_handling/add_line
 
 execute as @a[tag=using, tag=can_use, scores={build=1..}] run function magic:weave_handling/entire_weave
 
@@ -234,6 +237,8 @@ execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,
 
 #Prevent unhandled clicks (spam with single weave) from registering as something else
 scoreboard players set @a[tag=can_use,tag=using] click 0
+scoreboard players set @a[tag=can_use,tag=using] line 0
+scoreboard players set @a[tag=can_use,tag=using] state 0
 
 scoreboard players add Temp tick_counter 1
 
