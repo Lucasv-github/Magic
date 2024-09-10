@@ -2,17 +2,19 @@ execute at @s run playsound minecraft:entity.item.pickup player @s
 
 scoreboard players set @s reg_1 0
 
-scoreboard players operation @s reg_1 += @s a
-scoreboard players operation @s reg_1 += @s e
-scoreboard players operation @s reg_1 += @s f
-scoreboard players operation @s reg_1 += @s w
-scoreboard players operation @s reg_1 += @s s
+execute as @s[scores={a=1..}] run scoreboard players set @s reg_1 1
+execute as @s[scores={e=1..}] run scoreboard players set @s reg_1 2
+execute as @s[scores={f=1..}] run scoreboard players set @s reg_1 3
+execute as @s[scores={w=1..}] run scoreboard players set @s reg_1 4
+execute as @s[scores={s=1..}] run scoreboard players set @s reg_1 5
+execute as @s[scores={line=1..}] run scoreboard players set @s reg_1 -1
 
 scoreboard players set @s a 0
 scoreboard players set @s e 0
 scoreboard players set @s f 0
 scoreboard players set @s w 0
 scoreboard players set @s s 0
+scoreboard players set @s line 0
 
 scoreboard players add @s weave_length 1
 
