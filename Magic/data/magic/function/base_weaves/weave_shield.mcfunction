@@ -20,10 +20,8 @@ scoreboard players operation Temp reg_4 *= 10 reg_1
 
 scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 
-#Multiply shielder strength by getting shielded strength
-execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_4 /= @s cumulative_halve_amount_hold
-
 #Divide by person getting shielded
+execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_4 /= @s cumulative_halve_amount_hold
 
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_3 = @s cumulative_halve_amount_hold
 scoreboard players operation Temp reg_2 = @s shield_lower_amount
