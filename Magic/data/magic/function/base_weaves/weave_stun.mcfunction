@@ -17,5 +17,3 @@ execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scor
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get Temp reg_4
 
 execute at @s as @a[tag=using] if score @s player_id = Temp reg_1 run function magic:stun with storage magic:stun
-
-tag @s add weave_damaged
