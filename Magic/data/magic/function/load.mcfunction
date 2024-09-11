@@ -93,6 +93,7 @@ scoreboard objectives add w trigger
 scoreboard objectives add s trigger
 scoreboard objectives add line trigger
 scoreboard objectives add build trigger
+scoreboard objectives add count trigger
 
 scoreboard objectives add player_weave_index dummy
 scoreboard objectives add held_player_weave_index dummy
