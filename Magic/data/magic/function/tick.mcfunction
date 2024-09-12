@@ -164,7 +164,7 @@ execute as @a[tag=using, tag=can_use, scores={f=1..}] run function magic:weave_h
 execute as @a[tag=using, tag=can_use, scores={w=1..}] run function magic:weave_handling/add_element_pre
 execute as @a[tag=using, tag=can_use, scores={s=1..}] run function magic:weave_handling/add_element_pre
 
-execute as @a[tag=need_weave_flush] run function magic:weave_handling/give_current_weave
+execute as @a[tag=need_weave_flush,tag=using] run function magic:weave_handling/give_current_weave
 tag @a remove need_weave_flush
 
 #Needs to be below flush
