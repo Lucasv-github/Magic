@@ -21,5 +21,9 @@ tellraw @s ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/tr
 
 #tellraw @s ["",{"text":"###","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":" ","color":"aqua"},{"text":"###","color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":" ","color":"dark_green"},{"text":"###","color":"red","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":" ","color":"red"},{"text":"###","color":"dark_blue","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":" ","color":"dark_blue"},{"text":"###","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" "}]
 
+scoreboard players remove @s current_held 10
+#Lost hold of it
+execute as @s[scores={current_held=..0}] run function magic:power_handling/exit
+
 tag @s add built
 tag @s add need_weave_flush
