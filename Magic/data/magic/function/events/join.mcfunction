@@ -40,7 +40,3 @@ scoreboard players add @s disguise 0
 scoreboard players add @s bound 0
 
 execute unless score @s use_items matches -2147483647.. run scoreboard players set @s use_items 1
-
-execute as @s[tag=!joined_before] if score magic_settings magic_auto_ability_state matches 2 run function magic:auto_add_ability
-
-tag @s add joined_before
