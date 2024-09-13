@@ -246,9 +246,9 @@ tag @e[tag=target_point,tag=weave_lapsed] remove weave_damaged
 execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]
 
 #Prevent unhandled clicks (spam with single weave) from registering as something else
-scoreboard players set @a[tag=can_use,tag=using] click 0
-scoreboard players set @a[tag=can_use,tag=using] line 0
-scoreboard players set @a[tag=can_use,tag=using] state 0
+scoreboard players set @a[tag=can_use] click 0
+scoreboard players set @a[tag=can_use] line 0
+scoreboard players set @a[tag=can_use] state 0
 
 scoreboard players add Temp tick_counter 1
 
