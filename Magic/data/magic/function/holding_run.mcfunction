@@ -10,7 +10,9 @@ scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players operation Temp reg_2 = @s held_player_weave_index
 
 #First run those with weaves already like usual
-execute as @e[tag=target_point,tag=!no_weave,tag=actively_held] if score @s player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run tag @s add holding_run_temp
+#But don't run not yet disposed but still damaged weaves
+execute as @e[tag=target_point,tag=!no_weave,tag=actively_held,tag=!weave_damaged] if score @s player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run tag @s add holding_run_temp
+execute as @e[tag=target_point,tag=!no_weave,tag=actively_held,tag=weave_damaged,tag=!weave_lapsed] if score @s player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run tag @s add holding_run_temp
 
 #Sound only if exists
 execute at @s as @e[tag=holding_run_temp] run playsound minecraft:block.lever.click player @p

@@ -1,3 +1,5 @@
+#say weaves
+
 tag @s add current_weave_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_executed
 tag @s remove current_weave_for_log
