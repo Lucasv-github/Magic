@@ -108,12 +108,24 @@ scoreboard objectives add tie_strength trigger
 scoreboard objectives add slow_down trigger
 
 scoreboard objectives add weave_air_count dummy
+scoreboard objectives add weave_air_count_1 dummy
+scoreboard objectives add weave_air_count_n dummy
+
 scoreboard objectives add weave_earth_count dummy
+scoreboard objectives add weave_earth_count_1 dummy
+scoreboard objectives add weave_earth_count_n dummy
+
 scoreboard objectives add weave_fire_count dummy
 scoreboard objectives add weave_fire_count_1 dummy
+scoreboard objectives add weave_fire_count_n dummy
+
 scoreboard objectives add weave_water_count dummy
+scoreboard objectives add weave_water_count_1 dummy
+scoreboard objectives add weave_water_count_n dummy
+
 scoreboard objectives add weave_spirit_count dummy
 scoreboard objectives add weave_spirit_count_1 dummy
+scoreboard objectives add weave_spirit_count_n dummy
 
 scoreboard objectives add weave_explosion_count dummy
 scoreboard objectives add weave_lightning_count dummy
@@ -122,6 +134,7 @@ scoreboard objectives add weave_ice_count dummy
 scoreboard objectives add weave_extinguish_count dummy
 scoreboard objectives add weave_dry_count dummy
 scoreboard objectives add weave_heal_count dummy
+scoreboard objectives add weave_bridge_count dummy
 
 #Click
 scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
