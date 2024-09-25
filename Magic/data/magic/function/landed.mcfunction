@@ -2,6 +2,8 @@
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b,Tags:["temp_target_point"]}
 
 scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_3 = @s cumulative_halve_amount_hold
+scoreboard players operation Temp reg_4 = @s tie_strength
 
 execute store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 
@@ -10,6 +12,8 @@ execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_
 
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_id = Temp reg_1
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_weave_index = Temp reg_2
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s cumulative_halve_amount_hold = Temp reg_3
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s tie_strength = Temp reg_4
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players set @s weave_read_index 0
 
 scoreboard players operation Temp_1 reg_1 = @s player_id

@@ -53,7 +53,11 @@ function magic:shielded_strength_get
 execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run damage @s 1
 execute as @s[tag=opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:power_handling/exit
 
+execute as @s[tag=opening,scores={sneak_time=..20}] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:tied_shield_unknot
+execute as @s[tag=opening,scores={sneak_time=..100}] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:display_shields
+execute as @s[tag=opening,scores={sneak_time=100..}] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:display_shields_change
+
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players operation Temp reg_2 = @s reg_1
-execute as @s[tag=!opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:shield_handling
 
+execute as @s[tag=!opening] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:shield_handling
