@@ -188,6 +188,8 @@ execute as @a[tag=using,scores={reg_1=0}] unless score @s reg_1 = @s held_player
 tag @a[tag=can_use, tag=using, nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick"}}] add active
 
 
+execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
+execute as @a[tag=using,tag=can_use] unless score @s reg_1 matches 0 unless score @s reg_1 = @s player_weave_index run function magic:weave_handling/build_changed
 
 #Angreal
 #coreboard players set @a reg_1 0
