@@ -245,6 +245,8 @@ tag @e[tag=target_point,tag=weave_lapsed] remove weave_damaged
 #Remove signs
 execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]
 
+execute as @e[type=armor_stand,tag=target_point,tag=weave_throw_damaged] run function magic:throw_remove
+
 #Prevent unhandled clicks (spam with single weave) from registering as something else
 scoreboard players set @a[tag=can_use] click 0
 scoreboard players set @a[tag=can_use] line 0

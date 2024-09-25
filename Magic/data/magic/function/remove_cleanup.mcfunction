@@ -22,17 +22,13 @@ scoreboard players operation Temp reg_2 = @s player_id
 scoreboard players operation Temp reg_3 = @s weave_locked_entity_id
 scoreboard players operation Temp reg_4 = @s player_weave_index
 
-#TODO only if lone
-execute as @s[scores={t_1=1,t_2=1,t_3=1,t_4=0}] as @a[tag=can_use] if score @s player_id = Temp reg_1 run effect clear @s slowness
-
-#Shields
-execute as @s[tag=weave_shield] as @a[tag=can_use, scores={shilded=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s shilded 0
+#TODO weave_locked_entity_id bad as it could remove someone elses
 
 #Bound
 execute as @s[tag=weave_bind] as @e if score @s entity_id = Temp reg_3 run ride @s dismount
 
 #Throw
-execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s weave_locked_entity_id = Temp reg_3 run kill @s
+execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s player_weave_index = Temp reg_4 run kill @s
 
 #Bridge
 #Cleanup won't touch any reg, thus this is fine
