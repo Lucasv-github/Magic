@@ -27,7 +27,7 @@ execute as @a[tag=shield_handling_reduce_temp,limit=1] if score @s current_held 
 #Low cutout at 1:9
 execute as @a[tag=shield_handling_reduce_temp,limit=1] run scoreboard players operation @s reg_2 = @s cumulative_halve_amount_hold
 execute as @a[tag=shield_handling_reduce_temp,limit=1] run scoreboard players operation @s reg_2 /= 9 reg_1
-execute as @a[tag=shield_handling_reduce_temp,limit=1] if score @s current_held < @s reg_2 run tag @a add tap_power_temp_shielded
+execute as @a[tag=shield_handling_reduce_temp,limit=1] if score @s current_held < @s reg_2 run tag @s add tap_power_temp_shielded
 
 execute as @a[tag=tap_power_temp_shielded] run function magic:power_handling/exit
 execute as @a[tag=tap_power_temp_shielded] run function magic:tell_shielders
