@@ -136,6 +136,7 @@ scoreboard objectives add weave_dry_count dummy
 scoreboard objectives add weave_heal_count dummy
 scoreboard objectives add weave_bridge_count dummy
 scoreboard objectives add weave_fire_ray_count dummy
+scoreboard objectives add weave_balefire_ray_count dummy
 
 #Click
 scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
