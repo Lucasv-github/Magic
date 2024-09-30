@@ -215,9 +215,11 @@ execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,w
 execute as @s[scores={weave_air_count=4,weave_earth_count=0,weave_fire_count=0,weave_water_count=0}] run function magic:base_weaves/weave_bind
 
 #Fireball land
+scoreboard players operation @s reg_1 = @s weave_fire_count
+scoreboard players operation @s reg_1 *= 2 reg_1
 #A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
-execute as @s[scores={weave_read_index=1..,weave_fire_count=2..}] if score @s weave_fire_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_fire_count
-execute as @s[scores={weave_read_index=1..,weave_fire_count=2..}] if score @s weave_fire_count = @s weave_fire_count_1 run function magic:base_weaves/weave_land_fireball with storage magic:weave_size
+execute as @s[scores={weave_read_index=1..,weave_fire_count=2..}] unless score @s weave_air_count = @s reg_1 if score @s weave_fire_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_fire_count
+execute as @s[scores={weave_read_index=1..,weave_fire_count=2..}] unless score @s weave_air_count = @s reg_1 if score @s weave_fire_count = @s weave_fire_count_1 run function magic:base_weaves/weave_land_fireball with storage magic:weave_size
 
 #Severing
 #A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
@@ -228,6 +230,12 @@ execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s 
 #A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 run function magic:base_weaves/weave_resistance with storage magic:weave_size
+
+#Fire ray
+scoreboard players operation @s reg_1 = @s weave_fire_count
+scoreboard players operation @s reg_1 *= 2 reg_1
+execute as @s[scores={weave_read_index=1..,weave_air_count=1..}] if score @s weave_air_count = @s reg_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_air_count
+execute as @s[scores={weave_read_index=1..,weave_air_count=1..}] if score @s weave_air_count = @s reg_1 run function magic:base_weaves/weave_fire_ray with storage magic:weave_size
 
 #Masking ability
 execute as @s[scores={weave_read_index=1..,weave_spirit_count=9,weave_spirit_count_1=10}] run function magic:base_weaves/weave_mask_ability

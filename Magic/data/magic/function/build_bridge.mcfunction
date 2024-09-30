@@ -7,4 +7,4 @@ $scoreboard players set @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=b
 $fill ~$(size) ~ ~$(size) ~-$(size) ~ ~-$(size) minecraft:glass replace minecraft:air
 
 scoreboard players remove Temp reg_1 1
-$execute if score Temp reg_1 matches 1.. facing entity @s eyes positioned ^ ^ ^$(size) run function magic:build_bridge with storage magic:weave_size
+$execute if score Temp reg_1 matches 1.. if entity @s[distance=1..] facing entity @s eyes positioned ^ ^ ^$(size) run function magic:build_bridge with storage magic:weave_size
