@@ -34,9 +34,6 @@ execute as @s if score @s angreal_level matches 0 run scoreboard players set @s 
 
 scoreboard players add @s stage 0
 
-scoreboard players add @s invert 0
 scoreboard players add @s disguise 0
-
-scoreboard players add @s bound 0
 
 execute unless score @s use_items matches -2147483647.. run scoreboard players set @s use_items 1

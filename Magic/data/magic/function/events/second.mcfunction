@@ -9,13 +9,8 @@ execute as @e[tag=target_point,tag=tied_off,scores={weave_remaining_time=0}] run
 
 scoreboard players remove @a[scores={shields_blocked=1..}] shields_blocked 1
 scoreboard players remove @a[scores={disguise=1..}] disguise 1
-scoreboard players remove @a[scores={invert=1..}] invert 1
-scoreboard players remove @e[scores={bound=1..}] bound 1
 scoreboard players remove @e[scores={finder_time=1..}] finder_time 1
 scoreboard players remove @e[scores={projectile_shielded=1..}] projectile_shielded 1
-
-scoreboard players remove @e[tag=destroy_bridge, scores={bridge=1..}] bridge 1
-execute as @e[tag=destroy_bridge, scores={bridge=0}] run function magic:remove_bridge
 
 scoreboard players remove @e[type=minecraft:armor_stand,tag=target_point, scores={weave_remaining_time=1..},tag=!actively_held] weave_remaining_time 1
 

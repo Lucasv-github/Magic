@@ -57,10 +57,7 @@ scoreboard objectives add tar_creative trigger
 
 scoreboard objectives add use_items trigger
 scoreboard objectives add doomed dummy
-scoreboard objectives add invert dummy
 scoreboard objectives add disguise dummy
-scoreboard objectives add bridge dummy
-scoreboard objectives add bound dummy
 scoreboard objectives add weave_remaining_time dummy
 scoreboard objectives add weave_despawn_time dummy
 
