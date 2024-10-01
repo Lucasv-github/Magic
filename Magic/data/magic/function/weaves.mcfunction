@@ -275,6 +275,8 @@ execute as @s[scores={weave_read_index=1..,weave_air_count=2,weave_fire_count_1=
 #Travel
 execute as @s[scores={weave_read_index=1..,weave_spirit_count=6..}] if score @s weave_spirit_count = @s weave_fire_count_1 run function magic:base_weaves/weave_travel
 
+#Sink power
+execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=1}] run function magic:base_weaves/weave_sink_power
 
 #Bridge
 execute as @s[scores={weave_air_count=1..,weave_fire_count=1,weave_read_index=1..,}] store result storage magic:weave_size size int 1 run scoreboard players get @s weave_air_count
