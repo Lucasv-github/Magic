@@ -124,10 +124,25 @@ function magic:weave_processing/advance_read_index
 
 
 #Secondary detection
+scoreboard players set @s weave_air_count_1 0
+scoreboard players set Temp reg_1 1
+function magic:weave_processing/count_weave_single
+scoreboard players operation @s weave_air_count_1 = @s reg_1
+
+scoreboard players set @s weave_earth_count_1 0
+scoreboard players set Temp reg_1 2
+function magic:weave_processing/count_weave_single
+scoreboard players operation @s weave_earth_count_1 = @s reg_1
+
 scoreboard players set @s weave_fire_count_1 0
 scoreboard players set Temp reg_1 3
 function magic:weave_processing/count_weave_single
 scoreboard players operation @s weave_fire_count_1 = @s reg_1
+
+scoreboard players set @s weave_water_count_1 0
+scoreboard players set Temp reg_1 4
+function magic:weave_processing/count_weave_single
+scoreboard players operation @s weave_water_count_1 = @s reg_1
 
 scoreboard players set @s weave_spirit_count_1 0
 scoreboard players set Temp reg_1 5
@@ -231,6 +246,10 @@ execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s 
 #A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 run function magic:base_weaves/weave_resistance with storage magic:weave_size
+
+#Angreal start
+execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_air_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
+execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_air_count_1 run function magic:base_weaves/weave_angreal_start with storage magic:weave_size
 
 #Fire ray
 scoreboard players operation @s reg_1 = @s weave_fire_count
