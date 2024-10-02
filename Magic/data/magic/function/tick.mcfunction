@@ -59,14 +59,6 @@ execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] 
 #Enable breaking out
 execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run function magic:try_break_tied
 
-#Count to break free tied
-#Disabled due to conflicts with open and to make P-shield a bit better
-#execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
-#execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., progressive_shielded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
-
-#execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players add @s click_counter 1
-#execute as @a[scores={sneak_time=1.., reg_1=-90,regenerated_strength=1.., shilded=1..}, tag=!using, tag=can_use, tag=!circled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
-
 #Opening
 execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:power_handling/open
 
@@ -84,7 +76,6 @@ execute as @a[scores={death_detect=1..}] run function magic:events/death
 
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/exit
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/exit
-execute as @a[tag=using, scores={shilded=1..}] run function magic:power_handling/exit
 
 #Part of force in offhand: invite to circle
 execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/invite_to_circle
@@ -229,10 +220,6 @@ scoreboard players remove @a[scores={doomed=100..}] doomed 100
 
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run kill @s
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run scoreboard players set @s doomed 0
-
-#Break free
-#execute as @a[scores={progressive_shilded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
-#execute as @a[scores={shilded=1..,click_counter=7..}, tag=can_break_free] run function magic:break_tied
 
 #Things like the bridge
 execute as @e[tag=ray] run function magic:along_execute

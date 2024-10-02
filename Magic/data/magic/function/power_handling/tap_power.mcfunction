@@ -11,7 +11,6 @@ execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run score
 
 execute as @s[tag=using,tag=can_use,tag=tap_blocked] run function magic:power_handling/exit
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=..0}] run function magic:power_handling/exit
-execute as @s[tag=using,tag=can_use,scores={shilded=1..}] run function magic:power_handling/exit
 
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 /= 2 reg_1
