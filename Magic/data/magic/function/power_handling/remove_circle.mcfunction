@@ -9,6 +9,7 @@ tag @a[tag=temp_remove_circle] remove circled
 tag @a[tag=temp_remove_circle] remove angrealed
 scoreboard players reset @a[tag=temp_remove_circle] circled_owner_id
 
+execute as @a[tag=temp_remove_circle] run function magic:drop_current_hotbar
 execute as @a[tag=temp_remove_circle] run function magic:load_hotbar
 
 tag @a remove temp_remove_circle
