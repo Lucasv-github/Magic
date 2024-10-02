@@ -12,9 +12,9 @@ tag @s remove create_angreal_base_temp
 #Top
 execute store result score @s reg_1 run data get entity @s Item.components.minecraft:custom_data.Power_sinked
 scoreboard players operation @s reg_2 = @s reg_1
-scoreboard players operation @s reg_1 /= 10000 reg_1
+scoreboard players operation @s reg_1 /= 100000 reg_1
 scoreboard players operation @s reg_3 = @s reg_1
-scoreboard players operation @s reg_3 *= 10000 reg_1
+scoreboard players operation @s reg_3 *= 100000 reg_1
 scoreboard players operation @s reg_2 -= @s reg_3
 execute if score @s reg_1 matches 1.. run tag @s add create_angreal_top_temp
 
