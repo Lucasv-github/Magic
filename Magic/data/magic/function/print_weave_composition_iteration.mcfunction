@@ -26,6 +26,9 @@ execute if score Temp reg_1 matches 0 at @s[tag=!inverted] run tellraw @a[tag=ca
 execute if score Temp reg_1 matches -1 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":""}
 execute if score Temp reg_1 matches -1 at @s[tag=!inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":""}
 
+execute if score Temp reg_1 matches 0 if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_composition
+execute if score Temp reg_1 matches -1 if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_composition
+
 #Clean for next
 execute if score Temp reg_1 matches 0 run data merge storage magic:print_weave_composition_build {text:[]}
 execute if score Temp reg_1 matches -1 run data merge storage magic:print_weave_composition_build {text:[]}
