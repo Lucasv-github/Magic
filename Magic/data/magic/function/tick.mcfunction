@@ -81,16 +81,17 @@ execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inve
 execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/invite_to_circle
 
 #Force in offhand: toggle between hotbar mode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:toggle_hotbarmode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run item replace entity @s weapon.mainhand from entity @s weapon.offhand
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run item replace entity @s weapon.offhand with minecraft:air
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:holding_toggle_hotbarmode
 
 #Need to be above element detect
 #Book in offhand with selection: add empty / tie off
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] run function magic:verify_weave_placed
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] run tag @s add tick_offhand_temp
+execute as @a[tag=tick_offhand_temp] run function magic:verify_weave_placed
 
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] if score @s reg_1 matches 0 run function magic:weave_handling/holding_add_line
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] if score @s reg_1 matches 1 run function magic:holding_tie_off
+execute as @a[tag=tick_offhand_temp] if score @s reg_1 matches 0 run function magic:weave_handling/holding_add_line
+execute as @a[tag=tick_offhand_temp] if score @s reg_1 matches 1 run function magic:holding_tie_off
+
+tag @a remove tick_offhand_temp
 
 #Circle power in offhand while circled: Pass circle
 execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/pass_circle
@@ -174,11 +175,6 @@ execute as @a[tag=using,scores={reg_1=1..}] unless score @s reg_1 = @s held_play
 #If reg_1=0 we are unselecting, still need to set held_player_weave_index to 0
 execute as @a[tag=using,scores={reg_1=0}] unless score @s reg_1 = @s held_player_weave_index run scoreboard players set @s held_player_weave_index 0
 
-
-#TODO is this needed
-tag @a[tag=can_use, tag=using, nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick"}}] add active
-
-
 execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
 execute as @a[tag=using,tag=can_use] unless score @s reg_1 matches 0 unless score @s reg_1 = @s player_weave_index run function magic:weave_handling/build_changed
 
@@ -196,16 +192,9 @@ execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circl
 #Circle, do not remove tag=!using
 execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:power_handling/enter_circle
 
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:1}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:2}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:3}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:4}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:5}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:6}}}}]
+#Remove old
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:8}}}}] run function magic:remove_cleanup_player_single
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:9}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:10}}}}]
-kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:20}}}}]
+execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic run kill @s
 
 #Prevent put in container
 clear @a[tag=!using] minecraft:golden_sword[custom_data={Magic:20}]
