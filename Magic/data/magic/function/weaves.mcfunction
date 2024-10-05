@@ -120,6 +120,29 @@ scoreboard players operation @s weave_air_count -= @s weave_heal_count
 scoreboard players operation @s weave_spirit_count -= @s weave_heal_count
 scoreboard players operation @s weave_water_count -= @s weave_heal_count
 
+
+#Lava
+scoreboard players set Temp reg_1 2
+scoreboard players set Temp reg_2 3
+scoreboard players set Temp reg_3 3
+function magic:weave_processing/count_weave_tripple
+scoreboard players operation @s weave_lava_count = @s reg_1
+
+scoreboard players operation @s weave_explosion_count -= @s weave_lava_count
+scoreboard players operation @s weave_fire_count -= @s weave_lava_count
+
+
+#Light
+scoreboard players set Temp reg_1 1
+scoreboard players set Temp reg_2 1
+scoreboard players set Temp reg_3 3
+function magic:weave_processing/count_weave_tripple
+scoreboard players operation @s weave_light_count = @s reg_1
+
+scoreboard players operation @s weave_lightning_count -= @s weave_light_count
+scoreboard players operation @s weave_air_count -= @s weave_light_count
+
+
 #Needs to be below all primary detections
 function magic:weave_processing/advance_read_index
 
@@ -186,6 +209,20 @@ execute at @s[scores={weave_lightning_count=1..}] run function magic:base_weaves
 #Cutting
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_cut_count
 execute at @s[scores={weave_cut_count=1..}] run function magic:base_weaves/weave_cut with storage magic:weave_size
+
+#Lava
+scoreboard players operation Temp reg_1 = @s weave_lava_count
+function magic:math/cube_root
+scoreboard players remove Temp reg_1 1
+execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
+execute at @s[scores={weave_lava_count=1..}] run function magic:base_weaves/weave_lava with storage magic:weave_size
+
+#Light
+scoreboard players operation Temp reg_1 = @s weave_light_count
+function magic:math/cube_root
+scoreboard players remove Temp reg_1 1
+execute store result storage magic:weave_size size int 1 run scoreboard players get Temp reg_1
+execute at @s[scores={weave_light_count=1..}] run function magic:base_weaves/weave_light with storage magic:weave_size
 
 #Ice
 scoreboard players operation Temp reg_1 = @s weave_ice_count
