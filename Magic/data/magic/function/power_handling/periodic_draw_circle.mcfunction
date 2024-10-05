@@ -13,6 +13,8 @@ execute as @a[tag=circled,tag=can_use,scores={regenerated_strength=1..}] if scor
 scoreboard players operation Temp reg_1 = @s current_held
 execute as @e[tag=periodic_draw_circle_temp] run scoreboard players operation @s my_draw_amount -= Temp reg_1
 
+scoreboard players operation @s my_draw_amount -= Temp reg_1
+
 #Increase
 #at @e[tag=periodic_draw_circle_temp] is simply to do it for each member in circle. Shouldn't matter that the owner is running as strength isn't drained here
 execute as @s[scores={reg_1=1..}] at @e[tag=periodic_draw_circle_temp] run scoreboard players operation Draw_force reg_1 = @s reg_1
