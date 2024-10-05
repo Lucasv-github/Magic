@@ -171,6 +171,7 @@ scoreboard players set 10 reg_1 10
 scoreboard players set 16 reg_1 16
 scoreboard players set 30 reg_1 30
 scoreboard players set 20 reg_1 20
+scoreboard players set 26 reg_1 26
 scoreboard players set 60 reg_1 60
 scoreboard players set 100 reg_1 100
 scoreboard players set 1000 reg_1 1000
