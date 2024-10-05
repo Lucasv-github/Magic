@@ -5,11 +5,13 @@ scoreboard objectives add magic_balefire_ban trigger
 scoreboard objectives add magic_max_strength dummy
 scoreboard objectives add magic_min_strength dummy
 scoreboard objectives add magic_debug_state trigger
+scoreboard objectives add magic_debug_weave_state trigger
 
 scoreboard objectives add normal_distributed dummy
 function magic:create_normal_distributed
 
 execute unless score magic_settings magic_debug_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_state 1
+execute unless score magic_settings magic_debug_weave_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_weave_state 1
 execute unless score magic_settings magic_auto_ability_state matches -2147483647.. run scoreboard players set magic_settings magic_auto_ability_state 2
 execute unless score magic_settings magic_balefire_ban matches -2147483647.. run scoreboard players set magic_settings magic_balefire_ban 2
 

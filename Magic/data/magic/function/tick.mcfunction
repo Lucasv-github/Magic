@@ -19,6 +19,9 @@ execute as @a[tag=can_use,tag=!barmode,tag=using] unless score @s use_items matc
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players operation magic_settings magic_debug_state = @s magic_debug_state
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players set @s magic_debug_state 0
 
+execute as @a[scores={magic_debug_weave_state=1..}] run scoreboard players operation magic_settings magic_debug_weave_state = @s magic_debug_weave_state
+execute as @a[scores={magic_debug_weave_state=1..}] run scoreboard players set @s magic_debug_weave_state 0
+
 execute as @a[scores={magic_auto_ability_state=1..}] run scoreboard players operation magic_settings magic_auto_ability_state = @s magic_auto_ability_state
 execute as @a[scores={magic_auto_ability_state=1..}] run scoreboard players set @s magic_auto_ability_state 0
 
@@ -33,6 +36,7 @@ execute as @a[scores={admin_panel=1..}] run function magic:admin_actions/admin
 
 scoreboard players enable @a[tag=admin] select_player
 scoreboard players enable @a[tag=admin] magic_debug_state
+scoreboard players enable @a[tag=admin] magic_debug_weave_state
 scoreboard players enable @a[tag=admin] magic_auto_ability_state
 scoreboard players enable @a[tag=admin] magic_balefire_ban
 scoreboard players enable @a[tag=admin] set_halve_hold

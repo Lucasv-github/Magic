@@ -27,3 +27,7 @@ execute at @s run scoreboard players operation @s circled_owner_id = @a[limit=1,
 
 scoreboard players set @s state 0
 scoreboard players set @s my_draw_amount 0
+
+tag @s add current_player_for_log
+execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_enter_circle
+tag @s remove current_player_for_log
