@@ -38,6 +38,9 @@ execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s p
 
 #clear @s golden_sword
 
+execute store result storage magic:remove_weave_data index int 1 run scoreboard players get @s player_weave_index
+function magic:remove_weave_data with storage magic:remove_weave_data
+
 tag @s remove tied_off
 tag @s remove actively_held
 
