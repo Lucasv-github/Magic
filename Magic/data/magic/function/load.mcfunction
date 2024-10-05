@@ -184,7 +184,8 @@ execute in minecraft:overworld run forceload add 0 0
 #To allow console log on servers
 setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[type=minecraft:armor_stand,tag=console_writer,limit=1]"} destroy
 
-tellraw @a {"text":"Magic 1.5.1 loaded","bold":true,"color":"gold"}
+#Fire sword
+data merge storage magic:match_weave_1 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,1,1,-1,1,3,3,3,1,-1,1,1,3,1,1]}
 
 scoreboard players set Temp reg_1 0
 function magic:detect_permission
@@ -197,3 +198,5 @@ scoreboard players set magic_settings magic_min_strength 100
 scoreboard players set magic_settings magic_max_strength 2000
 
 schedule function magic:debug/command_block_message 2s replace
+
+tellraw @a {"text":"Magic 1.5.1 loaded","bold":true,"color":"gold"}

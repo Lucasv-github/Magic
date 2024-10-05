@@ -198,7 +198,7 @@ execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:8}
 execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic run kill @s
 
 #Prevent put in container
-clear @a[tag=!using] minecraft:golden_sword[custom_data={Magic:20}]
+clear @a[tag=!using] minecraft:golden_sword[custom_data={Magic:30}]
 
 #Clean old weaves
 kill @e[type=minecraft:armor_stand,tag=target_point, scores={weave_despawn_time=0},tag=!actively_held]

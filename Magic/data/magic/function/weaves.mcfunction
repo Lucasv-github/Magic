@@ -1,7 +1,5 @@
 #say weaves
 
-tag @s add current_target
-
 function magic:calculate_distance
 
 #Remove truly_see from all but self if inverted
@@ -12,7 +10,14 @@ function magic:print_weave_composition
 
 #Weaves directed at a person will be locked directly when it land and can be accesed with weave_locked_player_id
 
-tag @s[tag=current_target,tag=unused] add hold_used
+tag @s[tag=unused] add hold_used
+
+#Start by exact pattern matches
+scoreboard players set Temp reg_1 1
+function magic:weave_processing/match_weave
+
+execute as @s[scores={reg_1=1}] run function magic:base_weaves/fire_sword
+execute as @s[scores={reg_1=1}] run return 0
 
 #TODO save in specific counts like old days? (air_count,...)
 
@@ -277,6 +282,3 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 #Bridge
 execute as @s[scores={weave_air_count=1..,weave_fire_count=1,weave_read_index=1..,}] store result storage magic:weave_size size int 1 run scoreboard players get @s weave_air_count
 execute as @s[scores={weave_air_count=1..,weave_fire_count=1,weave_read_index=1..,}] run function magic:base_weaves/weave_bridge with storage magic:weave_size
-
-#Using @e if by some chance we get more than 1 (server stop?)
-tag @e remove current_target
