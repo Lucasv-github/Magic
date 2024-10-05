@@ -181,6 +181,7 @@ execute as @a[tag=using,tag=can_use] unless score @s reg_1 matches 0 unless scor
 #Angreal
 #coreboard players set @a reg_1 0
 execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
+execute as @a[tag=using,tag=can_use] store result score @s reg_2 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Angreal_flawed
 execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run tag @s add angrealed_held
 execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:power_handling/enter_angreal
 

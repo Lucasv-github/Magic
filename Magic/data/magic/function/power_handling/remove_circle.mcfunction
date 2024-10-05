@@ -7,6 +7,7 @@ execute as @a[tag=can_use] if score @s circled_owner_id = Temp reg_1 run tag @s 
 
 tag @a[tag=temp_remove_circle] remove circled
 tag @a[tag=temp_remove_circle] remove angrealed
+tag @a[tag=temp_remove_circle] remove angreal_flawed
 scoreboard players reset @a[tag=temp_remove_circle] circled_owner_id
 
 execute as @a[tag=temp_remove_circle] run function magic:drop_current_hotbar

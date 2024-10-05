@@ -5,5 +5,6 @@ scoreboard players set @s angreal_level 1
 
 tag @s remove angrealed
 tag @s remove angrealed_held
+tag @s remove angreal_flawed
 
 execute at @s run playsound minecraft:block.anvil.place ambient @s
