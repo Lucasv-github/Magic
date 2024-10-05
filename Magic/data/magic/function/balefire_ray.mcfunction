@@ -5,7 +5,8 @@ $fill $(size) $(size) $(size) -$(size) -$(size) -$(size) glass replace #magic:ba
 tag @s add balefire_ray_not_me
 
 #TODO target point remove weave
-$execute as @e[distance=..$(size),tag=!balefire_ray_not_me,tag=!target_point] run function magic:ban
+$execute as @e[distance=..$(size),tag=!balefire_ray_not_me,tag=!target_point] if score magic_settings magic_balefire_ban matches 1 run function magic:kick
+$execute as @e[distance=..$(size),tag=!balefire_ray_not_me,tag=!target_point] if score magic_settings magic_balefire_ban matches 2 run function magic:ban
 $execute as @e[distance=..$(size),tag=!balefire_ray_not_me,tag=!target_point] run tp @s ~ ~-10000 ~
 
 tag @s remove balefire_ray_not_me
