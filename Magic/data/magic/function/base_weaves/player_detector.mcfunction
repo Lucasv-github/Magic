@@ -1,0 +1,1 @@
+execute at @s unless entity @a[distance=..5] run scoreboard players set @s weave_read_index 0

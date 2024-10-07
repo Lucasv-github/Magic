@@ -194,6 +194,12 @@ setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[
 #Fire sword
 data merge storage magic:match_weave_1 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,1,1,-1,1,3,3,3,1,-1,1,1,3,1,1]}
 
+#Player detector
+data merge storage magic:match_weave_2 {Elements:[5,5,1,5,1,5,5]}
+
+#Entity detector
+data merge storage magic:match_weave_3 {Elements:[5,5,1,2,1,5,5]}
+
 scoreboard players set Temp reg_1 0
 function magic:detect_permission
 execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}
