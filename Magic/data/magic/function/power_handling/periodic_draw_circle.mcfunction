@@ -13,6 +13,7 @@ execute as @a[tag=circled,tag=can_use,scores={regenerated_strength=1..}] if scor
 scoreboard players operation Temp reg_1 = @s current_held
 execute as @e[tag=periodic_draw_circle_temp] run scoreboard players operation @s my_draw_amount -= Temp reg_1
 
+scoreboard players operation @s total_draw_amount -= Temp reg_1
 scoreboard players operation @s my_draw_amount -= Temp reg_1
 
 #Increase
@@ -23,6 +24,7 @@ execute as @s[scores={reg_1=1..}] at @e[tag=periodic_draw_circle_temp] run funct
 scoreboard players operation Temp reg_1 = @s current_held
 execute as @e[tag=periodic_draw_circle_temp] run scoreboard players operation @s my_draw_amount += Temp reg_1
 
-scoreboard players operation @s my_draw_amount += Temp reg_1
+scoreboard players operation @s total_draw_amount += Temp reg_1
+scoreboard players operation @s my_draw_amount -= Temp reg_1
 
 tag @e remove periodic_draw_circle_temp

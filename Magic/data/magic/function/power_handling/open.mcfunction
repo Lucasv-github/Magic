@@ -10,6 +10,7 @@ scoreboard players set @s weave_length 0
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode
 
 scoreboard players operation @s my_draw_amount = @s current_held
+scoreboard players operation @s total_draw_amount = @s current_held
 
 #Angreal here already
 scoreboard players set @s reg_1 0
