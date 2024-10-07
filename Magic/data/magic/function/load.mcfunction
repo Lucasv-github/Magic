@@ -70,6 +70,7 @@ scoreboard objectives add reg_2 dummy
 scoreboard objectives add reg_3 dummy
 scoreboard objectives add reg_4 dummy
 scoreboard objectives add reg_5 dummy
+scoreboard objectives add reg_6 dummy
 
 scoreboard objectives add destination_x trigger
 scoreboard objectives add destination_y trigger

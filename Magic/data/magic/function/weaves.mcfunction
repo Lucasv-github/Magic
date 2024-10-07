@@ -135,12 +135,14 @@ scoreboard players operation @s weave_fire_count -= @s weave_lava_count
 #Light
 scoreboard players set Temp reg_1 1
 scoreboard players set Temp reg_2 3
-scoreboard players set Temp reg_3 1
-function magic:weave_processing/count_weave_tripple
+scoreboard players set Temp reg_3 3
+scoreboard players set Temp reg_4 1
+function magic:weave_processing/count_weave_quadruple
 scoreboard players operation @s weave_light_count = @s reg_1
 
 scoreboard players operation @s weave_lightning_count -= @s weave_light_count
 scoreboard players operation @s weave_air_count -= @s weave_light_count
+scoreboard players operation @s weave_fire_count -= @s weave_light_count
 
 
 #Needs to be below all primary detections
