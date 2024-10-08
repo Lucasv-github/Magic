@@ -207,8 +207,8 @@ execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn'
 scoreboard players set Detect_command_blocks reg_1 0
 setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Detect_command_blocks reg_1 1"} destroy
 
-scoreboard players set magic_settings magic_min_strength 100
-scoreboard players set magic_settings magic_max_strength 2000
+execute unless score magic_settings magic_min_strength matches -2147483647.. run scoreboard players set magic_settings magic_min_strength 100
+execute unless score magic_settings magic_max_strength matches -2147483647.. run scoreboard players set magic_settings magic_max_strength 2000
 
 schedule function magic:debug/command_block_message 2s replace
 
