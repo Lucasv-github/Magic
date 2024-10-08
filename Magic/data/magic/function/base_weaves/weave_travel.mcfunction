@@ -74,6 +74,9 @@ execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 as @s[y_
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 as @s[y_rotation=-90..0] run scoreboard players operation Temp destination_x *= 1 reg_1
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 as @s[y_rotation=-90..0] run scoreboard players operation Temp destination_z *= 1 reg_1
 
+execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 as @s[x_rotation=45..90] run scoreboard players operation Temp destination_y *= 1 reg_1
+execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 as @s[x_rotation=0..45] run scoreboard players operation Temp destination_y *= -1 reg_1
+
 execute store result score @s destination_x run data get entity @s Pos[0]
 execute store result score @s destination_y run data get entity @s Pos[1]
 execute store result score @s destination_z run data get entity @s Pos[2]
