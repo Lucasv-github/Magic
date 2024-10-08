@@ -21,10 +21,12 @@ execute as @s[scores={reg_1=1}] run return 0
 scoreboard players set Temp reg_1 2
 function magic:weave_processing/match_weave
 execute as @s[scores={reg_1=1}] run function magic:base_weaves/player_detector
+execute as @s[scores={reg_1=1}] run return 0
 
 scoreboard players set Temp reg_1 3
 function magic:weave_processing/match_weave
 execute as @s[scores={reg_1=1}] run function magic:base_weaves/entity_detector
+execute as @s[scores={reg_1=1}] run return 0
 
 #TODO save in specific counts like old days? (air_count,...)
 
