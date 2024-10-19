@@ -159,6 +159,7 @@ scoreboard objectives add leave_detect minecraft.custom:minecraft.leave_game
 #Death detect
 scoreboard objectives add death_detect deathCount
 
+scoreboard players set -10 reg_1 -10
 scoreboard players set -1 reg_1 -1
 scoreboard players set 0 reg_1 0
 scoreboard players set 1 reg_1 1
