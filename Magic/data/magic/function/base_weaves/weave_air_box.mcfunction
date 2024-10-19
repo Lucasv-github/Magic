@@ -1,0 +1,2 @@
+$fill ~$(size_1) ~$(size_1) ~$(size_1) ~-$(size_1) ~-$(size_1) ~-$(size_1) minecraft:glass replace minecraft:air
+$fill ~$(size) ~$(size) ~$(size) ~-$(size) ~-$(size) ~-$(size) minecraft:air replace minecraft:glass

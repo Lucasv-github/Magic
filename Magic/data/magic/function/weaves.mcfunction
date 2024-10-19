@@ -330,3 +330,7 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 #Bridge
 execute as @s[scores={weave_air_count=1..,weave_fire_count=1,weave_read_index=1..,}] store result storage magic:weave_size size int 1 run scoreboard players get @s weave_air_count
 execute as @s[scores={weave_air_count=1..,weave_fire_count=1,weave_read_index=1..,}] run function magic:base_weaves/weave_bridge with storage magic:weave_size
+
+#Air box
+execute as @s[scores={weave_read_index=1..,weave_air_count=1..}] if score @s weave_air_count = @s weave_air_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_air_count
+execute as @s[scores={weave_read_index=1..,weave_air_count=1..}] if score @s weave_air_count = @s weave_air_count_1 run function magic:base_weaves/weave_air_box_pre with storage magic:weave_size
