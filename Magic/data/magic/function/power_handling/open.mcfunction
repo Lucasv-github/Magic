@@ -45,7 +45,7 @@ function magic:power_handling/tap_power
 execute as @s[tag=using] run function magic:store_hotbar
 
 #Needs to be below store hotbar as it adds item that shouldn't be stored
-execute as @s[scores={sneak_time=100..}] run function magic:power_handling/create_circle
+execute as @s[scores={sneak_time=100..}] run function magic:power_handling/create_circle_nearby
 
 tellraw @s[tag=using] ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" ↑ ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}}]
 
