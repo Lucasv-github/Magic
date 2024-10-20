@@ -7,3 +7,5 @@ execute at @s run scoreboard players operation @s[scores={reg_1=0}] weave_locked
 execute at @s run scoreboard players operation @s[scores={reg_1=0}] weave_locked_entity_id = @e[limit=1, sort=nearest, distance=..5,tag=!target_point] entity_id
 
 scoreboard players set @s[scores={reg_1=1}] weave_read_index 0
+
+tag @s add weave_ward
