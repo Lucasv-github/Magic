@@ -25,8 +25,8 @@ setblock ~2 ~1 ~ minecraft:nether_portal
 setblock ~1 ~0 ~ minecraft:nether_portal
 setblock ~2 ~0 ~ minecraft:nether_portal
 
-setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:travel"}
-setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic:travel"}
+setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:travel"}
+setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:travel"}
 
 #scoreboard players operation Temp reg_1 = @s player_id
 

@@ -76,11 +76,11 @@ setblock ~2 ~1 ~ minecraft:nether_portal
 setblock ~1 ~0 ~ minecraft:nether_portal
 setblock ~2 ~0 ~ minecraft:nether_portal
 
-execute if dimension magic_commons:tar run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
-execute if dimension magic_commons:tar run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:exit_tar"}
+execute if dimension magic_commons:tar run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic_commons:exit_tar"}
+execute if dimension magic_commons:tar run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic_commons:exit_tar"}
 
-execute if dimension minecraft:overworld run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
-execute if dimension minecraft:overworld run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @a[distance=..1.7] run function magic_commons:enter_tar"}
+execute if dimension minecraft:overworld run setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic_commons:enter_tar"}
+execute if dimension minecraft:overworld run setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic_commons:enter_tar"}
 
 scoreboard players operation Temp reg_1 = @s player_id
 
@@ -143,7 +143,7 @@ tag @s add holds_travel
 execute if dimension minecraft:overworld run tag @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] add in_tar
 
 #Need to be below holds travel
-execute if dimension minecraft:overworld as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in magic_commons:tar run function magic:opposite_gateway_tar
-execute if dimension magic_commons:tar as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s in minecraft:overworld run function magic:opposite_gateway_tar
+execute if dimension minecraft:overworld as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp,tag=!teleport_target] at @s in magic_commons:tar run function magic:opposite_gateway_tar
+execute if dimension magic_commons:tar as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp,tag=!teleport_target] at @s in minecraft:overworld run function magic:opposite_gateway_tar
 
 scoreboard players add @s destination_z 2
