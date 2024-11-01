@@ -195,11 +195,17 @@ setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[
 #Fire sword
 data merge storage magic:match_weave_1 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,1,1,-1,1,3,3,3,1,-1,1,1,3,1,1]}
 
+#Fire axe
+data merge storage magic:match_weave_2 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,3,3,-1,1,1,3,3,3,-1,1,1,3,3,1]}
+
+#Fire pickaxe
+data merge storage magic:match_weave_3 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,3,1,3,1,3,-1,1,3,3,3,1,-1,1,1,3,1,1]}
+
 #Player detector
-data merge storage magic:match_weave_2 {Elements:[5,5,1,5,1,5,5]}
+data merge storage magic:match_weave_4 {Elements:[5,5,1,5,1,5,5]}
 
 #Entity detector
-data merge storage magic:match_weave_3 {Elements:[5,5,1,2,1,5,5]}
+data merge storage magic:match_weave_5 {Elements:[5,5,1,2,1,5,5]}
 
 scoreboard players set Temp reg_1 0
 function magic:detect_permission

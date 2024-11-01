@@ -18,12 +18,24 @@ function magic:weave_processing/match_weave
 execute as @s[scores={reg_1=1}] run function magic:base_weaves/fire_sword
 execute as @s[scores={reg_1=1}] run return 0
 
+#Start by exact pattern matches
 scoreboard players set Temp reg_1 2
+function magic:weave_processing/match_weave
+execute as @s[scores={reg_1=1}] run function magic:base_weaves/fire_axe
+execute as @s[scores={reg_1=1}] run return 0
+
+#Start by exact pattern matches
+scoreboard players set Temp reg_1 3
+function magic:weave_processing/match_weave
+execute as @s[scores={reg_1=1}] run function magic:base_weaves/fire_pickaxe
+execute as @s[scores={reg_1=1}] run return 0
+
+scoreboard players set Temp reg_1 4
 function magic:weave_processing/match_weave
 execute as @s[scores={reg_1=1}] run function magic:base_weaves/player_detector
 execute as @s[scores={reg_1=1}] run return 0
 
-scoreboard players set Temp reg_1 3
+scoreboard players set Temp reg_1 5
 function magic:weave_processing/match_weave
 execute as @s[scores={reg_1=1}] run function magic:base_weaves/entity_detector
 execute as @s[scores={reg_1=1}] run return 0

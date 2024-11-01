@@ -1,0 +1,3 @@
+scoreboard players operation Temp reg_1 = @s weave_locked_player_id
+execute as @a if score @s player_id = Temp reg_1 unless entity @s[nbt={Inventory:[{id:"minecraft:golden_pickaxe",components:{"minecraft:custom_data":{Magic:32}}}]}] run give @s minecraft:golden_pickaxe[custom_name='["",{"text":"Fire pickaxe","italic":false,"color":"dark_red"}]',enchantments={levels:{efficiency:10},show_in_tooltip:false},unbreakable={},custom_data={Magic:32}]
+tag @s add weave_fire_pickaxe

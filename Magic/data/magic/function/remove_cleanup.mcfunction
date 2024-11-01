@@ -43,6 +43,8 @@ execute as @s[tag=weave_air_box] store result storage magic:remove_air_box size 
 execute as @s[tag=weave_air_box] run function magic:remove_air_box with storage magic:remove_air_box
 
 execute as @s[tag=weave_fire_sword] as @a if score @s player_id = Temp reg_2 run clear @s minecraft:golden_sword[custom_data~{Magic:30}]
+execute as @s[tag=weave_fire_axe] as @a if score @s player_id = Temp reg_2 run clear @s minecraft:golden_axe[custom_data~{Magic:31}]
+execute as @s[tag=weave_fire_pickaxe] as @a if score @s player_id = Temp reg_2 run clear @s minecraft:golden_pickaxe[custom_data~{Magic:32}]
 
 execute store result storage magic:remove_weave_data index int 1 run scoreboard players get @s player_weave_index
 function magic:remove_weave_data with storage magic:remove_weave_data
