@@ -196,10 +196,10 @@ setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[
 data merge storage magic:match_weave_1 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,1,1,-1,1,3,3,3,1,-1,1,1,3,1,1]}
 
 #Fire axe
-data merge storage magic:match_weave_2 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,3,3,-1,1,1,3,3,3,-1,1,1,3,3,1]}
+data merge storage magic:match_weave_2 {Elements:[1,1,3,3,1,-1,1,1,3,3,3,-1,1,1,3,3,3,-1,1,1,3,1,1,-1,1,1,3,1,1]}
 
 #Fire pickaxe
-data merge storage magic:match_weave_3 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,3,1,3,1,3,-1,1,3,3,3,1,-1,1,1,3,1,1]}
+data merge storage magic:match_weave_3 {Elements:[1,3,3,3,1,-1,3,1,3,1,3,-1,1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,1,1]}
 
 #Player detector
 data merge storage magic:match_weave_4 {Elements:[5,5,1,5,1,5,5]}
