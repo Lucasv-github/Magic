@@ -7,6 +7,8 @@ scoreboard players set @a[tag=force_circle_owner_temp] sneak_time 100
 
 tag @a[tag=force_circle_owner_temp] add create_circle_member_temp
 
+execute as @s[tag=!using,tag=can_use] run function magic:power_handling/open
+
 function magic:power_handling/create_circle
 
 tag @a[tag=force_circle_owner_temp] add to_be_circle_owner_temp
