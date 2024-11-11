@@ -15,7 +15,7 @@ execute as @a[tag=to_be_circle_owner_temp] run function magic:drop_current_hotba
 execute as @a[tag=to_be_circle_owner_temp] run function magic:load_hotbar
 
 execute as @a[tag=to_be_circle_owner_temp] run function magic:power_handling/open
-give @a[tag=to_be_circle_owner_temp] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power from circle","italic":false}]'],custom_model_data=1,custom_data={Magic:9}] 32
+give @a[tag=to_be_circle_owner_temp] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power from circle","italic":false}]'],custom_model_data=1,custom_data={Magic:9,Magic_preserve:1}] 32
 
 scoreboard players operation @a[tag=to_be_circle_owner_temp] cumulative_halve_amount_hold = @s cumulative_halve_amount_hold
 scoreboard players operation @a[tag=to_be_circle_owner_temp] current_held = @s current_held
