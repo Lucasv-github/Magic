@@ -101,8 +101,6 @@ tag @a remove tick_offhand_temp
 #Observe that this pass_circle is not the power handling pass_circle
 execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:pass_circle
 
-function magic:power_handling/pass_circle
-
 #Only way to exit is via dropping the power, this allows for free offhand
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:power_handling/exit
 
