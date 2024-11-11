@@ -33,7 +33,7 @@ execute if entity @a[tag=to_be_circle_owner_temp] run scoreboard players operati
 
 #Need to be below tags
 execute if entity @a[tag=to_be_circle_owner_temp] run function magic:clear_magic_items
-execute if entity @a[tag=to_be_circle_owner_temp] clear @s minecraft:ender_eye[custom_data~{Magic:6}]
+execute if entity @a[tag=to_be_circle_owner_temp] run clear @s minecraft:ender_eye[custom_data~{Magic:6}]
 
 #Need to be last
 tag @a remove to_be_circle_owner_temp
