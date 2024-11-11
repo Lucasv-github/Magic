@@ -6,6 +6,9 @@ tag @s add opening
 scoreboard players set @s angreal_level 1
 scoreboard players set @s weave_length 0
 
+#Need to be here
+scoreboard players set @s current_held 0
+
 #Prevent dual items when opening first time
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode
 
@@ -34,6 +37,7 @@ scoreboard players operation @s reg_1 /= 100 reg_1
 scoreboard players operation Give_force reg_1 = @s reg_1
 execute if score Give_force reg_1 matches ..10 run scoreboard players set Give_force reg_1 10
 function magic:power_handling/give_force_amount
+
 
 scoreboard players operation @s my_draw_amount = @s current_held
 scoreboard players operation @s total_draw_amount = @s current_held
