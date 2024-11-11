@@ -26,4 +26,5 @@ scoreboard players set @s e 0
 scoreboard players set @s f 0
 scoreboard players set @s w 0
 scoreboard players set @s s 0
+scoreboard players set @s click 0
 

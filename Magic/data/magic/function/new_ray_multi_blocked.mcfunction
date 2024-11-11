@@ -5,3 +5,4 @@ execute as @e[tag=target_point,tag=actively_held] if score @s player_id = Temp r
 execute unless entity @e[tag=new_ray_multi_blocked_temp] run function magic:new_ray
 
 tag @e remove new_ray_multi_blocked_temp
+scoreboard players set @s click 0
