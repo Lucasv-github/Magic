@@ -1,6 +1,6 @@
 #TODO if we change circle to depend more on the owner's strength this would have to be changed
 
-#Entity with tag to_be_circle_owner_temp becomes owner, @s loses controll
+#Entity with tag to_be_circle_owner_temp becomes owner, @s loses control
 
 #Should also be no need here to move item back from offhand
 
