@@ -26,12 +26,13 @@ tag @a[tag=to_be_circle_owner_temp] add circle_owner
 #And we do not call exit, as that will give back any item that might currently be preserved. Instead we just clear every magic item
 #execute if entity @a[tag=to_be_circle_owner_temp] run function magic:power_handling/exit
 
-execute if entity @a[tag=to_be_circle_owner_temp] run function magic:clear_magic_items
-
 execute if entity @a[tag=to_be_circle_owner_temp] run tag @s remove circle_owner
 execute if entity @a[tag=to_be_circle_owner_temp] run tag @s add circled
 execute if entity @a[tag=to_be_circle_owner_temp] run tag @s remove using
 execute if entity @a[tag=to_be_circle_owner_temp] run scoreboard players operation @s circled_owner_id = @a[tag=to_be_circle_owner_temp] player_id
+
+#Need to be below tags
+execute if entity @a[tag=to_be_circle_owner_temp] run function magic:clear_magic_items
 
 #Need to be last
 tag @a remove to_be_circle_owner_temp
