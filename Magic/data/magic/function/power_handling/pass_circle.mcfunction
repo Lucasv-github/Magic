@@ -8,7 +8,7 @@ scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players set Temp reg_2 0
 
 #Drop anything collected during cirlcle, else it would disappear
-execute as @a[tag=to_be_circle_owner_temp] run function magic:drop_current_hotbar
+#execute as @a[tag=to_be_circle_owner_temp] run function magic:drop_current_hotbar
 #Might actually just good that the player won't be able to collect these items in time else they too would get showed in the storage
 
 #We want to load it, so that we can store it again
