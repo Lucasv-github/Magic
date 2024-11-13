@@ -1,7 +1,6 @@
 #Called once one open the power
 
 tag @s add using
-tag @s add opening
 
 scoreboard players set @s angreal_level 1
 scoreboard players set @s weave_length 0
@@ -48,14 +47,6 @@ function magic:power_handling/tap_power
 #Store this to make use easier
 execute as @s[tag=using] run function magic:store_hotbar
 
-#Needs to be below store hotbar as it adds item that shouldn't be stored
-execute as @s[scores={sneak_time=100..}] run function magic:power_handling/create_circle_nearby
-
-tellraw @s[tag=using] ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" ↑ ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}}]
-
-#We can live with this collision risk
-execute store result score @s player_weave_index run random value 0..2147483646
-
 scoreboard players set @s state 0
 
 scoreboard players set @s a 0
@@ -77,9 +68,15 @@ give @s[tag=using,scores={use_items=1}] minecraft:carrot_on_a_stick[enchantment_
 #32, perfectly balanced
 give @s[tag=using] minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Force","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power","italic":false}]'],custom_model_data=1,custom_data={Magic:6,Magic_preserve:1}] 32
 
-scoreboard players set @s sneak_time 0
+#Needs to be below store hotbar as it adds item that shouldn't be stored
+execute as @s[scores={sneak_time=100..}] run function magic:power_handling/create_circle_nearby
 
-tag @s remove opening
+tellraw @s[tag=using] ["",{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger a set 1"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger e set 2"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger f set 3"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger w set 4"}},{"text":"  ","clickEvent":{"action":"run_command","value":"/trigger s set 5"}},{"text":" ↑ ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}}]
+
+#We can live with this collision risk
+execute store result score @s player_weave_index run random value 0..2147483646
+
+scoreboard players set @s sneak_time 0
 
 tag @s[tag=using] add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_open
