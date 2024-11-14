@@ -85,7 +85,7 @@ scoreboard players operation @s destination_x += Temp destination_x
 scoreboard players operation @s destination_y += Temp destination_y
 scoreboard players operation @s destination_z += Temp destination_z
 
-execute at @s[tag=weave_travel_temp_works] run function magic:weaves/weave_travel
+execute at @s[tag=weave_travel_temp_works] run function magic:weave_actions/create_gateway
 
 tag @s remove weave_travel_temp_works
 
