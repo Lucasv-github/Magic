@@ -1,7 +1,0 @@
-clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:1}]
-clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:2}]
-clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:3}]
-clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:4}]
-clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:5}]
-clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:8}]
-clear @s minecraft:ender_eye[custom_data~{Magic:9}]

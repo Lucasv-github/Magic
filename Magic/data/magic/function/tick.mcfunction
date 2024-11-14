@@ -219,9 +219,6 @@ scoreboard players remove @a[scores={doomed=100..}] doomed 100
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run kill @s
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run scoreboard players set @s doomed 0
 
-#Things like the bridge
-execute as @e[tag=ray] run function magic:along_execute
-
 #Check for legacy target hits. Throws should also not consume here
 execute as @e[tag=ray,tag=!begin_throw] at @s unless entity @e[distance=..1, type=minecraft:snowball,tag=hit_ray_done] run function magic:landed
 

@@ -1,2 +1,0 @@
-function magic:swap_hands
-function magic:toggle_hotbarmode
