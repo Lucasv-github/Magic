@@ -34,7 +34,7 @@ execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s player_weave
 #Cleanup won't touch any reg, thus this is fine
 execute as @s[tag=weave_bridge] as @e[tag=bridge_start,type=armor_stand] if score @s player_weave_index = Temp reg_4 run kill @s
 execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s player_weave_index = Temp reg_4 store result storage magic:remove_bridge size int 1 run scoreboard players get @s weave_air_count
-execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s player_weave_index = Temp reg_4 run function magic:remove_bridge with storage magic:cleanup/remove_bridge
+execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s player_weave_index = Temp reg_4 run function magic:cleanup/remove_bridge with storage magic:remove_bridge
 
 #Air box
 execute as @s[tag=weave_air_box] run scoreboard players operation Temp reg_1 = @s weave_air_count
