@@ -8,8 +8,8 @@ scoreboard players operation Ray_data reg_4 /= 10 reg_1
 scoreboard players set Ray_data reg_2 1
 scoreboard players set Ray_data reg_3 0
 
-execute if entity @e[tag=new_ray_multi_blocked_temp] positioned ^ ^2 ^1 run function magic:ray_iteration
-execute if entity @e[tag=new_ray_multi_blocked_temp] run playsound minecraft:entity.item.pickup player @s
+execute unless entity @e[tag=new_ray_multi_blocked_temp] positioned ^ ^2 ^1 run function magic:ray_iteration
+execute unless entity @e[tag=new_ray_multi_blocked_temp] run playsound minecraft:entity.item.pickup player @s
 
 tag @e remove new_ray_multi_blocked_temp
 scoreboard players set @s click 0
