@@ -46,7 +46,7 @@ execute if score @s current_held > @s reg_1 run function magic:power_handling/ex
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players set Temp reg_2 0
 
-function magic:magic_actions/shield_handlingshielded_strength_get
+function magic:magic_actions/shielded_strength_get
 
 #TODO obviously allow opening with weak in the future
 execute as @s[tag=opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = @s reg_1 run tag @s add tap_power_shielded_temp
