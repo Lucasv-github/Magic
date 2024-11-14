@@ -1,4 +1,4 @@
-#say RC
+say RC
 
 #Travel: This is supposed to run as the "main" else everything will fail
 
@@ -51,6 +51,10 @@ function magic:cleanup/remove_weave_data with storage magic:remove_weave_data
 
 tag @s remove tied_off
 tag @s remove actively_held
+
+
+execute at @s run function magic:detections/can_unload
+execute if score Temp reg_1 matches 1 at @s run forceload remove ~ ~
 
 #TODO deprecate?
 tag @s remove holds_travel

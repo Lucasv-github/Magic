@@ -1,6 +1,10 @@
 #summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:0b,Marker:0b,Tags:["temp_target_point"]}
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b,Tags:["temp_target_point"]}
 
+execute store result score @s reg_1 run forceload query ~ ~
+#If zero it is not forceloaded
+execute as @s[scores={reg_1=0}] run forceload add ~ ~
+
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players operation Temp reg_3 = @s cumulative_halve_amount_hold
 scoreboard players operation Temp reg_4 = @s tie_strength
