@@ -99,7 +99,7 @@ tag @a remove tick_offhand_temp
 
 #Circle power in offhand while circled: Pass circle
 #Observe that this pass_circle is not the power handling pass_circle
-execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:pass_circle
+execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:magic_actions/pass_circle
 
 #Only way to exit is via dropping the power, this allows for free offhand
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:power_handling/exit
@@ -197,7 +197,7 @@ execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circl
 
 #Circle, do not remove tag=!using
 #Observe that this enter_circle is not the power handling enter_circle
-execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:enter_circle
+execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:magic_actions/enter_circle
 
 #Remove old
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:8}}}}] run function magic:cleanup/remove_cleanup_player_single
