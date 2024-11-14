@@ -47,7 +47,7 @@ execute as @s[tag=weave_fire_axe] as @a if score @s player_id = Temp reg_2 run c
 execute as @s[tag=weave_fire_pickaxe] as @a if score @s player_id = Temp reg_2 run clear @s minecraft:golden_pickaxe[custom_data~{Magic:32}]
 
 execute store result storage magic:remove_weave_data index int 1 run scoreboard players get @s player_weave_index
-function magic:remove_weave_data with storage magic:cleanup/remove_weave_data
+function magic:cleanup/remove_weave_data with storage magic:remove_weave_data
 
 tag @s remove tied_off
 tag @s remove actively_held
