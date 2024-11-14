@@ -13,8 +13,8 @@ tag @a remove to_be_banned
 tag @a remove to_be_kicked
 tag @a[tag=using] remove can_break_free
 
-execute as @a[tag=can_use] if score @s use_items matches 0 run function magic:unset_hotbarmode
-execute as @a[tag=can_use,tag=!barmode,tag=using] unless score @s use_items matches 0 run function magic:set_hotbarmode
+execute as @a[tag=can_use] if score @s use_items matches 0 run function magic:magic_actions/unset_hotbarmode
+execute as @a[tag=can_use,tag=!barmode,tag=using] unless score @s use_items matches 0 run function magic:magic_actions/set_hotbarmode
 
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players operation magic_settings magic_debug_state = @s magic_debug_state
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players set @s magic_debug_state 0
@@ -61,16 +61,16 @@ execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] 
 execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] run tellraw @s {"text":"~~~~","color":"gold"}
 
 #Enable breaking out
-execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run function magic:try_break_tied
+execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run function magic:magic_actions/try_break_tied
 
 #Opening
 execute as @a[scores={sneak_time=10..,reg_1=-90}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:power_handling/open
 
 #Throw
-execute as @e[tag=weave_thrower] run function magic:throw_lock
+execute as @e[tag=weave_thrower] run function magic:weave_actions/throw_lock
 
 #Bind
-execute as @e[tag=weave_bind] run function magic:bind_lock
+execute as @e[tag=weave_bind] run function magic:weave_actions/bind_lock
 
 #Sneak reset expect when riding (need to be below Throw, Bind...)
 execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless data entity @s RootVehicle run scoreboard players set @s sneak_time 0
@@ -85,15 +85,15 @@ execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inve
 execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/invite_to_circle
 
 #Force in offhand: toggle between hotbar mode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:holding_toggle_hotbarmode
+execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:magic_actions/holding_toggle_hotbarmode
 
 #Need to be above element detect
 #Book in offhand with selection: add empty / tie off
 execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] run tag @s add tick_offhand_temp
-execute as @a[tag=tick_offhand_temp] run function magic:verify_weave_placed
+execute as @a[tag=tick_offhand_temp] run function magic:detections/verify_weave_placed
 
 execute as @a[tag=tick_offhand_temp] if score @s reg_1 matches 0 run function magic:weave_handling/holding_add_line
-execute as @a[tag=tick_offhand_temp] if score @s reg_1 matches 1 run function magic:holding_tie_off
+execute as @a[tag=tick_offhand_temp] if score @s reg_1 matches 1 run function magic:magic_actions/holding_tie_off
 
 tag @a remove tick_offhand_temp
 
@@ -176,7 +176,7 @@ execute as @a[tag=using, tag=can_use, scores={slow_down=1..}] run function magic
 
 #Book slot selected: run weaves
 execute as @a[tag=using] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
-execute as @a[tag=using,scores={reg_1=1..}] unless score @s reg_1 = @s held_player_weave_index run function magic:holding_run
+execute as @a[tag=using,scores={reg_1=1..}] unless score @s reg_1 = @s held_player_weave_index run function magic:magic_actions/holding_run
 #If reg_1=0 we are unselecting, still need to set held_player_weave_index to 0
 execute as @a[tag=using,scores={reg_1=0}] unless score @s reg_1 = @s held_player_weave_index run scoreboard players set @s held_player_weave_index 0
 
@@ -200,7 +200,7 @@ execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circl
 execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:enter_circle
 
 #Remove old
-execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:8}}}}] run function magic:remove_cleanup_player_single
+execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:8}}}}] run function magic:cleanup/remove_cleanup_player_single
 execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic run kill @s
 
 #Prevent put in container
@@ -219,17 +219,14 @@ scoreboard players remove @a[scores={doomed=100..}] doomed 100
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run kill @s
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run scoreboard players set @s doomed 0
 
-#Check for legacy target hits. Throws should also not consume here
-execute as @e[tag=ray,tag=!begin_throw] at @s unless entity @e[distance=..1, type=minecraft:snowball,tag=hit_ray_done] run function magic:landed
-
 #Handle destroyed
-execute as @e[tag=target_point,tag=weave_lapsed,tag=weave_damaged] run function magic:remove_weave
+execute as @e[tag=target_point,tag=weave_lapsed,tag=weave_damaged] run function magic:weave_handling/remove_weave
 tag @e[tag=target_point,tag=weave_lapsed] remove weave_damaged
 
 #Remove signs
 execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]
 
-execute as @e[type=armor_stand,tag=target_point,tag=weave_throw_damaged] run function magic:throw_remove
+execute as @e[type=armor_stand,tag=target_point,tag=weave_throw_damaged] run function magic:cleanup/throw_remove
 
 scoreboard players set @a[tag=can_use] line 0
 scoreboard players set @a[tag=can_use] state 0

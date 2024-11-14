@@ -9,7 +9,7 @@ tag @s add tied_shield_unknot_tell_temp
 execute as @e[tag=tied_shield_unknot_temp,tag=shield_counter_selected] if score @s tie_strength = Temp reg_1 as @a[tag=tied_shield_unknot_tell_temp] at @s run playsound minecraft:block.tripwire.detach ambient @s
 execute as @e[tag=tied_shield_unknot_temp,tag=shield_counter_selected] if score @s tie_strength = Temp reg_1 run scoreboard players operation @s tie_strength /= 2 reg_1
 execute as @e[tag=tied_shield_unknot_temp,tag=shield_counter_selected] if score @s tie_strength matches 0 as @a[tag=tied_shield_unknot_tell_temp] at @s run playsound minecraft:block.barrel.open ambient @s
-execute as @e[tag=tied_shield_unknot_temp,tag=shield_counter_selected] if score @s tie_strength matches 0 run function magic:remove_cleanup
+execute as @e[tag=tied_shield_unknot_temp,tag=shield_counter_selected] if score @s tie_strength matches 0 run function magic:cleanup/remove_cleanup
 
 tag @s remove tied_shield_unknot_tell_temp
 tag @e remove tied_shield_unknot_temp

@@ -8,7 +8,7 @@ scoreboard players add @s weave_length 1
 execute store result storage magic:weave_storage_add_data index int 1 run scoreboard players get @s player_weave_index
 function magic:weave_handling/weave_storage_add_data with storage magic:weave_storage_add_data
 
-function magic:calculate_distance
+function magic:magic_support/calculate_distance
 
 execute as @s[scores={reg_1=1}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" \uE000","color":"white"}]
 execute as @s[scores={reg_1=2}] run tellraw @a[tag=can_see,tag=truly_see]  ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" \uE001","color":"white"}]

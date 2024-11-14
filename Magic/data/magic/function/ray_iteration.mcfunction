@@ -9,6 +9,6 @@ execute if score Ray_data reg_2 matches 1 as @e[distance=..2,tag=tied_off,scores
 
 execute unless block ~ ~ ~ minecraft:air run scoreboard players set Ray_data reg_2 0
 
-execute if score Ray_data reg_2 matches 0 run function magic:landed
+execute if score Ray_data reg_2 matches 0 run function magic:magic_actions/landed
 
 execute if score Ray_data reg_2 matches 1 positioned ^ ^ ^0.5 run function magic:ray_iteration

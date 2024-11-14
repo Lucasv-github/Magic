@@ -1,2 +1,2 @@
-function magic:swap_hands
-function magic:toggle_hotbarmode
+function magic:inventory/swap_hands
+function magic:magic_actions/toggle_hotbarmode

@@ -4,18 +4,18 @@
 
 #Remove gateway from mail
 #TODO branch out
-execute at @s[tag=holds_travel] run function magic:travel_dismantle
+execute at @s[tag=holds_travel] run function magic:cleanup/travel_dismantle
 execute as @s[tag=holds_travel] run scoreboard players operation Temp reg_1 = @s weave_execute_random_number
 execute as @s[tag=holds_travel] run scoreboard players operation Temp reg_2 = @s weave_despawn_time
 execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 run scoreboard players operation @s weave_despawn_time = Temp reg_2
-execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 at @s run function magic:travel_dismantle
+execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 at @s run function magic:cleanup/travel_dismantle
 execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 at @s run tag @s remove gateway_end
 execute as @s[tag=holds_travel] in minecraft:overworld positioned 0 -80 0 as @e[type=minecraft:armor_stand,distance=..1,tag=gateway_blocked] if score @s weave_execute_random_number = Temp reg_1 run kill @s
 
 #function magic:remove_light_beam
 
 #Handle cut at both sides
-execute as @s[tag=gateway_end] run function magic:travel_dismantle
+execute as @s[tag=gateway_end] run function magic:cleanup/travel_dismantle
 
 scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 scoreboard players operation Temp reg_2 = @s player_id
@@ -34,7 +34,7 @@ execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s player_weave
 #Cleanup won't touch any reg, thus this is fine
 execute as @s[tag=weave_bridge] as @e[tag=bridge_start,type=armor_stand] if score @s player_weave_index = Temp reg_4 run kill @s
 execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s player_weave_index = Temp reg_4 store result storage magic:remove_bridge size int 1 run scoreboard players get @s weave_air_count
-execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s player_weave_index = Temp reg_4 run function magic:remove_bridge with storage magic:remove_bridge
+execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s player_weave_index = Temp reg_4 run function magic:remove_bridge with storage magic:cleanup/remove_bridge
 
 #Air box
 execute as @s[tag=weave_air_box] run scoreboard players operation Temp reg_1 = @s weave_air_count
@@ -47,7 +47,7 @@ execute as @s[tag=weave_fire_axe] as @a if score @s player_id = Temp reg_2 run c
 execute as @s[tag=weave_fire_pickaxe] as @a if score @s player_id = Temp reg_2 run clear @s minecraft:golden_pickaxe[custom_data~{Magic:32}]
 
 execute store result storage magic:remove_weave_data index int 1 run scoreboard players get @s player_weave_index
-function magic:remove_weave_data with storage magic:remove_weave_data
+function magic:remove_weave_data with storage magic:cleanup/remove_weave_data
 
 tag @s remove tied_off
 tag @s remove actively_held

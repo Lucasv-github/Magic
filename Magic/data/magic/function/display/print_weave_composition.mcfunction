@@ -7,5 +7,5 @@ execute store result storage magic:print_weave_composition_iteration y int 1 run
 
 execute at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"text":"...","color":"gold"}
 
-function magic:print_weave_composition_iteration with storage magic:print_weave_composition_iteration
+function magic:display/print_weave_composition_iteration with storage magic:print_weave_composition_iteration
 

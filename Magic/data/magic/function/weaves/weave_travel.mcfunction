@@ -25,8 +25,8 @@ setblock ~2 ~1 ~ minecraft:nether_portal
 setblock ~1 ~0 ~ minecraft:nether_portal
 setblock ~2 ~0 ~ minecraft:nether_portal
 
-setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:travel"}
-setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:travel"}
+setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:magic_actions/travel"}
+setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:magic_actions/travel"}
 
 #scoreboard players operation Temp reg_1 = @s player_id
 
@@ -67,6 +67,6 @@ execute store result score @e[tag=gateway_end_temp,limit=1,sort=nearest] return_
 tag @s add holds_travel
 
 #Need to be below holds travel
-execute as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s run function magic:opposite_gateway
+execute as @e[limit=1,sort=nearest,type=armor_stand,tag=gateway_end_temp] at @s run function magic:weave_actions/opposite_gateway
 
 scoreboard players add @s destination_z 2

@@ -1,5 +1,5 @@
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get 1 reg_1
-function magic:stun with storage magic:stun
+function magic:stun with storage magic:magic_actions/stun
 
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players set Temp reg_2 0
@@ -27,7 +27,7 @@ scoreboard players operation Temp reg_1 /= Temp reg_2
 
 scoreboard players operation Temp reg_2 = Temp reg_1
 
-execute as @e[tag=held_overpower_temp] run function magic:held_overpower_iteration
+execute as @e[tag=held_overpower_temp] run function magic:magic_actions/held_overpower_iteration
 
 tag @e remove held_overpower_temp
 

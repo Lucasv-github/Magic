@@ -24,7 +24,7 @@ scoreboard players set @s reg_2 0
 execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
 execute as @s[tag=using,tag=can_use] store result score @s reg_2 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Angreal_flawed
 
-execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:swap_hands
+execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:inventory/swap_hands
 execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:power_handling/enter_angreal
 
 
@@ -45,7 +45,7 @@ scoreboard players operation @s total_draw_amount = @s current_held
 function magic:power_handling/tap_power
 
 #Store this to make use easier
-execute as @s[tag=using] run function magic:store_hotbar
+execute as @s[tag=using] run function magic:inventory/store_hotbar
 
 scoreboard players set @s state 0
 

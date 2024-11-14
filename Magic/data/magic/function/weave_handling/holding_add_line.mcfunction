@@ -7,7 +7,7 @@
 
 execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 
-function magic:swap_hands
+function magic:inventory/swap_hands
 
 execute store result storage magic:weave_storage_add_data index int 1 run scoreboard players get @s player_weave_index
 

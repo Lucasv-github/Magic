@@ -1,7 +1,7 @@
 #say pre weaves
 
 execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
-function magic:get_weave_length with storage magic:get_weave_length
+function magic:get_weave_length with storage magic:weave_processing/get_weave_length
 scoreboard players operation Temp reg_3 = Temp reg_1
 
 scoreboard players operation Temp reg_1 = @s player_id

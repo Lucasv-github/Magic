@@ -12,4 +12,4 @@ tag @e[tag=display_shelds_change_temp,tag=shield_counter_selected_old] remove sh
 
 tag @e remove display_shelds_change_temp
 
-function magic:display_shields
+function magic:display/display_shields

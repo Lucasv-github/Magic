@@ -54,4 +54,4 @@ execute if score Temp reg_1 matches 0 store result storage magic:print_weave_com
 execute if score Temp reg_1 matches -1 store result storage magic:print_weave_composition_iteration x int 1 run scoreboard players get 0 reg_1
 
 execute if score Temp reg_1 matches 0 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"text":"...","color":"gold"}
-execute unless score Temp reg_1 matches 0 run function magic:print_weave_composition_iteration with storage magic:print_weave_composition_iteration
+execute unless score Temp reg_1 matches 0 run function magic:display/print_weave_composition_iteration with storage magic:print_weave_composition_iteration

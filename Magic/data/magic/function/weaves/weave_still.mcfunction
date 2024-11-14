@@ -15,6 +15,6 @@ scoreboard players operation @a[tag=still_me,limit=1] reg_1 += @s halve_amount_h
 
 execute if score @a[tag=still_me,limit=1] reg_1 > Temp reg_3 run tag @a remove still_me
 
-execute as @a[tag=still_me,limit=1] run function magic:sever
+execute as @a[tag=still_me,limit=1] run function magic:power_handling/sever
 
 tag @a remove still_me

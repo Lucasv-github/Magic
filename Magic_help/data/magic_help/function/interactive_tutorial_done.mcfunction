@@ -6,4 +6,4 @@ give @s written_book[written_book_content={pages:["[[\"FAF: Lightning\\n\\nFFF: 
 effect clear @s resistance
 effect clear @s saturation
 
-function magic:teleport
+function magic_commons:teleport

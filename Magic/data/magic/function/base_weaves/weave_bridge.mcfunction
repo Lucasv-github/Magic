@@ -17,7 +17,7 @@ execute as @s[tag=weave_bridge_temp_works,tag=weave_bridge_need_armor_stand_temp
 
 tag @s remove weave_bridge_need_armor_stand_temp
 
-execute at @s[tag=weave_bridge_temp_works] as @e[tag=bridge_start,type=armor_stand] if score @s player_weave_index = Temp reg_3 run function magic:build_bridge with storage magic:weave_size
+execute at @s[tag=weave_bridge_temp_works] as @e[tag=bridge_start,type=armor_stand] if score @s player_weave_index = Temp reg_3 run function magic:weave_actions/build_bridge with storage magic:weave_size
 tag @s[tag=weave_bridge_temp_works] add weave_bridge
 
 tag @s remove weave_bridge_temp_works

@@ -5,7 +5,7 @@ kill @s[tag=circled]
 tag @s[tag=circled] remove circled
 scoreboard players set @s leave_detect 0
 
-function magic:detect_op
+function magic:detections/detect_op
 tag @s[tag=op_detected] add admin
 tellraw @s[tag=op_detected] {"text":"Welcome admin!","bold":true,"color":"gold"}
 tellraw @s[tag=!op_detected,tag=admin] {"text":"Welcome admin!","bold":true,"color":"gold"}

@@ -8,6 +8,6 @@ scoreboard players operation Temp reg_1 = @s weave_fire_ray_count
 scoreboard players operation Temp reg_1 *= 10 reg_1
 scoreboard players operation Temp reg_2 = @s player_id
 
-execute at @s[tag=weave_fire_ray_temp_works] as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run function magic:fire_ray with storage magic:weave_size
+execute at @s[tag=weave_fire_ray_temp_works] as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run function magic:weave_actions/fire_ray with storage magic:weave_size
 
 tag @s remove weave_fire_ray_temp_works

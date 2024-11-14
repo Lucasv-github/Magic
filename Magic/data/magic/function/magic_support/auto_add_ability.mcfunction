@@ -6,9 +6,9 @@ scoreboard players operation @s reg_2 = magic_settings magic_max_strength
 scoreboard players operation @s reg_2 -= magic_settings magic_min_strength
 
 execute store result score @s reg_1 run random value 1..5000
-execute store result storage get_normal_distributed_index index int 1 run scoreboard players get @s reg_1
+execute store result storage magic:get_normal_distributed_index index int 1 run scoreboard players get @s reg_1
 
-function magic:get_normal_distributed with storage minecraft:get_normal_distributed_index
+function magic:math/get_normal_distributed with storage magic:get_normal_distributed_index
 
 scoreboard players operation @s reg_2 *= @s reg_1
 

@@ -24,12 +24,12 @@ tag @e[tag=getting_cut,limit=1,sort=arbitrary] add cut
 
 #Clutter for handling gateways
 execute as @e[tag=getting_cut,tag=gateway_end] run scoreboard players operation Temp reg_1 = @s weave_execute_random_number
-execute as @e[tag=getting_cut,tag=gateway_end] as @e[tag=holds_travel] if score @s weave_execute_random_number = Temp reg_1 run function magic:remove_cleanup
+execute as @e[tag=getting_cut,tag=gateway_end] as @e[tag=holds_travel] if score @s weave_execute_random_number = Temp reg_1 run function magic:cleanup/remove_cleanup
 execute as @e[tag=getting_cut,tag=gateway_end] as @e[tag=holds_travel] if score @s weave_execute_random_number = Temp reg_1 run tag @s remove getting_cut
 
 scoreboard players set @e[tag=getting_cut,limit=1,sort=arbitrary] weave_remaining_time 0
 
-execute as @e[tag=getting_cut] run function magic:remove_cleanup
+execute as @e[tag=getting_cut] run function magic:cleanup/remove_cleanup
 
 #The following will remove book from player if it has and also cause all the other weaves with same id to be removed
 

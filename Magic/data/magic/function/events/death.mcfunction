@@ -1,4 +1,4 @@
-execute at @s run function magic:drop_hotbar
+execute at @s run function magic:inventory/drop_hotbar
 
 execute as @s[tag=circle_owner] run function magic:remove_circle
 
@@ -15,5 +15,5 @@ scoreboard players operation Temp reg_1 = @s player_id
 
 execute as @e[tag=target_point,tag=tied_off,scores={weave_remaining_time=1..}] if score @s weave_locked_player_id = Temp reg_1 run tag @s add remove_cleanup_temp
 execute as @e[tag=target_point,tag=actively_held] if score @s weave_locked_player_id = Temp reg_1 run tag @s add remove_cleanup_temp
-execute as @e[tag=remove_cleanup_temp] run function magic:remove_weave
+execute as @e[tag=remove_cleanup_temp] run function magic:weave_handling/remove_weave
 tag @e remove remove_cleanup_temp

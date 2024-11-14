@@ -7,6 +7,6 @@ scoreboard players operation Temp reg_2 *= Temp reg_1
 
 execute store result storage magic:damage amount int 1 run scoreboard players get Temp reg_2
 
-$execute at @s as @e[distance=..$(size)] run function magic:damage with storage magic:damage
+$execute at @s as @e[distance=..$(size)] run function magic:damage with storage magic:actions/damage
 summon lightning_bolt
 tag @s add weave_damaged

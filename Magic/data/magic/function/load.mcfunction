@@ -8,7 +8,7 @@ scoreboard objectives add magic_debug_state trigger
 scoreboard objectives add magic_debug_weave_state trigger
 
 scoreboard objectives add normal_distributed dummy
-function magic:create_normal_distributed
+function magic:math/create_normal_distributed
 
 execute unless score magic_settings magic_debug_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_state 1
 execute unless score magic_settings magic_debug_weave_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_weave_state 1
@@ -208,7 +208,7 @@ data merge storage magic:match_weave_4 {Elements:[5,5,1,5,1,5,5]}
 data merge storage magic:match_weave_5 {Elements:[5,5,1,2,1,5,5]}
 
 scoreboard players set Temp reg_1 0
-function magic:detect_permission
+function magic:detections/detect_permission
 execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}
 
 scoreboard players set Detect_command_blocks reg_1 0

@@ -11,4 +11,4 @@ tag @s remove active
 
 #Prevent held execute again, SHOULD NOT
 #scoreboard players operation Temp reg_1 = @s player_id
-#execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used,scores={state=1}] if score @s player_id = Temp reg_1 run function magic:remove_cleanup
+#execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used,scores={state=1}] if score @s player_id = Temp reg_1 run function magic:cleanup/remove_cleanup
