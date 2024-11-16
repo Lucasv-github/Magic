@@ -220,4 +220,4 @@ execute unless score magic_settings magic_max_strength matches -2147483647.. run
 
 schedule function magic:debug/command_block_message 2s replace
 
-tellraw @a {"text":"Magic 1.5.1 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic 1.21.1-0 loaded","bold":true,"color":"gold"}
