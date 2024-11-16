@@ -1,7 +1,7 @@
 #say pre weaves
 
 execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
-function magic:get_weave_length with storage magic:weave_processing/get_weave_length
+function magic:weave_processing/get_weave_length with storage magic:get_weave_length
 scoreboard players operation Temp reg_3 = Temp reg_1
 
 scoreboard players operation Temp reg_1 = @s player_id
@@ -11,6 +11,8 @@ scoreboard players operation Remove_force reg_1 = Temp reg_3
 
 #First time full, then /10
 execute as @s[tag=!weave_run_yet] run scoreboard players operation Remove_force reg_1 *= 10 reg_1
+
+tellraw @p {"score":{"name":"Remove_force","objective":"reg_1"},"color":"dark_red"}
 
 tag @s add weave_run_yet
 
