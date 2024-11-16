@@ -10,4 +10,4 @@ scoreboard players add #random_id player_id 0
 #Set id after player
 scoreboard objectives setdisplay list player_id
 
-tellraw @a {"text":"Magic commons 0.0.1 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic commons 1.21.1-0 loaded","bold":true,"color":"gold"}
