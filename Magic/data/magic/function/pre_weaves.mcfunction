@@ -12,8 +12,6 @@ scoreboard players operation Remove_force reg_1 = Temp reg_3
 #First time full, then /10
 execute as @s[tag=!weave_run_yet] run scoreboard players operation Remove_force reg_1 *= 10 reg_1
 
-tellraw @p {"score":{"name":"Remove_force","objective":"reg_1"},"color":"dark_red"}
-
 tag @s add weave_run_yet
 
 execute as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run function magic:power_handling/remove_force_amount
