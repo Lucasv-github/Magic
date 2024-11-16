@@ -1,4 +1,8 @@
+execute as @s[tag=using] run function magic:inventory/restore_regular
 function magic_commons:tar_store_inventory
+execute as @s[tag=using] run function magic:inventory/restore_magic
+
+tag @s remove enter_tar_using_temp
 
 execute if dimension minecraft:overworld in minecraft:tar run tp @s ~ ~ ~
 execute store result score @s reg_1 run data get entity @s Pos[0]
