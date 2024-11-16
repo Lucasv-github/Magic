@@ -47,6 +47,9 @@ function magic:power_handling/tap_power
 #Store this to make use easier
 execute as @s[tag=using] run function magic:inventory/store_hotbar
 
+scoreboard players set @s build 0
+scoreboard players set @s count 0
+scoreboard players set @s click 0
 scoreboard players set @s state 0
 
 scoreboard players set @s a 0
