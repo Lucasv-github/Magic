@@ -1,5 +1,6 @@
 scoreboard players operation @s reg_2 = @s max_regenerated_strength
-scoreboard players operation @s reg_2 *= @s angreal_level
+#magic:power_handling/tap_power already does this so no reason to do this twice
+#scoreboard players operation @s reg_2 *= @s angreal_level
 
 scoreboard players operation @s reg_1 = @s regenerated_strength
 scoreboard players operation @s reg_1 *= 10 reg_1
