@@ -5,7 +5,8 @@
 
 scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
 scoreboard players operation @s cumulative_halve_amount_hold *= @s reg_1
-scoreboard players operation @s regenerated_strength *= @s reg_1
+#magic:power_handling/tap_power already does this so no reason to do this twice
+#scoreboard players operation @s regenerated_strength *= @s reg_1
 scoreboard players operation @s angreal_level = @s reg_1
 
 tag @s[scores={reg_2=1}] add angreal_flawed
