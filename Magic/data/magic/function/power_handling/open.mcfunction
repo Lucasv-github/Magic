@@ -2,6 +2,9 @@
 
 tag @s add using
 
+#This hooks in tap_power, thus this is needed
+tag @s add opening
+
 scoreboard players set @s angreal_level 1
 scoreboard players set @s weave_length 0
 
@@ -80,6 +83,8 @@ tellraw @s[tag=using] ["",{"text":"  ","clickEvent":{"action":"run_command","
 execute store result score @s player_weave_index run random value 0..2147483646
 
 scoreboard players set @s sneak_time 0
+
+tag @s remove opening
 
 tag @s[tag=using] add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_open
