@@ -1,6 +1,6 @@
 scoreboard players operation Temp reg_1 = @s circled_owner_id
-execute as @a[tag=can_use,tag=using,tag=circle_owner] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s my_draw_amount
-execute as @a[tag=can_use,tag=using,tag=circle_owner] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_3 = @s total_draw_amount
+execute as @a[tag=can_use,tag=using,tag=circle_owner] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s total_draw_amount
+execute as @a[tag=can_use,tag=using,tag=circle_owner] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_3 = @s current_held
 
 #Consume: (((100*my_draw_amount)/owner_total_draw_amount)*owner_held)/100
 scoreboard players operation @s reg_1 = @s my_draw_amount
