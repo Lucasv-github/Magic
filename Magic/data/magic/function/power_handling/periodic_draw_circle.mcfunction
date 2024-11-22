@@ -18,10 +18,9 @@ execute as @e[tag=periodic_draw_circle_temp] run scoreboard players operation @s
 scoreboard players operation @s total_draw_amount -= Temp reg_1
 #scoreboard players operation @s my_draw_amount -= Temp reg_1
 
-#Increase
-#at @e[tag=periodic_draw_circle_temp] is simply to do it for each member in circle. Shouldn't matter that the owner is running as strength isn't drained here
-execute as @s[scores={reg_1=1..}] at @e[tag=periodic_draw_circle_temp] run scoreboard players operation Draw_force reg_1 = @s reg_1
-execute as @s[scores={reg_1=1..}] at @e[tag=periodic_draw_circle_temp] run function magic:power_handling/draw_multiple
+#Increase/decreases
+scoreboard players operation Draw_force reg_1 = @s reg_1
+function magic:power_handling/draw_multiple
 
 scoreboard players operation Temp reg_1 = @s current_held
 execute as @e[tag=periodic_draw_circle_temp] run scoreboard players operation @s my_draw_amount += Temp reg_1

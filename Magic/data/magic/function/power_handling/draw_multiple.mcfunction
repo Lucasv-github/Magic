@@ -16,6 +16,17 @@ scoreboard players operation @s reg_1 /= 32 reg_1
 scoreboard players operation @s reg_1 *= @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 /= 100 reg_1
 
+#Strength considerations
+scoreboard players operation @s reg_2 = @s regenerated_strength
+scoreboard players operation @s reg_2 *= 100 reg_1
+scoreboard players operation @s reg_2 /= @s max_regenerated_strength
+
+execute store result storage magic:math/get_strength index int 1 run scoreboard players get @s reg_2
+function magic:math/get_strength with storage magic:math/get_strength
+
+scoreboard players operation @s reg_1 *= Temp reg_1
+scoreboard players operation @s reg_1 /= 100 reg_1
+
 #Bypass to linear between -2 and 2
 execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 = Draw_force reg_1
 execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 *= 10 reg_1
