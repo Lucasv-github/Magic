@@ -1,5 +1,5 @@
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get 1 reg_1
-function magic:stun with storage magic:magic_actions/stun
+function magic:magic_actions/stun with storage magic:stun
 
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players set Temp reg_2 0
