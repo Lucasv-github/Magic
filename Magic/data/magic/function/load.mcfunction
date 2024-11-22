@@ -9,6 +9,7 @@ scoreboard objectives add magic_debug_weave_state trigger
 
 scoreboard objectives add normal_distributed dummy
 function magic:math/create_normal_distributed
+function magic:math/create_strength_table
 
 execute unless score magic_settings magic_debug_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_state 1
 execute unless score magic_settings magic_debug_weave_state matches -2147483647.. run scoreboard players set magic_settings magic_debug_weave_state 1
