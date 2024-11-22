@@ -1,26 +1,26 @@
-#First factor in tiredness
-scoreboard players operation @s reg_1 = @s regenerated_strength
+#Draw_amount = (cumulative_halve_amount_hold*(eyes*100/32))/100
 
-#Try to reduce low strength effects a bit
-scoreboard players operation @s reg_1 *= 2 reg_1
-execute if score @s reg_1 > @s regenerated_strength run scoreboard players operation @s reg_1 = @s regenerated_strength
+#Eye count
+scoreboard players operation @s reg_1 = Draw_force reg_1
 
-#Doing this z=(x/(y/100)) instead of z=(x*100/y) to try to prevent hitting int limit
-scoreboard players operation @s reg_2 = @s max_regenerated_strength
-scoreboard players operation @s reg_2 /= 100 reg_1
+#Correct for the bypass (we don't want it super fast after -2, 2)
+#-3 = -1
+#3 = 1
+execute if score Draw_force reg_1 matches ..-0 run scoreboard players add @s reg_1 2
+execute if score Draw_force reg_1 matches 0.. run scoreboard players remove @s reg_1 2
 
-scoreboard players operation @s reg_1 /= @s reg_2
 
-scoreboard players operation Draw_force reg_1 *= @s reg_1
-scoreboard players operation Draw_force reg_1 /= 100 reg_1
+scoreboard players operation @s reg_1 *= 100 reg_1
+scoreboard players operation @s reg_1 /= 32 reg_1
 
-#tellraw @p {"score":{"name":"Draw_force","objective":"reg_1"}}
+scoreboard players operation @s reg_1 *= @s cumulative_halve_amount_hold
+scoreboard players operation @s reg_1 /= 100 reg_1
 
-execute if score Draw_force reg_1 matches 0 run scoreboard players set Draw_force reg_1 1
+#Bypass to linear between -2 and 2
+execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 = Draw_force reg_1
+execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 *= 10 reg_1
 
-scoreboard players operation Draw_force reg_1 *= 10 reg_1
-
-scoreboard players operation @s current_held += Draw_force reg_1
+scoreboard players operation @s current_held += @s reg_1
 
 #Limit handling
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold

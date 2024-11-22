@@ -16,13 +16,9 @@ scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players operation Temp reg_2 = @s current_held
 execute as @s[scores={reg_1=..-1}] as @a[tag=can_use,tag=circled] if score @s circled_owner_id = Temp reg_1 run scoreboard players operation @s my_draw_amount -= Temp reg_2
 
-#Increase
-execute as @s[scores={reg_1=1..}] run scoreboard players operation Draw_force reg_1 = @s reg_1
-execute as @s[scores={reg_1=1..}] run function magic:power_handling/draw_multiple
-
-#Decrease (+&-=-)
-scoreboard players operation @s reg_1 *= 10 reg_1
-execute as @s[scores={reg_1=..-1}] run scoreboard players operation @s current_held += @s reg_1
+#Increase/decreases
+scoreboard players operation Draw_force reg_1 = @s reg_1
+function magic:power_handling/draw_multiple
 
 #In circle should also decrease every member when releasing
 #Doing this the same way as @s my_draw_amount
