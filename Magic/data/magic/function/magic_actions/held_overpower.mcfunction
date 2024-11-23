@@ -11,16 +11,16 @@ execute as @e[tag=held_overpower_temp] run scoreboard players operation Temp reg
 
 scoreboard players operation Temp reg_2 += @s cumulative_halve_amount_hold
 
-#Self effect (own_halve)
-scoreboard players operation Temp reg_1 = @s cumulative_halve_amount_hold
+#Self effect (own_halve, should not be cumulative to prevent angreal making it easier) 
+scoreboard players operation Temp reg_1 = @s halve_amount_hold
 scoreboard players operation @s regenerated_strength -= Temp reg_1
 
 
-scoreboard players operation Temp reg_1 = @s cumulative_halve_amount_hold
+scoreboard players operation Temp reg_1 = @s halve_amount_hold
 
 
 #Oponent effect ((own_halve/3)/opponents_halve)/opponents = ((own_halve/3)*(own_halve/3))/opponents
-scoreboard players operation Temp reg_1 = @s cumulative_halve_amount_hold
+scoreboard players operation Temp reg_1 = @s halve_amount_hold
 scoreboard players operation Temp reg_1 /= 3 reg_1
 scoreboard players operation Temp reg_1 *= Temp reg_1
 scoreboard players operation Temp reg_1 /= Temp reg_2
