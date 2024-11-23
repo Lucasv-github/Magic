@@ -20,6 +20,9 @@ tag @s add can_unload_self_temp
 scoreboard players set Temp reg_1 1
 execute as @e[tag=can_unload_blocker_temp] if score @s reg_1 = @e[tag=can_unload_self_temp,limit=1] reg_1 if score @s reg_2 = @e[tag=can_unload_self_temp,limit=1] reg_2 run scoreboard players set Temp reg_1 0
 
+#Prevent 0,0 unloading in owerworld
+execute if predicate magic:in_overworld as @s[scores={reg_1=0,reg_2=0}] run scoreboard players set Temp reg_1 0
+
 tag @e remove can_unload_self_temp
 tag @e remove can_unload_blocker_temp
 
