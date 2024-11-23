@@ -228,6 +228,8 @@ execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,
 
 execute as @e[type=armor_stand,tag=target_point,tag=weave_throw_damaged] run function magic:cleanup/throw_remove
 
+execute as @a[tag=can_use,tag=using,scores={current_held=..0}] run function magic:power_handling/exit
+
 scoreboard players set @a[tag=can_use] line 0
 scoreboard players set @a[tag=can_use] state 0
 
