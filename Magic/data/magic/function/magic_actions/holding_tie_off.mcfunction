@@ -15,8 +15,9 @@ execute as @s store result score Temp reg_2 run data get entity @s SelectedItem.
 scoreboard players operation Temp reg_3 = @s tie_strength
 
 #Consume 1 power for each 20 seconds
-scoreboard players operation @s current_held -= @s tie_strength
-scoreboard players operation Temp reg_3 *= 20 reg_1
+scoreboard players operation Temp reg_3 *= 10 reg_1
+scoreboard players operation @s current_held -= Temp reg_3
+scoreboard players operation Temp reg_3 *= 2 reg_1
 
 #Need current held check as it is possible for the player to drop power
 
