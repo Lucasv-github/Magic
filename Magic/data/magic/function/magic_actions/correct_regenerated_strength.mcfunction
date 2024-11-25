@@ -11,6 +11,7 @@ scoreboard players operation @s reg_1 /= 60 reg_1
 
 scoreboard players operation Correct_regenerate_strength reg_1 = @s reg_1
 
-execute if score @s reg_1 matches 1..19 run function magic:magic_actions/correct_regenerated_strength_iteration
+#This is above as it doesn't tough the Correct_regenerate_strength reg_1
+execute if score Correct_regenerate_strength reg_1 matches 20.. run function magic:magic_actions/set_max_regenerated_strength
 
-execute if score @s reg_1 matches 20.. run function magic:magic_actions/set_max_regenerated_strength
+execute if score Correct_regenerate_strength reg_1 matches 1..19 run function magic:magic_actions/correct_regenerated_strength_iteration
