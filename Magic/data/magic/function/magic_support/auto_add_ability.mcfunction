@@ -23,5 +23,3 @@ scoreboard players operation @s max_regenerated_strength = @s halve_amount_hold
 scoreboard players operation @s max_regenerated_strength *= 10 reg_1
 scoreboard players operation @s max_regenerated_strength *= 60 reg_1
 scoreboard players operation @s regenerated_strength = @s max_regenerated_strength
-
-tag @s add join_ability_add
