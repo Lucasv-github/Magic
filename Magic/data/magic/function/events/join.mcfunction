@@ -37,3 +37,5 @@ scoreboard players add @s stage 0
 scoreboard players add @s disguise 0
 
 execute unless score @s use_items matches -2147483647.. run scoreboard players set @s use_items 1
+
+function magic:magic_actions/correct_regenerated_strength

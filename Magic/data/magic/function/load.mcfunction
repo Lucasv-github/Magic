@@ -20,6 +20,7 @@ gamerule commandModificationBlockLimit 1000000000
 execute in magic_commons:tar run gamerule commandModificationBlockLimit 1000000000
 
 scoreboard objectives add tick_counter dummy
+scoreboard objectives add total_ticks dummy
 scoreboard objectives add second_counter dummy
 
 scoreboard objectives add shields_blocked dummy

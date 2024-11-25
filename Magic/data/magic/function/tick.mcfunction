@@ -234,6 +234,10 @@ scoreboard players set @a[tag=can_use] line 0
 scoreboard players set @a[tag=can_use] state 0
 
 scoreboard players add Temp tick_counter 1
+scoreboard players add Temp total_ticks 1
+
+#Needs to be after join
+execute as @a run scoreboard players operation @s total_ticks = Temp total_ticks
 
 execute if score Temp tick_counter matches 6 run function magic:events/fourth_sec
 execute if score Temp tick_counter matches 11 run function magic:events/fourth_sec
