@@ -13,9 +13,9 @@ execute as @s[tag=using,tag=can_use,tag=tap_blocked] run function magic:power_ha
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=..0}] run function magic:power_handling/exit
 
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
-scoreboard players operation @s reg_1 /= 2 reg_1
+scoreboard players operation @s reg_1 /= 6 reg_1
 
-#At 1/2:1: Night vision
+#At 1/6:1: Night vision
 #Weak resistace
 execute if score @s current_held > @s reg_1 run effect give @s minecraft:night_vision 20 1 true
 execute if score @s current_held > @s reg_1 run effect give @s minecraft:resistance 10 1 true
