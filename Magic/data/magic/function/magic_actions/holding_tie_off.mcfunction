@@ -3,7 +3,7 @@ execute at @s run playsound minecraft:block.lever.click player @s
 #say holding tie off
 
 #Need to setup for holding_run_first
-item replace entity @s weapon.mainhand from entity @s weapon.offhand
+function magic:inventory/swap_hands
 
 
 #Sets things right
@@ -29,4 +29,3 @@ execute if score @s current_held matches 1.. as @e[type=minecraft:armor_stand,ta
 
 #Clear all items
 item replace entity @s weapon.mainhand with minecraft:air
-item replace entity @s weapon.offhand with minecraft:air
