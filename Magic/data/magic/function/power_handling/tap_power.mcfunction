@@ -13,9 +13,9 @@ execute as @s[tag=using,tag=can_use,tag=tap_blocked] run function magic:power_ha
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=..0}] run function magic:power_handling/exit
 
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
-scoreboard players operation @s reg_1 /= 6 reg_1
+scoreboard players operation @s reg_1 /= 2 reg_1
 
-#At 1/6:1: Night vision
+#At 1/2:1: Night vision
 #Weak resistace
 execute if score @s current_held > @s reg_1 run effect give @s minecraft:night_vision 20 1 true
 execute if score @s current_held > @s reg_1 run effect give @s minecraft:resistance 10 1 true
@@ -51,6 +51,11 @@ function magic:magic_actions/shielded_strength_get
 #TODO obviously allow opening with weak in the future
 execute as @s[tag=opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = @s reg_1 run tag @s add tap_power_shielded_temp
 
+scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_2 = @s reg_1
+
+execute as @s[tag=!opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:magic_actions/shield_handling
+
 execute as @s[tag=tap_power_shielded_temp] run function magic:magic_actions/held_overpower
 execute as @s[tag=tap_power_shielded_temp] run function magic:power_handling/exit
 
@@ -59,8 +64,3 @@ execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=..100,regenerated_s
 execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=100..,regenerated_strength=1..}] run function magic:display/display_shields_change
 
 tag @s remove tap_power_shielded_temp
-
-scoreboard players operation Temp reg_1 = @s player_id
-scoreboard players operation Temp reg_2 = @s reg_1
-
-execute as @s[tag=!opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = @s reg_1 run function magic:magic_actions/shield_handling
