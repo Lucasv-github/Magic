@@ -1,1 +1,1 @@
-$damage @s $(amount) minecraft:lightning_bolt
+$damage @s $(amount) minecraft:magic

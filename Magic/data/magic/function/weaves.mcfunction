@@ -227,7 +227,7 @@ execute at @s[scores={weave_explosion_count=1..}] run function magic:base_weaves
 
 #Lightning
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_lightning_count
-execute at @s[scores={weave_lightning_count=1..}] run function magic:base_weaves/weave_lightning with storage magic:weave_size
+execute at @s[scores={weave_lightning_count=1..}] run function magic:base_weaves/weave_lightning_pre with storage magic:weave_size
 
 #Cutting
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_cut_count
@@ -285,14 +285,18 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 #Shield
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=3,weave_spirit_count_1=1}] run function magic:base_weaves/weave_shield
 
-#Throw
-execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_throw
+
+#Slap
+execute as @s[scores={weave_air_count=2,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_slap_pre
 
 #Levitate
-execute as @s[scores={weave_air_count=2,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_levitate_pre
+execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_levitate_pre
+
+#Throw
+execute as @s[scores={weave_air_count=4,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_throw
 
 #Bind
-execute as @s[scores={weave_air_count=4,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_bind
+execute as @s[scores={weave_air_count=5,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_bind
 
 
 #Fireball land
