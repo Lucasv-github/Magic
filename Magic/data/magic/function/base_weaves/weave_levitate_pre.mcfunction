@@ -6,3 +6,5 @@ execute store result storage magic:levitate amount int 1 run scoreboard players 
 execute as @e if score @s entity_id = Temp reg_1 run function magic:base_weaves/weave_levitate with storage magic:levitate
 
 function magic:weave_processing/advance_read_index
+
+tag @s add weave_levitate

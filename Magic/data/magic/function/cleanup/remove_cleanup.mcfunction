@@ -30,6 +30,12 @@ execute as @s[tag=weave_bind] as @e if score @s entity_id = Temp reg_3 run ride 
 #Throw
 execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s player_weave_index = Temp reg_4 run kill @s
 
+#Levitate
+execute as @s[tag=weave_levitate] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:levitation
+
+#Resistance
+execute as @s[tag=weave_resistance] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:resistance
+
 #Bridge
 #Cleanup won't touch any reg, thus this is fine
 execute as @s[tag=weave_bridge] as @e[tag=bridge_start,type=armor_stand] if score @s player_weave_index = Temp reg_4 run kill @s
