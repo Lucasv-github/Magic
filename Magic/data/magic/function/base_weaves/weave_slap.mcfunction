@@ -1,1 +1,1 @@
-$damage @s $(amount) minecraft:player_attack
+$damage @s $(amount) minecraft:player_attack by @a[limit=1,tag=slapper]
