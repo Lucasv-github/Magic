@@ -286,10 +286,13 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=3,weave_spirit_count_1=1}] run function magic:base_weaves/weave_shield
 
 #Throw
-execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0}] run function magic:base_weaves/weave_throw
+execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_throw
+
+#Levitate
+execute as @s[scores={weave_air_count=2,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_levitate_pre
 
 #Bind
-execute as @s[scores={weave_air_count=4,weave_earth_count=0,weave_fire_count=0,weave_water_count=0}] run function magic:base_weaves/weave_bind
+execute as @s[scores={weave_air_count=4,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_bind
 
 
 #Fireball land
