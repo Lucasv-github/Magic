@@ -26,8 +26,6 @@ tag @s remove magic_pve_exit
 #Invurnability
 tag @s[tag=using,tag=magic_pve_action_left,tag=!built] add magic_pve_need_resistance
 execute as @s[nbt={active_effects:[{id:"minecraft:resistance",amplifier:4b}]}] run tag @s remove magic_pve_need_resistance
-
-execute as @s[tag=magic_pve_need_resistance,tag=!magic_pve_build_resistance] run say RESISTANCE beginning
 execute as @s[tag=magic_pve_need_resistance,tag=!magic_pve_build_resistance] run scoreboard players set @s magic_pve_spell_stage 0
 tag @s[tag=magic_pve_need_resistance] add magic_pve_build_resistance
 
