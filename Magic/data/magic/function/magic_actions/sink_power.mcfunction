@@ -3,7 +3,7 @@ execute at @s as @e[type=item_frame,distance=..10,sort=nearest] if data entity @
 execute if data entity @s Item.components.minecraft:custom_data.Angreal_base unless data entity @s Item.components.minecraft:custom_data.Angreal_top run tag @s add weave_sink_power_angreal_temp
 
 #TODO branch out
-execute if entity @e[tag=weave_sink_power_angreal_temp,limit=1] run scoreboard players operation Temp reg_1 = @s weave_owner_player_id
+execute if entity @e[tag=weave_sink_power_angreal_temp,limit=1] run scoreboard players operation Temp reg_1 = @s player_id
 execute as @e[tag=weave_sink_power_angreal_temp,limit=1] run scoreboard players set Temp reg_2 0
 execute as @e[tag=weave_sink_power_angreal_temp,limit=1] as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_held
 execute as @e[tag=weave_sink_power_angreal_temp,limit=1] as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players set @s current_held 20
