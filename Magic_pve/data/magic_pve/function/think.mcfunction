@@ -2,8 +2,12 @@ tag @s add magic_pve_think_current_temp
 
 tag @s add magic_pve_action_left
 
-#Needed for now
-scoreboard players operation @s current_held = @s halve_amount_hold
+
+scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
+scoreboard players operation @s reg_1 /= 20 reg_1
+
+execute as @s[tag=using] if score @s current_held < @s cumulative_halve_amount_hold run scoreboard players operation @s current_held += @s reg_1
+execute as @s[tag=using] if score @s current_held > @s cumulative_halve_amount_hold run scoreboard players operation @s current_held = @s cumulative_halve_amount_hold
 
 scoreboard players set @s reg_1 0
 execute on target as @e[tag=magic_pve_think_current_temp] run scoreboard players set @s reg_1 1
