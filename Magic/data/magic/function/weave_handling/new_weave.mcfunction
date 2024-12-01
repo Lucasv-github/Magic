@@ -1,3 +1,5 @@
+#say new weave
+
 scoreboard players set @s[tag=built] state 0
 
 #scoreboard players add @s[tag=built] player_weave_index 1

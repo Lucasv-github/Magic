@@ -1,4 +1,4 @@
-#say RC
+#say remove cleanup
 
 #Travel: This is supposed to run as the "main" else everything will fail
 
@@ -18,7 +18,7 @@ execute as @s[tag=holds_travel] in minecraft:overworld positioned 0 -80 0 as @e[
 execute as @s[tag=gateway_end] run function magic:cleanup/travel_dismantle
 
 scoreboard players operation Temp reg_1 = @s weave_locked_player_id
-scoreboard players operation Temp reg_2 = @s player_id
+scoreboard players operation Temp reg_2 = @s weave_owner_player_id
 scoreboard players operation Temp reg_3 = @s weave_locked_entity_id
 scoreboard players operation Temp reg_4 = @s player_weave_index
 

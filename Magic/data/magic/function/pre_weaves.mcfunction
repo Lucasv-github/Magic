@@ -4,7 +4,7 @@ execute store result storage magic:get_weave_length index int 1 run scoreboard p
 function magic:weave_processing/get_weave_length with storage magic:get_weave_length
 scoreboard players operation Temp reg_3 = Temp reg_1
 
-scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_1 = @s weave_owner_entity_id
 scoreboard players set Remove_force reg_1 0
 
 scoreboard players operation Remove_force reg_1 = Temp reg_3
@@ -14,12 +14,12 @@ execute as @s[tag=!weave_run_yet] run scoreboard players operation Remove_force 
 
 tag @s add weave_run_yet
 
-execute as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run function magic:power_handling/remove_force_amount
+execute as @e[tag=using, tag=can_use] if score @s entity_id = Temp reg_1 run function magic:power_handling/remove_force_amount
 
 #Then update current held
 #Reset in case non found (in case of exit)
 scoreboard players set Temp reg_2 0
-execute as @a[tag=using, tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_held
+execute as @e[tag=using, tag=can_use] if score @s entity_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_held
 scoreboard players operation @s current_held = Temp reg_2
 
 

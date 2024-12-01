@@ -6,6 +6,10 @@ tag @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_
 execute as @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..},tag=!weave_ward] run function magic:weaves
 tag @e[type=minecraft:armor_stand,tag=target_point,tag=tied_off, scores={weave_remaining_time=1..},tag=!weave_ward] remove running_tied
 
+#Non player placed removal
+execute as @e[tag=nonplayer_origin,tag=tied_off,scores={weave_remaining_time=1..}] run function magic:cleanup/remove_no_owner
+execute as @e[tag=nonplayer_origin,tag=actively_held] run function magic:cleanup/remove_no_owner
+
 #Run held
 execute as @e[tag=actively_held,tag=!no_weave,tag=!weave_ward] run function magic:pre_weaves
 

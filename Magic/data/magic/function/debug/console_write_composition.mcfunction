@@ -1,14 +1,14 @@
 tag @s add console_writer_current_weave
 
 #We do not want to scratch Temp reg_1 here
-execute as @a[tag=using,tag=can_use] if score @s player_id = @e[tag=console_writer_current_weave,limit=1] player_id run tag @s add current_player_for_log
+execute as @e[tag=using,tag=can_use] if score @s player_id = @e[tag=console_writer_current_weave,limit=1] weave_owner_player_id run tag @s add current_player_for_log
 
 #We do not want to scratch Temp reg_1 here
 execute as @e if score @s entity_id = @e[tag=console_writer_current_weave,limit=1] weave_locked_entity_id run tag @s add console_writer_current_weave_locked
 
-summon text_display ~ ~ ~ {Tags:["console_write_composition_temp"],text:'["","WEAVE: ",{"selector":"@a[tag=current_player_for_log,limit=1]"}," Locked: ",{"selector":"@e[tag=console_writer_current_weave_locked,limit=1]"}," Data: ",{"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":""}]'}
+summon text_display ~ ~ ~ {Tags:["console_write_composition_temp"],text:'["","WEAVE: ",{"selector":"@e[tag=current_player_for_log,limit=1]"}," Locked: ",{"selector":"@e[tag=console_writer_current_weave_locked,limit=1]"}," Data: ",{"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":""}]'}
 
-tag @a remove current_player_for_log
+tag @e remove current_player_for_log
 tag @s remove console_writer_current_weave
 tag @e remove console_writer_current_weave_locked
 

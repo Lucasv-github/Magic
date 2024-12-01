@@ -1,3 +1,5 @@
+#say landed
+
 #summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:0b,Marker:0b,Tags:["temp_target_point"]}
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b,Tags:["temp_target_point"]}
 
@@ -8,16 +10,20 @@ execute as @s[scores={reg_1=0}] run forceload add ~ ~
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players operation Temp reg_3 = @s cumulative_halve_amount_hold
 scoreboard players operation Temp reg_4 = @s tie_strength
+scoreboard players operation Temp reg_5 = @s entity_id
 
 execute store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 
 #Use player_weave_index if non selected
 execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_2 = @s player_weave_index
 
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_id = Temp reg_1
+execute as @s[tag=!player] run tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] add nonplayer_origin
+
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s weave_owner_player_id = Temp reg_1
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_weave_index = Temp reg_2
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s cumulative_halve_amount_hold = Temp reg_3
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s tie_strength = Temp reg_4
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s weave_owner_entity_id = Temp reg_5
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players set @s weave_read_index 0
 
 scoreboard players operation Temp_1 reg_1 = @s player_id
@@ -50,16 +56,6 @@ execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_p
 execute as @s unless score @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] weave_locked_entity_id matches 0 as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 at @s run playsound minecraft:block.iron_door.close ambient @s
 execute as @s unless score @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] weave_locked_player_id matches 0 as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 at @s run playsound minecraft:block.iron_door.close ambient @s
 
-#execute as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:resync
-#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:weave_handling/set_weave_from_player
-execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run function magic:weave_handling/set_weave_from_player
-
-#Things triggered by arrow imidiately should also use force
-
-#Run weave when landed
-#execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] as @a[tag=using,tag=can_use] if score @s player_id = Temp_1 reg_1 run function magic:holding_run_first
+execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run function magic:pre_weaves
 
 tag @e[tag=target_point,type=armor_stand] remove temp_target_point
-
-#Handle legacy
-kill @s[tag=ray]

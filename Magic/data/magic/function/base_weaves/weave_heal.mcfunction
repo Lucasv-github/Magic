@@ -3,7 +3,7 @@ scoreboard players operation Temp reg_1 = @s weave_locked_entity_id
 execute as @e if score @s entity_id = Temp reg_1 run tag @s add heal_me
 
 #Prevent self
-execute if score @a[tag=heal_me,limit=1] player_id = @s player_id run tag @e remove heal_me
+execute if score @a[tag=heal_me,limit=1] player_id = @s weave_owner_player_id run tag @e remove heal_me
 
 #Only if not max health
 execute store result score Temp reg_1 run attribute @e[tag=heal_me,distance=..5,limit=1] generic.max_health get
@@ -12,7 +12,7 @@ execute if score Temp reg_1 = Temp reg_2 run tag @e remove heal_me
 
 
 #Need to be near player
-scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_1 = @s weave_owner_player_id
 execute at @a[tag=can_use,tag=using] if score @s player_id = Temp reg_1 unless entity @e[tag=heal_me,distance=..5] run tag @e remove heal_me
 
 #Need to be near weave

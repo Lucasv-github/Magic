@@ -1,6 +1,8 @@
 execute at @s run playsound minecraft:block.lever.click player @s
 
-execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @s add pick_up_within_range_temp
+scoreboard players operation Temp reg_1 = @s player_id
+
+execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s weave_owner_player_id = Temp reg_1 run tag @s add pick_up_within_range_temp
 
 #We only want one
 execute at @s run tag @e[tag=pick_up_within_range_temp,limit=1] add pick_up_me_temp

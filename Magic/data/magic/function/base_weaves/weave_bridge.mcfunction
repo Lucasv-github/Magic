@@ -5,7 +5,7 @@ scoreboard players set @s weave_bridge_count 0
 execute as @s[scores={weave_read_index=1..}] run function magic:base_weaves/weave_bridge_iteration with storage magic:weave_size
 
 scoreboard players operation Temp reg_1 = @s weave_bridge_count
-scoreboard players operation Temp reg_2 = @s player_id
+scoreboard players operation Temp reg_2 = @s weave_owner_player_id
 scoreboard players operation Temp reg_3 = @s player_weave_index
 
 tag @s add weave_bridge_need_armor_stand_temp

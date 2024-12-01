@@ -60,7 +60,7 @@ scoreboard players operation Temp destination_x = @s destination_x
 scoreboard players operation Temp destination_y = @s destination_y
 scoreboard players operation Temp destination_z = @s destination_z
 
-scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_1 = @s weave_owner_player_id
 
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 as @s[y_rotation=-0..90] run scoreboard players operation Temp destination_x *= -10 reg_1
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 as @s[y_rotation=-0..90] run scoreboard players operation Temp destination_z *= 10 reg_1

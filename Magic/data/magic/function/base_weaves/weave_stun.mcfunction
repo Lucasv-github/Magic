@@ -1,7 +1,7 @@
 scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 
 #Get stunner strength in Temp reg_4
-scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_1 = @s weave_owner_player_id
 scoreboard players set Temp reg_4 0
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_4 = @s cumulative_halve_amount_hold
 

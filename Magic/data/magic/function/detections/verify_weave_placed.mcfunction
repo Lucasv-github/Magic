@@ -11,7 +11,5 @@ execute if score Temp reg_2 matches 0 run execute store result score Temp reg_2 
 scoreboard players set Temp reg_3 0
 
 #Set to true if found
-#execute as @e[tag=target_point,tag=actively_held] if score @s player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run say BBB
-
-execute as @e[tag=target_point,tag=actively_held] if score @s player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run scoreboard players set Temp reg_3 1
+execute as @e[tag=target_point,tag=actively_held] if score @s weave_owner_player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run scoreboard players set Temp reg_3 1
 scoreboard players operation @s reg_1 = Temp reg_3

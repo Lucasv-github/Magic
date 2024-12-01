@@ -2,7 +2,7 @@ execute as @a[tag=can_use] run function magic:power_handling/check_tap_block
 execute as @a[tag=stilled] run function magic:power_handling/check_tap_block
 
 #TODO all of these aren't needed in this loop
-tag @a[tag=can_use,tag=!using] remove built
+tag @e[tag=can_use,tag=!using] remove built
 tag @a[tag=!using,tag=next_sever] remove can_use
 tag @a[tag=!using,tag=next_sever] remove next_sever
 tag @a[tag=!can_use] remove holding_run_blocked
@@ -169,7 +169,7 @@ execute as @a[tag=using,tag=can_use,tag=built] unless data entity @s Inventory[{
 
 execute as @a[tag=using, tag=can_use, scores={line=1..}] run function magic:weave_handling/add_line
 
-execute as @a[tag=using, tag=can_use, scores={build=1..}] run function magic:weave_handling/entire_weave
+execute as @e[tag=using, tag=can_use, scores={build=1..}] run function magic:weave_handling/entire_weave
 
 execute as @a[tag=using, tag=can_use, scores={slow_down=1..}] run function magic:tracked_force_slow
 

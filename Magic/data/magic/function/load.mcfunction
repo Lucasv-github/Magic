@@ -149,6 +149,8 @@ scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
 
 scoreboard objectives add weave_locked_player_id dummy
 scoreboard objectives add weave_locked_entity_id dummy
+scoreboard objectives add weave_owner_player_id dummy
+scoreboard objectives add weave_owner_entity_id dummy
 scoreboard objectives add weave_execute_random_number dummy
 scoreboard objectives add circled_owner_id dummy
 scoreboard objectives add weave_read_index dummy
