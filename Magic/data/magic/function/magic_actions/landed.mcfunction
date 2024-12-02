@@ -17,7 +17,7 @@ execute store result score Temp reg_2 run data get entity @s SelectedItem.compon
 #Use player_weave_index if non selected
 execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_2 = @s player_weave_index
 
-execute as @s[tag=!player] run tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] add nonplayer_origin
+execute as @s[type=!player] run tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] add nonplayer_origin
 
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s weave_owner_player_id = Temp reg_1
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s player_weave_index = Temp reg_2
