@@ -1,3 +1,4 @@
 function magic:magic_support/auto_add_ability
-function magic:power_handling/open
-function magic:power_handling/exit
+
+#To open with some power
+scoreboard players set @s sneak_time 0
