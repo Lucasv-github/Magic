@@ -43,7 +43,8 @@ scoreboard players remove Temp reg_1 1
 execute store result storage magic:air_box size int 1 run scoreboard players get Temp reg_1
 
 execute at @s[tag=weave_air_box_temp_works] run function magic:base_weaves/weave_air_box with storage magic:air_box
+execute at @s[tag=weave_air_box_temp_works] run tag @s add weave_air_box
 
 tag @s remove weave_air_box_temp_works
 
-tag @s add weave_air_box
+
