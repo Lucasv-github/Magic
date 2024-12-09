@@ -6,7 +6,6 @@ tag @e[tag=can_use,tag=!using] remove built
 tag @a[tag=!using,tag=next_sever] remove can_use
 tag @a[tag=!using,tag=next_sever] remove next_sever
 tag @a[tag=!can_use] remove holding_run_blocked
-tag @a[tag=!can_use] remove active
 tag @a[tag=!can_use] remove using
 tag @a[tag=!can_use] remove built
 tag @a remove to_be_banned

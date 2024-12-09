@@ -9,7 +9,6 @@ execute store result score @s player_weave_index run random value 0..2147483646
 scoreboard players set @s weave_length 0
 
 tag @s remove built
-tag @s remove active
 
 #Prevent held execute again, SHOULD NOT
 #scoreboard players operation Temp reg_1 = @s player_id
