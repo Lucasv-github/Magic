@@ -15,12 +15,6 @@ execute store result storage magic:give_current_weave_iteration i int 1 run scor
 scoreboard players set Temp reg_3 1
 function magic:weave_handling/give_current_weave_iteration with storage magic:give_current_weave_iteration
 
-#function magic:get_composition
-#execute in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['{"nbt":"text[]","storage":"minecraft:print_composition","interpret":true,"separator":""}','{"text":""}','{"text":""}','{"text":""}']}} destroy
-#data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_name set from block 0 0 0 front_text.messages[0]
-
-
-
 #Move out item if present in slot 8 but do NOT move out a weave, just destroy that else remove cleanup will f and oh boy
 execute at @s[nbt={Inventory:[{Slot:8b}]}] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run summon chest_minecart ~ ~ ~ {CustomName:'{"text":"move_slot_8"}', Invulnerable:1b, Tags:["move_slot_8"], NoGravity:1}
 execute at @s[nbt={Inventory:[{Slot:8b}]}] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run item replace entity @e[tag=move_slot_8,sort=nearest,limit=1] container.0 from entity @s hotbar.8
