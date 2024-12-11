@@ -6,7 +6,7 @@ execute as @e if score @s entity_id = Temp reg_1 run tag @s add heal_me
 execute if score @a[tag=heal_me,limit=1] player_id = @s weave_owner_player_id run tag @e remove heal_me
 
 #Only if not max health
-execute store result score Temp reg_1 run attribute @e[tag=heal_me,distance=..5,limit=1] generic.max_health get
+execute store result score Temp reg_1 run attribute @e[tag=heal_me,distance=..5,limit=1] minecraft:max_health get
 execute store result score Temp reg_2 run data get entity @e[tag=heal_me,distance=..5,limit=1] Health
 execute if score Temp reg_1 = Temp reg_2 run tag @e remove heal_me
 
