@@ -1,11 +1,13 @@
+say held owerpower
+
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get 1 reg_1
 function magic:magic_actions/stun with storage magic:stun
 
-scoreboard players operation Temp reg_1 = @s player_id
+scoreboard players operation Temp reg_1 = @s entity_id
 scoreboard players set Temp reg_2 0
 
-execute at @s as @e[tag=weave_shield,tag=target_point,tag=actively_held,sort=nearest] if score @s weave_locked_player_id = Temp reg_1 run tag @s add held_overpower_temp
-execute at @s as @e[tag=weave_shield,tag=target_point,tag=tied_off, scores={weave_remaining_time=1..},sort=nearest] if score @s weave_locked_player_id = Temp reg_1 run tag @s add held_overpower_temp
+execute at @s as @e[tag=weave_shield,tag=target_point,tag=actively_held,sort=nearest] if score @s weave_locked_entity_id = Temp reg_1 run tag @s add held_overpower_temp
+execute at @s as @e[tag=weave_shield,tag=target_point,tag=tied_off, scores={weave_remaining_time=1..},sort=nearest] if score @s weave_locked_entity_id = Temp reg_1 run tag @s add held_overpower_temp
 
 execute as @e[tag=held_overpower_temp] run scoreboard players operation Temp reg_2 += @s cumulative_halve_amount_hold
 
