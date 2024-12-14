@@ -1,5 +1,3 @@
-say held owerpower
-
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get 1 reg_1
 function magic:magic_actions/stun with storage magic:stun
 
