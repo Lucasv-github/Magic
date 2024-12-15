@@ -315,6 +315,12 @@ execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s 
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 run function magic:base_weaves/weave_resistance with storage magic:weave_size
 
+#Cut build
+#A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
+execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s weave_spirit_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
+execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s weave_spirit_count = @s weave_fire_count_1 run function magic:base_weaves/weave_cut_build with storage magic:weave_size
+
+
 #Angreal start
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_air_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_air_count_1 run function magic:base_weaves/weave_angreal_start with storage magic:weave_size

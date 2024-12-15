@@ -1,3 +1,5 @@
+#This function should be run as the weave to be removed
+
 #say remove weave
 
 #The player remove weave will handle remove cleanup

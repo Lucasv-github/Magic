@@ -1,3 +1,6 @@
+#This function is run as the cutting weave
+
+#TODO remove this
 #Self dispose
 tag @s add cut
 tag @s remove actively_held
