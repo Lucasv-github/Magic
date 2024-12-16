@@ -41,6 +41,8 @@ scoreboard objectives add click_counter dummy
 scoreboard objectives add current_held dummy
 
 scoreboard objectives add angreal_level dummy
+scoreboard objectives add well_amount dummy
+scoreboard objectives add well_slot dummy
 
 scoreboard objectives add total_draw_amount dummy
 scoreboard objectives add my_draw_amount dummy

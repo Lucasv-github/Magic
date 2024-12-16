@@ -14,7 +14,9 @@ scoreboard players set @s current_held 0
 #Prevent dual items when opening first time
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode
 
-#Angreal here already
+#TODO all these extra tags shouldn't be needed. Obviously don't call this function if in a circle/already using the power
+
+#Angreal
 scoreboard players set @s reg_1 0
 scoreboard players set @s reg_2 0
 execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Amplification
@@ -29,6 +31,12 @@ execute as @s[tag=using,tag=can_use] store result score @s reg_2 run data get en
 
 execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:inventory/swap_hands
 execute as @s[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:power_handling/enter_angreal
+
+
+#Well
+scoreboard players set @s reg_1 0
+execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Well_current
+execute as @s[tag=using,tag=can_use, scores={reg_1=1..}] run function magic:power_handling/enter_well
 
 
 #Give starting amount

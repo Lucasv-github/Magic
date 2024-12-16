@@ -3,16 +3,24 @@
 #Prevent death
 scoreboard players operation @s[tag=!circle_owner,tag=!angrealed] cumulative_halve_amount_hold = @s halve_amount_hold
 
+
 #Consume (((held*100)/cumulative_halve_amount_hold)*halve_amount_hold)/100
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 = @s current_held
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 *= 100 reg_1
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 /= @s cumulative_halve_amount_hold
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 *= @s halve_amount_hold
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 /= 100 reg_1
-execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s regenerated_strength -= @s reg_1
 
-execute as @s[tag=using,tag=can_use,tag=tap_blocked] run function magic:power_handling/exit
-execute as @s[tag=using,tag=can_use,scores={regenerated_strength=..0}] run function magic:power_handling/exit
+#Regular consume
+execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..},tag=!welled] run scoreboard players operation @s regenerated_strength -= @s reg_1
+execute as @s[tag=using,tag=can_use,tag=tap_blocked,tag=!welled] run function magic:power_handling/exit
+execute as @s[tag=using,tag=can_use,scores={regenerated_strength=..0},tag=!welled] run function magic:power_handling/exit
+
+#Welled consume
+execute as @s[tag=using,tag=can_use,scores={well_amount=1..},tag=welled] run scoreboard players operation @s well_amount -= @s reg_1
+execute as @s[tag=using,tag=can_use,tag=tap_blocked,tag=welled] run function magic:power_handling/exit
+execute as @s[tag=using,tag=can_use,scores={well_amount=..0},tag=welled] run function magic:power_handling/exit
+
 
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 /= 6 reg_1
@@ -58,8 +66,8 @@ execute as @s[tag=opening,scores={regenerated_strength=1..}] unless score @s cum
 
 execute as @s[tag=!opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = Temp reg_2 run function magic:magic_actions/shield_handling
 
-execute as @s[tag=tap_power_shielded_temp] run function magic:magic_actions/held_overpower
-execute as @s[tag=tap_power_shielded_temp] run function magic:power_handling/exit
+execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:magic_actions/held_overpower
+execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:power_handling/exit
 
 execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=..20,regenerated_strength=1..}] run function magic:magic_actions/tied_shield_unknot
 execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=..100,regenerated_strength=1..}] run function magic:display/display_shields

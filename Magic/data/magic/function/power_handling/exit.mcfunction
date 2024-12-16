@@ -25,6 +25,9 @@ clear @s minecraft:ender_eye[custom_data~{Magic:6}]
 
 function magic:inventory/load_hotbar
 
+#Needs to be after hotbar load
+execute as @s[tag=welled] run function magic:power_handling/remove_well
+
 effect clear @s minecraft:night_vision
 
 #Damage player for every incorrect attached
