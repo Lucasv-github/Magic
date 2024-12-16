@@ -8,15 +8,15 @@ execute at @s run scoreboard players operation @e[limit=1,sort=nearest,type=mine
 execute at @s in minecraft:overworld run tp @e[limit=1,sort=nearest,type=minecraft:chest_minecart,name=hotbar_storage] 0 -80 0
 
 #Copy bar
-execute unless data entity @s Inventory[{Slot:0b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.0 from entity @s hotbar.0
-execute unless data entity @s Inventory[{Slot:1b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.1 from entity @s hotbar.1
-execute unless data entity @s Inventory[{Slot:2b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.2 from entity @s hotbar.2
-execute unless data entity @s Inventory[{Slot:3b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.3 from entity @s hotbar.3
-execute unless data entity @s Inventory[{Slot:4b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.4 from entity @s hotbar.4
-execute unless data entity @s Inventory[{Slot:5b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.5 from entity @s hotbar.5
-execute unless data entity @s Inventory[{Slot:6b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.6 from entity @s hotbar.6
-execute unless data entity @s Inventory[{Slot:7b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.7 from entity @s hotbar.7
-execute unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Magic_preserve run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.8 from entity @s hotbar.8
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.0 from entity @s hotbar.0
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.1 from entity @s hotbar.1
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.2 from entity @s hotbar.2
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.3 from entity @s hotbar.3
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.4 from entity @s hotbar.4
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.5 from entity @s hotbar.5 
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.6 from entity @s hotbar.6 
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.7 from entity @s hotbar.7
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.8 from entity @s hotbar.8
 
 tag @e[sort=nearest,type=minecraft:chest_minecart,name=hotbar_storage, tag=current_storage] remove current_storage
 
