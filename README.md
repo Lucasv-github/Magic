@@ -12,11 +12,11 @@
 -**/reload** should enable the datapacks, if this does not work you might need to **/datapack enable "file/Magic"**, then **/datapack enable "file/Magic_commons**  
 -A relog might also be needed to get the new dimension working correctly  
   
-**-For optimal user experience:**
+**For optimal user experience:**
 1. Command blocks needs to be enabled (they are often disabled on servers) (enable with enable-command-block=true in server.properties)
 2. Function permission level needs to be 4 (function-permission-level:4 in server.properties) (this is not possible on singleplayer)
   
-**Configuration**
+**Configuration:**  
 -If you aren't playing on a server you will initially need to use **/function magic:admin_actions/admin**  
 -On a server where you have op, or after using the command above **/trigger admin_panel** should be sufficient for future configuration  
 
