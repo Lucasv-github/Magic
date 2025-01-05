@@ -1,4 +1,4 @@
-tellraw @a {"score":{"name":"Uninstalling magic, observe that this will leave tags on unloaded entities","objective":"reg_2"},"color":"dark_red"}
+tellraw @a {"text":"Uninstalling magic, observe that this will leave tags on unloaded entities","bold":true,"color":"dark_red"}
 
 datapack disable "file/Magic"
 
