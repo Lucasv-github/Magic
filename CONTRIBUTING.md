@@ -8,7 +8,7 @@
 ### Code style
 -This is the style I try to follow when working on my datapack. Any imput is appriciated though  
   
-**Scoreboards & macros**
+**Scoreboards & macros**  
 -reg_1, reg_2, reg_3, reg_4, reg_5 are temporary registers. When not used by an entity the entity "Temp" should be used as a placeholder  
 -Currently no convention exists on whether or not the register scoreboard should be presered between functions. 
 -Unless the called function is very simple the register scoreboards should be assumed scratced 
@@ -19,7 +19,7 @@
 -All scoreboards and storages should be removed by the cleanup functions  
 -A better solution to this mess will sooner or later have to be adopted  
   
-**Tags**
+**Tags**  
 -Temporary tags that doesn't survive multiple ticks should be annotated with _temp
 -Tags should have a name that corresponds to the function they are used in
 -All tags should be removed by the cleanup functions  
