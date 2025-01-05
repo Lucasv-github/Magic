@@ -7,7 +7,7 @@
 ### Adding the magic pack to your world
 -This datapack is really a combination of 4 different datapacks  
 -Unless you want to mess with half broken datapacks I suggest not using either "Magic_help" or "Magic_pve"  
--"Magic_commons" is necessary for the function of the main datapack, "Magic", thus these two should be downloaded and dragged into the datapack folder in you world  
+-"Magic_commons" is necessary for the function of the main datapack, "Magic", thus these two should be downloaded and dragged into the datapack folder in your world  
 -The resourcepack is also important unless you want a horrible user experience, it should be placed in your "./minecraft/resourcepacks/"  
 -**/reload** should enable the datapacks, if this does not work you might need to **/datapack enable "file/Magic"**, then **/datapack enable "file/Magic_commons**  
 -A relog might also be needed to get the new dimension working correctly  
@@ -22,7 +22,7 @@
 
 ### Actually using the datapack
 -Hopefully you have some kind of idea from the books :)  
--You can open the power by looking straight forward while crouching, then straight up while still crouching  
+-You can open the power by looking straight forward while crouching, then straight up while still crouching 
 -You can exit the power by dropping your "Force"  
--Weaves are made by combining the five powers (either dropping or clicking), then activated by clicking with the weave  
--Spells require held power to create, the held power is shown with the number on the screen and can be increased by using "Force" and then deselecting the "Force"
+-Weaves are made by combining the five powers (either dropping or right-clicking), then activated by right-clicking with the weave  
+-Spells require held power to create, your held power is shown as a yellow number on screen and can be increased by right-clicking with "Force" and then deselecting the "Force"
