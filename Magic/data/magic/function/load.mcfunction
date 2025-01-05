@@ -216,6 +216,9 @@ data merge storage magic:match_weave_4 {Elements:[5,5,1,5,1,5,5]}
 data merge storage magic:match_weave_5 {Elements:[5,5,1,2,1,5,5]}
 
 scoreboard players set Temp reg_1 0
+function magic_commons:verify_presence
+execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack needs magic_commons to function, download it from: ","bold":true,"color":"dark_red"},{"text":"https://github.com/Lucasv-github/Magic/","color":"blue","clickEvent":{"action":"open_url","value":"https://github.com/Lucasv-github/Magic/"}}]
+scoreboard players set Temp reg_1 0
 function magic:detections/detect_permission
 execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}
 
