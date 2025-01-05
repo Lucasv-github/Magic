@@ -16,3 +16,7 @@ tag @e remove enter_tar_using_temp
 tag @e remove died_in_tar
 tag @e remove tar_chunk_loaded_marker
 tag @e remove actionbar_display_temp
+
+data remove storage magic_commons:tar_coordinates player_id
+data remove storage magic_commons:tar_coordinates x
+data remove storage magic_commons:tar_coordinates y
