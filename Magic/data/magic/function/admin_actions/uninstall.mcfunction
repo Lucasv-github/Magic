@@ -1,5 +1,7 @@
 tellraw @a {"text":"Uninstalling magic, observe that this will leave tags on unloaded entities","bold":true,"color":"dark_red"}
 
+execute as @a[tag=using] run function magic:power_handling/exit
+
 datapack disable "file/Magic"
 
 scoreboard objectives remove death_detect
@@ -250,3 +252,80 @@ tag @e remove current_weave
 tag @e remove weave_run_yet
 tag @e remove periodic_draw_circle_temp
 tag @e remove new_ray_multi_blocked_temp
+
+
+data remove storage magic:advance_read_index_iteration i
+data remove storage magic:air_box size
+data remove storage magic:air_box size_1
+
+data remove storage magic:count_weave_double_iteration index
+data remove storage magic:count_weave_double_iteration i
+data remove storage magic:count_weave_double_iteration i_1
+
+data remove storage magic:count_weave_quadruple_iteration index
+data remove storage magic:count_weave_quadruple_iteration i
+data remove storage magic:count_weave_quadruple_iteration i_1
+data remove storage magic:count_weave_quadruple_iteration i_2
+data remove storage magic:count_weave_quadruple_iteration i_3
+
+data remove storage magic:count_weave_single_iteration index
+data remove storage magic:count_weave_single_iteration i
+
+data remove storage magic:count_weave_tripple_iteration index
+data remove storage magic:count_weave_tripple_iteration i
+data remove storage magic:count_weave_tripple_iteration i_1
+data remove storage magic:count_weave_tripple_iteration i_2
+
+data remove storage magic:damage amount
+data remove storage magic:display_player_glow count
+data remove storage magic:explosion_radius size
+data remove storage magic:get_normal_distributed_index index
+data remove storage magic:get_weave_length index
+data remove storage magic:give_current_weave i
+data remove storage magic:give_current_weave_build text
+
+data remove storage magic:give_current_weave_iteration index
+data remove storage magic:give_current_weave_iteration i
+
+data remove storage magic:levitate amount
+
+data remove storage magic:lightning amount
+data remove storage magic:lightning radius
+
+data remove storage magic:match_weave match_index
+data remove storage magic:match_weave index
+data remove storage magic:match_weave i
+
+data remove storage magic:match_weave_1 Elements
+data remove storage magic:match_weave_2 Elements
+data remove storage magic:match_weave_3 Elements
+data remove storage magic:match_weave_4 Elements
+data remove storage magic:match_weave_5 Elements
+
+data remove storage magic:match_weave_iteration match_index
+data remove storage magic:match_weave_iteration index
+data remove storage magic:match_weave_iteration i
+data remove storage magic:match_weave_iteration j
+
+
+data remove storage magic:math/get_strength index
+data remove storage magic:print_weave_composition_build text
+
+data remove storage magic:print_weave_composition_iteration x
+data remove storage magic:print_weave_composition_iteration index
+data remove storage magic:print_weave_composition_iteration i
+data remove storage magic:print_weave_composition_iteration y
+
+data remove storage magic:remove_air_box size
+data remove storage magic:remove_bridge size
+data remove storage magic:remove_cleanup_player_all_iteration index
+data remove storage magic:remove_weave_data index
+data remove storage magic:remove_weave_index index
+
+data remove storage magic:strength_table Data
+data remove storage magic:strength_table Elements
+
+data remove storage magic:stun stun_amount
+
+
+forceload remove 0 0
