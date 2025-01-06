@@ -12,6 +12,12 @@ execute if score Temp reg_1 matches 3 run data modify storage magic:give_current
 execute if score Temp reg_1 matches 4 run data modify storage magic:give_current_weave_build text append value '{"text":"\\uE003"}'
 execute if score Temp reg_1 matches 5 run data modify storage magic:give_current_weave_build text append value '{"text":"\\uE004"}'
 
+execute if score Temp reg_1 matches 1 run tag @s add w_a_t
+execute if score Temp reg_1 matches 2 run tag @s add w_e_t
+execute if score Temp reg_1 matches 3 run tag @s add w_f_t
+execute if score Temp reg_1 matches 4 run tag @s add w_w_t
+execute if score Temp reg_1 matches 5 run tag @s add w_s_t
+
 #execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white"}','{"text":""}','{"text":""}','{"text":""}']}} destroy
 
 execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 run summon text_display ~ ~ ~ {Tags:["temp_weave_name"],text:'{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white"}'}
