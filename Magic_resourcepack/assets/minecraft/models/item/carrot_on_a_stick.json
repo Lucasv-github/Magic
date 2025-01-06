@@ -33,6 +33,192 @@
         "custom_model_data": 5
       },
       "model": "minecraft:item/spirit"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 10
+        },
+        "model": "minecraft:item/weave_a"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 11
+        },
+        "model": "minecraft:item/weave_e"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 12
+        },
+        "model": "minecraft:item/weave_f"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 13
+        },
+        "model": "minecraft:item/weave_w"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 14
+        },
+        "model": "minecraft:item/weave_s"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 15
+        },
+        "model": "minecraft:item/weave_ae"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 16
+        },
+        "model": "minecraft:item/weave_af"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 17
+        },
+        "model": "minecraft:item/weave_aw"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 18
+        },
+        "model": "minecraft:item/weave_as"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 19
+        },
+        "model": "minecraft:item/weave_ef"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 20
+        },
+        "model": "minecraft:item/weave_ew"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 21
+        },
+        "model": "minecraft:item/weave_es"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 22
+        },
+        "model": "minecraft:item/weave_fw"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 23
+        },
+        "model": "minecraft:item/weave_fs"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 24
+        },
+        "model": "minecraft:item/weave_ws"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 25
+        },
+        "model": "minecraft:item/weave_aef"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 26
+        },
+        "model": "minecraft:item/weave_aew"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 27
+        },
+        "model": "minecraft:item/weave_aes"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 28
+        },
+        "model": "minecraft:item/weave_afw"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 29
+        },
+        "model": "minecraft:item/weave_afs"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 30
+        },
+        "model": "minecraft:item/weave_aws"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 31
+        },
+        "model": "minecraft:item/weave_efw"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 32
+        },
+        "model": "minecraft:item/weave_efs"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 33
+        },
+        "model": "minecraft:item/weave_ews"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 34
+        },
+        "model": "minecraft:item/weave_fws"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 35
+        },
+        "model": "minecraft:item/weave_aefw"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 36
+        },
+        "model": "minecraft:item/weave_aefs"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 37
+        },
+        "model": "minecraft:item/weave_aews"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 38
+        },
+        "model": "minecraft:item/weave_afws"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 39
+        },
+        "model": "minecraft:item/weave_efws"
+    },
+    {
+        "predicate": {
+            "custom_model_data": 40
+        },
+        "model": "minecraft:item/weave_aefws"
     }
   ]
 }

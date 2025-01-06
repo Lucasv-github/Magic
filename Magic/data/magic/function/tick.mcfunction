@@ -52,12 +52,14 @@ execute as @a[scores={sneak_time=1..}, tag=!using, tag=can_use,tag=!tap_blocked]
 execute as @a[scores={sneak_time=..10, reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 execute as @a[scores={sneak_time=10}, tag=!using, tag=can_use,tag=!tap_blocked] at @s run playsound minecraft:block.vault.activate player @s
 execute as @a[scores={sneak_time=10}, tag=!using, tag=can_use,tag=!tap_blocked] run tellraw @s {"text":"~~~~","color":"gold"}
+execute as @a[scores={sneak_time=10}, tag=!using, tag=can_use,tag=!tap_blocked] run scoreboard players add @s sneak_time 1
 
 #Sneak but stilled
 execute as @a[scores={sneak_time=1..}, tag=!using, tag=stilled,tag=!tap_blocked] store result score @s reg_1 run data get entity @s Rotation[1]
 execute as @a[scores={sneak_time=..10, reg_1=-90}, tag=!using, tag=stilled,tag=!tap_blocked] run scoreboard players set @s sneak_time 0
 execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] at @s run playsound minecraft:block.vault.activate player @s
 execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] run tellraw @s {"text":"~~~~","color":"gold"}
+execute as @a[scores={sneak_time=10}, tag=!using, tag=stilled,tag=!tap_blocked] run scoreboard players add @s sneak_time 1
 
 #Enable breaking out
 execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run function magic:magic_actions/try_break_tied
