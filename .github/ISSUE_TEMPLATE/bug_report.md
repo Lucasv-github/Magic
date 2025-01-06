@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Additional info**
  -Environment [e.g. Vanilla, Paper, Forge...]
- - Version: [e.g. Magic 1.21.1-0]
+ -Version: [e.g. Magic 1.21.1-0]
 
 **Additional context**
 Add any other context about the problem here.
