@@ -1,7 +1,7 @@
 # Security Policy
 
 ## Supported Versions
--Improvments are only made to the versions of the datapack correspongin to the current minecraft version.  
+-Improvments are only made to the versions of the datapack correspongin to the current minecraft version  
   
   
 ## Reporting a Vulnerability
