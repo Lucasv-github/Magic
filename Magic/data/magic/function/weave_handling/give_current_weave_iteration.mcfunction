@@ -18,9 +18,7 @@ execute if score Temp reg_1 matches 3 run tag @s add w_f_t
 execute if score Temp reg_1 matches 4 run tag @s add w_w_t
 execute if score Temp reg_1 matches 5 run tag @s add w_s_t
 
-#execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 in minecraft:overworld run setblock 0 0 0 oak_sign{front_text:{messages:['{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white"}','{"text":""}','{"text":""}','{"text":""}']}} destroy
-
-execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 run summon text_display ~ ~ ~ {Tags:["temp_weave_name"],text:'{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white"}'}
+execute if score Temp reg_3 matches 0..1 if score Temp reg_1 matches -1..0 run summon text_display ~ ~ ~ {Tags:["temp_weave_name"],text:'{"nbt":"text[]","storage":"magic:give_current_weave_build","interpret":true,"separator":"","color":"white","font":"magic_resourcepack:elements"}',alignment:"left"}
 
 execute if score Temp reg_3 matches 0 if score Temp reg_1 matches -1..0 run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:lore append from entity @e[tag=temp_weave_name,limit=1] text
 

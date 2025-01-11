@@ -1,5 +1,5 @@
 execute at @s run summon minecraft:chest_minecart ~ ~ ~ {CustomName:'{"text":"give_current_weave"}', Invulnerable:1b, Tags:["give_current_weave"], NoGravity:1}
-item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 with minecraft:carrot_on_a_stick[custom_data={Magic:8,Player_weave_index:0},custom_name='["",{"text":"Weave","italic":false,"color":"dark_purple"}]',enchantment_glint_override=1b,lore=[],minecraft:custom_model_data=10]
+item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 with minecraft:carrot_on_a_stick[custom_data={Magic:8,Player_weave_index:0},custom_name='["",{"text":"Weave","italic":false,"color":"dark_purple"}]',enchantment_glint_override=1b,lore=[],minecraft:item_model="magic_resourcepack:null"]
 
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.Player_weave_index int 1.0 run scoreboard players get @s player_weave_index
 
@@ -64,41 +64,41 @@ function magic:weave_handling/give_current_weave_iteration with storage magic:gi
 #40 Air+Earth+Fire+Water+Spirit
 
 #This is pretty horrendous
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 10
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 11
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 12
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 13
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 14
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:a"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:e"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:f"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:s"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:w"
 
-execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 15
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 16
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 17
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 18
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 19
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 20
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 21
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 22
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 23
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 24
+execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:ae"
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:af"
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aw"
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:as"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:ef"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:ew"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:es"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:fw"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:fs"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:ws"
 
-execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 25
-execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 26
-execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 27
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 28
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 29
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 30
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 31
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 32
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 33
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 34
+execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aef"
+execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aew"
+execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aes"
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:afw"
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:afs"
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aws"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:efw"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:efs"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:ews"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:fws"
 
-execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 35
-execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 36
-execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 37
-execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 38
-execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 39
+execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aefw"
+execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aefs"
+execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aews"
+execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:afws"
+execute as @s[tag=!w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:efws"
 
-execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_model_data set value 40
+execute as @s[tag=w_a_t,tag=w_e_t,tag=w_f_t,tag=w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:aefws"
 
 tag @s remove w_a_t
 tag @s remove w_e_t

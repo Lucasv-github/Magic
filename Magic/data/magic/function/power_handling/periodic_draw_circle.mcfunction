@@ -1,7 +1,7 @@
 #This function is to be executed by the circle owner
 
 #Get positive/negative distance from 32
-execute store result score @s reg_1 run clear @s minecraft:ender_eye[custom_data~{Magic:9}] 0
+execute store result score @s reg_1 run clear @s minecraft:ender_eye[minecraft:item_model="magic_resourcepack:power"] 0
 
 #Need old copy
 scoreboard players operation @s reg_2 = @s reg_1
