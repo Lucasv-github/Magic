@@ -16,6 +16,7 @@ scoreboard players operation @s reg_2 /= 100 reg_1
 
 scoreboard players operation @s reg_2 += magic_settings magic_min_strength
 scoreboard players operation @s halve_amount_hold = @s reg_2
+scoreboard players operation @s cumulative_halve_amount_hold = @s reg_2
 
 #This gives about 5 minutes at halve
 #Warning: Making max_regenerated_strength will result in overflow in draw_multiple (this should be very high after fix)

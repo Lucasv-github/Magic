@@ -6,6 +6,7 @@ execute as @s[tag=circle_owner] run function magic:power_handling/remove_circle
 execute as @s[tag=angrealed] run function magic:power_handling/remove_angreal
 
 tag @s remove using
+tag @s remove built
 scoreboard players set @s current_held 0
 
 scoreboard players operation Temp reg_1 = @s player_id
@@ -30,6 +31,8 @@ execute as @s[tag=welled] run function magic:power_handling/remove_well
 
 effect clear @s minecraft:night_vision
 
-#Damage player for every incorrect attached
-execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used,tag=held_executed_once] if score @s player_id = Temp reg_1 as @a if score @s player_id = Temp reg_1 run damage @s 8 minecraft:magic
-execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used,tag=held_executed_once] if score @s player_id = Temp reg_1 as @a if score @s player_id = Temp reg_1 run effect give @s nausea 5
+execute as @s[tag=next_sever] run function magic:power_handling/remove_ability
+tag @s[tag=next_sever] remove next_sever
+
+#Reset halve hold
+scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold

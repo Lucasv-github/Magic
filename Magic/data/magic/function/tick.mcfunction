@@ -1,18 +1,6 @@
-execute as @a[tag=can_use] run function magic:power_handling/check_tap_block
-execute as @a[tag=stilled] run function magic:power_handling/check_tap_block
+#Start of settings
 
-#TODO all of these aren't needed in this loop
-tag @e[tag=can_use,tag=!using] remove built
-tag @a[tag=!using,tag=next_sever] remove can_use
-tag @a[tag=!using,tag=next_sever] remove next_sever
-tag @a[tag=!can_use] remove holding_run_blocked
-tag @a[tag=!can_use] remove using
-tag @a[tag=!can_use] remove built
-tag @a remove to_be_banned
-tag @a remove to_be_kicked
-tag @a[tag=using] remove can_break_free
-
-execute as @a[tag=can_use] if score @s use_items matches 0 run function magic:magic_actions/unset_hotbarmode
+execute as @a[tag=can_use,scores={use_items=0}] run function magic:magic_actions/unset_hotbarmode
 execute as @a[tag=can_use,tag=!barmode,tag=using] unless score @s use_items matches 0 run function magic:magic_actions/set_hotbarmode
 
 execute as @a[scores={magic_debug_state=1..}] run scoreboard players operation magic_settings magic_debug_state = @s magic_debug_state
@@ -41,8 +29,10 @@ scoreboard players enable @a[tag=admin] magic_balefire_ban
 scoreboard players enable @a[tag=admin] set_halve_hold
 scoreboard players enable @a[tag=admin] set_regenerated
 
-#Reset halve if not in circle/angrealed
-execute as @a[tag=can_use,tag=!circle_owner,tag=!angrealed] run scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
+#End of settings
+
+execute as @a[tag=can_use] run function magic:power_handling/check_tap_block
+execute as @a[tag=stilled] run function magic:power_handling/check_tap_block
 
 #Join detect, also work first time when leave detect will be set to undef
 execute as @a unless score @s leave_detect matches 0 run function magic:events/join
@@ -79,6 +69,7 @@ execute as @a[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless
 #Death detect
 execute as @a[scores={death_detect=1..}] run function magic:events/death
 
+#Exit without eyes
 execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/exit
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/exit
 
@@ -221,11 +212,8 @@ execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 
 execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 run scoreboard players set @s doomed 0
 
 #Handle destroyed
-execute as @e[tag=target_point,tag=weave_lapsed,tag=weave_damaged] run function magic:weave_handling/remove_weave
-tag @e[tag=target_point,tag=weave_lapsed] remove weave_damaged
-
-#Remove signs
-execute in minecraft:overworld positioned 0 0 0 run kill @e[type=minecraft:item,distance=..5]
+execute as @e[type=armor_stand,tag=target_point,tag=weave_lapsed,tag=weave_damaged] run function magic:weave_handling/remove_weave
+tag @e[type=armor_stand,tag=target_point,tag=weave_lapsed] remove weave_damaged
 
 execute as @e[type=armor_stand,tag=target_point,tag=weave_throw_damaged] run function magic:cleanup/throw_remove
 

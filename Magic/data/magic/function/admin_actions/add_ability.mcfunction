@@ -9,4 +9,5 @@ scoreboard players operation Temp reg_2 = @s set_halve_hold
 scoreboard players operation Temp reg_3 = @s set_regenerated
 
 execute as @a if score @s player_id = Temp reg_1 run scoreboard players operation @s halve_amount_hold = Temp reg_2
+execute as @a if score @s player_id = Temp reg_1 run scoreboard players operation @s cumulative_halve_amount_hold = Temp reg_2
 execute as @a if score @s player_id = Temp reg_1 run scoreboard players operation @s max_regenerated_strength = Temp reg_3

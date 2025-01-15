@@ -94,6 +94,8 @@ scoreboard players set @s sneak_time 0
 
 tag @s remove opening
 
+tag @s[tag=using] remove can_break_free
+
 tag @s[tag=using] add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_open
 tag @s remove current_player_for_log
