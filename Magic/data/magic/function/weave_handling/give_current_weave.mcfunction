@@ -67,8 +67,8 @@ function magic:weave_handling/give_current_weave_iteration with storage magic:gi
 execute as @s[tag=w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:a"
 execute as @s[tag=!w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:e"
 execute as @s[tag=!w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:f"
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:s"
-execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:w"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:w"
+execute as @s[tag=!w_a_t,tag=!w_e_t,tag=!w_f_t,tag=!w_w_t,tag=w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:s"
 
 execute as @s[tag=w_a_t,tag=w_e_t,tag=!w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:ae"
 execute as @s[tag=w_a_t,tag=!w_e_t,tag=w_f_t,tag=!w_w_t,tag=!w_s_t] run data modify entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:item_model set value "magic_resourcepack:af"
