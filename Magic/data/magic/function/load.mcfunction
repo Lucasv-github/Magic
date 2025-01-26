@@ -55,6 +55,7 @@ scoreboard objectives add regenerated_strength dummy
 scoreboard objectives add current_strength dummy
 
 scoreboard objectives add shield_lower_amount dummy
+scoreboard objectives add tap_block_range dummy
 
 scoreboard objectives add finder_owner_id dummy
 scoreboard objectives add finder_time dummy

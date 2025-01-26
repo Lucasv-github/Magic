@@ -31,8 +31,8 @@ scoreboard players enable @a[tag=admin] set_regenerated
 
 #End of settings
 
-execute as @a[tag=can_use] run function magic:power_handling/check_tap_block
-execute as @a[tag=stilled] run function magic:power_handling/check_tap_block
+execute as @a[tag=can_use] run function magic:power_handling/check_tap_block_pre
+execute as @a[tag=stilled] run function magic:power_handling/check_tap_block_pre
 
 #Join detect, also work first time when leave detect will be set to undef
 execute as @a unless score @s leave_detect matches 0 run function magic:events/join
