@@ -194,12 +194,6 @@ scoreboard players set 100000000 reg_1 100000000
 scoreboard players set 1000000000 reg_1 1000000000
 scoreboard players set 50 reg_1 50
 
-#Keep player hotbar copies loaded
-execute in minecraft:overworld run forceload add 0 0
-
-#To allow console log on servers
-setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[type=minecraft:armor_stand,tag=console_writer,limit=1]"} destroy
-
 #Fire sword
 data merge storage magic:match_weave_1 {Elements:[1,1,3,1,1,-1,1,1,3,1,1,-1,1,1,3,1,1,-1,1,3,3,3,1,-1,1,1,3,1,1]}
 
@@ -218,16 +212,8 @@ data merge storage magic:match_weave_5 {Elements:[5,5,1,2,1,5,5]}
 scoreboard players set Temp reg_1 0
 function magic_commons:verify_presence
 execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack needs magic_commons to function, download it from: ","bold":true,"color":"dark_red"},{"text":"https://github.com/Lucasv-github/Magic/","color":"blue","clickEvent":{"action":"open_url","value":"https://github.com/Lucasv-github/Magic/"}}]
-scoreboard players set Temp reg_1 0
-function magic:detections/detect_permission
-execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}
-
-scoreboard players set Detect_command_blocks reg_1 0
-setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Detect_command_blocks reg_1 1"} destroy
 
 execute unless score magic_settings magic_min_strength matches -2147483647.. run scoreboard players set magic_settings magic_min_strength 100
 execute unless score magic_settings magic_max_strength matches -2147483647.. run scoreboard players set magic_settings magic_max_strength 2000
-
-schedule function magic:debug/command_block_message 2s replace
 
 tellraw @a {"text":"Magic 1.21.4-0 loaded","bold":true,"color":"gold"}
