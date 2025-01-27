@@ -85,6 +85,7 @@ scoreboard objectives remove finder_time
 scoreboard objectives remove finder_owner_id
 scoreboard objectives remove shield_lower_amount
 scoreboard objectives remove tap_block_range
+scoreboard objectives remove tap_block_percentage
 scoreboard objectives remove current_strength
 scoreboard objectives remove regenerated_strength
 scoreboard objectives remove max_regenerated_strength

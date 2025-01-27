@@ -1,5 +1,8 @@
 #Draw_amount = (cumulative_halve_amount_hold*(eyes*100/32))/100
 
+#Can't draw more even with one of these
+execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run return 0
+
 #Eye count
 scoreboard players operation @s reg_1 = Draw_force reg_1
 
@@ -8,7 +11,6 @@ scoreboard players operation @s reg_1 = Draw_force reg_1
 #3 = 1
 execute if score Draw_force reg_1 matches ..-0 run scoreboard players add @s reg_1 2
 execute if score Draw_force reg_1 matches 0.. run scoreboard players remove @s reg_1 2
-
 
 scoreboard players operation @s reg_1 *= 100 reg_1
 scoreboard players operation @s reg_1 /= 32 reg_1
