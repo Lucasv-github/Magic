@@ -78,6 +78,8 @@ scoreboard objectives remove weave_remaining_time
 scoreboard objectives remove disguise
 scoreboard objectives remove doomed
 scoreboard objectives remove use_items
+scoreboard objectives remove use_items_current
+scoreboard objectives remove hotbar_current
 scoreboard objectives remove tar_creative
 scoreboard objectives remove tar_survival
 scoreboard objectives remove finder_index

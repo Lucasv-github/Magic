@@ -66,6 +66,10 @@ scoreboard objectives add tar_survival trigger
 scoreboard objectives add tar_creative trigger
 
 scoreboard objectives add use_items trigger
+scoreboard objectives add use_items_current dummy
+
+scoreboard objectives add hotbar_current dummy
+
 scoreboard objectives add doomed dummy
 scoreboard objectives add disguise dummy
 scoreboard objectives add weave_remaining_time dummy
