@@ -1,16 +1,5 @@
 #say weaves
-
-function magic:magic_support/calculate_distance
-
-#Remove truly_see from all but self if inverted
-scoreboard players operation Temp reg_1 = @s weave_owner_player_id
-execute as @s[tag=inverted] as @a[tag=truly_see] unless score @s player_id = Temp reg_1 run tag @s remove truly_see
-
-function magic:display/print_weave_composition
-
 #Weaves directed at a person will be locked directly when it land and can be accesed with weave_locked_player_id
-
-tag @s[tag=unused] add hold_used
 
 #Start by exact pattern matches
 scoreboard players set Temp reg_1 1
@@ -359,3 +348,13 @@ execute as @s[scores={weave_air_count=1..,weave_fire_count=1,weave_read_index=1.
 #Air box
 execute as @s[scores={weave_read_index=1..,weave_air_count=1..}] if score @s weave_air_count = @s weave_air_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_air_count
 execute as @s[scores={weave_read_index=1..,weave_air_count=1..,weave_fire_count_1=0,weave_earth_count_1=0,weave_water_count_1=0,weave_spirit_count_1=0}] if score @s weave_air_count = @s weave_air_count_1 run function magic:base_weaves/weave_air_box_pre with storage magic:weave_size
+
+
+#Display down here to make placed inverted inverted directly
+function magic:magic_support/calculate_distance
+
+#Remove truly_see from all but self if inverted
+scoreboard players operation Temp reg_1 = @s weave_owner_player_id
+execute as @s[tag=inverted] as @a[tag=truly_see] unless score @s player_id = Temp reg_1 run tag @s remove truly_see
+
+function magic:display/print_weave_composition

@@ -236,7 +236,6 @@ tag @e remove weave_ward
 tag @e remove admin
 tag @e remove can_see
 tag @e remove teleport_target
-tag @e remove hold_used
 tag @e remove truly_see
 tag @e remove weave_damaged
 tag @e remove angrealed_held
