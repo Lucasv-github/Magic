@@ -33,4 +33,4 @@ setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players
 
 schedule function magic:debug/command_block_message 5s replace
 
-tellraw @a {"text":"Magic commons 1.21.4-0 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic commons 1.21.4-1 loaded","bold":true,"color":"gold"}

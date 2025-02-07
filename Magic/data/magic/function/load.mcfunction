@@ -222,4 +222,4 @@ execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack 
 execute unless score magic_settings magic_min_strength matches -2147483647.. run scoreboard players set magic_settings magic_min_strength 100
 execute unless score magic_settings magic_max_strength matches -2147483647.. run scoreboard players set magic_settings magic_max_strength 2000
 
-tellraw @a {"text":"Magic 1.21.4-0 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic 1.21.4-1 loaded","bold":true,"color":"gold"}
