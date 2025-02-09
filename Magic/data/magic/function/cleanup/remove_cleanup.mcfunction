@@ -46,7 +46,7 @@ execute as @s[tag=weave_bridge] as @e[tag=bridge,type=armor_stand] if score @s p
 execute as @s[tag=weave_air_box] run scoreboard players operation Temp reg_1 = @s weave_air_count
 execute as @s[tag=weave_air_box] run function magic:math/square_root
 execute as @s[tag=weave_air_box] store result storage magic:remove_air_box size int 1 run scoreboard players get Temp reg_1
-execute as @s[tag=weave_air_box] run function magic:remove_air_box with storage magic:remove_air_box
+execute as @s[tag=weave_air_box] run function magic:cleanup/remove_air_box with storage magic:remove_air_box
 
 execute as @s[tag=weave_fire_sword] as @a if score @s player_id = Temp reg_2 run clear @s minecraft:golden_sword[custom_data~{Magic:30}]
 execute as @s[tag=weave_fire_axe] as @a if score @s player_id = Temp reg_2 run clear @s minecraft:golden_axe[custom_data~{Magic:31}]
