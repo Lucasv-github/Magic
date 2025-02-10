@@ -58,23 +58,54 @@ goto question_loop
 :build
 SET BUILD_FOLDER=%WORKSPACE_DATAPACK_FOLDER%\Build\
 echo Building to: %BUILD_FOLDER%
-if exist "%BUILD_FOLDER%" rd /q /s "%BUILD_FOLDER%"
-mkdir "%BUILD_FOLDER%"
+if not exist "%BUILD_FOLDER%" mkdir "%BUILD_FOLDER%"
 
-rem Using the '' to prevent powershell from being stupid and stripping them.
+::Pre cleanup (might be left in unknown state)
+if exist "%BUILD_FOLDER%\Magic\" echo Removing Magic: %BUILD_FOLDER%\Magic\
+if exist "%BUILD_FOLDER%\Magic\" rd /q /s "%BUILD_FOLDER%\Magic\"
 
+::Copy to build folder
+xcopy /s "%WORKSPACE_DATAPACK_FOLDER%\Magic" "%BUILD_FOLDER%\Magic\"
+
+::Merge into single magic folder
+xcopy /s "%WORKSPACE_DATAPACK_FOLDER%\Magic_commons\data\magic_commons\" "%BUILD_FOLDER%\Magic\data\magic_commons\"
+
+::Patch the minecraft tags
+(
+echo {
+echo     "values" : [
+echo         "magic:load",
+echo         "magic_commons:load"
+echo     ]
+echo }
+) > "%BUILD_FOLDER%\Magic\data\minecraft\tags\function\load.json"
+
+(
+echo {
+echo     "values" : [
+echo         "magic:tick",
+echo         "magic_commons:tick"
+echo     ]
+echo }
+) > "%BUILD_FOLDER%\Magic\data\minecraft\tags\function\tick.json"
+
+
+::Create zip
+::Using the '' to prevent powershell from being stupid and stripping them.
 ::Doing this with tar as Compress-Archive seems to create files that minecraft won't accept
-cd "%WORKSPACE_DATAPACK_FOLDER%\Magic\"
-tar.exe acvf "%BUILD_FOLDER%\Magic.zip" *
+cd "%BUILD_FOLDER%\Magic\"
+tar.exe acvf "%BUILD_FOLDER%\Magic_entire.zip" *
 
-cd "%WORKSPACE_DATAPACK_FOLDER%\Magic_commons\"
-tar.exe acvf "%BUILD_FOLDER%\Magic_commons.zip" *
-
-cd "%WORKSPACE_DATAPACK_FOLDER%\Magic_help\"
-tar.exe acvf "%BUILD_FOLDER%\Magic_help.zip" *
-
+::Resource pack
 cd "%WORKSPACE_RESOURCEPACK_FOLDER%\Magic_resourcepack\"
 tar.exe acvf "%BUILD_FOLDER%\Magic_resourcepack.zip" *
+
+::Relesing the file from out program to allow removal
+cd ..
+
+::Post cleanup (try to leave things nicely)
+if exist "%BUILD_FOLDER%\Magic\" echo Removing Magic: %BUILD_FOLDER%\Magic\
+if exist "%BUILD_FOLDER%\Magic\" rd /q /s "%BUILD_FOLDER%\Magic\"
 
 echo Done
 goto question_loop
