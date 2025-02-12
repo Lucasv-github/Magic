@@ -276,7 +276,7 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 
 
 #Slap
-execute as @s[scores={weave_air_count=2,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_slap_pre
+execute as @s[scores={weave_air_count=2,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0,weave_fire_count_1=0}] run function magic:base_weaves/weave_slap_pre
 
 #Levitate
 execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_levitate_pre
@@ -333,7 +333,9 @@ execute as @s[scores={weave_read_index=1..,weave_spirit_count=9,weave_spirit_cou
 execute as @s[scores={weave_read_index=1..,weave_spirit_count=5,weave_spirit_count_1=4}] run function magic:base_weaves/weave_invert
 
 #Invisibility
+execute as @s[scores={weave_read_index=1..,weave_air_count=2,weave_fire_count_1=3}] run say EEE
 execute as @s[scores={weave_read_index=1..,weave_air_count=2,weave_fire_count_1=3}] run function magic:base_weaves/weave_invisibility
+
 
 #Travel
 execute as @s[scores={weave_read_index=1..,weave_fire_count=6..}] if score @s weave_fire_count = @s weave_spirit_count_1 run function magic:base_weaves/weave_travel
