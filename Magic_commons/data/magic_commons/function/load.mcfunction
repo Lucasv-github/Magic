@@ -29,8 +29,8 @@ function magic:detections/detect_permission
 execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}
 
 scoreboard players set Detect_command_blocks reg_1 0
-setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Detect_command_blocks reg_1 1"} destroy
-
-schedule function magic:debug/command_block_message 5s replace
+#For some reason we need to give this a bit of a time
+schedule function magic_commons:command_block_check 2s replace
+schedule function magic_commons:command_block_message 4s replace
 
 tellraw @a {"text":"Magic commons 1.21.4-2 loaded","bold":true,"color":"gold"}

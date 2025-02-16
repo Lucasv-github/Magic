@@ -1,0 +1,1 @@
+setblock 0 -2 0 command_block{auto:1b,conditional:1b,Command:"scoreboard players set Detect_command_blocks reg_1 1"} destroy
