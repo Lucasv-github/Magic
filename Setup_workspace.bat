@@ -2,6 +2,7 @@
 setlocal enableDelayedExpansion
 
 set "MINECRAFT_TRY_1=%APPDATA%\.minecraft\"
+set PYTHON_FILE=%CD%\Patch_entity_loot.py
 
 if exist %MINECRAFT_TRY_1% (
     set MINECRAFT_FOLDER=%MINECRAFT_TRY_1%
@@ -47,11 +48,12 @@ set WORKSPACE_DATAPACK_FOLDER=%WORKSPACE_FOLDER%\datapacks
 :question_loop
 echo(
 set choice=""
-set /P choice=[Change] [Update] [Close] [Build]
+set /P choice=[Change] [Update] [Close] [Build] [Patch_entity_loot]
 IF "%choice%"=="change" goto change
 IF "%choice%"=="update" goto update
 IF "%choice%"=="close" goto close
 IF "%choice%"=="build" goto build
+IF "%choice%"=="patch_entity_loot" goto patch_entity_loot
 
 goto question_loop
 
@@ -156,6 +158,11 @@ xcopy /s "%EXTRACT_LOCATION%\Magic_resourcepack\" "%WORKSPACE_RESOURCEPACK_FOLDE
 
 echo(
 echo Done
+goto question_loop
+
+:patch_entity_loot
+"%PYTHON_FILE%" "%WORKSPACE_DATAPACK_FOLDER%\Magic\data\minecraft\loot_table\entities"
+
 goto question_loop
 
 :close
