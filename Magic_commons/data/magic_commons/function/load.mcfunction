@@ -2,6 +2,7 @@ scoreboard objectives add deaths deathCount
 
 scoreboard objectives add player_id dummy
 scoreboard objectives add entity_id dummy
+scoreboard objectives add store_id dummy
 
 #Might be needed in this pack if loaded before magic, thus add these here as well
 scoreboard objectives add reg_1 dummy

@@ -1,5 +1,5 @@
 scoreboard players operation Temp reg_1 = @s player_id
-execute as @e[type=minecraft:chest_minecart,name=hotbar_storage] if score @s player_id = Temp reg_1 run tag @s add current_withdraw
+execute as @e[type=minecraft:chest_minecart,tag=hotbar_storage] if score @s player_id = Temp reg_1 run tag @s add current_withdraw
 
 #Copy current hotbar to storage second row
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.9 from entity @s hotbar.0
@@ -7,8 +7,8 @@ item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withd
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.11 from entity @s hotbar.2
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.12 from entity @s hotbar.3
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.13 from entity @s hotbar.4
-item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.14 from entity @s hotbar.5 
-item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.15 from entity @s hotbar.6 
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.14 from entity @s hotbar.5
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.15 from entity @s hotbar.6
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.16 from entity @s hotbar.7
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.17 from entity @s hotbar.8
 
@@ -24,18 +24,18 @@ item replace entity @s hotbar.7 from entity @e[type=minecraft:chest_minecart, li
 item replace entity @s hotbar.8 from entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.8
 
 
-#Clear first row
+#Clear first row to prevent giving that back
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.0 with minecraft:air
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.1 with minecraft:air
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.2 with minecraft:air
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.3 with minecraft:air
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.4 with minecraft:air
-item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.5 with minecraft:air 
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.5 with minecraft:air
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.6 with minecraft:air
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.7 with minecraft:air
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_withdraw] container.8 with minecraft:air
 
 #Give second row back
-tp @e[type=minecraft:chest_minecart,name=hotbar_storage, tag=current_withdraw] @s
-kill @e[type=minecraft:chest_minecart,name=hotbar_storage, tag=current_withdraw]
+tp @e[type=minecraft:chest_minecart,tag=hotbar_storage, tag=current_withdraw] @s
+kill @e[type=minecraft:chest_minecart,tag=hotbar_storage, tag=current_withdraw]
 

@@ -28,9 +28,9 @@ execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=acti
 tag @e[tag=getting_cut,limit=1,sort=arbitrary] add cut
 
 #Clutter for handling gateways
-execute as @e[tag=getting_cut,tag=gateway_end] run scoreboard players operation Temp reg_1 = @s weave_execute_random_number
-execute as @e[tag=getting_cut,tag=gateway_end] as @e[tag=holds_travel] if score @s weave_execute_random_number = Temp reg_1 run function magic:weave_handling/remove_weave
-execute as @e[tag=getting_cut,tag=gateway_end] as @e[tag=holds_travel] if score @s weave_execute_random_number = Temp reg_1 run tag @s remove getting_cut
+execute as @e[tag=getting_cut,tag=gateway_end] run scoreboard players operation Temp reg_1 = @s player_weave_index
+execute as @e[tag=getting_cut,tag=gateway_end] as @e[tag=holds_travel] if score @s player_weave_index = Temp reg_1 run function magic:weave_handling/remove_weave
+execute as @e[tag=getting_cut,tag=gateway_end] as @e[tag=holds_travel] if score @s player_weave_index = Temp reg_1 run tag @s remove getting_cut
 
 scoreboard players set @e[tag=getting_cut,limit=1,sort=arbitrary] weave_remaining_time 0
 

@@ -5,6 +5,7 @@ datapack disable "file/Magic_commons"
 scoreboard objectives remove deaths
 scoreboard objectives remove player_id
 scoreboard objectives remove entity_id
+scoreboard objectives remove store_id
 
 tag @e remove join_ability_add
 tag @e remove teleport_target

@@ -5,12 +5,12 @@
 #Remove gateway from mail
 #TODO branch out
 execute at @s[tag=holds_travel] run function magic:cleanup/travel_dismantle
-execute as @s[tag=holds_travel] run scoreboard players operation Temp reg_1 = @s weave_execute_random_number
+execute as @s[tag=holds_travel] run scoreboard players operation Temp reg_1 = @s player_weave_index
 execute as @s[tag=holds_travel] run scoreboard players operation Temp reg_2 = @s weave_despawn_time
 execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 run scoreboard players operation @s weave_despawn_time = Temp reg_2
 execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 at @s run function magic:cleanup/travel_dismantle
 execute as @s[tag=holds_travel] as @e[tag=gateway_end] if score @s weave_execute_random_number = Temp reg_1 at @s run tag @s remove gateway_end
-execute as @s[tag=holds_travel] in minecraft:overworld positioned 0 -80 0 as @e[type=minecraft:armor_stand,distance=..1,tag=gateway_blocked] if score @s weave_execute_random_number = Temp reg_1 run kill @s
+execute as @s[tag=holds_travel] in minecraft:overworld positioned 0 -80 0 as @e[type=minecraft:armor_stand,distance=..1,tag=gateway_blocked,tag=tar_chunk_loaded_marker] if score @s player_weave_index = Temp reg_1 run kill @s
 
 #function magic:remove_light_beam
 

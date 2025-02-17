@@ -340,6 +340,9 @@ execute as @s[scores={weave_read_index=1..,weave_air_count=2,weave_fire_count_1=
 #Travel
 execute as @s[scores={weave_read_index=1..,weave_fire_count=6..}] if score @s weave_fire_count = @s weave_spirit_count_1 run function magic:base_weaves/weave_travel
 
+#Travel tar
+execute as @s[scores={weave_read_index=1..,weave_fire_count=1..,weave_spirit_count_1=10..}] run function magic:base_weaves/weave_travel_tar
+
 #Sink power
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=1}] run function magic:base_weaves/weave_sink_power
 

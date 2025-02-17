@@ -90,8 +90,8 @@ execute as @s[scores={sneak_time=100..}] run function magic:power_handling/creat
 
 tellraw @s[tag=using] ["",{"text":"","clickEvent":{"action":"run_command","value":"/trigger a set 1"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","clickEvent":{"action":"run_command","value":"/trigger e set 2"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","clickEvent":{"action":"run_command","value":"/trigger f set 3"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","clickEvent":{"action":"run_command","value":"/trigger w set 4"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","clickEvent":{"action":"run_command","value":"/trigger s set 5"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":" ↑ ","color":"black","clickEvent":{"action":"run_command","value":"/trigger state set 1"}}]
 
-#We can live with this collision risk
-execute store result score @s player_weave_index run random value 0..2147483646
+#We can live with this collision risk (don't want zero)
+execute store result score @s player_weave_index run random value 1..2147483646
 
 scoreboard players set @s sneak_time 0
 

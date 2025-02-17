@@ -1,3 +1,6 @@
+scoreboard players operation @s weave_execute_random_number = #random_id player_id
+scoreboard players add #random_id player_id 1
+
 forceload add ~ ~
 
 setblock ~ ~ ~ minecraft:barrier
@@ -27,18 +30,6 @@ setblock ~2 ~0 ~ minecraft:nether_portal
 
 setblock ~1 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:magic_actions/travel"}
 setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execute as @e[distance=..1.7,tag=!target_point] run function magic:magic_actions/travel"}
-
-#scoreboard players operation Temp reg_1 = @s player_id
-
-#execute as @a[sort=nearest, tag=using, tag=can_use] if score @s player_id = Temp reg_1 run tag @s add travel_owner
-
-#scoreboard players operation @s destination_x = @a[limit=1,tag=using,tag=can_use,tag=travel_owner] destination_x
-#scoreboard players operation @s destination_y = @a[limit=1,tag=using,tag=can_use,tag=travel_owner] destination_y
-#scoreboard players operation @s destination_z = @a[limit=1,tag=using,tag=can_use,tag=travel_owner] destination_z
-
-
-scoreboard players operation @s weave_execute_random_number = #random_id player_id
-scoreboard players add #random_id player_id 1
 
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b, Tags:["gateway_end_temp"]}
 #summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Tags:["gateway_end_temp"]}

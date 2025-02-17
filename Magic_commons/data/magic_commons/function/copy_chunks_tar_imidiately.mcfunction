@@ -1,4 +1,4 @@
-execute store result storage magic_commons:tar_coordinates player_id int 1 run scoreboard players get @s player_id
+execute store result storage magic_commons:tar_coordinates player_id int 1 run scoreboard players get @s reg_3
 
 execute store result storage magic_commons:tar_coordinates x int 1 run scoreboard players get @s reg_1
 execute store result storage magic_commons:tar_coordinates y int 1 run scoreboard players get @s reg_2

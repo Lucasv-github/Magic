@@ -1,4 +1,14 @@
+execute as @s[tag=using] run tag @s add exit_tar_using_temp
+execute as @s[tag=using] run function magic:inventory/store_weaves
+execute as @s[tag=using] run function magic:inventory/restore_regular
+
+#Key to load
+scoreboard players set Temp reg_2 0
 function magic_commons:tar_load_inventory
+
+execute as @s[tag=exit_tar_using_temp] run function magic:inventory/restore_magic
+execute as @s[tag=exit_tar_using_temp] run function magic:inventory/load_weaves
+tag @s remove exit_tar_using_temp
 
 #Will also be ran if you have already exited as a cleanup
 execute if dimension magic_commons:tar in minecraft:overworld run tp @s ~ ~ ~

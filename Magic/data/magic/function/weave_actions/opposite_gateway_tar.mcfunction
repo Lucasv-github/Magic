@@ -1,3 +1,5 @@
+say ogt
+
 execute store result entity @s Pos[0] double 1 run scoreboard players get @s destination_x
 execute store result entity @s Pos[1] double 1 run scoreboard players get @s destination_y
 execute store result entity @s Pos[2] double 1 run scoreboard players get @s destination_z
@@ -40,8 +42,6 @@ execute as @s[tag=!in_tar] positioned as @s run setblock ~2 ~-2 ~ repeating_comm
 scoreboard players operation @s destination_x = @s return_x
 scoreboard players operation @s destination_y = @s return_y
 scoreboard players operation @s destination_z = @s return_z
-
-scoreboard players add @s destination_z 2
 
 tag @s add gateway_end
 tag @s remove gateway_end_temp
