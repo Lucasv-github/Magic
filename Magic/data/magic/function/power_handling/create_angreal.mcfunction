@@ -34,7 +34,7 @@ execute unless score @s reg_1 = Temp reg_1 run data modify entity @s[tag=create_
 
 execute as @s[tag=create_angreal_top_temp] run playsound minecraft:block.anvil.place ambient @a[distance=..10,tag=can_see]
 execute as @s[tag=create_angreal_top_temp] run data modify entity @s Item.components.minecraft:custom_data merge value {Angreal_top:1}
-execute as @s[tag=create_angreal_top_temp] run data modify entity @s Item.components.enchantment_glint_override set value 1b
+execute as @s[tag=create_angreal_top_temp] run data modify entity @s Item.components.minecraft:enchantment_glint_override set value 1b
 execute as @s[tag=create_angreal_top_temp] run data modify entity @s Item.components.minecraft:custom_data merge value {Amplification:0}
 execute as @s[tag=create_angreal_top_temp] run data modify entity @s Item.components.minecraft:attribute_modifiers set value {show_in_tooltip:false,modifiers:[{type:"player.block_interaction_range", amount:-4.5, operation:"add_value", id:"magic:use_block"}]}
 execute as @s[tag=create_angreal_top_temp] store result entity @s Item.components.minecraft:custom_data.Amplification int 1 run scoreboard players get Temp reg_1

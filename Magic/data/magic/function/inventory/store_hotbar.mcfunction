@@ -2,7 +2,7 @@
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @e[type=minecraft:chest_minecart,tag=hotbar_storage] if score @s player_id = Temp reg_1 run kill @s
 
-execute at @s run summon chest_minecart ~ ~ ~ {Invulnerable:1b, Tags:["current_storage","hotbar_storage"], NoGravity:1}
+execute at @s run summon chest_minecart ~ ~ ~ {Invulnerable:1b, Tags:["current_storage","hotbar_storage"], NoGravity:1b}
 execute at @s run scoreboard players operation @e[limit=1,sort=nearest,type=minecraft:chest_minecart,tag=hotbar_storage] player_id = @s player_id
 execute at @s in minecraft:overworld run tp @e[limit=1,sort=nearest,type=minecraft:chest_minecart,tag=hotbar_storage] 0 -80 0
 
@@ -12,8 +12,8 @@ item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_stora
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.2 from entity @s hotbar.2
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.3 from entity @s hotbar.3
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.4 from entity @s hotbar.4
-item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.5 from entity @s hotbar.5 
-item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.6 from entity @s hotbar.6 
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.5 from entity @s hotbar.5
+item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.6 from entity @s hotbar.6
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.7 from entity @s hotbar.7
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.8 from entity @s hotbar.8
 
