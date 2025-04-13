@@ -1,14 +1,14 @@
 tag @s add admin
 
 tellraw @s {"text":"----------------------------------------","color":"gold"}
-tellraw @s ["",{"text":"Debug: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_debug_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger magic_debug_state set 1"}}]
-tellraw @s ["",{"text":"Weave debug: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_debug_weave_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger magic_debug_weave_state set 1"}}]
-tellraw @s ["",{"text":"Auto add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_auto_ability_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger magic_auto_ability_state set 1"}}]
-tellraw @s ["",{"text":"Remove ability: ","color":"gold"},{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger remove_ability set 1"}}]
-tellraw @s ["",{"text":"Re-add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger re_add_ability set 1"}}]
-tellraw @s ["",{"text":"Add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger add_ability set 1"}}]
-tellraw @s ["",{"text":"Give cheat book: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger give_book set 1"}}]
-tellraw @s ["",{"text":"Balefire ban: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_balefire_ban set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/trigger magic_balefire_ban set 1"}}]
+tellraw @s ["",{"text":"Debug: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger magic_debug_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","click_event":{"action":"run_command","command":"/trigger magic_debug_state set 1"}}]
+tellraw @s ["",{"text":"Weave debug: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger magic_debug_weave_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","click_event":{"action":"run_command","command":"/trigger magic_debug_weave_state set 1"}}]
+tellraw @s ["",{"text":"Auto add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger magic_auto_ability_state set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","click_event":{"action":"run_command","command":"/trigger magic_auto_ability_state set 1"}}]
+tellraw @s ["",{"text":"Remove ability: ","color":"gold"},{"text":"X","bold":true,"color":"dark_red","click_event":{"action":"run_command","command":"/trigger remove_ability set 1"}}]
+tellraw @s ["",{"text":"Re-add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger re_add_ability set 1"}}]
+tellraw @s ["",{"text":"Add ability: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger add_ability set 1"}}]
+tellraw @s ["",{"text":"Give cheat book: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger give_book set 1"}}]
+tellraw @s ["",{"text":"Balefire ban: ","color":"gold"},{"text":"✔","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger magic_balefire_ban set 2"}}," ",{"text":"X","bold":true,"color":"dark_red","click_event":{"action":"run_command","command":"/trigger magic_balefire_ban set 1"}}]
 tellraw @s {"text":"----------------------------------------","color":"gold"}
 
 scoreboard players set @s admin_panel 0

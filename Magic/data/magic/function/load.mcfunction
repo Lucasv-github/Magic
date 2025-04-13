@@ -217,9 +217,9 @@ data merge storage magic:match_weave_5 {Elements:[5,5,1,2,1,5,5]}
 
 scoreboard players set Temp reg_1 0
 function magic_commons:verify_presence
-execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack needs magic_commons to function, download it from: ","bold":true,"color":"dark_red"},{"text":"https://github.com/Lucasv-github/Magic/","color":"blue","clickEvent":{"action":"open_url","value":"https://github.com/Lucasv-github/Magic/"}}]
+execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack needs magic_commons to function, download it from: ","bold":true,"color":"dark_red"},{"text":"https://github.com/Lucasv-github/Magic/","color":"blue","click_event":{"action":"open_url","url":"https://github.com/Lucasv-github/Magic/"}}]
 
 execute unless score magic_settings magic_min_strength matches -2147483647.. run scoreboard players set magic_settings magic_min_strength 100
 execute unless score magic_settings magic_max_strength matches -2147483647.. run scoreboard players set magic_settings magic_max_strength 2000
 
-tellraw @a {"text":"Magic 1.21.4-2 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic 1.21.5-0 loaded","bold":true,"color":"gold"}

@@ -6,11 +6,11 @@ $scoreboard players set Temp reg_2 $(i)
 scoreboard players add Temp reg_2 1
 execute store result storage magic:print_weave_composition_iteration i int 1 run scoreboard players get Temp reg_2
 
-execute if score Temp reg_1 matches 1 run data modify storage magic:print_weave_composition_build text append value '{"text":"\\uE000"}'
-execute if score Temp reg_1 matches 2 run data modify storage magic:print_weave_composition_build text append value '{"text":"\\uE001"}'
-execute if score Temp reg_1 matches 3 run data modify storage magic:print_weave_composition_build text append value '{"text":"\\uE002"}'
-execute if score Temp reg_1 matches 4 run data modify storage magic:print_weave_composition_build text append value '{"text":"\\uE003"}'
-execute if score Temp reg_1 matches 5 run data modify storage magic:print_weave_composition_build text append value '{"text":"\\uE004"}'
+execute if score Temp reg_1 matches 1 run data modify storage magic:print_weave_composition_build text append value '\uE000'
+execute if score Temp reg_1 matches 2 run data modify storage magic:print_weave_composition_build text append value '\uE001'
+execute if score Temp reg_1 matches 3 run data modify storage magic:print_weave_composition_build text append value '\uE002'
+execute if score Temp reg_1 matches 4 run data modify storage magic:print_weave_composition_build text append value '\uE003'
+execute if score Temp reg_1 matches 5 run data modify storage magic:print_weave_composition_build text append value '\uE004'
 
 #TODO better x and y pos
 $execute if score Temp reg_1 matches 1 at @s run particle minecraft:dust{color:[0.3254,0.9804,0.9804], scale:1} ~ ~$(y) ~$(x) 0 0 0 0 10 normal @a[tag=can_see,tag=truly_see]

@@ -23,7 +23,7 @@ scoreboard objectives setdisplay list player_id
 execute in minecraft:overworld run forceload add 0 0
 
 #To allow console log on servers
-setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[type=minecraft:armor_stand,tag=console_writer,limit=1]"} destroy
+setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[tag=console_writer,limit=1]"} destroy
 
 scoreboard players set Temp reg_1 0
 function magic:detections/detect_permission
@@ -34,4 +34,4 @@ scoreboard players set Detect_command_blocks reg_1 0
 schedule function magic_commons:command_block_check 2s replace
 schedule function magic_commons:command_block_message 4s replace
 
-tellraw @a {"text":"Magic commons 1.21.4-2 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic commons 1.21.5 loaded","bold":true,"color":"gold"}

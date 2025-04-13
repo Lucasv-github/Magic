@@ -5,7 +5,7 @@ scoreboard players set Temp reg_2 0
 execute store result score Temp reg_2 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 
 #Handle offhand (not ideal but least bloated way to do this)
-execute if score Temp reg_2 matches 0 run execute store result score Temp reg_2 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Player_weave_index
+execute if score Temp reg_2 matches 0 run execute store result score Temp reg_2 run data get entity @s equipment.offhand.components.minecraft:custom_data.Player_weave_index
 
 #Start with false
 scoreboard players set Temp reg_3 0

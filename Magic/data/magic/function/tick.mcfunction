@@ -1,7 +1,7 @@
 #Start of settings
 
 #Force in offhand: toggle between hotbar mode
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:magic_actions/holding_toggle_hotbarmode
+execute as @a[tag=can_use, tag=using] if items entity @s weapon.offhand minecraft:ender_eye[minecraft:custom_data~{Magic:6}] run function magic:magic_actions/holding_toggle_hotbarmode
 
 execute as @a[tag=can_use,tag=using,scores={use_items=0}] unless score @s use_items_current matches 0 run function magic:magic_actions/set_mode_empty
 execute as @a[tag=can_use,tag=using,scores={use_items=1}] unless score @s use_items_current matches 1 run function magic:magic_actions/set_mode_items
@@ -78,11 +78,11 @@ execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minec
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/exit
 
 #Part of force in offhand: invite to circle
-execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run function magic:power_handling/invite_to_circle
+execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/invite_to_circle
 
 #Need to be above element detect
 #Book in offhand with selection: add empty / tie off
-execute as @a[tag=can_use, tag=using] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}]}] run tag @s add tick_offhand_temp
+execute as @a[tag=can_use, tag=using] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run tag @s add tick_offhand_temp
 execute as @a[tag=tick_offhand_temp] run function magic:detections/verify_weave_placed
 
 execute as @a[tag=tick_offhand_temp] if score @s reg_1 matches 0 run function magic:weave_handling/holding_add_line
@@ -92,10 +92,10 @@ tag @a remove tick_offhand_temp
 
 #Circle power in offhand while circled: Pass circle
 #Observe that this pass_circle is not the power handling pass_circle
-execute as @a[tag=can_use, tag=using, tag=circle_owner] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:magic_actions/pass_circle
+execute as @a[tag=can_use, tag=using, tag=circle_owner] if items entity @s weapon.offhand minecraft:ender_eye[minecraft:custom_data~{Magic:9}] run function magic:magic_actions/pass_circle
 
 #Only way to exit is via dropping the power, this allows for free offhand
-#execute as @a[tag=can_use, tag=using, tag=circle_owner] unless entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:ender_eye"}]}] run function magic:power_handling/exit
+#execute as @a[tag=can_use, tag=using, tag=circle_owner] unless items entity @s weapon.offhand minecraft:ender_eye[minecraft:custom_data~{Magic:6}] run function magic:power_handling/exit
 
 execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Magic:6}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:power_handling/increase_periodic_draw
 execute at @e[type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Magic:9}}}}] as @a[tag=using,tag=can_use,sort=nearest, limit=1, distance=..2] run function magic:power_handling/increase_periodic_draw_circle
@@ -126,11 +126,11 @@ execute as @a[tag=can_use,tag=using,scores={use_items=2}] store result score @s 
 execute as @a[tag=can_use,tag=using,scores={use_items=2}] unless score @s reg_1 = @s hotbar_current run function magic:magic_actions/selection_changed
 
 #Element offhand detection
-execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:1}}}]}] run function magic:weave_handling/holding_add_line
-execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:2}}}]}] run function magic:weave_handling/holding_add_line
-execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:3}}}]}] run function magic:weave_handling/holding_add_line
-execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:4}}}]}] run function magic:weave_handling/holding_add_line
-execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:5}}}]}] run function magic:weave_handling/holding_add_line
+execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:1}] run function magic:weave_handling/holding_add_line
+execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:2}] run function magic:weave_handling/holding_add_line
+execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:3}] run function magic:weave_handling/holding_add_line
+execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:4}] run function magic:weave_handling/holding_add_line
+execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:5}] run function magic:weave_handling/holding_add_line
 
 #Clear eye if holding when not having tag using
 execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}]}] run clear @s ender_eye[custom_data={Magic:6}]
@@ -181,8 +181,8 @@ execute as @a[tag=using,tag=can_use] unless score @s reg_1 matches 0 unless scor
 
 #Angreal
 #coreboard players set @a reg_1 0
-execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Amplification
-execute as @a[tag=using,tag=can_use] store result score @s reg_2 run data get entity @s Inventory[{Slot:-106b}].components.minecraft:custom_data.Angreal_flawed
+execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s equipment.offhand.components.minecraft:custom_data.Amplification
+execute as @a[tag=using,tag=can_use] store result score @s reg_2 run data get entity @s equipment.offhand.components.minecraft:custom_data.Angreal_flawed
 execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run tag @s add angrealed_held
 execute as @a[tag=using,tag=can_use, scores={reg_1=1..},tag=!circled,tag=!circle_owner,tag=!angrealed] run function magic:power_handling/enter_angreal
 
