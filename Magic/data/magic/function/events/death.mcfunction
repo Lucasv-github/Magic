@@ -1,4 +1,7 @@
-execute at @s run function magic:inventory/drop_hotbar
+#Don't drop if keep inventory true
+execute store result score Temp reg_1 run gamerule keepInventory
+
+execute if score Temp reg_1 matches 0 at @s run function magic:inventory/drop_hotbar
 
 execute as @s[tag=circle_owner] run function magic:remove_circle
 
