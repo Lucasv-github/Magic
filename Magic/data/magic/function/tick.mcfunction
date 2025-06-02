@@ -78,7 +78,7 @@ execute as @a[tag=can_use,tag=using] unless entity @s[nbt={Inventory:[{id:"minec
 execute as @a[tag=can_use,tag=using,tag=circle_owner] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:9}}}]}] run function magic:power_handling/exit
 
 #Part of force in offhand: invite to circle
-execute as @a[tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:6}}}}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/invite_to_circle
+execute as @a[tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/invite_to_circle
 
 #Need to be above element detect
 #Book in offhand with selection: add empty / tie off
@@ -97,12 +97,8 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] if items entity @s weapo
 #Only way to exit is via dropping the power, this allows for free offhand
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/exit
 
-
-#Target
-#execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:7}}}}] at @s run function magic:new_ray
-
 #Weave click
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:8}}}}] at @s run function magic:new_ray_multi_blocked
+execute as @a[scores={click=1..}, tag=using, tag=can_use,] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] at @s run function magic:new_ray_multi_blocked
 
 #Enable triggers
 scoreboard players enable @a[tag=can_use] use_items
@@ -135,14 +131,14 @@ execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraf
 execute as @a[tag=can_use,tag=!using] if entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:9}}}]}] run clear @s carrot_on_a_stick[custom_data={Magic:9}]
 
 #Click detection
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:6}}}}] run function magic:power_handling/increase_periodic_draw
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:9}}}}] run function magic:power_handling/increase_periodic_draw_circle
+execute as @a[scores={click=1..}, tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/increase_periodic_draw
+execute as @a[scores={click=1..}, tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run function magic:power_handling/increase_periodic_draw_circle
 
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:1}}}}] at @s run trigger a set 1
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:2}}}}] at @s run trigger e set 2
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:3}}}}] at @s run trigger f set 3
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:4}}}}] at @s run trigger w set 4
-execute as @a[scores={click=1..}, tag=using, tag=can_use,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:5}}}}] at @s run trigger s set 5
+execute as @a[scores={click=1..}, tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:1}] run trigger a set 1
+execute as @a[scores={click=1..}, tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:2}] run trigger e set 2
+execute as @a[scores={click=1..}, tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:3}] run trigger f set 3
+execute as @a[scores={click=1..}, tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:4}] run trigger w set 4
+execute as @a[scores={click=1..}, tag=using, tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:5}] run trigger s set 5
 
 #Drop detection
 execute as @a[tag=can_use,tag=using,scores={use_items=1..2}] unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:1}}}]}] run trigger a set 1
