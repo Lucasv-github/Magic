@@ -1,5 +1,5 @@
-execute as @a[tag=can_use, tag=using] unless entity @s[nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:6}}}}] run function magic:power_handling/periodic_draw
-execute as @a[tag=can_use, tag=using,tag=circle_owner] unless entity @s[nbt={SelectedItem:{id:"minecraft:ender_eye",components:{"minecraft:custom_data":{Magic:9}}}}] run function magic:power_handling/periodic_draw_circle
+execute as @a[tag=can_use, tag=using] unless entity @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:6}}}}] run function magic:power_handling/periodic_draw
+execute as @a[tag=can_use, tag=using,tag=circle_owner] unless entity @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",components:{"minecraft:custom_data":{Magic:9}}}}] run function magic:power_handling/periodic_draw_circle
 
 #Run tied off wards
 tag @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..},tag=weave_ward] add running_tied

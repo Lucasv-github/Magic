@@ -1,5 +1,5 @@
 #Get positive/negative distance from 32
-execute store result score @s reg_1 run clear @s minecraft:ender_eye[custom_data~{Magic:6}] 0
+execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 0
 
 #Need old copy
 scoreboard players operation @s reg_2 = @s reg_1
@@ -36,19 +36,19 @@ scoreboard players operation @s my_draw_amount += @s current_held
 
 #At 1:1
 #Self draw increase: 1
-execute as @s[tag=!circle_owner,tag=!angrealed,scores={halve_amount_hold=10..}] if score @s current_held > @s cumulative_halve_amount_hold run give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1}] 1
+execute as @s[tag=!circle_owner,tag=!angrealed,scores={halve_amount_hold=10..}] if score @s current_held > @s cumulative_halve_amount_hold run give @s minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1}] 1
 
 #At 2:1
 #Self draw increase: 4
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 += @s cumulative_halve_amount_hold
-execute as @s[tag=!circle_owner,tag=!angrealed,scores={halve_amount_hold=10..}] if score @s current_held > @s reg_1 run give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1}] 4
+execute as @s[tag=!circle_owner,tag=!angrealed,scores={halve_amount_hold=10..}] if score @s current_held > @s reg_1 run give @s minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1}] 4
 
 #At 4:1
 #Self draw decrease: -12 Makes it harder to blow up
 scoreboard players operation @s reg_1 += @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 += @s cumulative_halve_amount_hold
-execute as @s[tag=!circle_owner,tag=!angrealed,scores={halve_amount_hold=10..}] if score @s current_held > @s reg_1 run clear @s minecraft:ender_eye 12
+execute as @s[tag=!circle_owner,tag=!angrealed,scores={halve_amount_hold=10..}] if score @s current_held > @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 12
 
 #Lost hold of it
 execute as @s[scores={current_held=..0}] run function magic:power_handling/exit

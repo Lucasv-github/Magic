@@ -23,7 +23,7 @@ execute as @a[tag=magic_help_interactive_tutorial_wait_decrease,scores={current_
 
 execute as @a[tag=magic_help_interactive_tutorial_wait_increase,scores={current_held=501..},tag=using] run function magic_help:interactive_tutorial_stage_9
 
-execute as @a[tag=magic_help_interactive_tutorial_wait_balance, nbt={SelectedItem:{id:"minecraft:ender_eye",count:32,components:{"minecraft:custom_data":{Magic:6}}}}] run function magic_help:interactive_tutorial_stage_10
+execute as @a[tag=magic_help_interactive_tutorial_wait_balance, nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",count:32,components:{"minecraft:custom_data":{Magic:6}}}}] run function magic_help:interactive_tutorial_stage_10
 
 execute as @a[tag=magic_help_interactive_tutorial_wait_kill_2] at @s unless entity @e[distance=..100,type=minecraft:zombie,tag=magic_help_interactive_tutorial_enemy] run function magic_help:interactive_tutorial_done
 
