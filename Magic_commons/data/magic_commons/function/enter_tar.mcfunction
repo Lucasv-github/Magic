@@ -11,7 +11,6 @@ execute as @s[tag=enter_tar_using_temp] run function magic:inventory/load_weaves
 
 tag @s remove enter_tar_using_temp
 
-execute if dimension minecraft:overworld in minecraft:tar run tp @s ~ ~ ~
 execute store result score @s reg_1 run data get entity @s Pos[0]
 execute store result score @s reg_2 run data get entity @s Pos[2]
 
