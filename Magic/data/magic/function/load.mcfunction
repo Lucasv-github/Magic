@@ -145,7 +145,7 @@ scoreboard objectives add weave_cut_count dummy
 scoreboard objectives add weave_ice_count dummy
 scoreboard objectives add weave_extinguish_count dummy
 scoreboard objectives add weave_dry_count dummy
-scoreboard objectives add weave_heal_count dummy
+scoreboard objectives add weave_delve_count dummy
 scoreboard objectives add weave_bridge_count dummy
 scoreboard objectives add weave_fire_ray_count dummy
 scoreboard objectives add weave_balefire_ray_count dummy
