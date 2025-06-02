@@ -1,4 +1,5 @@
-tellraw @s ["","\n","\n","\n"]
+function magic_help:clear_chat
+execute at @s run playsound minecraft:entity.arrow.hit_player
 
 tag @s remove magic_help_interactive_tutorial_wait_increase
 tag @s add magic_help_interactive_tutorial_wait_balance

@@ -1,2 +1,2 @@
-tellraw @s ["",{"text":"Welcom to the interactive magic tutorial!","bold":true,"color":"gold"},"\n","\n",{"text":"Please make sure you have an empty inventory","bold":true,"color":"gold"},"\n",{"text":"Next","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/trigger magic_help_interactive_page set 1"}}]
+tellraw @s ["",{"text":"Welcom to the interactive magic tutorial!","bold":true,"color":"gold"},"\n","\n",{"text":"Please make sure you have an empty inventory","bold":true,"color":"gold"},"\n",{"text":"Next","bold":true,"color":"dark_green","click_event":{"action":"run_command","command":"/trigger magic_help_interactive_page set 1"}}]
 tag @s add magic_help_interactive_tutorial
