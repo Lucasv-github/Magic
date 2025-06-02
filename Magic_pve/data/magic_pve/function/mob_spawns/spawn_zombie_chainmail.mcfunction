@@ -1,2 +1,3 @@
-summon zombie ~ ~ ~ {PersistenceRequired:0b,HandItems:[{id:iron_sword,count:1}],ArmorItems:[{id:chainmail_boots,count:1},{id:chainmail_leggings,count:1},{id:chainmail_chestplate,count:1},{id:chainmail_helmet,count:1}],HandDropChances:[0f],ArmorDropChances:[0f,0f,0f,0f],Tags:["pve_spawned","magic_pve_zombie_chainmail"]}
+summon zombie ~ ~ ~ {PersistenceRequired:0b,equipment:{mainhand:{id:iron_sword},head:{id:chainmail_helmet},chest:{id:chainmail_chestplate},legs:{id:chainmail_leggings},feet:{id:chainmail_boots}},Tags:["pve_spawned","magic_pve_zombie_chainmail"]}
+
 execute as @e[type=minecraft:zombie,limit=1,sort=nearest,tag=pve_spawned] run function magic_pve:create_hostile
