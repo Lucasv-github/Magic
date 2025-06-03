@@ -1,8 +1,6 @@
 #Prevent endless loop
 execute if entity @s[distance=200..] run scoreboard players set Ray_data reg_2 0
 
-particle minecraft:dust{color:[0.3254,0.9804,0.9804], scale:2} ~ ~ ~ 0 0 0 1 1 normal @a[tag=can_see,tag=truly_see]
-
 execute as @s[tag=weave_air] run particle minecraft:dust{color:[0.3254,0.9804,0.9804], scale:2} ~ ~ ~ 0 0 0 1 1 normal @a[tag=can_see,tag=truly_see]
 execute as @s[tag=weave_earth] run particle minecraft:dust{color:[0.0,0.6431,0.004], scale:2} ~ ~ ~ 0 0 0 1 1 normal @a[tag=can_see,tag=truly_see]
 execute as @s[tag=weave_fire] run particle minecraft:dust{color:[1.0,0.3373,0.3373], scale:2} ~ ~ ~ 0 0 0 1 1 normal @a[tag=can_see,tag=truly_see]
