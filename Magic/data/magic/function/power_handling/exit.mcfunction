@@ -20,7 +20,7 @@ execute as @e[type=minecraft:armor_stand, tag=destroy_bridge] if score Temp reg_
 execute as @e[tag=build_bridge] if score @s player_id = Temp reg_1 run kill @s
 
 function magic:magic_support/clear_magic_items
-clear @s minecraft:ender_eye[custom_data~{Magic:6}]
+clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}]
 
 #function magic:drop_current_hotbar
 
