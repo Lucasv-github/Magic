@@ -215,6 +215,9 @@ data merge storage magic:match_weave_4 {Elements:[5,5,1,5,1,5,5]}
 #Entity detector
 data merge storage magic:match_weave_5 {Elements:[5,5,1,2,1,5,5]}
 
+#Cut items
+data merge storage magic:match_weave_6 {Elements:[3,1,3,-1,1,3,1,-1,3,1,3,-1,3,1,3]}
+
 scoreboard players set Temp reg_1 0
 function magic_commons:verify_presence
 execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack needs magic_commons to function, download it from: ","bold":true,"color":"dark_red"},{"text":"https://github.com/Lucasv-github/Magic/","color":"blue","click_event":{"action":"open_url","url":"https://github.com/Lucasv-github/Magic/"}}]
