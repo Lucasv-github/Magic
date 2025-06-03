@@ -98,7 +98,7 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] if items entity @s weapo
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/exit
 
 #Weave click
-execute as @a[scores={click=1..}, tag=using, tag=can_use,] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] at @s run function magic:new_ray_multi_blocked
+execute as @a[scores={click=1..}, tag=using, tag=can_use,] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] at @s anchored eyes positioned ^ ^ ^3 run function magic:new_ray_multi_blocked
 
 #Enable triggers
 scoreboard players enable @a[tag=can_use] use_items

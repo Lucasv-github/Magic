@@ -23,5 +23,7 @@ scoreboard players remove @s current_held 10
 #Lost hold of it
 execute as @s[scores={current_held=..0}] run function magic:power_handling/exit
 
+tag @s[type=!player] add weave_fire
+
 tag @s add built
 tag @s add need_weave_flush

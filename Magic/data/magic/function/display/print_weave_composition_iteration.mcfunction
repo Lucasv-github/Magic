@@ -20,11 +20,11 @@ $execute if score Temp reg_1 matches 4 at @s run particle minecraft:dust{color:[
 $execute if score Temp reg_1 matches 5 at @s run particle minecraft:dust{color:[1.0,1.0,1.0], scale:1} ~ ~$(y) ~$(x) 0 0 0 0 10 normal @a[tag=can_see,tag=truly_see]
 
 #The sending
-execute if score Temp reg_1 matches 0 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
-execute if score Temp reg_1 matches 0 at @s[tag=!inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
+execute unless score Temp reg_4 matches 0 if score Temp reg_1 matches 0 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
+execute unless score Temp reg_4 matches 0 if score Temp reg_1 matches 0 at @s[tag=!inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
 
-execute if score Temp reg_1 matches -1 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
-execute if score Temp reg_1 matches -1 at @s[tag=!inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
+execute unless score Temp reg_4 matches 0 if score Temp reg_1 matches -1 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
+execute unless score Temp reg_4 matches 0 if score Temp reg_1 matches -1 at @s[tag=!inverted] run tellraw @a[tag=can_see,tag=truly_see] {"nbt":"text[]","storage":"magic:print_weave_composition_build","interpret":true,"separator":"","font":"magic_resourcepack:elements"}
 
 execute if score Temp reg_1 matches 0 if score magic_settings magic_debug_weave_state matches 2 run function magic:debug/console_write_composition
 execute if score Temp reg_1 matches -1 if score magic_settings magic_debug_weave_state matches 2 run function magic:debug/console_write_composition
@@ -53,5 +53,5 @@ execute if score Temp reg_1 matches -1 store result storage magic:print_weave_co
 execute if score Temp reg_1 matches 0 store result storage magic:print_weave_composition_iteration x int 1 run scoreboard players get 0 reg_1
 execute if score Temp reg_1 matches -1 store result storage magic:print_weave_composition_iteration x int 1 run scoreboard players get 0 reg_1
 
-execute if score Temp reg_1 matches 0 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"text":"...","color":"gold"}
+execute unless score Temp reg_4 matches 0 if score Temp reg_1 matches 0 at @s[tag=inverted] run tellraw @a[tag=can_see,tag=truly_see] {"text":"...","color":"gold"}
 execute unless score Temp reg_1 matches 0 run function magic:display/print_weave_composition_iteration with storage magic:print_weave_composition_iteration

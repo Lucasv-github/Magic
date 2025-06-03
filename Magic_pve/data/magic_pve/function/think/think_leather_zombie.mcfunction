@@ -34,6 +34,13 @@ execute on target at @s as @e[tag=magic_pve_think_current_temp,tag=!built,tag=ma
 execute on target at @s as @e[tag=magic_pve_think_current_temp,tag=!built,tag=magic_pve_action_left,distance=5..] run tag @s remove magic_pve_action_left
 
 #Launch on enemy
-execute on target at @s as @e[tag=magic_pve_think_current_temp,tag=magic_pve_opponent,tag=magic_pve_action_left] run function magic_pve:land_enemy
+execute on target run tag @s add magic_pve_target
+
+execute as @s[tag=magic_pve_opponent,tag=magic_pve_action_left] as @e[tag=magic_pve_target] run say target
+execute at @s[tag=magic_pve_opponent,tag=magic_pve_action_left] anchored eyes positioned ^ ^ ^3 facing entity @e[limit=1,sort=nearest,tag=magic_pve_target] feet run function magic:new_ray_multi_blocked
+tag @s[tag=magic_pve_action_left] remove magic_pve_opponent
+
+tag @e remove magic_pve_target
+
 tag @s remove magic_pve_action_left
 tag @s remove magic_pve_think_current_temp

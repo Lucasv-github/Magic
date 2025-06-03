@@ -9,9 +9,9 @@ tag @e[type=minecraft:armor_stand,tag=target_point,tag=tied_off, scores={weave_r
 #Run held wards
 execute as @e[tag=actively_held,tag=!no_weave,tag=weave_ward] run function magic:pre_weaves
 
-execute as @e[tag=target_point,tag=tied_off,scores={weave_remaining_time=1..}] at @s run function magic:display/display_composition_calculate_distance
-execute as @e[tag=target_point,tag=gateway_end,scores={weave_remaining_time=1..}] at @s run function magic:display/display_composition_calculate_distance
-execute as @e[tag=target_point,tag=actively_held] at @s run function magic:display/display_composition_calculate_distance
+execute as @e[tag=target_point,tag=tied_off,scores={weave_remaining_time=1..}] at @s run function magic:display/display_composition_calculate
+execute as @e[tag=target_point,tag=gateway_end,scores={weave_remaining_time=1..}] at @s run function magic:display/display_composition_calculate
+execute as @e[tag=target_point,tag=actively_held] at @s run function magic:display/display_composition_calculate
 
 execute as @e[tag=target_point,tag=tied_off,scores={weave_remaining_time=0}] run function magic:cleanup/remove_cleanup
 
