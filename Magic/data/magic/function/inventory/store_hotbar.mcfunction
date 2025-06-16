@@ -15,12 +15,12 @@ item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_stora
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.5 from entity @s hotbar.5
 
 #Clear bar
-execute unless data entity @s Inventory[{Slot:0b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.0 with minecraft:air
-execute unless data entity @s Inventory[{Slot:1b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.1 with minecraft:air
-execute unless data entity @s Inventory[{Slot:2b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.2 with minecraft:air
-execute unless data entity @s Inventory[{Slot:3b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.3 with minecraft:air
-execute unless data entity @s Inventory[{Slot:4b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.4 with minecraft:air
-execute unless data entity @s Inventory[{Slot:5b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.5 with minecraft:air
+execute unless items entity @s hotbar.0 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.0 with minecraft:air
+execute unless items entity @s hotbar.1 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.1 with minecraft:air
+execute unless items entity @s hotbar.2 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.2 with minecraft:air
+execute unless items entity @s hotbar.3 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.3 with minecraft:air
+execute unless items entity @s hotbar.4 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.4 with minecraft:air
+execute unless items entity @s hotbar.5 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.5 with minecraft:air
 
 
 #Some kludge to remove well / angreal
@@ -31,12 +31,12 @@ execute as @s[tag=welled] run scoreboard players set @s reg_1 1
 execute as @s[tag=angrealed] run scoreboard players set @s reg_1 1
 
 execute as @s[scores={reg_1=1,reg_2=6}] run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.6 from entity @s hotbar.6
-execute as @s[scores={reg_1=1,reg_2=6}] unless data entity @s Inventory[{Slot:6b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.6 with minecraft:air
+execute as @s[scores={reg_1=1,reg_2=6}] unless items entity @s hotbar.6 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.6 with minecraft:air
 
 execute as @s[scores={reg_1=1,reg_2=7}] run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.7 from entity @s hotbar.7
-execute as @s[scores={reg_1=1,reg_2=7}] unless data entity @s Inventory[{Slot:7b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.7 with minecraft:air
+execute as @s[scores={reg_1=1,reg_2=7}] unless items entity @s hotbar.7 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.7 with minecraft:air
 
 execute as @s[scores={reg_1=1,reg_2=8}] run item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=current_storage] container.8 from entity @s hotbar.8
-execute as @s[scores={reg_1=1,reg_2=8}] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Magic_preserve run item replace entity @s hotbar.8 with minecraft:air
+execute as @s[scores={reg_1=1,reg_2=8}] unless items entity @s hotbar.8 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.8 with minecraft:air
 
 tag @e[sort=nearest,type=minecraft:chest_minecart,tag=hotbar_storage, tag=current_storage] remove current_storage
