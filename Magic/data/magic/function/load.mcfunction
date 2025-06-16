@@ -151,6 +151,7 @@ scoreboard objectives add weave_fire_ray_count dummy
 scoreboard objectives add weave_balefire_ray_count dummy
 scoreboard objectives add weave_lava_count dummy
 scoreboard objectives add weave_light_count dummy
+scoreboard objectives add weave_lightning_shield_count dummy
 
 #Click
 scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick

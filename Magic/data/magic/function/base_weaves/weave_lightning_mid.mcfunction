@@ -1,1 +1,1 @@
-$execute at @s as @e[distance=..$(radius)] run function magic:base_weaves/weave_lightning with storage magic:lightning
+$execute as @e[distance=..$(radius)] run function magic:base_weaves/weave_lightning with storage magic:lightning

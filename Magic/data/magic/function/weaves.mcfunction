@@ -305,6 +305,10 @@ execute as @s[scores={weave_read_index=1..,weave_fire_count=2..,weave_air_count=
 execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s weave_spirit_count = @s weave_spirit_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_spirit_count_1
 execute as @s[scores={weave_read_index=1..,weave_spirit_count=1..}] if score @s weave_spirit_count = @s weave_spirit_count_1 run function magic:base_weaves/weave_sever with storage magic:weave_size
 
+#Lightning shield
+execute as @s[scores={weave_read_index=1..,weave_air_count=1..}] if score @s weave_air_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
+execute as @s[scores={weave_read_index=1..,weave_air_count=1..}] if score @s weave_air_count = @s weave_fire_count_1 run function magic:base_weaves/weave_lightning_shield with storage magic:weave_size
+
 #Resistance
 #A weave_read_index = 0 would signify that we hit the end, and thus re-read the first line again
 execute as @s[scores={weave_read_index=1..,weave_earth_count=1..}] if score @s weave_earth_count = @s weave_fire_count_1 store result storage magic:weave_size size int 1 run scoreboard players get @s weave_earth_count
