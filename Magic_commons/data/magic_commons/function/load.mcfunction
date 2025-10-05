@@ -34,4 +34,4 @@ scoreboard players set Detect_command_blocks reg_1 0
 schedule function magic_commons:command_block_check 2s replace
 schedule function magic_commons:command_block_message 4s replace
 
-tellraw @a {"text":"Magic commons 1.21.7-3 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic commons 1.21.9 loaded","bold":true,"color":"gold"}
