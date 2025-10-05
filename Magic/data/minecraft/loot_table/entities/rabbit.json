@@ -17,37 +17,15 @@
                             "function": "minecraft:set_count"
                         },
                         [
-                            [
-                                [
-                                    {
-                                        "count": {
-                                            "type": "minecraft:uniform",
-                                            "max": 1.0,
-                                            "min": 0.0
-                                        },
-                                        "enchantment": "minecraft:looting",
-                                        "function": "minecraft:enchanted_count_increase"
-                                    },
-                                    {
-                                        "count": {
-                                            "type": "minecraft:uniform",
-                                            "max": 1.0,
-                                            "min": 0.0
-                                        },
-                                        "enchantment": "magic:looting_no_xp",
-                                        "function": "minecraft:enchanted_count_increase"
-                                    }
-                                ],
-                                {
-                                    "count": {
-                                        "type": "minecraft:uniform",
-                                        "max": 1.0,
-                                        "min": 0.0
-                                    },
-                                    "enchantment": "magic:looting_no_xp",
-                                    "function": "minecraft:enchanted_count_increase"
-                                }
-                            ],
+                            {
+                                "count": {
+                                    "type": "minecraft:uniform",
+                                    "max": 1.0,
+                                    "min": 0.0
+                                },
+                                "enchantment": "minecraft:looting",
+                                "function": "minecraft:enchanted_count_increase"
+                            },
                             {
                                 "count": {
                                     "type": "minecraft:uniform",
@@ -112,37 +90,15 @@
                             "function": "minecraft:furnace_smelt"
                         },
                         [
-                            [
-                                [
-                                    {
-                                        "count": {
-                                            "type": "minecraft:uniform",
-                                            "max": 1.0,
-                                            "min": 0.0
-                                        },
-                                        "enchantment": "minecraft:looting",
-                                        "function": "minecraft:enchanted_count_increase"
-                                    },
-                                    {
-                                        "count": {
-                                            "type": "minecraft:uniform",
-                                            "max": 1.0,
-                                            "min": 0.0
-                                        },
-                                        "enchantment": "magic:looting_no_xp",
-                                        "function": "minecraft:enchanted_count_increase"
-                                    }
-                                ],
-                                {
-                                    "count": {
-                                        "type": "minecraft:uniform",
-                                        "max": 1.0,
-                                        "min": 0.0
-                                    },
-                                    "enchantment": "magic:looting_no_xp",
-                                    "function": "minecraft:enchanted_count_increase"
-                                }
-                            ],
+                            {
+                                "count": {
+                                    "type": "minecraft:uniform",
+                                    "max": 1.0,
+                                    "min": 0.0
+                                },
+                                "enchantment": "minecraft:looting",
+                                "function": "minecraft:enchanted_count_increase"
+                            },
                             {
                                 "count": {
                                     "type": "minecraft:uniform",

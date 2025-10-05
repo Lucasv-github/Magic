@@ -17,37 +17,15 @@
                             "function": "minecraft:set_count"
                         },
                         [
-                            [
-                                [
-                                    {
-                                        "count": {
-                                            "type": "minecraft:uniform",
-                                            "max": 1.0,
-                                            "min": 0.0
-                                        },
-                                        "enchantment": "minecraft:looting",
-                                        "function": "minecraft:enchanted_count_increase"
-                                    },
-                                    {
-                                        "count": {
-                                            "type": "minecraft:uniform",
-                                            "max": 1.0,
-                                            "min": 0.0
-                                        },
-                                        "enchantment": "magic:looting_no_xp",
-                                        "function": "minecraft:enchanted_count_increase"
-                                    }
-                                ],
-                                {
-                                    "count": {
-                                        "type": "minecraft:uniform",
-                                        "max": 1.0,
-                                        "min": 0.0
-                                    },
-                                    "enchantment": "magic:looting_no_xp",
-                                    "function": "minecraft:enchanted_count_increase"
-                                }
-                            ],
+                            {
+                                "count": {
+                                    "type": "minecraft:uniform",
+                                    "max": 1.0,
+                                    "min": 0.0
+                                },
+                                "enchantment": "minecraft:looting",
+                                "function": "minecraft:enchanted_count_increase"
+                            },
                             {
                                 "count": {
                                     "type": "minecraft:uniform",
@@ -131,6 +109,33 @@
                         }
                     ],
                     "name": "minecraft:potato"
+                }
+            ],
+            "rolls": 1.0
+        },
+        {
+            "bonus_rolls": 0.0,
+            "conditions": [
+                {
+                    "condition": "minecraft:killed_by_player"
+                },
+                {
+                    "condition": "minecraft:entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                        "flags": {
+                            "is_baby": true
+                        },
+                        "vehicle": {
+                            "type": "minecraft:chicken"
+                        }
+                    }
+                }
+            ],
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_lava_chicken"
                 }
             ],
             "rolls": 1.0
