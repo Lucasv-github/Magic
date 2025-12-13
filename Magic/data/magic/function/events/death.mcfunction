@@ -1,5 +1,5 @@
 #Don't drop if keep inventory true
-execute store result score Temp reg_1 run gamerule keepInventory
+execute store result score Temp reg_1 run gamerule keep_inventory
 
 execute if score Temp reg_1 matches 0 at @s run function magic:inventory/drop_hotbar
 

@@ -32,7 +32,7 @@
     "base": 0,
     "per_level_above_first": 0
   },
-  "primary_items": "#minecraft:enchantable/sword",
+  "primary_items": "#minecraft:enchantable/sharp_weapon",
   "slots": [
     "mainhand"
   ],

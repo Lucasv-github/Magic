@@ -16,8 +16,8 @@ execute unless score magic_settings magic_debug_weave_state matches -2147483647.
 execute unless score magic_settings magic_auto_ability_state matches -2147483647.. run scoreboard players set magic_settings magic_auto_ability_state 2
 execute unless score magic_settings magic_balefire_ban matches -2147483647.. run scoreboard players set magic_settings magic_balefire_ban 2
 
-gamerule commandModificationBlockLimit 1000000000
-execute in magic_commons:tar run gamerule commandModificationBlockLimit 1000000000
+gamerule max_block_modifications 1000000000
+execute in magic_commons:tar run gamerule max_block_modifications 1000000000
 
 scoreboard objectives add tick_counter dummy
 scoreboard objectives add total_ticks dummy
@@ -226,4 +226,4 @@ execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack 
 execute unless score magic_settings magic_min_strength matches -2147483647.. run scoreboard players set magic_settings magic_min_strength 100
 execute unless score magic_settings magic_max_strength matches -2147483647.. run scoreboard players set magic_settings magic_max_strength 2000
 
-tellraw @a {"text":"Magic 1.21.9-4 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic 1.21.11-5 loaded","bold":true,"color":"gold"}
