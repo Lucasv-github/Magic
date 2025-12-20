@@ -1,3 +1,5 @@
+#say pre weaves
+
 execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
 function magic:weave_processing/get_weave_length with storage magic:get_weave_length
 scoreboard players operation Temp reg_3 = Temp reg_1
@@ -10,7 +12,6 @@ scoreboard players operation Remove_force reg_1 = Temp reg_3
 #First time full, then /10
 execute as @s[tag=!weave_run_yet] run scoreboard players operation Remove_force reg_1 *= 10 reg_1
 
-tag @s add weave_run_yet
 
 execute as @e[tag=using, tag=can_use] if score @s entity_id = Temp reg_1 run function magic:power_handling/remove_force_amount
 
@@ -30,9 +31,25 @@ scoreboard players operation @s reg_1 *= Temp reg_3
 
 scoreboard players operation @s weave_despawn_time = @s reg_1
 
-tag @s add current_weave
-
 #If current_held is 0 player has dropped (current held gets reset to zero because no player will be found to se t that from if the player drops)
-execute if score @s current_held matches 1.. run function magic:weaves
 
-tag @s remove current_weave
+#Preload to make firing fast
+scoreboard players set @s[tag=!weave_run_yet] weave_second_counter 3
+
+#Only check inverted here the first time
+execute if score @s[tag=!weave_run_yet] current_held matches 1.. run function magic:weave_processing/check_inverted
+
+#Then display
+function magic:magic_support/calculate_distance
+
+#Remove truly_see from all but self if inverted
+scoreboard players operation Temp reg_1 = @s weave_owner_player_id
+execute as @s[tag=inverted] as @a[tag=truly_see] unless score @s player_id = Temp reg_1 run tag @s remove truly_see
+
+scoreboard players set Temp reg_1 1
+function magic:display/print_weave_composition
+
+#Run weaves on second
+execute if score @s[tag=weave_run_yet] current_held matches 1.. run function magic:weaves
+
+tag @s add weave_run_yet

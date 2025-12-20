@@ -23,6 +23,8 @@ scoreboard objectives add tick_counter dummy
 scoreboard objectives add total_ticks dummy
 scoreboard objectives add second_counter dummy
 
+scoreboard objectives add weave_second_counter dummy
+
 scoreboard objectives add shields_blocked dummy
 
 scoreboard objectives add admin_panel trigger

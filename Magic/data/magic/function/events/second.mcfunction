@@ -30,6 +30,12 @@ execute as @e[tag=using,tag=can_use] run function magic:power_handling/tap_power
 execute as @a[tag=circled] run function magic:power_handling/tap_power_circle_member
 execute as @a[tag=circle_owner] run function magic:power_handling/tap_power_circle_member
 
+scoreboard players add @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..},tag=!weave_ward] weave_second_counter 1
+scoreboard players add @e[type=minecraft:armor_stand,tag=actively_held,tag=!no_weave,tag=!weave_ward] weave_second_counter 1
+
+execute as @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..,weave_second_counter=5..},tag=!weave_ward] run function magic:events/weave_individual_five_sec
+execute as @e[type=minecraft:armor_stand,tag=actively_held,tag=!no_weave,tag=!weave_wards,scores={weave_second_counter=5..}] run function magic:events/weave_individual_five_sec
+
 scoreboard players add Temp second_counter 1
 
 execute if score Temp second_counter matches 6 run function magic:events/five_sec

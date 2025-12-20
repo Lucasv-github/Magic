@@ -82,7 +82,7 @@ execute as @a[tag=using, tag=can_use] if items entity @s weapon.mainhand minecra
 
 #Need to be above element detect
 #Book in offhand with selection: add empty / tie off
-execute as @a[tag=can_use, tag=using] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run tag @s add tick_offhand_temp
+execute as @a[tag=can_use, tag=using] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] run tag @s add tick_offhand_temp
 execute as @a[tag=tick_offhand_temp] run function magic:detections/verify_weave_placed
 
 execute as @a[tag=tick_offhand_temp] if score @s reg_1 matches 0 run function magic:weave_handling/holding_add_line
@@ -96,6 +96,15 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] if items entity @s weapo
 
 #Only way to exit is via dropping the power, this allows for free offhand
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/exit
+
+#Book slot selected: run weaves
+execute as @a[tag=using] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
+execute as @a[tag=using,scores={reg_1=1..}] unless score @s reg_1 = @s held_player_weave_index run function magic:magic_actions/holding_run
+#If reg_1=0 we are unselecting, still need to set held_player_weave_index to 0
+execute as @a[tag=using,scores={reg_1=0}] unless score @s reg_1 = @s held_player_weave_index run scoreboard players set @s held_player_weave_index 0
+
+execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
+execute as @a[tag=using,tag=can_use] unless score @s reg_1 matches 0 unless score @s reg_1 = @s player_weave_index run function magic:weave_handling/build_changed
 
 #Weave click
 execute as @a[scores={click=1..}, tag=using, tag=can_use,] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] at @s anchored eyes positioned ^ ^ ^3 run function magic:new_ray_multi_blocked
@@ -166,15 +175,6 @@ execute as @e[tag=using, tag=can_use, scores={build=1..}] run function magic:wea
 
 execute as @a[tag=using, tag=can_use, scores={slow_down=1..}] run function magic:tracked_force_slow
 
-
-#Book slot selected: run weaves
-execute as @a[tag=using] store result score @s reg_1 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
-execute as @a[tag=using,scores={reg_1=1..}] unless score @s reg_1 = @s held_player_weave_index run function magic:magic_actions/holding_run
-#If reg_1=0 we are unselecting, still need to set held_player_weave_index to 0
-execute as @a[tag=using,scores={reg_1=0}] unless score @s reg_1 = @s held_player_weave_index run scoreboard players set @s held_player_weave_index 0
-
-execute as @a[tag=using,tag=can_use] store result score @s reg_1 run data get entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index
-execute as @a[tag=using,tag=can_use] unless score @s reg_1 matches 0 unless score @s reg_1 = @s player_weave_index run function magic:weave_handling/build_changed
 
 #Angreal
 #coreboard players set @a reg_1 0
