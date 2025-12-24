@@ -1,3 +1,5 @@
+execute as @e[tag=awaiting_fill] run function magic:actions/check_awaiting_fill
+
 #Start of settings
 
 #Force in offhand: toggle between hotbar mode

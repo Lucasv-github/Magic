@@ -175,6 +175,27 @@ scoreboard objectives add leave_detect minecraft.custom:minecraft.leave_game
 #Death detect
 scoreboard objectives add death_detect deathCount
 
+scoreboard objectives add safe_fill_x_s dummy
+scoreboard objectives add safe_fill_y_s dummy
+scoreboard objectives add safe_fill_z_s dummy
+
+scoreboard objectives add safe_fill_x_e dummy
+scoreboard objectives add safe_fill_y_e dummy
+scoreboard objectives add safe_fill_z_e dummy
+
+
+scoreboard objectives add safe_fill_chunk_x_c dummy
+scoreboard objectives add safe_fill_chunk_z_c dummy
+
+scoreboard objectives add safe_fill_chunk_x_s dummy
+scoreboard objectives add safe_fill_chunk_z_s dummy
+
+scoreboard objectives add safe_fill_chunk_x_e dummy
+scoreboard objectives add safe_fill_chunk_z_e dummy
+
+scoreboard objectives add safe_fill_creator_entity_id dummy
+
+
 scoreboard players set -10 reg_1 -10
 scoreboard players set -1 reg_1 -1
 scoreboard players set 0 reg_1 0

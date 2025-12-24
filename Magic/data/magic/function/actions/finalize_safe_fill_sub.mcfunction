@@ -1,0 +1,1 @@
+$fill $(x_s) $(y_s) $(z_s) $(x_e) $(y_e) $(z_e) $(block) replace minecraft:air
