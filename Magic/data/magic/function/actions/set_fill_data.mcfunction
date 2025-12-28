@@ -1,1 +1,1 @@
-$data modify storage magic:fill_data_$(entity_id) block set value $(block)
+$data modify storage magic:fill_data_$(entity_id) argument set value "$(argument)"

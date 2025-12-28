@@ -7,11 +7,11 @@ tag @s add awaiting_fill
 summon minecraft:armor_stand ~ ~ ~ {Tags:[position_grab]}
 
 execute store result storage magic:set_fill_data entity_id int 1 run scoreboard players get @s entity_id
-$data modify storage magic:set_fill_data block set value $(block)
+$data modify storage magic:set_fill_data argument set value "$(argument)"
 
 function magic:actions/set_fill_data with storage magic:set_fill_data
 
-#$data modify storage magic:fill data append value {x_s:$(x_s),y_s:$(y_s),z_s:$(z_s),x_e:$(x_e),y_e:$(y_e),z_e:$(z_e),block:$(block)}
+#$data modify storage magic:fill data append value {x_s:$(x_s),y_s:$(y_s),z_s:$(z_s),x_e:$(x_e),y_e:$(y_e),z_e:$(z_e),argument:$(argument)}
 
 execute as @n[type=minecraft:armor_stand,tag=position_grab] run say aaaa
 
