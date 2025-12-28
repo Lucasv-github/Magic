@@ -5,3 +5,5 @@ tag @s[tag=target_point,tag=tied_off, scores={weave_remaining_time=1..},tag=!wea
 
 #Run held
 execute as @s[tag=actively_held,tag=!no_weave,tag=!weave_ward] run function magic:pre_weaves
+
+scoreboard players set @s weave_second_counter 0
