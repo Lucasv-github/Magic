@@ -1,4 +1,4 @@
-say fill if allowed
+#say fill if allowed
 
 tag @s add awaiting_fill
 
@@ -12,8 +12,6 @@ $data modify storage magic:set_fill_data argument set value "$(argument)"
 function magic:actions/set_fill_data with storage magic:set_fill_data
 
 #$data modify storage magic:fill data append value {x_s:$(x_s),y_s:$(y_s),z_s:$(z_s),x_e:$(x_e),y_e:$(y_e),z_e:$(z_e),argument:$(argument)}
-
-execute as @n[type=minecraft:armor_stand,tag=position_grab] run say aaaa
 
 execute store result score @s reg_1 run data get entity @n[type=minecraft:armor_stand,tag=position_grab] Pos[0]
 execute store result score @s reg_2 run data get entity @n[type=minecraft:armor_stand,tag=position_grab] Pos[1]
@@ -58,4 +56,4 @@ function magic:actions/fill_if_allowed_iteration
 
 kill @n[type=minecraft:armor_stand,tag=position_grab]
 
-tellraw @p ["",{"score":{"name":"@s","objective":"safe_fill_x_s"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_y_s"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_z_s"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_x_e"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_y_e"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_z_e"}}]
+#tellraw @p ["",{"score":{"name":"@s","objective":"safe_fill_x_s"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_y_s"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_z_s"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_x_e"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_y_e"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_z_e"}}]

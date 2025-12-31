@@ -1,6 +1,6 @@
-say FIAI
+#say FIAI
 
-tellraw @p ["",{"text":"Iteration: "},{"score":{"name":"@s","objective":"safe_fill_chunk_x_e"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_chunk_z_e"}},{"text":" "}]
+#tellraw @p ["",{"text":"Iteration: "},{"score":{"name":"@s","objective":"safe_fill_chunk_x_e"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_chunk_z_e"}},{"text":" "}]
 
 
 scoreboard players operation @s reg_1 = @s safe_fill_chunk_x_c

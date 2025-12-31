@@ -1,4 +1,4 @@
-say wbri
+#say wbri
 
 #Air
 scoreboard players set Temp reg_1 1
