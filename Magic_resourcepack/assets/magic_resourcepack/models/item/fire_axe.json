@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/golden_axe",
+  "textures": {
+    "layer0": "magic_resourcepack:item/fire_axe"
+  }
+}
