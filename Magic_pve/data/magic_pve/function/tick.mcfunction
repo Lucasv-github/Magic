@@ -4,4 +4,4 @@ execute as @e[tag=magic_pve_zombie_leather] if score @s magic_pve_my_tick = Temp
 
 
 #Disable to disable autospawning
-#execute as @e[type=zombie,tag=!magic_pve_processed_entity] run function magic_pve:spawner
+execute as @e[type=zombie,tag=!magic_pve_processed_entity] run function magic_pve:spawner
