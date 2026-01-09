@@ -1,4 +1,9 @@
-#say caf
+################################################################################
+#Purpose: Check if we can finalize a block fill, by making sure no other plugin has blocked explosions within the fill area
+#Runner: Armorstands one tick after the fill was first proposed
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 tag @s add can_fill_temp
 

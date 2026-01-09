@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Load stored hotbar weaves into owning player's hotbar or inventory if the slots are already taken
+#Runner: A player whos stored weaves should be loaded
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @e[type=minecraft:chest_minecart,tag=weave_hotbar_storage] if score @s player_id = Temp reg_1 run tag @s add current_withdraw
 

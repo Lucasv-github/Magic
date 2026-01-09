@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Remove all scoreboards, tags on loaded entities and storages left by this datapack
+#Runner: An admin with /function magic:admin_actions/uninstall
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tellraw @a {"text":"Uninstalling magic, observe that this will leave tags on unloaded entities","bold":true,"color":"dark_red"}
 
 execute as @a[tag=using] run function magic:power_handling/exit

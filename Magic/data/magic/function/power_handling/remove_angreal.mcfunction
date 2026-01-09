@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Set strength back and remove tags after using an angreal
+#Runner: An entity stopping to use an angreal
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation @s cumulative_halve_amount_hold = @s max_halve_amount_hold
 #magic:power_handling/tap_power already does this so no reason to do this twice
 #scoreboard players operation @s regenerated_strength /= @s angreal_level

@@ -1,8 +1,16 @@
+################################################################################
+#Purpose: Save the items from the hotbar (exept the last 3) into a player specific storage
+#Runner: A player whos hotbar should be stored
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Clear old
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @e[type=minecraft:chest_minecart,tag=hotbar_storage] if score @s player_id = Temp reg_1 run kill @s
 
 execute at @s run summon chest_minecart ~ ~ ~ {Invulnerable:1b, Tags:["current_storage","hotbar_storage"], NoGravity:1b}
+
 execute at @s run scoreboard players operation @e[limit=1,sort=nearest,type=minecraft:chest_minecart,tag=hotbar_storage] player_id = @s player_id
 execute at @s in minecraft:overworld run tp @e[limit=1,sort=nearest,type=minecraft:chest_minecart,tag=hotbar_storage] 0 -80 0
 
@@ -23,7 +31,7 @@ execute unless items entity @s hotbar.4 *[minecraft:custom_data~{Magic_preserve:
 execute unless items entity @s hotbar.5 *[minecraft:custom_data~{Magic_preserve:1}] run item replace entity @s hotbar.5 with minecraft:air
 
 
-#Some kludge to remove well / angreal
+#Some kludge to remove well / angreal from the normaly not touched slots
 scoreboard players set @s reg_1 0
 execute store result score @s reg_2 run data get entity @s SelectedItemSlot
 

@@ -1,5 +1,10 @@
-#Slot in Temp reg_1
-#Value in Temp reg_2
+################################################################################
+#Purpose: Set the amount of stored power in well in a player inventory based on the provided arguments
+#Arguments: Slot in Temp reg_1, Value in Temp reg_2
+#Runner: A player who has the well in their inventory, run via power_handling/enter_well.mcfunction or power_handling/remove_well.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 execute at @s run summon chest_minecart ~ ~ ~ {CustomName:{"text":"set_well_amount_storage"}, Invulnerable:1b, Tags:["set_well_amount_storage"], NoGravity:1}
 

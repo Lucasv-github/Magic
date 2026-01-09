@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Create entry and link it to an exit gateways for a travel weave
+#Runner: An armorstand holding a travel weave
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation @s weave_execute_random_number = #random_id player_id
 scoreboard players add #random_id player_id 1
 

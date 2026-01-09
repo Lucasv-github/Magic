@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Display info about which player another player is circled to
+#Runner: A member of a circle, via events/five_sec.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tag @s add current_circle_info
 
 scoreboard players operation Temp reg_1 = @s player_id

@@ -1,4 +1,9 @@
-#say new weave
+################################################################################
+#Purpose: Set player_weave_index to a new random value whenever the 9:th slot gets empty
+#Runner: A player who just moved away their 9:th slot weave or a non player entity, run via weave_handling/player_remove_weave.mcfunction or tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 scoreboard players set @s[tag=built] state 0
 

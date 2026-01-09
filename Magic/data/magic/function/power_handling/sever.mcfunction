@@ -6,4 +6,5 @@ effect give @s nausea 600
 effect give @s poison 600
 effect give @s weakness 600
 
-function magic:power_handling/remove_ability
+tag @s remove can_use
+tag @s add stilled

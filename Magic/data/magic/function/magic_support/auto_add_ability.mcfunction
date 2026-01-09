@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Add the ability to use magic to entity with strengths from the distributed strength table
+#Runner: Entity who should get the ability to use magic, run via magic_commons:tick.mcfunction on new players
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+
 tag @s add can_use
 tag @s add can_see
 

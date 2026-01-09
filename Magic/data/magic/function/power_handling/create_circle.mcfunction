@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Link two people into a circle with @s as the owner and @a[tag=create_circle_member_temp] will become the members
+#Runner: A player to be the owner of a circle
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #@s becomes owner and person with the tag create_circle_member_temp will become the member
 
 execute if entity @a[tag=create_circle_member_temp] run tag @s add circle_owner

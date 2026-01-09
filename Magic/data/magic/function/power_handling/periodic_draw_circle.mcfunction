@@ -1,7 +1,12 @@
-#This function is to be executed by the circle owner
+################################################################################
+#Purpose: Increase held power in owner based on power adjustor and amount of people in the circle
+#Runner: Any owner of a circle, not holding their circle power adjustor, run via events/second.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Get positive/negative distance from 32
-execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[minecraft:item_model="magic_resourcepack:power"] 0
+execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:9}] 0
 
 #Need old copy
 scoreboard players operation @s reg_2 = @s reg_1

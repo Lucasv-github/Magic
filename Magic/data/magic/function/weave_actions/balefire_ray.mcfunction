@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Iteratiely by self running create a balefire beam of size $(size) from weave landing point back to launcer
+#Arguments: Balefire_ray_data reg_1: range
+#Runner: An armorstand holding a balefire weave, run via magic:base_weaves/weave_balefire_ray or by itself
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 particle minecraft:snowflake ~ ~ ~ 0 0 0 0 200
 
 #say a

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Add the ability to a player specified by the scoreboard select_player
+#Runner: A magic admin player that sets its add_ability to nonzero, ran via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set @s add_ability 0
 scoreboard players enable @s[tag=admin] add_ability
 

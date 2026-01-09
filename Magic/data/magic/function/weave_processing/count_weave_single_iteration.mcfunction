@@ -1,3 +1,9 @@
+################################################################################
+#Purpose: Add to index denoted by $(i) then count matching elements in weave denoted by $(index) and add to @s reg_1 until end of weave or newline
+#Runner: An armorstand decoding its contained weave and counting a single elements, run via weave_processing/count_weave_single or by itself
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set @s reg_2 0
 $execute store result score @s reg_2 run data get storage magic:weave_$(index) Elements[$(i)]
 

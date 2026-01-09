@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Attach to a snowball the entity that the weave corresponding to the armorstand @s locked on
+#Runner: An armorstand holding a throw weave, run via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation Temp reg_1 = @s weave_locked_entity_id
 tag @s add throw_lock_temp_thrower
 

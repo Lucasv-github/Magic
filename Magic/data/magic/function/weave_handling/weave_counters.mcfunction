@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Count up all elements and all distinct element combinations in weave
+#Runner: An armorstand holding a weave, run via pre_weaves.mcfunction->weaves.mcfunction->weave_counters.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Air
 scoreboard players set Temp reg_1 1
 function magic:weave_processing/count_weave_single

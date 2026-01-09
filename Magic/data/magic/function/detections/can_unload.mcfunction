@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Checks if the chunk where @s is located can be safely unloaded, by making sure no weaves are active there
+#Runner: An entity at the position that should be checked
+#Return values: Temp reg_1 set to 1 if the chunk can be unloaded
+#Authors: Lprogrammer
+################################################################################
+
 #Making this a bit more robust, to make it work if @s isn't a target_point
 execute store result score @s reg_1 run data get entity @s Pos[0]
 execute store result score @s reg_2 run data get entity @s Pos[2]

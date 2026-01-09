@@ -1,4 +1,9 @@
-#say shield handling
+################################################################################
+#Purpose: Decide if a player getting shielded should lose their powers
+#Runner: A player being shielded, via base_weaves/weave_shield.mcfunction or power_handling/tap_power.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Getting shielded in Temp reg_1
 #Shield lower amount Temp in reg_2

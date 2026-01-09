@@ -1,4 +1,9 @@
-#Weaves directed at a person will be locked directly when it land and can be accesed with weave_locked_player_id
+################################################################################
+#Purpose: Figur out and run corresponding function to the weave that is run
+#Runner: The armorstand that holds the weave, run via pre_weaves.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Start by exact pattern matches
 scoreboard players set Temp reg_1 1
@@ -34,6 +39,7 @@ execute as @s[scores={reg_1=1}] run function magic:base_weaves/weave_cut_items
 execute as @s[scores={reg_1=1}] run return 0
 
 function magic:weave_handling/weave_counters
+
 
 #Execute them
 

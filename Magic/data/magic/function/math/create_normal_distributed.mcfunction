@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Fill in a distribution table with pre computed values, used when determining a new entity's strength
+#Runner: Doesn't matter, run by server via load.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set normals_0 normal_distributed 25
 scoreboard players set normals_1 normal_distributed 64
 scoreboard players set normals_2 normal_distributed 47

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Set the buildmode to automatic building
+#Runner: A player whose buildmode should set
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tellraw @s {"text":"Auto toggled","color":"gold"}
 
 execute store result score @s hotbar_current run data get entity @s SelectedItemSlot

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Display any active shields on @s
+#Runner: A player who should receive info about shields on them, run via display/display_shields_change.mcfunction or power_handing/tap_power.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation Temp reg_1 = @s player_id
 
 tag @s add display_shelds_tell_temp

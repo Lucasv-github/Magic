@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: The entry point to safe filling, blocked if explosions deal no entity damage in the area Fills $(x_s), $(y_s) $(z_s) to $(x_e), $(y_e) $(z_e) with the arguments $(argument)
+#Runner: Any entity that wants to do safe filling
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #say fill if allowed
 
 tag @s add awaiting_fill

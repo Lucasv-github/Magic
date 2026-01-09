@@ -1,5 +1,11 @@
-tag @a remove truly_see
+################################################################################
+#Purpose: Calculate the visible range of a weave depending on how much power was held when it was placed
+#Runner: An entity with a valid current_held, be it an entity using magic or an armorstand with a weave, run via new_ray_multi_blocked.mcfunction, display/display_composition_calculate.mcfunction, display/display_all_player_glow.mcfunction, weave_handling/add_element.mcfunction, pre_weaves.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
+tag @a remove truly_see
 
 scoreboard players operation @s reg_2 = @s current_held
 

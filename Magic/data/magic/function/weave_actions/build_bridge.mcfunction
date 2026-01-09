@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Iteratively create a bridge with a size $(size) from weave landing point back to launcer
+#Arguments: Temp reg_1: range
+#Runner: An armorstand holding a bridge weave, run via magic:base_weaves/weave_bridge or by itself
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute unless entity @e[distance=..1,tag=bridge,limit=1] run summon minecraft:armor_stand ~ ~ ~ {Tags:["bridge"],NoGravity:1b,Marker:1b,Invisible:1b}
 scoreboard players operation @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=bridge] player_weave_index = Temp reg_3
 

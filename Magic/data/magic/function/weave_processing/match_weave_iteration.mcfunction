@@ -1,3 +1,9 @@
+################################################################################
+#Purpose: Add to index $(i) and $(j), check that value in weave denoted by $(index) at $(i) matches that of the storage at $(j) if not or any out of range bail, else self run
+#Runner: An armorstand holding a weave checking for a pattern match, run via weave_processing/match_weave.mcfunction or by itself
+#Authors: Lprogrammer
+################################################################################
+
 $execute store result score @s reg_2 run data get storage magic:weave_$(index) Elements[$(i)]
 $execute store result score @s reg_3 run data get storage magic:match_weave_$(match_index) Elements[$(j)]
 

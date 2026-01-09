@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Increase held power based on power adjustor
+#Runner: Any player using magic, not holding their power adjustor, run via events/second.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Get positive/negative distance from 32
 execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 0
 

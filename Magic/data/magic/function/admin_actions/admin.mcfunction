@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Display a clickable text admin panel in chat to @s
+#Runner: Either an admin with /function magic:admin_actions/admin or by an Admin that sets admin_panel to nonzero, then ran via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tag @s add admin
 
 tellraw @s {"text":"----------------------------------------","color":"gold"}

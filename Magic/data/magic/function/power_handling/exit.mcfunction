@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Remove magic interaction items, held weaves, handle angreal/well exits and give back original hotbar items
+#Runner: An entity exiting the power
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+
 tag @s add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_exit
 tag @s remove current_player_for_log
@@ -13,16 +21,8 @@ scoreboard players operation Temp reg_1 = @s player_id
 
 function magic:cleanup/remove_cleanup_player_all
 
-#Mark bridges made on this run(tied off), can't be destroyed by grabbing power again
-execute as @e[type=minecraft:armor_stand, tag=destroy_bridge] if score Temp reg_1 = @s player_id run tag @s add previous_bridge
-
-#Remove bridge builder
-execute as @e[tag=build_bridge] if score @s player_id = Temp reg_1 run kill @s
-
 function magic:magic_support/clear_magic_items
 clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}]
-
-#function magic:drop_current_hotbar
 
 function magic:inventory/load_hotbar
 
@@ -31,7 +31,9 @@ execute as @s[tag=welled] run function magic:power_handling/remove_well
 
 effect clear @s minecraft:night_vision
 
-execute as @s[tag=next_sever] run function magic:power_handling/remove_ability
+#Not same sever side effects here, thus doing manually
+execute as @s[tag=next_sever] run tag @s remove can_use
+execute as @s[tag=next_sever] run tag @s add stilled
 tag @s[tag=next_sever] remove next_sever
 
 #Reset halve hold

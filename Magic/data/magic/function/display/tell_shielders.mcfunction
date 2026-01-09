@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Tell player trying to shield something that the shielding succeeded
+#Runner: The entity that got shielded, run via magic_actions/shield_handling.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation Temp reg_1 = @s player_id
 
 execute as @e[tag=target_point,tag=actively_held] if score @s weave_locked_player_id = Temp reg_1 run tag @s add tell_shielders_temp

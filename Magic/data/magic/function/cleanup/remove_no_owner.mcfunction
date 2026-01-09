@@ -1,4 +1,9 @@
-#Observe that this is only run for non player placed weaves
+################################################################################
+#Purpose: Check if the weave has an owning entity, if not remove the weave
+#Runner: Non player entities that use magic, run via events/five_sec.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 scoreboard players operation Temp reg_1 = @s weave_owner_entity_id
 execute as @e if score @s entity_id = Temp reg_1 run tag @s add remove_no_owner_exists_temp

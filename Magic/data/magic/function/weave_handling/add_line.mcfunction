@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Add a newline to a weave present in the 9:th slot
+#Runner: An entity adding a newline by /trigger line, run via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Can only add line to weave in slot 9
 #This should not be run when an item is placed in the offhand, as this doesn't handle that like holding_add_line does
 

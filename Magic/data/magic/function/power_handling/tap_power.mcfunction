@@ -1,4 +1,10 @@
-#say tap power
+################################################################################
+#Purpose: Consume strength, make sure power is still accessible if not exit, handle shielding and side effects when drawing too much power
+#Consume (((held*100)/cumulative_halve_amount_hold)*halve_amount_hold)/100
+#Runner: Any entity using magic, via events/second.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Prevent death
 scoreboard players operation @s[tag=!circle_owner,tag=!angrealed] cumulative_halve_amount_hold = @s halve_amount_hold

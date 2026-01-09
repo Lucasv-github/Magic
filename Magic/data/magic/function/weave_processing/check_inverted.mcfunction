@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Tag a weave "weave_inverted" if the weave contains a valid invert weave
+#Runner: An armorstand, via pre_weaves.mcfunction before weave is displayed
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 function magic:weave_handling/weave_counters
 
 #Inverting

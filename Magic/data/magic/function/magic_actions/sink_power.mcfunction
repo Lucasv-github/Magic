@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Sink power into various appropriate items in an itemframe near a player
+#Runner: A player who should sink power
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+
 scoreboard players operation Temp reg_1 = @s player_id
 
 execute at @s as @e[type=item_frame,distance=..10,sort=nearest] if data entity @s Item.components.minecraft:custom_data.Angreal_base unless data entity @s Item.components.minecraft:custom_data.Angreal_top run tag @s add weave_sink_power_angreal_temp

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Gets run every five seconds
+#Runner: Server, gets run via tick.mcfunction->second.mcfunction->five_sec.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Very faint
 execute at @e[tag=target_point,tag=!inverted] run particle minecraft:glow ~ ~2 ~ 0 0 0 0 1 normal @a[tag=can_see]
 

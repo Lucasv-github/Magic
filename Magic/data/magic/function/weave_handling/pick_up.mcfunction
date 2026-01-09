@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Pick up an active tied off weave near and made by @s
+#Runner: A player going to pick up a weave, via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute at @s run playsound minecraft:block.lever.click player @s
 
 scoreboard players operation Temp reg_1 = @s player_id

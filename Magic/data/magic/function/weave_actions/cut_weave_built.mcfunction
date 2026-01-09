@@ -1,4 +1,9 @@
-#This function is run as the cutting weave
+################################################################################
+#Purpose: Cut any built (non placed) weaves of the targeted entity
+#Runner: An armorstand holding a cut built weave
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #as @e[tag=can_use,tag=using] if score @s entity_id = Temp reg_1 run function magic:weave_actions/cut_weave_built
 

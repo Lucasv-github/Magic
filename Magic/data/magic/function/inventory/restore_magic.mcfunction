@@ -1,4 +1,9 @@
-#Undos what inventory/restore_regular did
+################################################################################
+#Purpose: Undos what inventory/restore_regular.mcfunction did by giving back all non weave magic interaction items
+#Runner: A player who should get their interaction items back
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 function magic:inventory/store_hotbar
 

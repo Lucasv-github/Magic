@@ -1,4 +1,10 @@
-#reg_1 contains well current
+################################################################################
+#Purpose: Mainly set up well_amount and well_slot needed to make drawing power from a well work
+#Arguments: @s reg_1: Well_current_amount
+#Runner: A player who used a well
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 scoreboard players operation @s well_amount = @s reg_1
 execute store result score @s well_slot run data get entity @s SelectedItemSlot

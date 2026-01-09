@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Iterate through weave data denoted by $(index), with index of $(i) and display(relative pos $(x), $(y))+chatsend each previous weave line once the next line separator is reach
+#Runner: An armorstand holding a weave, via display/print_weave_composition.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set Temp reg_1 0
 $execute store result score Temp reg_1 run data get storage magic:weave_$(index) Elements[$(i)]
 

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Swap the mainhand and offhand items with each other
+#Runner: The player whose hands should be swapped
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute at @s run summon chest_minecart ~ ~ ~ {CustomName:'{"text":"give_current_weave"}', Invulnerable:1b, Tags:["swap_hands_storage"], NoGravity:1b}
 
 item replace entity @e[type=minecraft:chest_minecart, limit=1, tag=swap_hands_storage] container.0 from entity @s weapon.mainhand

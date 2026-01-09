@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Cut the nearest active tied off or actiely held weave
+#Runner: An armorstand holding a cut weave, run via base_weaves/weave_cut_iteration.mcfunction or weave_actions/lightning_spread.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #This function is run as the cutting weave
 
 #TODO remove this
@@ -8,7 +15,7 @@ scoreboard players set @s weave_remaining_time 0
 
 scoreboard players operation Temp reg_1 = @s current_held
 
-#Nearest other either tied off or held
+#Nearest other weave, either tied off or held
 execute as @e[limit=1, sort=nearest, type=armor_stand, tag=target_point, distance=..10,tag=!cut,scores={weave_remaining_time=1..}, tag=tied_off] run tag @s add getting_cut
 execute as @e[limit=1, sort=nearest, type=armor_stand, tag=target_point, distance=..10,tag=!cut,tag=actively_held] run tag @s add getting_cut
 execute as @e[limit=1, sort=nearest, type=armor_stand, tag=target_point, distance=..10,tag=!cut,tag=gateway_end] run tag @s add getting_cut

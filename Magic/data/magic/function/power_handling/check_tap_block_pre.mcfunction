@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Check if the entity is in an area where tapping the power is not blocked
+#Runner: A entity checking the possibility of tapping the power, via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tag @s remove tap_blocked
 scoreboard players set @s tap_block_percentage 0
 

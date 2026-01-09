@@ -1,9 +1,9 @@
-#Can only add line to weave in slot 9
-
-#TODO remove holding from name? as this does not require holding
-#add_line currently does exactly the same without swapping back
-#Actually to offhand add line?
-
+################################################################################
+#Purpose: Add a newline to a weave present in the 9:th slot, then correct hands
+#Runner: An entity adding a newline by using their offhand, run via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 

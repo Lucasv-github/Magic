@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Send the composition of a weave to the server console
+#Runner: An armorstand holding a weave, run via display/print_weave_composition_iteration.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tag @s add console_writer_current_weave
 
 #We do not want to scratch Temp reg_1 here

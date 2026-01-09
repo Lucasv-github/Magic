@@ -1,4 +1,10 @@
-tag @s remove welled
+################################################################################
+#Purpose: Recharge any power not used into a well after exiting when using a well
+#Yeah that's right the well gets set to zero when you open with it
+#Runner: An entity exiting after using a well
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #In case of exit restore what wasn't consumed
 scoreboard players operation Temp reg_1 = @s well_slot

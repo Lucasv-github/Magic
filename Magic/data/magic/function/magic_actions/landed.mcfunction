@@ -1,11 +1,14 @@
-#say landed
+################################################################################
+#Purpose: Place an armorstand at the position where the weave ray landed and prepare to decode and execute the corresponding weave
+#Runner: The entity who launced the weave, with the position context of where the weave_ray ended
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:0b,Marker:0b,Tags:["temp_target_point"]}
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b,Tags:["temp_target_point"]}
 
-execute store result score @s reg_1 run forceload query ~ ~
-#If zero it is not forceloaded
-execute as @s[scores={reg_1=0}] run forceload add ~ ~
+forceload add ~ ~
 
 scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players operation Temp reg_3 = @s cumulative_halve_amount_hold
@@ -34,12 +37,6 @@ execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_p
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] store result score @s position_y run data get entity @s Pos[1]
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] store result score @s position_z run data get entity @s Pos[2]
 
-#Grap position for gateway
-execute as @a[tag=using,tag=can_use,scores={destination=1..}] if score @s player_id = Temp reg_1 store result score @s destination_x run data get entity @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] Pos[0]
-execute as @a[tag=using,tag=can_use,scores={destination=1..}] if score @s player_id = Temp reg_1 store result score @s destination_y run data get entity @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] Pos[1]
-execute as @a[tag=using,tag=can_use,scores={destination=1..}] if score @s player_id = Temp reg_1 store result score @s destination_z run data get entity @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] Pos[2]
-execute as @a[tag=using,tag=can_use,scores={destination=1..}] if score @s player_id = Temp reg_1 run scoreboard players set @s destination 0
-
 tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] add target_point
 
 #Type used to determine which type of power as target_point is common between all
@@ -50,7 +47,7 @@ tag @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] a
 scoreboard players set @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] weave_locked_player_id 0
 scoreboard players set @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] weave_locked_entity_id 0
 
-#Still we should lock neareset player
+#Lock on neareset player
 execute as @e[sort=nearest,limit=1, type=minecraft:armor_stand,tag=temp_target_point] run scoreboard players operation @s weave_locked_player_id = @a[limit=1, sort=nearest, distance=..5] player_id
 
 #Also lock on nearest entity

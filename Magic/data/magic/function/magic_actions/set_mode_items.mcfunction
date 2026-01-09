@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Set the buildmode to item building
+#Runner: A player whose buildmode should set
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tellraw @s {"text":"Default toggled","color":"gold"}
 
 clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:1}]

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Joins @s into a circle assumed to be owned by player with tag=circle_owner_temp
+#Runner: Entity to join the circle
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Work with angreal
 #Entity with tag circle_owner_temp is assumed to be the owner
 

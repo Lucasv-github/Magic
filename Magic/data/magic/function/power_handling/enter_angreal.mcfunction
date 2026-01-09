@@ -1,7 +1,10 @@
-#tellraw @a {"score":{"name":"@s","objective":"reg_1"}}
-
-#reg_1 contains angreal leval
-#reg_2 contains flawed
+################################################################################
+#Purpose: Mainly scale an entity's cumulative_halve_amount_hold based on the strength of the angreal they used
+#Arguments: @s reg_1: angreal_leval @s reg_2: flawed
+#Runner: An player who used an angreal
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
 scoreboard players operation @s cumulative_halve_amount_hold *= @s reg_1

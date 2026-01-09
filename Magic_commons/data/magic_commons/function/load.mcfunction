@@ -25,6 +25,9 @@ execute in minecraft:overworld run forceload add 0 0
 #To allow console log on servers
 setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[tag=console_writer,limit=1]"} destroy
 
+gamerule max_block_modifications 1000000000
+execute in magic_commons:tar run gamerule max_block_modifications 1000000000
+
 scoreboard players set Temp reg_1 0
 function magic:detections/detect_permission
 execute if score Temp reg_1 matches 0 run tellraw @a {"text":"This server doesn't have the adequate function permission level","bold":true,"color":"dark_red"}

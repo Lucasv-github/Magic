@@ -1,7 +1,11 @@
-#say FIAI
+################################################################################
+#Purpose: Check if filling is safe in all chunks within the fill coordinates provided to fill_if_allowed.mcfunction
+#Runner: Any entity performing a safe fill, ran by fill_if_allowed.mcfunction and itself
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #tellraw @p ["",{"text":"Iteration: "},{"score":{"name":"@s","objective":"safe_fill_chunk_x_e"}},{"text":" "},{"score":{"name":"@s","objective":"safe_fill_chunk_z_e"}},{"text":" "}]
-
 
 scoreboard players operation @s reg_1 = @s safe_fill_chunk_x_c
 scoreboard players operation @s reg_2 = @s safe_fill_chunk_z_c

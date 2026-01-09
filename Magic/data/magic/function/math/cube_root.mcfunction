@@ -1,4 +1,10 @@
-#Input in Temp reg_1, output in same
+################################################################################
+#Purpose: Computer the cube root of the input value
+#Arguments: Input: Temp reg_1
+#Runner: Doesn't matter
+#Return values: Temp reg_1
+#Authors: Lprogrammer
+################################################################################
 
 #TODO might want to handle negative
 scoreboard players set Temp reg_2 1

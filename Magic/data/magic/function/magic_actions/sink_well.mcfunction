@@ -1,4 +1,10 @@
-#Temp reg_1 should point to owner
+################################################################################
+#Purpose: Sink power into a well placed in an item frame from the player specified by player id Temp reg_1
+#Arguments: Temp reg_1: id of player sinking power
+#Runner: An itemframe holding a well, run via magic_actions/sink_power.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 scoreboard players set Temp reg_2 0
 execute as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_held

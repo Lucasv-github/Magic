@@ -1,4 +1,12 @@
-#$execute at @s run particle minecraft:glow ~ ~5 ~ 1 1 1 1 $(count) normal @a[tag=can_see]
+################################################################################
+#Purpose: Display the glow of a player that are using the power expect if they are disguised
+#Runner: No entity, via events/fourth_sec.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
-#Distance 0.1.. is to prevent self
-$execute at @s run particle minecraft:glow ~ ~5 ~ 1 1 1 1 $(count) normal @a[tag=can_see,distance=0.1..]
+scoreboard players operation @s reg_1 = @s current_held
+scoreboard players operation @s reg_1 /= 10 reg_1
+execute store result storage magic:display_player_glow_sub count int 1 run scoreboard players get @s reg_1
+function magic:magic_support/calculate_distance
+function magic:display/display_player_glow_sub with storage magic:display_player_glow_sub

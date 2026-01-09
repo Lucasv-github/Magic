@@ -1,4 +1,10 @@
-#Will count Temp reg_1, Temp reg_2, Temp reg_3, and return in @s reg_1
+################################################################################
+#Purpose: Count the number of specified element combinations until newline or end
+#Arguments: Temp reg_1: element_1 Temp reg_2: element_2 Temp reg_3: element_3 Temp reg_4
+#Runner: An armorstand decoding its contained weave and counting 4 element combinations
+#Return values: @s reg_1: Count
+#Authors: Lprogrammer
+################################################################################
 
 execute store result storage magic:count_weave_quadruple_iteration index int 1 run scoreboard players get @s player_weave_index
 execute store result storage magic:count_weave_quadruple_iteration i int 1 run scoreboard players get @s weave_read_index

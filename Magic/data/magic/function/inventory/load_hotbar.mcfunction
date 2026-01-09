@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Load the items from a stored hotbar into the owning player's hotbar or inventory if the slots are already taken
+#Runner: A player whos stored hotbar should be loaded
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @e[type=minecraft:chest_minecart,tag=hotbar_storage] if score @s player_id = Temp reg_1 run tag @s add current_withdraw
 

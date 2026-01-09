@@ -1,6 +1,10 @@
-#Entity with tag force_circle_owner_temp becomes owner, @s becomes forced to circle
-
+################################################################################
+#Purpose: Force @s to circle with player with tag=force_circle_owner_temp 
 #Doing the thing this way to keep an angreal present on the person being forced
+#Runner: A player to be force circled
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 tag @a[tag=force_circle_owner_temp] add create_circle_member_temp
 

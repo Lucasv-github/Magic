@@ -1,3 +1,9 @@
+################################################################################
+#Purpose: Add to index denoted by $(i) then count matching elements combination with a length of 3 in weave denoted by $(index) and add to @s reg_1 until end of weave or newline
+#Runner: An armorstand decoding its contained weave and counting a 3 length element combination, run via weave_processing/count_weave_single or by itself
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set @s reg_2 0
 scoreboard players set @s reg_3 0
 scoreboard players set @s reg_4 0

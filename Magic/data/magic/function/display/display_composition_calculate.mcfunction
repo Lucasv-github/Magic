@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Re-calculate distances and then display colors above weave based on the elements it contains
+#Runner: A weave whose colors should be displayed, via events/second.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 function magic:magic_support/calculate_distance
 
 #Remove truly_see from all but self if inverted

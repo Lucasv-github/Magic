@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Create entry and link it to an exit gateways for a TAR travel weave
+#Runner: An armorstand holding a TAR travel weave
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 forceload add ~ ~
 
 execute store result score @s reg_1 run data get entity @s Pos[0]

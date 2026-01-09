@@ -1,4 +1,9 @@
-say ogt
+################################################################################
+#Purpose: Create an exit gateways for a tar travel weave and link it to the entry gateway
+#Runner: An armorstand already placed at the position of the exit gateway, run via weave_actions/create_gateway_tar.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 execute store result entity @s Pos[0] double 1 run scoreboard players get @s destination_x
 execute store result entity @s Pos[1] double 1 run scoreboard players get @s destination_y

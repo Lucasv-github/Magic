@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Add specified weave element into weave specific storage, send messages back to player building weave and consume power
+#Arguments @s reg_1 = element(air,earth,fire,water,spirit)
+#Runner: An entity adding an element to a weave, run via weave_handling/add_element_pre.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Can only add element to weave in slot 9
 #This function needs to be as stripped down as possible
 
@@ -22,8 +30,6 @@ tellraw @s ["",{"text":"","click_event":{"action":"run_command","command":"/t
 scoreboard players remove @s current_held 10
 #Lost hold of it
 execute as @s[scores={current_held=..0}] run function magic:power_handling/exit
-
-tag @s[type=!player] add weave_fire
 
 tag @s add built
 tag @s add need_weave_flush

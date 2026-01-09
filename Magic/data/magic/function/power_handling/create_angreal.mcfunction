@@ -1,4 +1,9 @@
-#To be run as the item frame either in beginning or end
+################################################################################
+#Purpose: Either create the base or finish the creation of a pumped angreal
+#Runner: The itemframe holding the angreal
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Base
 execute if data entity @s Item unless data entity @s Item.components.minecraft:custom_data.Angreal_base run tag @s add create_angreal_base_temp

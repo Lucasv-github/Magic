@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Set @s reg_1 based on per element scorboards and give back weave build items if missing
+#Runner: An entity using magic that has a nonzero element scorboard (a, e, f, w, s), run via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Can only add element to weave in slot 9
 #Offloading some stuff here to improve add_element's performance due to it running from build
 

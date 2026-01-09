@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Preparing to check if fill is allowed at a specific position denoted by $(x) $(z) by summoning an armorstand and then a TNT high in the sky
+#Runner: The armorstand responsible for doing the safe filling, via fill_if_allowed.mcfunction, then via fill_if_allowed_iteration.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #$say Check fill allowed X: $(x) Z: $(z)
 $summon minecraft:armor_stand $(x) 10000 $(z) {NoGravity:1b,Tags:["fill_allowed_checker"]}
 

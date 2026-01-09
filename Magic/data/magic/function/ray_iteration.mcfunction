@@ -1,4 +1,11 @@
-#Prevent endless loop
+################################################################################
+#Purpose: Run itself more and more forward from the entity starting it
+#Runner: Entities when they aim and fire a weave against something the first time, after new_ray_multi_blocked.mcfunction has verified signle
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+#Prevent endless loop, also define max distance of a weave
 execute if entity @s[distance=200..] run scoreboard players set Ray_data reg_2 0
 
 execute as @s[tag=weave_air] run particle minecraft:dust{color:[0.3254,0.9804,0.9804], scale:2} ~ ~ ~ 0 0 0 1 1 normal @a[tag=can_see,tag=truly_see]

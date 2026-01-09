@@ -1,7 +1,11 @@
+################################################################################
+#Purpose: Change ownership of a circle from @s to player with tag=to_be_circle_owner_temp
+#Runner: A player giving up ownership of their circle
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #TODO if we change circle to depend more on the owner's strength this would have to be changed
-
-#Entity with tag to_be_circle_owner_temp becomes owner, @s loses control
-
 #Should also be no need here to move item back from offhand
 
 scoreboard players operation Temp reg_1 = @s player_id

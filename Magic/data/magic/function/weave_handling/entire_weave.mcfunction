@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Decode a /trigger build set inputed weave and add its elements one by one
+#Runner: An entity that inputed a weave with /trigger build set, via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+
 scoreboard players operation @s reg_1 = @s build
 scoreboard players operation @s reg_1 %= 1000000000 reg_1
 scoreboard players operation @s reg_1 /= 100000000 reg_1

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Re-add the ability to a player who lost its ability specified by the scoreboard select_player
+#Runner: A magic admin player that sets its re_add_ability to nonzero, ran via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set @s re_add_ability 0
 scoreboard players enable @s[tag=admin] re_add_ability
 

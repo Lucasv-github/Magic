@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Tie off a player selected weave if placed, so that it continues running without depending on a channeling player
+#Runner: A player who tied off a weave, via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #say holding tie off
 
 execute at @s run playsound minecraft:block.lever.click player @s

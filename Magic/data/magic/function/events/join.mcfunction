@@ -2,6 +2,13 @@ execute as @s[tag=circled] run function magic:power_handling/exit
 tag @s[tag=circled] remove can_use
 tag @s[tag=circled] remove can_see
 kill @s[tag=circled]
+################################################################################
+#Purpose: Gets run every time a player joins the server
+#Runner: The player that joined the server, via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tag @s[tag=circled] remove circled
 scoreboard players set @s leave_detect 0
 

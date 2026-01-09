@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Give an item corresponding to the newly built weave with the correct name, lore and icon
+#Runner: An entity needing a weave flush (after adding component) or an entity picking up a weave, run via tick.mcfunction or weave_handling/pick_up.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute at @s run summon minecraft:chest_minecart ~ ~ ~ {CustomName:'{"text":"give_current_weave"}', Invulnerable:1b, Tags:["give_current_weave"], NoGravity:1b}
 item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 with minecraft:carrot_on_a_stick[custom_data={Magic:8,Player_weave_index:0},custom_name='["",{"text":"Weave","italic":false,"color":"dark_purple"}]',enchantment_glint_override=1b,lore=[],minecraft:item_model="magic_resourcepack:null"]
 

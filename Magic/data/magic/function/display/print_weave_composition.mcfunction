@@ -1,4 +1,11 @@
-#Temp reg_1 = 0: Don't tellraw
+################################################################################
+#Purpose: Print the composition of a weave to all players with tag=can_see, tag=truly_see
+#Arguments: Temp reg_1 = 0: Don't tellraw
+#Runner: An armorstand holding a weave to be printed, run via pre_weaves.mcfunction or display/display_composition_calculate.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation Temp reg_4 = Temp reg_1
 
 data merge storage magic:print_weave_composition_build {text:[]}

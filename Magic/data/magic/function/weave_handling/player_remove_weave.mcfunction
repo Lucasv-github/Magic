@@ -1,6 +1,9 @@
-#This function should be run as the player
-
-#say player remove weave
+################################################################################
+#Purpose: Remove a weave denoted by $(index) whose weave item is present in a player's inventory
+#Runner: A player with a weave in their inventory that should be removed
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Need to remove ALL with same weave_index
 scoreboard players operation Temp reg_1 = @s entity_id

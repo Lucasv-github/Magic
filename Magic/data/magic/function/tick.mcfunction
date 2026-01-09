@@ -57,9 +57,6 @@ execute as @a[scores={sneak_time=10,tap_block_percentage=0}, tag=!using, tag=sti
 execute as @a[scores={sneak_time=10,tap_block_percentage=0}, tag=!using, tag=stilled,tag=!tap_blocked] run tellraw @s {"text":"~~~~","color":"gold"}
 execute as @a[scores={sneak_time=10,tap_block_percentage=0}, tag=!using, tag=stilled,tag=!tap_blocked] run scoreboard players add @s sneak_time 1
 
-#Enable breaking out
-execute as @a[scores={sneak_time=200.., reg_1=-90}, tag=!using, tag=can_use,tag=!tap_blocked] run function magic:magic_actions/try_break_tied
-
 #Opening
 execute as @a[scores={sneak_time=10..,reg_1=-90,tap_block_percentage=0}, tag=!using, tag=can_use,tag=!circled,tag=!tap_blocked] run function magic:power_handling/open
 

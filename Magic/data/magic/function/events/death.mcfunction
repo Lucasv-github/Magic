@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Gets run whenever a player dies
+#Runner: The player that died, run via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Don't drop if keep inventory true
 execute store result score Temp reg_1 run gamerule keep_inventory
 

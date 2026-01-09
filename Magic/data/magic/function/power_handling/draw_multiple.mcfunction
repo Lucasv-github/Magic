@@ -1,4 +1,12 @@
+################################################################################
+#Purpose: Increase the held power in an entity based on:
 #Draw_amount = (cumulative_halve_amount_hold*(eyes*100/32))/100
+#Then also tiredness scaling with the strength table
+#
+#Runner: An entity increasing their held power, via power_handling/periodic_draw_circle.mcfunction, power_handling/periodic_draw.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Can't draw more even with one of these
 execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run return 0

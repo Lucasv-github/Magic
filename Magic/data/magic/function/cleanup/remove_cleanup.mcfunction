@@ -1,4 +1,9 @@
-#say remove cleanup
+################################################################################
+#Purpose: Remove a placed weave
+#Runner: The weave that gets removed, ran in lots of places: cleanup/remove_cleanup_player_single.mcfunction weave_handling/player_remove_weave.mcfunction remove_cleanup_player_all.mcfunction magic_actions/tied_shield_unknot.mcfunction weave_handling/remove_weave.mcfunction weave_handling/new_weave.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 #Travel: This is supposed to run as the "main" else everything will fail
 

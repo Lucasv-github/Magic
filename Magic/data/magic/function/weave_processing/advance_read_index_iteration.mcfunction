@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Add to index denoted by $(i) then read in weave denoted by $(index) and run itself until end of weave or newline
+#Runner: An armorstand containing decoding its weave, run via weave_processing/advance_read_index.mcfunction or by itself
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set @s reg_2 0
 $execute store result score @s reg_2 run data get storage magic:weave_$(index) Elements[$(i)]
 

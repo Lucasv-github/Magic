@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Remove a circle, exit the power for the owner and unblock its members from using the power
+#Runner: THE OWNER OF A CIRCLE
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tag @s remove circle_owner
 
 scoreboard players operation Temp reg_1 = @s player_id

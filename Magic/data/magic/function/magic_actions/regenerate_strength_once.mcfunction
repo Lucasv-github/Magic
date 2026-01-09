@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Regenerate 1/20 of the entities strength
+#Runner: An entity whose strength should be regenerated
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute as @s run scoreboard players operation @s reg_1 = @s max_regenerated_strength 
 
 #magic:power_handling/tap_power already does this so no reason to do this twice

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Hurt entities shielding @s based on their strength discrepancies
+#Runner: The entity who is shielded and trying to use magic, via power_handling/tap_power
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get 1 reg_1
 function magic:magic_actions/stun with storage magic:stun
 

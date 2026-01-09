@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Refill the strength of a player correctly after they have been offline for a while
+#Runner: The player whose strength should be refilled, via events/join.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players operation @s reg_1 = Temp total_ticks
 scoreboard players operation @s reg_1 -= @s total_ticks
 

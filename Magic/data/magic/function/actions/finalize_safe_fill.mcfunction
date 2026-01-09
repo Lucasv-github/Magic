@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Retrieves the argument for the safe fill that is now to be instantiated and then finalizes the fill
+#Runner: An armorstand with a safe fill context that has waited to the next tick and has now checked that filling is safe
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute store result storage magic:finalize_safe_fill_sub x_s int 1 run scoreboard players get @s safe_fill_x_s
 execute store result storage magic:finalize_safe_fill_sub y_s int 1 run scoreboard players get @s safe_fill_y_s
 execute store result storage magic:finalize_safe_fill_sub z_s int 1 run scoreboard players get @s safe_fill_z_s

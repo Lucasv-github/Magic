@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Add weave element corresponding to index $(i) to name or lore from weave data specified by $(index), then run itself with increased $(i)
+#Runner: A player whose weave item is getting constructed, via weave_handling/give_current_weave_iteration.mcfunction or by itself
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set Temp reg_1 0
 $execute store result score Temp reg_1 run data get storage magic:weave_$(index) Elements[$(i)]
 

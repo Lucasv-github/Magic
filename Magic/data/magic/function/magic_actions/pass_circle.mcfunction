@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Pass ownership of a circle to the member of the circle that is closest to the owner
+#Runner: An owner who passes their circle
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Start furthest as the last will be used
 execute at @s as @a[tag=can_use,tag=circled,sort=furthest,distance=..10] unless score @s player_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s player_id
 

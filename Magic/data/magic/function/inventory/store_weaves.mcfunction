@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Save weaves from the player's hotbar into a player specific weave storage
+#Runner: A player hotbar weaves should be stored
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Clear old
 scoreboard players operation Temp reg_1 = @s player_id
 execute as @e[type=minecraft:chest_minecart,tag=weave_hotbar_storage] if score @s player_id = Temp reg_1 run data modify entity @s Items set value []

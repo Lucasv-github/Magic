@@ -1,4 +1,9 @@
-#Called once one open the power
+################################################################################
+#Purpose: Store hotbar items, give magic interaction items and handle entering angreal/well
+#Runner: An entity opening the power
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
 tag @s add using
 
@@ -44,9 +49,8 @@ scoreboard players set @s reg_1 110
 scoreboard players operation @s reg_1 -= @s sneak_time
 scoreboard players operation @s reg_1 *= @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 /= 100 reg_1
-scoreboard players operation Give_force reg_1 = @s reg_1
-execute if score Give_force reg_1 matches ..10 run scoreboard players set Give_force reg_1 10
-function magic:power_handling/give_force_amount
+execute if score @s reg_1 matches ..10 run scoreboard players set @s reg_1 10
+scoreboard players operation @s current_held += @s reg_1
 
 
 scoreboard players operation @s my_draw_amount = @s current_held
