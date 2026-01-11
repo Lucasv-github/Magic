@@ -36,7 +36,7 @@ execute if entity @a[tag=to_be_circle_owner_temp] run tag @s remove using
 execute if entity @a[tag=to_be_circle_owner_temp] run scoreboard players operation @s circled_owner_id = @a[tag=to_be_circle_owner_temp] player_id
 
 #Need to be below tags
-execute if entity @a[tag=to_be_circle_owner_temp] run function magic:magic_support/clear_magic_items
+execute if entity @a[tag=to_be_circle_owner_temp] run function magic:inventory/clear_magic_items
 execute if entity @a[tag=to_be_circle_owner_temp] run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}]
 
 #Need to be last
