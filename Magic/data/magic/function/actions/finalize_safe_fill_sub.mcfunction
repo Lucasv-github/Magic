@@ -5,4 +5,5 @@
 #Authors: Lprogrammer
 ################################################################################
 
-$fill $(x_s) $(y_s) $(z_s) $(x_e) $(y_e) $(z_e) $(argument)
+#at @s to keep dimension context
+$execute at @s run fill $(x_s) $(y_s) $(z_s) $(x_e) $(y_e) $(z_e) $(argument)
