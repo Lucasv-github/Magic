@@ -25,7 +25,11 @@ execute in minecraft:overworld run forceload add 0 0
 #To allow console log on servers
 setblock 0 -1 0 repeating_command_block{auto:1b,conditional:1b,Command:"kill @e[tag=console_writer,limit=1]"} destroy
 
+gamerule max_command_forks 1000000000
+gamerule max_command_sequence_length 1000000000
 gamerule max_block_modifications 1000000000
+
+#Needed on paper apparently
 execute in magic_commons:tar run gamerule max_block_modifications 1000000000
 
 scoreboard players set Temp reg_1 0
