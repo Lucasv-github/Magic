@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Run everything that needs to happen in a tick loop in magic
+#Runner: Called by Minecraft 20 times per second
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute as @e[tag=awaiting_fill] run function magic:actions/check_awaiting_fill
 
 #Start of settings
@@ -91,7 +98,7 @@ tag @a remove tick_offhand_temp
 
 #Circle power in offhand while circled: Pass circle
 #Observe that this pass_circle is not the power handling pass_circle
-execute as @a[tag=can_use, tag=using, tag=circle_owner] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run function magic:magic_actions/pass_circle
+execute as @a[tag=can_use, tag=using, tag=circle_owner] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run function magic:power_handling/pass_circle_closest
 
 #Only way to exit is via dropping the power, this allows for free offhand
 #execute as @a[tag=can_use, tag=using, tag=circle_owner] unless items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/exit
@@ -188,8 +195,7 @@ execute as @a[tag=using,tag=can_use, scores={reg_1=0},tag=!circled,tag=!circle_o
 execute as @a[tag=can_use, scores={state=1}, tag=using, tag=!circled, tag=!circle_owner] run function magic:weave_handling/pick_up
 
 #Circle, do not remove tag=!using
-#Observe that this enter_circle is not the power handling enter_circle
-execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:magic_actions/enter_circle
+execute as @a[tag=can_use, scores={state=10}, tag=!using, tag=!circled, tag=!circle_owner,tag=!tap_blocked] run function magic:power_handling/join_circle
 
 #Remove old
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{Magic:8}}}}] run function magic:cleanup/remove_cleanup_player_single
@@ -215,7 +221,7 @@ execute as @a if score @s doomed matches ..100 unless score @s doomed matches 0 
 execute as @e[type=armor_stand,tag=target_point,tag=weave_lapsed,tag=weave_damaged] run function magic:weave_handling/remove_weave
 tag @e[type=armor_stand,tag=target_point,tag=weave_lapsed] remove weave_damaged
 
-execute as @e[type=armor_stand,tag=target_point,tag=weave_throw_damaged] run function magic:cleanup/throw_remove
+execute as @e[type=armor_stand,tag=target_point,tag=weave_throw_damaged] run function magic:cleanup/throw_check_weave_remove
 
 execute as @a[tag=can_use,tag=using,scores={current_held=..0}] run function magic:power_handling/exit
 

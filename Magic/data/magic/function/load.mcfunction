@@ -1,6 +1,6 @@
 ################################################################################
-#Purpose: Runs when the datapack is loaded
-#Runner: Called by Minecraft
+#Purpose: Setup every scoreboard, setting and storage needed by magic
+#Runner: Called by Minecraft when the datapack is loaded
 #Return values:
 #Authors: Lprogrammer
 ################################################################################
