@@ -30,8 +30,8 @@ execute as @s[tag=weave_travel_temp_works] as @e if score @s entity_id = Temp re
 execute if score @a[tag=heal_me,limit=1] player_id = @s weave_owner_player_id run tag @e remove heal_me
 
 #Only if not max health
-execute store result score Temp reg_1 run attribute @e[tag=heal_me,distance=..5,limit=1] minecraft:max_health get
-execute store result score Temp reg_2 run data get entity @e[tag=heal_me,distance=..5,limit=1] Health
+execute at @s store result score Temp reg_1 run attribute @e[tag=heal_me,distance=..5,limit=1] minecraft:max_health get
+execute at @s store result score Temp reg_2 run data get entity @e[tag=heal_me,distance=..5,limit=1] Health
 execute if score Temp reg_1 = Temp reg_2 run tag @e remove heal_me
 
 
@@ -40,7 +40,7 @@ scoreboard players operation Temp reg_1 = @s weave_owner_player_id
 execute at @a[tag=can_use,tag=using] if score @s player_id = Temp reg_1 unless entity @e[tag=heal_me,distance=..5] run tag @e remove heal_me
 
 #Need to be near weave
-execute unless entity @e[tag=heal_me,distance=..5] run tag @e remove heal_me
+execute at @s unless entity @e[tag=heal_me,distance=..5] run tag @e remove heal_me
 
 $effect give @e[tag=heal_me] minecraft:regeneration $(size) 2
 $effect give @e[tag=heal_me,tag=!using] minecraft:hunger 1 $(size)
