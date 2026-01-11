@@ -228,10 +228,9 @@ scoreboard players add Temp total_ticks 1
 #Needs to be after join
 execute as @a run scoreboard players operation @s total_ticks = Temp total_ticks
 
-execute if score Temp tick_counter matches 6 run function magic:events/fourth_sec
-execute if score Temp tick_counter matches 11 run function magic:events/fourth_sec
-execute if score Temp tick_counter matches 16 run function magic:events/fourth_sec
-execute if score Temp tick_counter matches 21 run function magic:events/fourth_sec
+scoreboard players operation Temp reg_1 = Temp tick_counter
+scoreboard players operation Temp reg_1 %= 5 reg_1
+execute if score Temp reg_1 matches 0 run function magic:events/fourth_sec
 
 execute if score Temp tick_counter matches 21.. run function magic:events/second
 execute if score Temp tick_counter matches 21.. run scoreboard players set Temp tick_counter 0
