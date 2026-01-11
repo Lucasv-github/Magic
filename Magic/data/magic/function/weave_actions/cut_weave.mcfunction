@@ -24,12 +24,12 @@ execute as @e[limit=1, sort=nearest, type=armor_stand, tag=target_point, distanc
 #Snap back
 #To self
 execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held run scoreboard players operation Temp reg_1 = @s weave_owner_player_id
-execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run damage @s 1
+execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 at @s run damage @s 1
 execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 4
 
 #To opponent
 execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held run scoreboard players operation Temp reg_1 = @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] weave_owner_player_id
-execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run damage @s 1
+execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 at @s run damage @s 1
 execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 4
 
 tag @e[tag=getting_cut,limit=1,sort=arbitrary] add cut
