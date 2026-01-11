@@ -15,7 +15,7 @@ scoreboard players operation @s reg_1 = @s my_draw_amount
 scoreboard players operation @s reg_1 *= 100 reg_1
 scoreboard players operation @s reg_1 /= Temp reg_2
 scoreboard players operation @s reg_1 *= Temp reg_3
-scoreboard players operation @s reg_1 /= 1000 reg_1
+scoreboard players operation @s reg_1 /= 100 reg_1
 
 #If below zero we will stop in /function/periodic_draw_circle.mcfunction
 scoreboard players operation @s[scores={regenerated_strength=1..}] regenerated_strength -= @s reg_1
