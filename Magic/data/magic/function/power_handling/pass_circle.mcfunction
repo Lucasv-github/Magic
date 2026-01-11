@@ -19,7 +19,7 @@ scoreboard players set Temp reg_2 0
 execute as @a[tag=to_be_circle_owner_temp] run function magic:inventory/load_hotbar
 
 execute as @a[tag=to_be_circle_owner_temp] run function magic:power_handling/open
-give @a[tag=to_be_circle_owner_temp] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Circle","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power from circle","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:9,Magic_preserve:1}] 32
+give @a[tag=to_be_circle_owner_temp] minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Circle","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power from circle","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:9,Magic_preserve:1}] 32
 
 scoreboard players operation @a[tag=to_be_circle_owner_temp] cumulative_halve_amount_hold = @s cumulative_halve_amount_hold
 scoreboard players operation @a[tag=to_be_circle_owner_temp] current_held = @s current_held
