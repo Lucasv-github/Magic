@@ -5,8 +5,6 @@
 #Authors: Lprogrammer
 ################################################################################
 
-say S
-
 execute as @a[tag=can_use, tag=using] unless items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/periodic_draw
 execute as @a[tag=can_use, tag=using,tag=circle_owner] unless items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/periodic_draw_circle
 
