@@ -15,3 +15,5 @@ execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 #-1 for newline
 scoreboard players set @s reg_1 -1
 function magic:weave_handling/weave_storage_add_data with storage magic:weave_storage_add_data
+
+scoreboard players set @s line 0
