@@ -19,10 +19,11 @@ execute as @e[tag=using, tag=can_use, scores={build=1..}] run function magic:wea
 
 execute as @a run function magic:events/player_tick
 
-
-#Remove old
+#Weave drop removal
 execute as @e[type=item] if items entity @s contents minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] run function magic:cleanup/remove_cleanup_player_single
-execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic run kill @s
+
+#Remove interaction items dropped
+execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic_interaction run kill @s
 
 #Clean old weaves
 kill @e[type=minecraft:armor_stand,tag=target_point, scores={weave_despawn_time=0},tag=!actively_held]

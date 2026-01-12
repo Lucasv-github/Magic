@@ -25,5 +25,8 @@ execute as @s[tag=stilled] run function magic:events/player_tick_stilled
 #Sneak reset expect when riding (need to be below Throw, Bind...)
 execute as @s[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless data entity @s RootVehicle run scoreboard players set @s sneak_time 0
 
+#Clear interaction items from not using (to prevent taking from storage)
+clear @s[tag=!using] *[minecraft:custom_data~{Magic_interaction:1b}]
+
 #Death detect
 execute as @s[scores={death_detect=1..}] run function magic:events/death

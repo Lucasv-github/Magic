@@ -14,7 +14,7 @@ scoreboard players operation @s[tag=circle_owner] circled_owner_id = @s player_i
 
 execute at @s[tag=circle_owner] run playsound minecraft:block.anvil.place ambient @s
 
-give @s[tag=circle_owner] minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Circle","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power from circle","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:9,Magic_preserve:1}] 32
+give @s[tag=circle_owner] minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Circle","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power from circle","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:9,Magic_preserve:1,Magic_interaction:1b}] 32
 
 execute as @s[tag=!circle_owner] run function magic:power_handling/exit
 

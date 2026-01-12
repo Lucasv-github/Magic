@@ -76,18 +76,18 @@ scoreboard players set @s s 0
 #Prevent first build in that mode
 execute store result score @s hotbar_current run data get entity @s SelectedItemSlot
 
-give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Air","italic":false,"color":"aqua"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:air",custom_data={Magic:1}] 1
+give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Air","italic":false,"color":"aqua"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:air",custom_data={Magic:1,Magic_interaction:1b}] 1
 
-give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Earth","italic":false,"color":"dark_green"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:earth",custom_data={Magic:2}] 1
+give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Earth","italic":false,"color":"dark_green"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:earth",custom_data={Magic:2,Magic_interaction:1b}] 1
 
-give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Fire","italic":false,"color":"red"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:fire",custom_data={Magic:3}] 1
+give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Fire","italic":false,"color":"red"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:fire",custom_data={Magic:3,Magic_interaction:1b}] 1
 
-give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Water","italic":false,"color":"dark_blue"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:water",custom_data={Magic:4}] 1
+give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Water","italic":false,"color":"dark_blue"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:water",custom_data={Magic:4,Magic_interaction:1b}] 1
 
-give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Spirit","italic":false,"color":"white"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:spirit",custom_data={Magic:5}] 1
+give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Spirit","italic":false,"color":"white"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:spirit",custom_data={Magic:5,Magic_interaction:1b}] 1
 
 #32, perfectly balanced
-item replace entity @s[tag=using] hotbar.5 with minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1}] 32
+item replace entity @s[tag=using] hotbar.5 with minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1,Magic_interaction:1b}] 32
 
 #Needs to be below store hotbar as it adds item that shouldn't be stored
 execute as @s[scores={sneak_time=100..}] run function magic:power_handling/create_circle_nearby
