@@ -9,8 +9,8 @@ execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 
 function magic:inventory/swap_hands
 
-scoreboard players set @s reg_1 -1
-function magic:weave_handling/add_element
-
 #Used to this in chat
 scoreboard players remove @s weave_length 1
+
+scoreboard players set @s reg_1 -1
+function magic:weave_handling/add_element
