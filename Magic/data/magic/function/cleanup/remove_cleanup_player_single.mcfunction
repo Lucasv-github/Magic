@@ -5,10 +5,16 @@
 #Authors: Lprogrammer
 ################################################################################
 
-execute at @s run scoreboard players operation Temp reg_1 = @a[limit=1,sort=nearest] player_id
-execute store result score Temp reg_2 run data get entity @s Item.components.minecraft:custom_data.Player_weave_index
+execute at @s run scoreboard players operation Temp reg_2 = @a[limit=1,sort=nearest] player_id
 
-execute as @e[type=minecraft:armor_stand,tag=target_point, tag=actively_held] if score @s weave_owner_player_id = Temp reg_1 if score @s player_weave_index = Temp reg_2 run tag @s add remove_cleanup_player_single_temp
+execute store result score Temp reg_3 run data get entity @s Item.components.minecraft:custom_data.Player_weave_index
+
+execute as @e[type=minecraft:armor_stand,tag=target_point, tag=actively_held] if score @s weave_owner_player_id = Temp reg_2 if score @s player_weave_index = Temp reg_3 run tag @s add remove_cleanup_player_single_temp
+
+execute store result storage magic:get_weave_length index int 1 run scoreboard players get Temp reg_3
+function magic:weave_processing/get_weave_length with storage magic:get_weave_length
+scoreboard players operation Temp reg_1 *= 10 reg_1
+execute as @a[tag=using] if score @s player_id = Temp reg_2 run scoreboard players operation @s current_drain -= Temp reg_1
 
 execute as @e[tag=remove_cleanup_player_single_temp] run function magic:cleanup/remove_cleanup
 

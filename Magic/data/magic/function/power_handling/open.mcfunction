@@ -5,6 +5,9 @@
 #Authors: Lprogrammer
 ################################################################################
 
+#Reset in case of circle/angreal
+scoreboard players operation @s[tag=!circle_owner,tag=!angrealed] cumulative_halve_amount_hold = @s halve_amount_hold
+
 tag @s add using
 
 #This hooks in tap_power, thus this is needed
@@ -15,6 +18,7 @@ scoreboard players set @s weave_length 0
 
 #Need to be here
 scoreboard players set @s current_held 0
+scoreboard players set @s current_drain 0
 
 #Prevent dual items when opening first time
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode

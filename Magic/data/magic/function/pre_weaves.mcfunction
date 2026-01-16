@@ -10,14 +10,8 @@ function magic:weave_processing/get_weave_length with storage magic:get_weave_le
 scoreboard players operation Temp reg_3 = Temp reg_1
 
 scoreboard players operation Temp reg_1 = @s weave_owner_entity_id
-scoreboard players set Remove_force reg_1 0
 
-scoreboard players operation Remove_force reg_1 = Temp reg_3
-
-#First time draw full weave size, then /10
-execute as @s[tag=!weave_run_yet] run scoreboard players operation Remove_force reg_1 *= 10 reg_1
-
-execute as @e[tag=using, tag=can_use] if score @s entity_id = Temp reg_1 run function magic:power_handling/remove_force_amount
+#No longer removing force here
 
 #Then update current held
 #Reset in case non found (in case of exit)

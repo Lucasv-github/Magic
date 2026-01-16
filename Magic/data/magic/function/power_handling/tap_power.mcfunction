@@ -6,8 +6,9 @@
 #Authors: Lprogrammer
 ################################################################################
 
-#Prevent death
-scoreboard players operation @s[tag=!circle_owner,tag=!angrealed] cumulative_halve_amount_hold = @s halve_amount_hold
+#Drain current drain from strength
+scoreboard players operation @s current_held -= @s current_drain
+execute if score @s current_held matches ..0 run function magic:power_handling/exit
 
 #Consume (((held*100)/cumulative_halve_amount_hold)*halve_amount_hold)/100
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 = @s current_held

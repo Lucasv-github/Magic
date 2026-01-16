@@ -62,6 +62,7 @@ scoreboard objectives add projectile_shielded dummy
 scoreboard objectives add click_counter dummy
 
 scoreboard objectives add current_held dummy
+scoreboard objectives add current_drain dummy
 
 scoreboard objectives add angreal_level dummy
 scoreboard objectives add well_amount dummy

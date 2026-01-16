@@ -18,11 +18,15 @@ function magic:weave_handling/weave_storage_add_data with storage magic:weave_st
 
 function magic:magic_support/calculate_distance
 
+execute as @s[scores={reg_1=-1}] run tellraw @a[tag=can_see,tag=truly_see] ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" ","color":"gold"},{"text":"↓","color":"white"}]
+
 execute as @s[scores={reg_1=1}] run tellraw @a[tag=can_see,tag=truly_see] ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" ","color":"gold"},{"text":"\uE000","color":"white","font":"magic_resourcepack:elements"}]
 execute as @s[scores={reg_1=2}] run tellraw @a[tag=can_see,tag=truly_see] ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" ","color":"gold"},{"text":"\uE001","color":"white","font":"magic_resourcepack:elements"}]
 execute as @s[scores={reg_1=3}] run tellraw @a[tag=can_see,tag=truly_see] ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" ","color":"gold"},{"text":"\uE002","color":"white","font":"magic_resourcepack:elements"}]
 execute as @s[scores={reg_1=4}] run tellraw @a[tag=can_see,tag=truly_see] ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" ","color":"gold"},{"text":"\uE003","color":"white","font":"magic_resourcepack:elements"}]
 execute as @s[scores={reg_1=5}] run tellraw @a[tag=can_see,tag=truly_see] ["",{"selector":"@s","color":"gold"},{"text":": ","color":"gold"},{"score":{"name":"@s","objective":"weave_length"}},{"text":" ","color":"gold"},{"text":"\uE004","color":"white","font":"magic_resourcepack:elements"}]
+
+scoreboard players add @s current_drain 10
 
 scoreboard players remove @s current_held 10
 #Lost hold of it
