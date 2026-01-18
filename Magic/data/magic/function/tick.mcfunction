@@ -13,14 +13,15 @@ execute as @e[tag=weave_thrower] run function magic:weave_actions/throw_lock
 #Bind
 execute as @e[tag=weave_bind] run function magic:weave_actions/bind_lock
 
+#Weave drop removal
+#Need to be before player tick
+execute as @e[type=item] if items entity @s contents minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] run function magic:cleanup/remove_cleanup_player_single
+
 execute as @e[tag=using, tag=can_use, scores={line=1..}] run function magic:weave_handling/add_line
 execute as @e[tag=using, tag=can_use, scores={build=1..}] run function magic:weave_handling/entire_weave
 
 
 execute as @a run function magic:events/player_tick
-
-#Weave drop removal
-execute as @e[type=item] if items entity @s contents minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] run function magic:cleanup/remove_cleanup_player_single
 
 #Remove interaction items dropped
 execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic_interaction run kill @s

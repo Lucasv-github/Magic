@@ -15,6 +15,7 @@ execute store result storage magic:get_weave_length index int 1 run scoreboard p
 function magic:weave_processing/get_weave_length with storage magic:get_weave_length
 scoreboard players operation Temp reg_1 *= 10 reg_1
 execute as @a[tag=using] if score @s player_id = Temp reg_2 run scoreboard players operation @s current_drain -= Temp reg_1
+execute as @a[tag=using] if score @s player_id = Temp reg_2 run scoreboard players remove @s weave_count 1
 
 execute as @e[tag=remove_cleanup_player_single_temp] run function magic:cleanup/remove_cleanup
 

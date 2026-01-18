@@ -113,9 +113,11 @@ scoreboard objectives add position_x dummy
 scoreboard objectives add position_y dummy
 scoreboard objectives add position_z dummy
 
+scoreboard objectives add magic_session dummy
 scoreboard objectives add player_weave_index dummy
 scoreboard objectives add held_player_weave_index dummy
 
+scoreboard objectives add weave_count dummy
 scoreboard objectives add weave_length dummy
 
 #Used in weave processing

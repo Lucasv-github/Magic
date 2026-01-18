@@ -14,6 +14,10 @@ execute unless items entity @s container.* minecraft:carrot_on_a_stick[minecraft
 execute unless items entity @s[tag=circle_owner] container.* minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run function magic:power_handling/exit
 execute as @s[tag=!using] run return 0
 
+#Weave count checking
+execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] 0
+execute unless score @s reg_1 = @s weave_count run function magic:events/illegal_weave
+
 #Part of force in offhand: invite to circle
 execute if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] if items entity @s weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/invite_to_circle
 
