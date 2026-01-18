@@ -1,6 +1,6 @@
 ################################################################################
 #Purpose: Increase the held power in an entity based on:
-#Draw_amount = (cumulative_halve_amount_hold*(eyes*100/32))/100
+#Current_draw = (cumulative_halve_amount_hold*(eyes*100/32))/100
 #Then also tiredness scaling with the strength table
 #
 #Runner: An entity increasing their held power, via power_handling/periodic_draw_circle.mcfunction, power_handling/periodic_draw.mcfunction
@@ -41,7 +41,7 @@ scoreboard players operation @s reg_1 /= 100 reg_1
 execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 = Draw_force reg_1
 execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 *= 10 reg_1
 
-scoreboard players operation @s current_held += @s reg_1
+scoreboard players operation @s current_draw = @s reg_1
 
 #Limit handling
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold

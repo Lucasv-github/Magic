@@ -18,6 +18,7 @@ scoreboard players set @s weave_length 0
 
 #Need to be here
 scoreboard players set @s current_held 0
+scoreboard players set @s current_draw 0
 scoreboard players set @s current_drain 0
 
 #Prevent dual items when opening first time
@@ -48,7 +49,7 @@ execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get en
 execute as @s[tag=using,tag=can_use, scores={reg_1=1..}] run function magic:power_handling/enter_well
 
 
-#Give starting amount
+#Set starting amount
 scoreboard players set @s reg_1 110
 scoreboard players operation @s reg_1 -= @s sneak_time
 scoreboard players operation @s reg_1 *= @s cumulative_halve_amount_hold
@@ -90,8 +91,8 @@ give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[e
 
 give @s[tag=using,scores={use_items_current=1..2}] minecraft:carrot_on_a_stick[enchantment_glint_override=1b,custom_name=[{"text":"Spirit","italic":false,"color":"white"}],lore=[[{"text":"One of the 5 elements","italic":false}]],minecraft:item_model="magic_resourcepack:spirit",custom_data={Magic:5,Magic_interaction:1b}] 1
 
-#32, perfectly balanced
-item replace entity @s[tag=using] hotbar.5 with minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1,Magic_interaction:1b}] 32
+#1, the lowest
+item replace entity @s[tag=using] hotbar.5 with minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Force","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:6,Magic_preserve:1,Magic_interaction:1b}] 1
 
 #Needs to be below store hotbar as it adds item that shouldn't be stored
 execute as @s[scores={sneak_time=100..}] run function magic:power_handling/create_circle_nearby

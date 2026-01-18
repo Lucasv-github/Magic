@@ -6,12 +6,8 @@
 #Authors: Lprogrammer
 ################################################################################
 
-#Drain current drain from strength
-scoreboard players operation @s current_held -= @s current_drain
-execute if score @s current_held matches ..0 run function magic:power_handling/exit
-
 #Consume (((held*100)/cumulative_halve_amount_hold)*halve_amount_hold)/100
-execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 = @s current_held
+execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 = @s current_draw
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 *= 100 reg_1
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 /= @s cumulative_halve_amount_hold
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 *= @s halve_amount_hold
@@ -29,39 +25,39 @@ execute as @s[tag=using,tag=can_use,scores={well_amount=..0},tag=welled] run fun
 
 #Partial tap blocked decrease
 scoreboard players operation @s[scores={tap_block_percentage=1..}] reg_1 = @s tap_block_percentage
-scoreboard players operation @s[scores={tap_block_percentage=1..}] reg_1 *= @s current_held
+scoreboard players operation @s[scores={tap_block_percentage=1..}] reg_1 *= @s current_draw
 scoreboard players operation @s[scores={tap_block_percentage=1..}] reg_1 /= 100 reg_1
-scoreboard players operation @s[scores={tap_block_percentage=1..}] current_held -= @s reg_1
+scoreboard players operation @s[scores={tap_block_percentage=1..}] current_draw -= @s reg_1
 
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 /= 6 reg_1
 
 #At 1/6:1: Night vision
 #Weak resistace
-execute if score @s current_held > @s reg_1 run effect give @s minecraft:night_vision 20 1 true
-execute if score @s current_held > @s reg_1 run effect give @s minecraft:resistance 10 1 true
+execute if score @s current_draw > @s reg_1 run effect give @s minecraft:night_vision 20 1 true
+execute if score @s current_draw > @s reg_1 run effect give @s minecraft:resistance 10 1 true
 
 #Above 1:1 Damage
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
-execute if score @s current_held > @s reg_1 at @s run damage @s 1 minecraft:magic
+execute if score @s current_draw > @s reg_1 at @s run damage @s 1 minecraft:magic
 
 #Above 2:1 More damage
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 2 reg_1
-execute if score @s current_held > @s reg_1 at @s run damage @s 4 minecraft:magic
+execute if score @s current_draw > @s reg_1 at @s run damage @s 4 minecraft:magic
 
 
 #Above 1:4 Invurnability+Lose ability
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 4 reg_1
-execute if score @s current_held > @s reg_1 run effect give @s minecraft:resistance 10 255 true
-execute if score @s current_held > @s reg_1 run tag @s add next_sever
+execute if score @s current_draw > @s reg_1 run effect give @s minecraft:resistance 10 255 true
+execute if score @s current_draw > @s reg_1 run tag @s add next_sever
 
 #Above 1:8 It is over
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 8 reg_1
-execute if score @s current_held > @s reg_1 run scoreboard players operation @s doomed = @s current_held
-execute if score @s current_held > @s reg_1 run function magic:power_handling/exit
+execute if score @s current_draw > @s reg_1 run scoreboard players operation @s doomed = @s current_draw
+execute if score @s current_draw > @s reg_1 run function magic:power_handling/exit
 
 #Shield handling
 scoreboard players operation Temp reg_1 = @s entity_id

@@ -5,9 +5,6 @@
 #Authors: Lprogrammer
 ################################################################################
 
-#Doomed smite
-execute as @s[scores={doomed=1..}] run function magic:events/doomed_tick
-
 #Enable triggers
 scoreboard players enable @s use_items
 scoreboard players enable @s a

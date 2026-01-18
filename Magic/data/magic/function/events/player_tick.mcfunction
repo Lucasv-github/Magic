@@ -28,5 +28,8 @@ execute as @s[scores={sneak_time=1..}] unless predicate magic:is_sneaking unless
 #Clear interaction items from not using (to prevent taking from storage)
 clear @s[tag=!using] *[minecraft:custom_data~{Magic_interaction:1b}]
 
+#Doomed smite
+execute as @s[scores={doomed=1..}] run function magic:events/doomed_tick
+
 #Death detect
 execute as @s[scores={death_detect=1..}] run function magic:events/death

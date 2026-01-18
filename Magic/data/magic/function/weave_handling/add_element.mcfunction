@@ -28,12 +28,6 @@ execute as @s[scores={reg_1=5}] run tellraw @a[tag=can_see,tag=truly_see] ["",{"
 
 scoreboard players add @s current_drain 10
 
-scoreboard players remove @s current_held 10
-#Lost hold of it
-execute as @s[scores={current_held=..0}] run function magic:power_handling/exit
-
-execute as @s[tag=!using] run return 0
-
 #Below bail for cleaner chat
 tellraw @s ["",{"text":"","click_event":{"action":"run_command","command":"/trigger a set 1"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger e set 2"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger f set 3"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger w set 4"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger s set 5"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":" ↑ ","color":"black","click_event":{"action":"run_command","command":"/trigger state set 1"}}]
 
