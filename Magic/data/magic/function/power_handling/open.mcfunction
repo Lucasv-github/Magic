@@ -49,13 +49,8 @@ execute as @s[tag=using,tag=can_use] store result score @s reg_1 run data get en
 execute as @s[tag=using,tag=can_use, scores={reg_1=1..}] run function magic:power_handling/enter_well
 
 
-#Set starting amount
-scoreboard players set @s reg_1 110
-scoreboard players operation @s reg_1 -= @s sneak_time
-scoreboard players operation @s reg_1 *= @s cumulative_halve_amount_hold
-scoreboard players operation @s reg_1 /= 100 reg_1
-execute if score @s reg_1 matches ..10 run scoreboard players set @s reg_1 10
-scoreboard players operation @s current_held += @s reg_1
+#TODO temp bypass
+scoreboard players set @s current_held 1000
 
 
 scoreboard players operation @s my_draw_amount = @s current_held
@@ -98,6 +93,17 @@ item replace entity @s[tag=using] hotbar.5 with minecraft:carrot_on_a_stick[!dam
 execute as @s[scores={sneak_time=100..}] run function magic:power_handling/create_circle_nearby
 
 tellraw @s[tag=using] ["",{"text":"","click_event":{"action":"run_command","command":"/trigger a set 1"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger e set 2"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger f set 3"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger w set 4"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":"","click_event":{"action":"run_command","command":"/trigger s set 5"},"font":"magic_resourcepack:elements"},{"text":" ","color":"gold"},{"text":" ↑ ","color":"black","click_event":{"action":"run_command","command":"/trigger state set 1"}}]
+
+#Set starting amount
+scoreboard players set @s reg_1 110
+scoreboard players operation @s reg_1 -= @s sneak_time
+scoreboard players operation @s reg_1 *= 32 reg_1
+scoreboard players operation @s reg_1 /= 100 reg_1
+
+tellraw @p {score:{name:"@s",objective:"reg_1"},color:"dark_blue"}
+
+execute store result storage magic:give_force_regulators amount int 1 run scoreboard players get @s reg_1
+function magic:inventory/give_force_regulators with storage magic:give_force_regulators
 
 #We can live with this collision risk (don't want zero)
 execute store result score @s player_weave_index run random value 1..2147483646
