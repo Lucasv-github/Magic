@@ -6,7 +6,7 @@
 ################################################################################
 
 #This function is run as the cutting weave
-scoreboard players operation Temp reg_1 = @s current_held
+scoreboard players operation Temp reg_1 = @s current_draw
 
 #Prevent locking on this weave as it is closest
 tag @s add self_block_temp
@@ -20,14 +20,14 @@ tag @s remove self_block_temp
 
 #Snap back
 #To self
-execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held run scoreboard players operation Temp reg_2 = @s weave_owner_player_id
-execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 at @s run damage @s 1
-execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 4
+execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_draw run scoreboard players operation Temp reg_2 = @s weave_owner_player_id
+execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_draw as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 at @s run damage @s 1
+execute if score Temp reg_1 < @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_draw as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 4
 
 #To opponent
-execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held run scoreboard players operation Temp reg_2 = @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] weave_owner_player_id
-execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 at @s run damage @s 1
-execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_held as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 4
+execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_draw run scoreboard players operation Temp reg_2 = @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] weave_owner_player_id
+execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_draw as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 at @s run damage @s 1
+execute if score Temp reg_1 > @e[tag=getting_cut,limit=1,sort=arbitrary,tag=actively_held] current_draw as @a[tag=using,tag=can_use] if score @s player_id = Temp reg_2 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 4
 
 
 #Clutter for handling gateways
