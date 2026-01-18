@@ -43,6 +43,9 @@ scoreboard players add @e[type=minecraft:armor_stand,tag=actively_held,tag=!no_w
 execute as @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..,weave_second_counter=5..},tag=!weave_ward] run function magic:events/weave_individual_five_sec
 execute as @e[type=minecraft:armor_stand,tag=actively_held,tag=!no_weave,tag=!weave_wards,scores={weave_second_counter=5..}] run function magic:events/weave_individual_five_sec
 
+#Power sinking
+execute as @e[type=minecraft:armor_stand, tag=weave_sink_power, tag=actively_held] run function magic:magic_actions/sink_power
+
 scoreboard players add Temp second_counter 1
 
 scoreboard players operation Temp reg_1 = Temp second_counter

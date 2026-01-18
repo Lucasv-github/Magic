@@ -7,7 +7,7 @@
 
 tag @a remove truly_see
 
-scoreboard players operation @s reg_2 = @s current_held
+scoreboard players operation @s reg_2 = @s current_draw
 
 execute at @s[scores={reg_2=10..}] as @a[tag=can_see,distance=..1] run tag @s add truly_see
 execute at @s[scores={reg_2=20..}] as @a[tag=can_see,distance=..2] run tag @s add truly_see

@@ -65,6 +65,8 @@ scoreboard objectives add current_held dummy
 scoreboard objectives add current_draw dummy
 scoreboard objectives add current_drain dummy
 
+scoreboard objectives add current_sink dummy
+
 scoreboard objectives add angreal_level dummy
 scoreboard objectives add well_amount dummy
 scoreboard objectives add well_slot dummy

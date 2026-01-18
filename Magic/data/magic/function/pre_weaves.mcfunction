@@ -16,8 +16,8 @@ scoreboard players operation Temp reg_1 = @s weave_owner_entity_id
 #Then update current held
 #Reset in case non found (in case of exit)
 scoreboard players set Temp reg_2 0
-execute as @e[tag=using, tag=can_use] if score @s entity_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_held
-scoreboard players operation @s current_held = Temp reg_2
+execute as @e[tag=using, tag=can_use] if score @s entity_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_draw
+scoreboard players operation @s current_draw = Temp reg_2
 
 
 #Set time remaining to held force times 10
@@ -35,7 +35,7 @@ scoreboard players operation @s weave_despawn_time = @s reg_1
 scoreboard players set @s[tag=!weave_run_yet] weave_second_counter 3
 
 #Only check inverted here the first time
-execute if score @s[tag=!weave_run_yet] current_held matches 1.. run function magic:weave_processing/check_inverted
+execute as @s[tag=!weave_run_yet] run function magic:weave_processing/check_inverted
 
 #Then display
 function magic:magic_support/calculate_distance
@@ -48,6 +48,6 @@ scoreboard players set Temp reg_1 1
 function magic:display/print_weave_composition
 
 #Fire weaves exept first time this function runs
-execute if score @s[tag=weave_run_yet] current_held matches 1.. run function magic:weaves
+execute as @s[tag=weave_run_yet] run function magic:weaves
 
 tag @s add weave_run_yet
