@@ -14,7 +14,7 @@ scoreboard players operation @s reg_2 = @s reg_1
 #scoreboard players remove @s[scores={reg_2=32..}] reg_1 32
 #scoreboard players remove @s[scores={reg_2=..31}] reg_1 32
 
-function magic:power_handling/delta_punish
+function magic:power_handling/delta_handle
 
 scoreboard players operation @s total_draw_amount -= @s current_draw
 scoreboard players operation @s my_draw_amount -= @s current_draw

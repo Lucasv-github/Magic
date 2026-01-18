@@ -1,10 +1,13 @@
 scoreboard players operation Temp reg_1 = @s weave_owner_player_id
 
-scoreboard players set Temp reg_1 5
-function magic:weave_processing/count_weave_single
+#Sink draw-drain to not sink too much if other weaves
 
-scoreboard players operation @s current_sink = @s reg_1
+scoreboard players operation Temp reg_1 = @s weave_owner_entity_id
+execute as @e if score @s entity_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_draw
+execute as @e if score @s entity_id = Temp reg_1 run scoreboard players operation Temp reg_2 -= @s current_drain
 
-function magic:weave_processing/advance_read_index
+scoreboard players operation Temp reg_2 /= 10 reg_1
+scoreboard players operation @s current_sink = Temp reg_2
+
 
 tag @s add weave_sink_power
