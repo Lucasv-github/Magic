@@ -12,6 +12,8 @@ execute store result storage magic:weave_storage_add_data index int 1 run scoreb
 
 execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 
+execute as @s[tag=!built] run return 0
+
 #-1 for newline
 scoreboard players set @s reg_1 -1
 function magic:weave_handling/weave_storage_add_data with storage magic:weave_storage_add_data

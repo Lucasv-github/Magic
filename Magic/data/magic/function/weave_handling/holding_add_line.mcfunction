@@ -9,6 +9,8 @@ execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 
 function magic:inventory/swap_hands
 
+execute as @s[tag=!built] run return 0
+
 #Used to this in chat
 scoreboard players remove @s weave_length 1
 
