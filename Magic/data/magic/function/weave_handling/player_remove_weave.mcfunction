@@ -4,7 +4,7 @@
 #Return values:
 #Authors: Lprogrammer
 ################################################################################
-$execute store result success @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Player_weave_index:$(index)}]
+$execute store success score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Player_weave_index:$(index)}]
 scoreboard players remove @s[scores={reg_1=1}] weave_count 1
 
 $execute store result score Temp reg_1 run data get storage magic:weave_$(index) Elements
