@@ -11,6 +11,8 @@ execute unless score @s leave_detect matches 0 run function magic:events/join
 #Needs to be below join detect, setting last online time
 execute as @s run scoreboard players operation @s total_ticks = Temp total_ticks
 
+execute as @s[tag=magic_admin] run function magic:admin_actions/admin_tick
+
 #Need to be above opening
 #TODO find way to offload
 #Checking if there is a source to tap here
