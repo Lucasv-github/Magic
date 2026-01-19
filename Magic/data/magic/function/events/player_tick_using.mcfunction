@@ -90,7 +90,7 @@ tag @s remove need_weave_flush
 scoreboard players set @s state 0
 
 #Needs to be below flush
-execute as @s[tag=built] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run function magic:weave_handling/new_weave
+execute as @s[tag=built] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run function magic:weave_handling/weave_moved_out
 
 #Angreal
 execute store result score @s reg_1 run data get entity @s equipment.offhand.components.minecraft:custom_data.Amplification

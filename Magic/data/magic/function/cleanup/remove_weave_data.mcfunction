@@ -1,6 +1,13 @@
+################################################################################
+#Purpose: Remove weave data specified by $(index)
+#Runner: Entity to get success state
+#Return values: @s reg_1: removed_something
+#Authors: Lprogrammer
+################################################################################
+
 #$say remove weave data $(index)
 
-$data remove storage magic:weave_$(index) Elements
+$execute store success score @s reg_1 run data remove storage magic:weave_$(index) Elements
 
 $data remove storage magic:weave_$(index) Air
 $data remove storage magic:weave_$(index) Earth

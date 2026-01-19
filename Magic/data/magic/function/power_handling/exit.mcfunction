@@ -38,3 +38,11 @@ tag @s[tag=next_sever] remove next_sever
 
 #Reset halve hold
 scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
+
+#Clear player weave cache
+execute store result storage magic:weave_copies_clear player_id int 1 run scoreboard players get @s player_id
+
+function magic:weave_handling/weave_copies_clear with storage magic:weave_copies_clear
+
+data remove storage magic:weave_copies_clear player_id
+
