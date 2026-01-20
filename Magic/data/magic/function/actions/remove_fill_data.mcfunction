@@ -1,6 +1,6 @@
 ################################################################################
-#Purpose: Moves the fill data from a indididual storage denoted by $(entity_id) into the common storage magic:finalize_safe_fill_sub and then deletes the individual storage
-#Runner: Doesn't matter, run via finalize_safe_fill.mcfunction
+#Purpose: Remove the fill data from a indididual storage denoted by $(entity_id)
+#Runner: Doesn't matter
 #Return values:
 #Authors: Lprogrammer
 ################################################################################

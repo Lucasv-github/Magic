@@ -17,3 +17,13 @@ execute store result storage magic:get_fill_data entity_id int 1 run scoreboard 
 function magic:actions/get_fill_data with storage magic:get_fill_data
 
 function magic:actions/finalize_safe_fill_sub with storage magic:finalize_safe_fill_sub
+
+data remove storage magic:finalize_safe_fill_sub x_s
+data remove storage magic:finalize_safe_fill_sub y_s
+data remove storage magic:finalize_safe_fill_sub z_s
+
+data remove storage magic:finalize_safe_fill_sub x_e
+data remove storage magic:finalize_safe_fill_sub y_e
+data remove storage magic:finalize_safe_fill_sub z_e
+
+data remove storage magic:finalize_safe_fill_sub argument

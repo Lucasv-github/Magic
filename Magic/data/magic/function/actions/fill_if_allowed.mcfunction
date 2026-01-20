@@ -1,5 +1,6 @@
 ################################################################################
 #Purpose: The entry point to safe filling, blocked if explosions deal no entity damage in the area Fills $(x_s), $(y_s) $(z_s) to $(x_e), $(y_e) $(z_e) with the arguments $(argument)
+#Observe that this function is a bit dangerous as it only allows one fill per entity per 2 tick as the entity_id is using in storage indexing
 #Runner: Any entity that wants to do safe filling
 #Return values:
 #Authors: Lprogrammer
