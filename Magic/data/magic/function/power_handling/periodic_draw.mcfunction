@@ -5,17 +5,6 @@
 #Authors: Lprogrammer
 ################################################################################
 
-#Get positive/negative distance from 32
-execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 0
-
-#Need old copy
-scoreboard players operation @s reg_2 = @s reg_1
-
-#scoreboard players remove @s[scores={reg_2=32..}] reg_1 32
-#scoreboard players remove @s[scores={reg_2=..31}] reg_1 32
-
-function magic:power_handling/delta_handle
-
 scoreboard players operation @s total_draw_amount -= @s current_draw
 scoreboard players operation @s my_draw_amount -= @s current_draw
 
@@ -25,9 +14,54 @@ scoreboard players operation Temp reg_1 = @s player_id
 scoreboard players operation Temp reg_2 = @s current_draw
 execute as @s[scores={reg_1=..-1}] as @a[tag=can_use,tag=circled] if score @s circled_owner_id = Temp reg_1 run scoreboard players operation @s my_draw_amount -= Temp reg_2
 
-#Increase/decreases
-scoreboard players operation Draw_force reg_1 = @s reg_1
-function magic:power_handling/draw_multiple
+
+#Can't draw more even with one of these
+execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run return 0
+
+#Eye count
+execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 0
+
+#Correct for the bypass (we don't want it super fast after -2, 2)
+#-3 = -1
+#3 = 1
+execute if score Draw_force reg_1 matches ..-0 run scoreboard players add @s reg_1 2
+execute if score Draw_force reg_1 matches 0.. run scoreboard players remove @s reg_1 2
+
+scoreboard players operation @s reg_1 *= 100 reg_1
+scoreboard players operation @s reg_1 /= 32 reg_1
+
+scoreboard players operation @s reg_1 *= @s cumulative_halve_amount_hold
+scoreboard players operation @s reg_1 /= 100 reg_1
+
+#Strength considerations
+scoreboard players operation @s reg_2 = @s regenerated_strength
+scoreboard players operation @s reg_2 *= 100 reg_1
+scoreboard players operation @s reg_2 /= @s max_regenerated_strength
+
+execute store result storage magic:math/get_strength index int 1 run scoreboard players get @s reg_2
+function magic:math/get_strength with storage magic:math/get_strength
+
+scoreboard players operation @s reg_1 *= Temp reg_1
+scoreboard players operation @s reg_1 /= 100 reg_1
+
+#Bypass to linear between -2 and 2
+execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 = Draw_force reg_1
+execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 *= 10 reg_1
+
+scoreboard players operation @s current_draw = @s reg_1
+
+tag @s remove periodic_draw_block
+
+execute as @s[tag=circle_owner,tag=!angreal_flawed] run tag @s add periodic_draw_block
+execute as @s[tag=angrealed,tag=!angreal_flawed] run tag @s add periodic_draw_block
+
+execute as @s[tag=periodic_draw_block] if score @s current_draw > @s cumulative_halve_amount_hold run scoreboard players operation @s current_draw = @s cumulative_halve_amount_hold
+
+execute as @s[tag=periodic_draw_block] if score @s current_draw >= @s cumulative_halve_amount_hold run return 0
+
+
+function magic:power_handling/delta_handle
+
 
 #In circle should also decrease every member when releasing
 #Doing this the same way as @s my_draw_amount
