@@ -9,7 +9,7 @@ scoreboard players remove @s[scores={reg_1=1}] weave_count 1
 
 $execute store result score Temp reg_1 run data get storage magic:weave_$(index) Elements
 scoreboard players operation Temp reg_1 *= 10 reg_1
-scoreboard players operation @s current_drain -= Temp reg_1
+scoreboard players operation @s[scores={reg_1=1}] current_drain -= Temp reg_1
 
 #This is for if when the weave isn't placed yet
 $data modify storage magic:remove_weave_data index set value $(index)

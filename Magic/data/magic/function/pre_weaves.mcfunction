@@ -14,20 +14,18 @@ scoreboard players operation Temp reg_1 = @s weave_owner_entity_id
 #No longer removing force here
 
 #Then update current draw
-#Reset in case non found (in case of exit)
-scoreboard players set Temp reg_2 0
+#Set co current in case none found
+scoreboard players operation Temp reg_2 = @s current_draw
 execute as @e[tag=using, tag=can_use] if score @s entity_id = Temp reg_1 run scoreboard players operation Temp reg_2 = @s current_draw
 scoreboard players operation @s current_draw = Temp reg_2
 
-
-#Set time remaining to draw force times 10
-scoreboard players operation @s weave_despawn_time = @s current_draw
-
-#Set despawn time to that multiplied by component count
-scoreboard players operation @s reg_1 = @s weave_despawn_time
+#Set despawn time to that multiplied by component count only if longer than last
+scoreboard players operation @s reg_1 = @s current_draw
 scoreboard players operation @s reg_1 *= Temp reg_3
 
-scoreboard players operation @s weave_despawn_time = @s reg_1
+scoreboard players add @s weave_despawn_time 0
+
+execute if score @s reg_1 > @s weave_despawn_time run scoreboard players operation @s weave_despawn_time = @s reg_1
 
 #If current_draw is 0 the player has dropped (current draw gets reset to zero because no player will be found to se that from if the player drops)
 
