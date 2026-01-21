@@ -15,4 +15,9 @@ execute store result storage magic:match_weave_iteration j int 1 run scoreboard 
 scoreboard players set @s reg_1 1
 function magic:weave_processing/match_weave_iteration with storage magic:match_weave_iteration
 
+data remove storage magic:match_weave_iteration match_index
+data remove storage magic:match_weave_iteration index
+data remove storage magic:match_weave_iteration i
+data remove storage magic:match_weave_iteration j
+
 

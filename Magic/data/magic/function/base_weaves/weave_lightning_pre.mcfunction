@@ -21,6 +21,13 @@ execute store result storage magic:lightning_spread radius int 1 run scoreboard 
 
 function magic:weave_actions/lightning_spread with storage magic:lightning_spread
 
+data remove storage magic:lightning_spread y
+data remove storage magic:lightning_spread size
+data remove storage magic:lightning_spread radius
+
+data remove storage magic:lightning amount
+data remove storage magic:lightning radius
+
 execute at @e[type=minecraft:armor_stand,tag=lightning_location_temp] run function magic:base_weaves/weave_lightning_mid with storage magic:lightning
 execute at @e[type=minecraft:armor_stand,tag=lightning_location_temp] run summon lightning_bolt
 

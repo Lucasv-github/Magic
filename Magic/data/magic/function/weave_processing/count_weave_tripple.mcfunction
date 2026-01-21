@@ -20,3 +20,8 @@ execute store result storage magic:count_weave_tripple_iteration i_2 int 1 run s
 
 scoreboard players set @s reg_1 0
 function magic:weave_processing/count_weave_tripple_iteration with storage magic:count_weave_tripple_iteration
+
+data remove storage magic:count_weave_tripple_iteration index
+data remove storage magic:count_weave_tripple_iteration i
+data remove storage magic:count_weave_tripple_iteration i_1
+data remove storage magic:count_weave_tripple_iteration i_2

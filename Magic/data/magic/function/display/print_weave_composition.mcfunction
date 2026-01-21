@@ -19,3 +19,10 @@ execute unless score Temp reg_4 matches 0 at @s[tag=inverted] run tellraw @a[tag
 
 function magic:display/print_weave_composition_iteration with storage magic:print_weave_composition_iteration
 
+data remove storage magic:print_weave_composition_build text
+
+data remove storage magic:print_weave_composition_iteration index
+data remove storage magic:print_weave_composition_iteration i
+data remove storage magic:print_weave_composition_iteration x
+data remove storage magic:print_weave_composition_iteration y
+

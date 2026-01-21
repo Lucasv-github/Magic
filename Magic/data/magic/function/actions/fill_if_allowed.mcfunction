@@ -19,6 +19,9 @@ $data modify storage magic:set_fill_data argument set value "$(argument)"
 
 function magic:actions/set_fill_data with storage magic:set_fill_data
 
+data remove storage magic:set_fill_data argument
+data remove storage magic:set_fill_data entity_id
+
 #$data modify storage magic:fill data append value {x_s:$(x_s),y_s:$(y_s),z_s:$(z_s),x_e:$(x_e),y_e:$(y_e),z_e:$(z_e),argument:$(argument)}
 
 execute store result score @s reg_1 run data get entity @n[type=minecraft:armor_stand,tag=position_grab] Pos[0]
@@ -61,6 +64,9 @@ scoreboard players operation @s safe_fill_chunk_x_c = @s safe_fill_chunk_x_s
 scoreboard players operation @s safe_fill_chunk_z_c = @s safe_fill_chunk_z_s
 
 function magic:actions/fill_if_allowed_iteration
+
+data remove storage magic:check_fill_allowed x
+data remove storage magic:check_fill_allowed z
 
 kill @n[type=minecraft:armor_stand,tag=position_grab]
 

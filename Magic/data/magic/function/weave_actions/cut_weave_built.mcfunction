@@ -30,5 +30,7 @@ execute if score Temp reg_1 > @e[tag=getting_cut,limit=1] current_draw as @a[tag
 execute as @e[tag=getting_cut,limit=1] store result storage magic:remove_weave_index index int 1 run scoreboard players get @s player_weave_index
 execute as @e[tag=getting_cut,limit=1] run function magic:weave_handling/player_remove_weave with storage magic:remove_weave_index
 
+data remove storage magic:remove_weave_index index
+
 tag @e remove getting_cut
 

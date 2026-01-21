@@ -7,4 +7,6 @@ execute as @e if score @s entity_id = Temp reg_1 run function magic:base_weaves/
 
 function magic:weave_processing/advance_read_index
 
+data remove storage magic:levitate amount
+
 tag @s add weave_levitate

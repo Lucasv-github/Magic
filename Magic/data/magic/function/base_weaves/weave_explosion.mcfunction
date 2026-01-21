@@ -6,4 +6,6 @@ execute store result storage magic:explosion_radius size int 1 run scoreboard pl
 
 function magic:base_weaves/weave_explosion_iteration with storage magic:explosion_radius
 
+data remove storage magic:explosion_radius size
+
 tag @s add weave_damaged

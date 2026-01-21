@@ -41,6 +41,8 @@ scoreboard players operation @s reg_2 /= @s max_regenerated_strength
 execute store result storage magic:math/get_strength index int 1 run scoreboard players get @s reg_2
 function magic:math/get_strength with storage magic:math/get_strength
 
+data remove storage magic:math/get_strength index
+
 scoreboard players operation @s reg_1 *= Temp reg_1
 scoreboard players operation @s reg_1 /= 100 reg_1
 

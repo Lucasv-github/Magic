@@ -18,4 +18,6 @@ execute as @s[tag=!built] run return 0
 scoreboard players set @s reg_1 -1
 function magic:weave_handling/weave_storage_add_data with storage magic:weave_storage_add_data
 
+data remove storage magic:weave_storage_add_data index
+
 scoreboard players set @s line 0

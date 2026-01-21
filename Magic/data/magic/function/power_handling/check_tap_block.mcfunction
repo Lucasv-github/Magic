@@ -7,3 +7,5 @@
 
 execute store result storage magic:check_tap_block_sub radius int 1 run scoreboard players get @s tap_block_range
 function magic:power_handling/check_tap_block_sub with storage magic:check_tap_block_sub
+
+data remove storage magic:check_tap_block_sub radius

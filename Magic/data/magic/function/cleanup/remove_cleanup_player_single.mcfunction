@@ -13,6 +13,9 @@ execute as @e[type=minecraft:armor_stand,tag=target_point, tag=actively_held] if
 
 execute store result storage magic:get_weave_length index int 1 run scoreboard players get Temp reg_3
 function magic:weave_processing/get_weave_length with storage magic:get_weave_length
+
+data remove storage magic:get_weave_length index
+
 scoreboard players operation Temp reg_1 *= 10 reg_1
 execute as @a[tag=using] if score @s player_id = Temp reg_2 run scoreboard players operation @s current_drain -= Temp reg_1
 execute as @a[tag=using] if score @s player_id = Temp reg_2 run scoreboard players remove @s weave_count 1

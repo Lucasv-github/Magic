@@ -51,6 +51,9 @@ scoreboard players remove @s weave_count 1
 #Remove from current_drain
 execute store result storage magic:get_weave_length index int 1 run data get entity @s SelectedItem.components.minecraft:custom_data.Player_weave_index
 function magic:weave_processing/get_weave_length with storage magic:get_weave_length
+
+data remove storage magic:get_weave_length index
+
 scoreboard players operation Temp reg_1 *= 10 reg_1
 scoreboard players operation @s current_drain -= Temp reg_1
 

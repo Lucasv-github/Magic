@@ -18,6 +18,8 @@ execute if score Temp reg_2 matches 0 run scoreboard players operation Temp reg_
 execute store result storage magic:tag_different_elements index int 1 run scoreboard players get Temp reg_2
 function magic:weave_handling/tag_different_elements with storage magic:tag_different_elements
 
+data remove storage magic:tag_different_elements index
+
 #Setting up data needed for ray iteration
 scoreboard players operation Ray_data reg_1 = @s player_id
 scoreboard players operation Ray_data reg_4 = @s current_held

@@ -16,6 +16,8 @@ execute store result storage magic:finalize_safe_fill_sub z_e int 1 run scoreboa
 execute store result storage magic:get_fill_data entity_id int 1 run scoreboard players get @s entity_id
 function magic:actions/get_fill_data with storage magic:get_fill_data
 
+data remove storage magic:get_fill_data entity_id
+
 function magic:actions/finalize_safe_fill_sub with storage magic:finalize_safe_fill_sub
 
 data remove storage magic:finalize_safe_fill_sub x_s

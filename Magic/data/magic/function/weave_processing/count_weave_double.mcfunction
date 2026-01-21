@@ -17,3 +17,7 @@ execute store result storage magic:count_weave_double_iteration i_1 int 1 run sc
 
 scoreboard players set @s reg_1 0
 function magic:weave_processing/count_weave_double_iteration with storage magic:count_weave_double_iteration
+
+data remove storage magic:count_weave_double_iteration index
+data remove storage magic:count_weave_double_iteration i
+data remove storage magic:count_weave_double_iteration i_1

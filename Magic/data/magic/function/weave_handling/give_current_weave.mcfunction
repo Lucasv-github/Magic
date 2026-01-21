@@ -23,6 +23,12 @@ execute store result storage magic:give_current_weave_iteration i int 1 run scor
 scoreboard players set Temp reg_3 1
 function magic:weave_handling/give_current_weave_iteration with storage magic:give_current_weave_iteration
 
+data remove storage magic:give_current_weave_iteration i
+data remove storage magic:give_current_weave_iteration index
+
+data remove storage magic:give_current_weave_build text
+
+
 #Custom datas:
 #1:
 #10 Air

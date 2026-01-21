@@ -105,6 +105,8 @@ scoreboard players operation @s reg_1 /= 100 reg_1
 execute store result storage magic:give_force_regulators amount int 1 run scoreboard players get @s reg_1
 function magic:inventory/give_force_regulators with storage magic:give_force_regulators
 
+data remove storage magic:give_force_regulators amount
+
 #We can live with this collision risk (don't want zero)
 execute store result score @s player_weave_index run random value 1..2147483646
 execute store result score @s magic_session run random value 1..2147483646

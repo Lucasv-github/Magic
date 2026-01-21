@@ -7,6 +7,9 @@
 
 execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
 function magic:weave_processing/get_weave_length with storage magic:get_weave_length
+
+data remove storage magic:get_weave_length index
+
 scoreboard players operation Temp reg_3 = Temp reg_1
 
 scoreboard players operation Temp reg_1 = @s weave_owner_entity_id

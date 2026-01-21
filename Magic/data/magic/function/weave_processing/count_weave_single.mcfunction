@@ -11,3 +11,7 @@ execute store result storage magic:count_weave_single_iteration i int 1 run scor
 
 scoreboard players set @s reg_1 0
 function magic:weave_processing/count_weave_single_iteration with storage magic:count_weave_single_iteration
+
+data remove storage magic:count_weave_single_iteration index
+data remove storage magic:count_weave_single_iteration i
+

@@ -17,3 +17,5 @@ tag @e remove remove_cleanup_player_all_temp
 #This and other things would not however detect moving a weave into something else, a dedicated function would need to keep track and dispose of that
 execute store result storage magic:remove_cleanup_player_all_iteration index int 1 run scoreboard players get 0 reg_1
 function magic:cleanup/remove_cleanup_player_all_iteration with storage magic:remove_cleanup_player_all_iteration
+
+data remove storage magic:remove_cleanup_player_all_iteration index

@@ -63,6 +63,8 @@ execute as @s[tag=weave_fire_pickaxe] as @a if score @s player_id = Temp reg_2 r
 execute store result storage magic:remove_weave_data index int 1 run scoreboard players get @s player_weave_index
 function magic:cleanup/remove_weave_data with storage magic:remove_weave_data
 
+data remove storage magic:remove_weave_data index
+
 tag @s remove tied_off
 tag @s remove actively_held
 

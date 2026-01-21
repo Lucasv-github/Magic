@@ -10,3 +10,6 @@ execute store result storage magic:weave_processing/advance_read_index_iteration
 
 scoreboard players set @s reg_1 0
 function magic:weave_processing/advance_read_index_iteration with storage magic:weave_processing/advance_read_index_iteration
+
+data remove storage magic:weave_processing/advance_read_index_iteration index
+data remove storage magic:weave_processing/advance_read_index_iteration i
