@@ -7,7 +7,7 @@
 
 #Base
 execute if data entity @s Item unless data entity @s Item.components.minecraft:custom_data.Angreal_base run tag @s add create_angreal_base_temp
-execute as @s[tag=create_angreal_base_temp] run playsound minecraft:block.anvil.place ambient @a[distance=..10,tag=can_see]
+execute at @s[tag=create_angreal_base_temp] run playsound minecraft:block.anvil.place ambient @a[distance=..10,tag=can_see]
 execute as @s[tag=create_angreal_base_temp] run data modify entity @s Item.components.minecraft:custom_data merge value {Power_sinked:0}
 execute as @s[tag=create_angreal_base_temp] run data modify entity @s Item.components.minecraft:custom_data merge value {Angreal_base:1}
 
