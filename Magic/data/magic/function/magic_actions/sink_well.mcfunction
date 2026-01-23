@@ -5,6 +5,11 @@
 #Return values:
 #Authors: Lprogrammer
 ################################################################################
+execute store result score Temp reg_1 run data get entity @s Item.components.minecraft:custom_data.Well_max
+execute store result score Temp reg_2 run data get entity @s Item.components.minecraft:custom_data.Well_current
+
+execute if score Temp reg_2 >= Temp reg_1 run return 0
+
 execute store result score Temp reg_2 run data get entity @s Item.components.minecraft:custom_data.Well_current
 scoreboard players operation Temp reg_2 += Temp reg_1
 execute if score Temp reg_2 matches 0.. at @s run tellraw @a[tag=can_see,distance=..10] {"score":{"name":"Temp","objective":"reg_2"},"color":"gold"}
