@@ -61,6 +61,8 @@ scoreboard objectives add projectile_shielded dummy
 
 scoreboard objectives add click_counter dummy
 
+scoreboard objectives add rest_draw_count dummy
+
 scoreboard objectives add current_held dummy
 scoreboard objectives add current_draw dummy
 scoreboard objectives add current_drain dummy

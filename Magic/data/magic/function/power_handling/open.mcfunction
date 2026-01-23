@@ -16,12 +16,12 @@ tag @s add opening
 scoreboard players set @s angreal_level 1
 scoreboard players set @s weave_length 0
 
-#Need to be here
 scoreboard players set @s current_held 0
 scoreboard players set @s current_draw 0
 scoreboard players set @s current_drain 0
 
 scoreboard players set @s weave_count 0
+scoreboard players set @s rest_draw_count 0
 
 #Prevent dual items when opening first time
 execute as @s[tag=using] unless score @s use_items matches 0 run tag @s add barmode

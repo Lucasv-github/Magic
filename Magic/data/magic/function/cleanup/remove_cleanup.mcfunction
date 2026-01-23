@@ -5,6 +5,8 @@
 #Authors: Lprogrammer
 ################################################################################
 
+function magic:weave_handling/unregister_rest_draw
+
 #Travel: This is supposed to run as the "main" else everything will fail
 
 #Remove gateway from mail
