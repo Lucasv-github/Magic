@@ -48,6 +48,9 @@ execute unless score @s reg_1 matches 0 unless score @s reg_1 = @s player_weave_
 #Weave click
 execute as @s[scores={click=1..}] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] at @s anchored eyes positioned ^ ^ ^3 run function magic:new_ray_multi_blocked
 
+execute as @s[scores={line=1..}] run function magic:weave_handling/add_line
+execute as @s[scores={build=1..}] run function magic:weave_handling/entire_weave
+
 #Element slot detection
 execute as @s[scores={use_items_current=2}] store result score @s reg_1 run data get entity @s SelectedItemSlot
 execute as @s[scores={use_items_current=2}] unless score @s reg_1 = @s hotbar_current run function magic:magic_actions/selection_changed
