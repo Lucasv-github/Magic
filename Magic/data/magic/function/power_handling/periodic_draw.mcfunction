@@ -21,12 +21,6 @@ execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run retu
 #Eye count
 execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 0
 
-#Correct for the bypass (we don't want it super fast after -2, 2)
-#-3 = -1
-#3 = 1
-execute if score Draw_force reg_1 matches ..-0 run scoreboard players add @s reg_1 2
-execute if score Draw_force reg_1 matches 0.. run scoreboard players remove @s reg_1 2
-
 scoreboard players operation @s reg_1 *= 100 reg_1
 scoreboard players operation @s reg_1 /= 32 reg_1
 
@@ -46,9 +40,7 @@ data remove storage magic:math/get_strength index
 scoreboard players operation @s reg_1 *= Temp reg_1
 scoreboard players operation @s reg_1 /= 100 reg_1
 
-#Bypass to linear between -2 and 2
-execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 = Draw_force reg_1
-execute if score Draw_force reg_1 matches -2..2 run scoreboard players operation @s reg_1 *= 10 reg_1
+execute if score @s reg_1 matches ..0 run scoreboard players set @s reg_1 1
 
 scoreboard players operation @s current_draw = @s reg_1
 
