@@ -51,7 +51,7 @@ execute if score @s current_draw > @s reg_1 at @s run damage @s 4 minecraft:magi
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
 scoreboard players operation @s reg_1 *= 4 reg_1
 execute if score @s current_draw > @s reg_1 run effect give @s minecraft:resistance 10 255 true
-execute if score @s current_draw > @s reg_1 run tag @s add next_sever
+execute if score @s current_draw > @s reg_1 run function magic:power_handling/burn_out
 
 #Above 1:8 It is over
 scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
