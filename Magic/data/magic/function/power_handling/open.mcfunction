@@ -107,6 +107,9 @@ function magic:inventory/give_force_regulators with storage magic:give_force_reg
 
 data remove storage magic:give_force_regulators amount
 
+#Prevents having zero on opening for first second
+function magic:power_handling/periodic_draw
+
 #We can live with this collision risk (don't want zero)
 execute store result score @s player_weave_index run random value 1..2147483646
 execute store result score @s magic_session run random value 1..2147483646
