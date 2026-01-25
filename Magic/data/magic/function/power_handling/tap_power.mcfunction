@@ -6,7 +6,7 @@
 #Authors: Lprogrammer
 ################################################################################
 
-#Consume (((held*100)/cumulative_halve_amount_hold)*halve_amount_hold)/100
+#Consume (((draw*100)/cumulative_halve_amount_hold)*halve_amount_hold)/100
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 = @s current_draw
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 *= 100 reg_1
 execute as @s[tag=using,tag=can_use,scores={regenerated_strength=1..}] run scoreboard players operation @s reg_1 /= @s cumulative_halve_amount_hold
