@@ -26,9 +26,9 @@ execute if score Temp reg_1 matches 4 run tag @s add w_w_t
 execute if score Temp reg_1 matches 5 run tag @s add w_s_t
 
 
-execute if score Temp reg_3 matches 0 if score Temp reg_1 matches -1..0 run item modify entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 {function:"set_lore",entity:"this",mode:"append",lore:[{nbt:"text[]",storage:"magic:give_current_weave_build",interpret:true,"separator":"",color:"white",font:"magic_resourcepack:elements"}]}
+execute if score Temp reg_3 matches 0 if score Temp reg_1 matches -1..0 run item modify entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 {function:"set_lore",entity:"this",mode:"append",lore:[{nbt:"text[]",storage:"magic:give_current_weave_build",interpret:true,"separator":"",color:"white",font:"magic_resourcepack:gui_font"}]}
 
-execute if score Temp reg_3 matches 1 if score Temp reg_1 matches -1..0 run item modify entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 {function:"set_name",entity:"this",mode:"append",name:[{nbt:"text[]",storage:"magic:give_current_weave_build",interpret:true,"separator":"",color:"white",font:"magic_resourcepack:elements"}]}
+execute if score Temp reg_3 matches 1 if score Temp reg_1 matches -1..0 run item modify entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0 {function:"set_name",entity:"this",mode:"append",name:[{nbt:"text[]",storage:"magic:give_current_weave_build",interpret:true,"separator":"",color:"white",font:"magic_resourcepack:gui_font"}]}
 
 execute if score Temp reg_3 matches 1 if score Temp reg_1 matches -1..0 run scoreboard players set Temp reg_3 0
 
