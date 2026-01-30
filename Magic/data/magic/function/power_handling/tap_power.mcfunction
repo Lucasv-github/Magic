@@ -69,11 +69,4 @@ scoreboard players operation Temp reg_1 = @s entity_id
 
 #execute as @s[tag=!opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = Temp reg_2 run function magic:magic_actions/shield_handling
 
-#execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:magic_actions/held_overpower
-#execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:power_handling/exit
-
-execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=..20,regenerated_strength=1..}] run function magic:magic_actions/tied_shield_unknot
-execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=..100,regenerated_strength=1..}] run function magic:display/display_shields
-execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=100..,regenerated_strength=1..}] run function magic:display/display_shields_change
-
 tag @s remove tap_power_shielded_temp
