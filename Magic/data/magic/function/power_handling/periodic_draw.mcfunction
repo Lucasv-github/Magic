@@ -7,9 +7,9 @@
 
 #In circle should also decrease every member when releasing
 #Doing this the same way as @s my_draw_amount
-scoreboard players operation Temp reg_1 = @s player_id
-scoreboard players operation Temp reg_2 = @s current_draw
-execute as @s[scores={reg_1=..-1}] as @a[tag=can_use,tag=circled] if score @s circled_owner_id = Temp reg_1 run scoreboard players operation @s my_draw_amount -= Temp reg_2
+#scoreboard players operation Temp reg_1 = @s player_id
+#scoreboard players operation Temp reg_2 = @s current_draw
+#execute as @s[scores={reg_1=..-1}] as @a[tag=can_use,tag=circled] if score @s circled_owner_id = Temp reg_1 run scoreboard players operation @s my_draw_amount -= Temp reg_2
 
 
 #Can't draw more even with one of these

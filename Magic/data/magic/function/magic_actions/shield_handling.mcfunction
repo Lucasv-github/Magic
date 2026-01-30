@@ -1,14 +1,11 @@
 ################################################################################
 #Purpose: Decide if a player getting shielded should lose their powers
 #Runner: A player being shielded, via base_weaves/weave_shield.mcfunction or power_handling/tap_power.mcfunction
+#Arguments: Temp reg_1: shielded_entity_id Temp reg_2 lower_amount
 #Return values:
 #Authors: Lprogrammer
 ################################################################################
-
-#Getting shielded in Temp reg_1
-#Shield lower amount Temp in reg_2
-
-#Get shielder strength in Temp reg_4
+#Put shielder strength in Temp reg_4
 scoreboard players set Temp reg_4 0
 execute as @e[tag=target_point,tag=actively_held] if score @s weave_locked_entity_id = Temp reg_1 run scoreboard players operation Temp reg_4 += @s cumulative_halve_amount_hold
 execute as @e[tag=target_point,tag=tied_off, scores={weave_remaining_time=1..}] if score @s weave_locked_entity_id = Temp reg_1 run scoreboard players operation Temp reg_4 += @s cumulative_halve_amount_hold

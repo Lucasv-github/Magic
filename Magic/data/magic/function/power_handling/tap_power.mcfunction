@@ -59,22 +59,18 @@ scoreboard players operation @s reg_1 *= 8 reg_1
 execute if score @s current_draw > @s reg_1 run scoreboard players operation @s doomed = @s current_draw
 execute if score @s current_draw > @s reg_1 run function magic:power_handling/exit
 
-#Shield handling
-scoreboard players operation Temp reg_1 = @s entity_id
-scoreboard players set Temp reg_2 0
 
-function magic_commons:hooks/get_shielded_strength
 
 scoreboard players operation Temp reg_2 = Temp reg_1
 scoreboard players operation Temp reg_1 = @s entity_id
 
 #TODO obviously allow opening with weak in the future
-execute as @s[tag=opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = Temp reg_2 run tag @s add tap_power_shielded_temp
+#execute as @s[tag=opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = Temp reg_2 run tag @s add tap_power_shielded_temp
 
-execute as @s[tag=!opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = Temp reg_2 run function magic:magic_actions/shield_handling
+#execute as @s[tag=!opening,scores={regenerated_strength=1..}] unless score @s cumulative_halve_amount_hold = Temp reg_2 run function magic:magic_actions/shield_handling
 
-execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:magic_actions/held_overpower
-execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:power_handling/exit
+#execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:magic_actions/held_overpower
+#execute as @s[tag=tap_power_shielded_temp,tag=!welled] run function magic:power_handling/exit
 
 execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=..20,regenerated_strength=1..}] run function magic:magic_actions/tied_shield_unknot
 execute as @s[tag=tap_power_shielded_temp,scores={sneak_time=..100,regenerated_strength=1..}] run function magic:display/display_shields

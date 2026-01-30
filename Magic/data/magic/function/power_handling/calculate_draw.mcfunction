@@ -27,13 +27,30 @@ scoreboard players operation @s reg_1 /= 100 reg_1
 
 tag @s remove periodic_draw_block
 
+#Shield handling
+scoreboard players operation Temp reg_1 = @s entity_id
+#This doesn't scratch player regs
+function magic_commons:hooks/get_shielded_lower
+
+#Calculate new cumulative halve amount hold that takes shield reduction into account
+scoreboard players operation Temp reg_2 = @s cumulative_halve_amount_hold
+
+scoreboard players operation Temp reg_3 = @s cumulative_halve_amount_hold
+scoreboard players operation Temp reg_3 -= Temp reg_1
+
+
+#Limit more draw if drawing less than shield limit
+execute if score Temp reg_1 matches 1.. if score @s current_draw <= Temp reg_3 run scoreboard players operation Temp reg_2 -= Temp reg_1
+execute if score Temp reg_1 matches 1.. if score @s current_draw <= Temp reg_3 run tag @s add periodic_draw_block
+
 execute as @s[tag=circle_owner,tag=!angreal_flawed] run tag @s add periodic_draw_block
 execute as @s[tag=angrealed,tag=!angreal_flawed] run tag @s add periodic_draw_block
 
+
 #If we exceeded but are protected we return the maximum
-execute as @s[tag=periodic_draw_block] if score @s reg_1 > @s cumulative_halve_amount_hold run scoreboard players operation @s reg_1 = @s cumulative_halve_amount_hold
+execute as @s[tag=periodic_draw_block] if score @s reg_1 > Temp reg_2 run scoreboard players operation @s reg_1 = Temp reg_2
 
 scoreboard players set @s reg_2 1
-execute as @s[tag=periodic_draw_block] if score @s reg_1 = @s cumulative_halve_amount_hold run return 0
+execute as @s[tag=periodic_draw_block] if score @s reg_1 = Temp reg_2 run return 0
 
 scoreboard players set @s reg_2 0
