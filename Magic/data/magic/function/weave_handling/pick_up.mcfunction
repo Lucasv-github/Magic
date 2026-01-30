@@ -30,7 +30,18 @@ scoreboard players operation @s[tag=pick_up_picking_temp] stage = @e[tag=pick_up
 
 scoreboard players operation @s[tag=pick_up_picking_temp] player_weave_index = @e[tag=pick_up_me_temp] player_weave_index
 
+execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
+function magic:weave_processing/get_weave_length with storage magic:get_weave_length
+data remove storage magic:get_weave_length index
+scoreboard players operation @s weave_length = Temp reg_1
+
+scoreboard players operation Temp reg_1 *= 10 reg_1
+
+scoreboard players operation @s current_drain += Temp reg_1
+
 execute as @s[tag=pick_up_picking_temp] run function magic:weave_handling/give_current_weave
+
+scoreboard players add @s weave_count 1
 
 tag @e remove pick_up_within_range_temp
 tag @e remove pick_up_me_temp

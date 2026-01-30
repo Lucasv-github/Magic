@@ -90,7 +90,6 @@ execute as @s[tag=!using] run return 0
 
 execute as @s[tag=need_weave_flush] run function magic:weave_handling/give_current_weave
 tag @s remove need_weave_flush
-scoreboard players set @s state 0
 
 #Needs to be below flush
 execute as @s[tag=built] unless data entity @s Inventory[{Slot:8b}].components.minecraft:custom_data.Player_weave_index run function magic:weave_handling/weave_moved_out
@@ -105,3 +104,5 @@ execute as @s[scores={reg_1=0}, tag=!circled,tag=!circle_owner,tag=angrealed,tag
 
 #Pick up weave
 execute as @s[scores={state=1}, tag=!circled] run function magic:weave_handling/pick_up
+
+scoreboard players set @s state 0
