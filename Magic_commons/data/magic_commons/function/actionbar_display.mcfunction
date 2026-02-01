@@ -12,9 +12,10 @@ tag @s[tag=o_circled] add actionbar_display_temp
 #Bar start
 data merge storage magic:give_current_weave_build {text:[]}
 
-data modify storage magic_commons:actionbar text append value "\uF001\uF002\uF002"
+#Adjust bar position
+data modify storage magic_commons:actionbar text append value "\uF001\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF001\uF001\uF002\uF002"
 
-execute if score @s reg_1 matches 1.. run data modify storage magic_commons:actionbar text append value "\uF001\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF001\uE005\uF002"
+execute if score @s reg_1 matches 1.. run data modify storage magic_commons:actionbar text append value "\uE005\uF002"
 execute unless score @s reg_1 matches 1.. run data modify storage magic_commons:actionbar text append value "\uE015\uF002"
 
 execute if score @s reg_1 matches 2.. run data modify storage magic_commons:actionbar text append value "\uE006\uF002"

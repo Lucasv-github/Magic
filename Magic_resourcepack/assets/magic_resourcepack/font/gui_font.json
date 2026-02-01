@@ -48,7 +48,7 @@
         {
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f1.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE005"
@@ -57,7 +57,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f2.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE006"
@@ -66,7 +66,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f3.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE007"
@@ -75,7 +75,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f4.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE008"
@@ -84,7 +84,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f5.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE009"
@@ -93,7 +93,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f6.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE010"
@@ -102,7 +102,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f7.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE011"
@@ -111,7 +111,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f8.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE012"
@@ -120,7 +120,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f9.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE013"
@@ -129,7 +129,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/f10.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE014"
@@ -138,7 +138,7 @@
         {
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e1.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE015"
@@ -147,7 +147,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e2.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE016"
@@ -156,7 +156,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e3.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE017"
@@ -165,7 +165,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e4.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE018"
@@ -174,7 +174,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e5.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE019"
@@ -183,7 +183,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e6.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE020"
@@ -192,7 +192,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e7.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE021"
@@ -201,7 +201,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e8.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE022"
@@ -210,7 +210,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e9.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE023"
@@ -219,7 +219,7 @@
 		{
             "type": "bitmap",
             "file": "magic_resourcepack:bar/e10.png",
-            "ascent": -3,
+            "ascent": -48,
             "height": 12,
             "chars": [
                     "\uE024"
