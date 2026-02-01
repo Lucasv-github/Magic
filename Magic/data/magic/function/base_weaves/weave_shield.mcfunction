@@ -14,16 +14,18 @@ scoreboard players operation @s current_sink = Temp reg_1
 #Good old 3:1
 scoreboard players operation Temp reg_1 /= 3 reg_1
 
+#10 adjust
+scoreboard players operation Temp reg_1 *= 10 reg_1
+
 #For testing
 #scoreboard players operation Temp reg_1 *= 10 reg_1
 
-tellraw @a ["",{text:"Shielder rest: ",color:"dark_red"},{score:{name:"Temp",objective:"reg_1"},color:"dark_red"}]
+#tellraw @a ["",{text:"Shielder rest: ",color:"dark_red"},{score:{name:"Temp",objective:"reg_1"},color:"dark_red"}]
 
 scoreboard players operation Temp reg_2 = @s weave_locked_entity_id
 scoreboard players set Temp reg_3 0
 
 execute as @e[tag=using] if score @s entity_id = Temp reg_2 if score @s current_draw <= Temp reg_1 run scoreboard players set Temp reg_3 1
-execute as @e[tag=using] if score @s entity_id = Temp reg_2 run say getting shielded
 
 execute if score Temp reg_3 matches 1 run say Shield locked
 execute if score Temp reg_3 matches 1 run tag @s add shield_locked

@@ -11,6 +11,8 @@
 #scoreboard players operation Temp reg_2 = @s current_draw
 #execute as @s[scores={reg_1=..-1}] as @a[tag=can_use,tag=circled] if score @s circled_owner_id = Temp reg_1 run scoreboard players operation @s my_draw_amount -= Temp reg_2
 
+function magic:magic_actions/get_total_current_drain
+execute if score Temp reg_1 > @s current_draw run function magic:power_handling/exit
 
 #Can't draw more even with one of these
 execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run return 0
@@ -18,10 +20,10 @@ execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run retu
 execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 0
 function magic:power_handling/calculate_draw
 
-scoreboard players operation @s total_draw_amount += Temp reg_1
-scoreboard players operation @s my_draw_amount += Temp reg_1
-
 scoreboard players operation @s current_draw = @s reg_1
+
+scoreboard players operation @s total_draw_amount += @s current_draw
+scoreboard players operation @s my_draw_amount += @s current_draw
 
 #Bail if draw maxed
 execute if score @s reg_2 matches 1 run return 0

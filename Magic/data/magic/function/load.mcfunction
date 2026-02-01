@@ -83,6 +83,7 @@ scoreboard objectives add regenerated_strength dummy
 #Won't be used on player, but instead on weave
 scoreboard objectives add current_strength dummy
 
+scoreboard objectives add shield_punish_draw dummy
 scoreboard objectives add shield_lower_amount dummy
 scoreboard objectives add tap_block_range dummy
 scoreboard objectives add tap_block_percentage dummy
