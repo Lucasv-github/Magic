@@ -20,8 +20,7 @@ execute as @a[tag=can_use, tag=using, tag=circle_owner] run function magic:displ
 #TODO posible to remove function and put the stuff in here?
 execute as @a[tag=using] run function magic:five_broadcasts
 
-#execute as @a[tag=can_use,tag=!using,scores={disguise=0}] at @s run tellraw @a[tag=can_see,distance=..10] ["",{"selector":"@s","color":"gold"},{"text":" Can use","color":"gold"}]
-
-execute as @e[scores={finder_time=1..}] run function magic:tracked
+execute as @e[type=armor_stand,tag=actively_held,tag=weave_shield] run scoreboard players operation @s current_drain -= @s shield_punish_draw
+execute as @e[type=armor_stand,tag=actively_held,tag=weave_shield] run scoreboard players set @s shield_punish_draw 0
 
 scoreboard players set @a click_counter 0

@@ -4,10 +4,6 @@
 #Return values:
 #Authors: Lprogrammer
 ################################################################################
-
-execute if score @s current_drain > @s current_draw run function magic:power_handling/exit
-execute as @s[tag=!using] run return 0
-
 #Temp reg_1: Excess draw * 10
 scoreboard players operation Temp reg_1 = @s current_draw
 scoreboard players operation Temp reg_1 -= @s current_drain
