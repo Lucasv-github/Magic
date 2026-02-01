@@ -32,6 +32,10 @@ scoreboard players operation Temp reg_1 /= Temp reg_2
 
 tellraw @a ["",{text:"Total hurt: ",color:"light_purple"},{score:{name:"Temp",objective:"reg_1"},color:"light_purple"}]
 
+scoreboard players operation Temp reg_2 = @s entity_id
+execute at @s as @e[tag=weave_shield,tag=target_point,tag=actively_held,sort=nearest] if score @s weave_locked_entity_id = Temp reg_2 run scoreboard players operation @s shield_punish_draw += Temp reg_1
+execute at @s as @e[tag=weave_shield,tag=target_point,tag=actively_held,sort=nearest] if score @s weave_locked_entity_id = Temp reg_2 run scoreboard players operation @s current_drain += Temp reg_1
+
 
 
 
