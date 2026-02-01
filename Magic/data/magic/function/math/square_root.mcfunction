@@ -1,13 +1,13 @@
-#Input in Temp reg_1, output in same
+################################################################################
+#Purpose: Computer the square root of the input value
+#Arguments: Input: Temp reg_1
+#Runner: Doesn't matter
+#Return values: Temp reg_1
+#Authors: Lprogrammer
+################################################################################
 
-#Low
 scoreboard players set Temp reg_2 1
+function magic:math/square_root_loop
 
-#High
-scoreboard players operation Temp reg_3 = Temp reg_1
-
-#High set to input divided by 2 if above 1
-execute if score Temp reg_3 matches 2.. run scoreboard players operation Temp reg_3 /= 2 reg_1
-
-#Low <= high
-execute if score Temp reg_2 <= Temp reg_3 run function magic:math/square_root_loop
+scoreboard players remove Temp reg_2 2
+scoreboard players operation Temp reg_1 = Temp reg_2

@@ -1,2 +1,10 @@
-kill @e[limit=1,distance=..2,type=minecraft:eye_of_ender,nbt={Item:{components:{"minecraft:custom_data":{Magic:9}}}}]
-give @s minecraft:ender_eye[enchantment_glint_override=1b,custom_name='[{"text":"Circle","italic":false,"color":"dark_purple"}]',lore=['[{"text":"Controls your power from circle","italic":false}]'],custom_model_data=1,custom_data={Magic:9,Magic_preserve:1}] 2
+################################################################################
+#Purpose: Increase the amount of circle draw adjustors in a player inventory
+#Runner: A player whose circle draw adjustor count should get increased by 1
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+give @s minecraft:carrot_on_a_stick[!damage,!max_damage,max_stack_size=64,enchantment_glint_override=1b,custom_name=[{"text":"Circle","italic":false,"color":"dark_purple"}],lore=[[{"text":"Controls your power from circle","italic":false}]],minecraft:item_model="magic_resourcepack:power",custom_data={Magic:9,Magic_preserve:1,Magic_interaction:1b}] 1
+
+scoreboard players set @s click 0

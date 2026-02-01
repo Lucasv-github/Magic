@@ -1,0 +1,2 @@
+summon zombie ~ ~ ~ {PersistenceRequired:0b,equipment:{mainhand:{id:iron_sword},head:{id:iron_helmet},chest:{id:iron_chestplate},legs:{id:iron_leggings},feet:{id:iron_boots}},Tags:["pve_spawned","magic_pve_zombie_iron"]}
+execute as @e[type=minecraft:zombie,limit=1,sort=nearest,tag=pve_spawned] run function magic_pve:create_hostile

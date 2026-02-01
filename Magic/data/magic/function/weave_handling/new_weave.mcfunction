@@ -1,14 +1,18 @@
-scoreboard players set @s[tag=built] state 0
+################################################################################
+#Purpose: Save all new weaves into a copy storage used if a player somehow loses their item without dropping it
+#Runner: A player adding an element to a weave without a weave in their build slot
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
-#scoreboard players add @s[tag=built] player_weave_index 1
-#We can live with this collision risk
-execute store result score @s player_weave_index run random value 0..2147483646
+#say new weave
 
-scoreboard players set @s weave_length 0
+scoreboard players add @s weave_count 1
 
-tag @s remove built
-tag @s remove active
+execute store result storage magic:weave_copies_add_index player_id int 1 run scoreboard players get @s player_id
+execute store result storage magic:weave_copies_add_index player_weave_index int 1 run scoreboard players get @s player_weave_index
 
-#Prevent held execute again, SHOULD NOT
-#scoreboard players operation Temp reg_1 = @s player_id
-#execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used,scores={state=1}] if score @s player_id = Temp reg_1 run function magic:remove_cleanup
+function magic:weave_handling/weave_copies_add_index with storage magic:weave_copies_add_index
+
+data remove storage magic:weave_copies_add_index player_id
+data remove storage magic:weave_copies_add_index player_weave_index

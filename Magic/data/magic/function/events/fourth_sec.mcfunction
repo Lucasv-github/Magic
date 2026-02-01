@@ -1,1 +1,8 @@
-execute as @a[tag=can_use,tag=using,scores={disguise=0}] run function magic:display_all_player_glow
+################################################################################
+#Purpose: Gets run every fourth seconds
+#Runner: Server, gets run via tick.mcfunction->second.mcfunction->fourth_sec.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+execute as @a[tag=can_use,tag=using,scores={disguise=0}] run function magic:display/display_player_glow

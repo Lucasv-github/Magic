@@ -1,1 +1,1 @@
-$execute at @s positioned ~ ~ ~ run fill ~$(size) ~$(size) ~$(size) ~-$(size) ~-$(size) ~-$(size) minecraft:air replace #magic:balefire_destroyable
+$execute at @s positioned ~ ~ ~ run function magic:actions/fill_if_allowed {x_s:-$(size),y_s:-$(size),z_s:-$(size),x_e:$(size),y_e:$(size),z_e:$(size),argument:"air replace #magic:balefire_destroyable"}

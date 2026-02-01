@@ -1,0 +1,10 @@
+#This function comes with exiting and the side effects
+
+function magic:power_handling/exit
+
+effect give @s nausea 600
+effect give @s poison 600
+effect give @s weakness 600
+
+tag @s remove can_use
+tag @s add stilled

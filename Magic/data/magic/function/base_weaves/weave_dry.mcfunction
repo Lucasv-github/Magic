@@ -1,1 +1,1 @@
-$execute at @s positioned ~ ~1 ~ run fill ~$(size) ~$(size) ~$(size) ~-$(size) ~-$(size) ~-$(size) minecraft:air replace minecraft:water
+$execute at @s positioned ~ ~1 ~ run function magic:actions/fill_if_allowed {x_s:-$(size),y_s:-$(size),z_s:-$(size),x_e:$(size),y_e:$(size),z_e:$(size),argument:"air replace water"}

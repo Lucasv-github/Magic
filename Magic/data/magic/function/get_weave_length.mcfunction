@@ -1,1 +1,0 @@
-$execute store result score Temp reg_1 run data get storage magic:weave_$(index) Elements

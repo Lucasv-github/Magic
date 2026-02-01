@@ -1,8 +1,13 @@
-execute as @s[scores={reg_1=1}] run scoreboard players set @s a 1
-execute as @s[scores={reg_1=2}] run scoreboard players set @s e 2
-execute as @s[scores={reg_1=3}] run scoreboard players set @s f 3
-execute as @s[scores={reg_1=4}] run scoreboard players set @s w 4
-execute as @s[scores={reg_1=5}] run scoreboard players set @s s 5
-execute as @s[scores={reg_1=6}] run scoreboard players set @s line 1
+################################################################################
+#Purpose: Convert the newline from build input value: (6) to weave storage value: (-1)
+#Runner: An entity that has inputed a weave with /trigger built set, run via tick.mcfunction->weave_handeling/entire_weave.mcfunction->weave_handeling/entire_weave_decide.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
-execute as @s[scores={reg_1=1..}] run function magic:weave_handling/build
+scoreboard players operation @s reg_2 = @s reg_1
+
+#Only difference
+execute as @s[scores={reg_1=6}] run scoreboard players set @s reg_1 -1
+
+execute as @s[scores={reg_2=1..},tag=using] run function magic:weave_handling/add_element

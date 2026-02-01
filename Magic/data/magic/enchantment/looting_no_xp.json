@@ -1,0 +1,40 @@
+{
+  "anvil_cost": 0,
+  "description": "looting no xp",
+  "effects": {
+    "minecraft:equipment_drops": [
+      {
+        "effect": {
+          "type": "minecraft:add",
+          "value": {
+            "type": "minecraft:linear",
+            "base": 0.01,
+            "per_level_above_first": 0.01
+          }
+        },
+        "enchanted": "attacker",
+        "requirements": {
+          "condition": "minecraft:entity_properties",
+          "entity": "attacker",
+          "predicate": {
+            "type": "minecraft:player"
+          }
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 0,
+    "per_level_above_first": 0
+  },
+  "max_level": 100,
+  "min_cost": {
+    "base": 0,
+    "per_level_above_first": 0
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/sharp_weapon",
+  "weight": 1
+}

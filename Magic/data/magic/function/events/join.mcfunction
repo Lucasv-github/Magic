@@ -2,10 +2,17 @@ execute as @s[tag=circled] run function magic:power_handling/exit
 tag @s[tag=circled] remove can_use
 tag @s[tag=circled] remove can_see
 kill @s[tag=circled]
+################################################################################
+#Purpose: Gets run every time a player joins the server
+#Runner: The player that joined the server, via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 tag @s[tag=circled] remove circled
 scoreboard players set @s leave_detect 0
 
-function magic:detect_op
+function magic:detections/detect_op
 tag @s[tag=op_detected] add admin
 tellraw @s[tag=op_detected] {"text":"Welcome admin!","bold":true,"color":"gold"}
 tellraw @s[tag=!op_detected,tag=admin] {"text":"Welcome admin!","bold":true,"color":"gold"}
@@ -34,13 +41,9 @@ execute as @s if score @s angreal_level matches 0 run scoreboard players set @s 
 
 scoreboard players add @s stage 0
 
-scoreboard players add @s invert 0
 scoreboard players add @s disguise 0
 
-scoreboard players add @s bound 0
-
 execute unless score @s use_items matches -2147483647.. run scoreboard players set @s use_items 1
+execute unless score @s use_items_current matches -2147483647.. run scoreboard players set @s use_items_current 1
 
-execute as @s[tag=!joined_before] if score magic_settings magic_auto_ability_state matches 2 run function magic:auto_add_ability
-
-tag @s add joined_before
+function magic:magic_actions/correct_regenerated_strength

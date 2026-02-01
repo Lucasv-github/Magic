@@ -1,14 +1,18 @@
-#TODO remove holding from name? as this does not require holding
-#add_line currently does exactly the same without swapping bakc
-#Actually to offhand add line?
+################################################################################
+#Purpose: Add a newline to a weave present in the 9:th slot, then correct hands
+#Runner: An entity adding a newline by using their offhand, run via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
-execute at @s run playsound minecraft:entity.item.pickup player @s
+execute at @s run playsound minecraft:entity.sniffer.drop_seed player @s
 
-item replace entity @s weapon.mainhand from entity @s weapon.offhand
-item replace entity @s weapon.offhand with minecraft:air
+function magic:inventory/swap_hands
 
-execute store result storage magic:weave_add_element index int 1 run scoreboard players get @s player_weave_index
+execute as @s[tag=!built] run return 0
 
-#-1 for newline
+#Used to this in chat
+scoreboard players remove @s weave_length 1
+
 scoreboard players set @s reg_1 -1
-function magic:weave_handling/weave_add_element with storage magic:weave_add_element
+function magic:weave_handling/add_element

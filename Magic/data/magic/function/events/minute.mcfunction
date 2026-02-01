@@ -1,11 +1,8 @@
-execute as @a[tag=can_use] run scoreboard players operation @s reg_1 = @s max_regenerated_strength 
-execute as @a[tag=can_use] run scoreboard players operation @s reg_1 *= @s angreal_level
+################################################################################
+#Purpose: Gets run every minute
+#Runner: Server, gets run via tick.mcfunction->second.mcfunction->minute.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
 
-#Preserve
-execute as @a[tag=can_use] run scoreboard players operation @s reg_2 = @s reg_1
-
-execute as @a[tag=can_use] run scoreboard players operation @s reg_1 /= 20 reg_1
-
-execute as @a[tag=can_use] if score @s regenerated_strength < @s reg_2 run scoreboard players operation @s regenerated_strength += @s reg_1
-#Then limit in case of above
-execute as @a[tag=can_use] if score @s regenerated_strength > @s reg_2 run scoreboard players operation @s regenerated_strength = @s reg_2
+execute as @a[tag=can_use,tag=!using,tag=!circled] run function magic:magic_actions/regenerate_strength_once

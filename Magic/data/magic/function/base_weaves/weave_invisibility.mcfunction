@@ -37,5 +37,6 @@ function magic:weave_processing/advance_read_index
 
 scoreboard players operation Temp reg_1 = @s weave_locked_entity_id
 execute as @s[tag=weave_invisibility_temp_works] as @e if score @s entity_id = Temp reg_1 run effect give @s invisibility 20 1 true
+execute as @s[tag=weave_invisibility_temp_works] run tag @s add weave_invisibility
 
 tag @e remove weave_invisibility_temp_works

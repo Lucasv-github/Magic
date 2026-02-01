@@ -1,48 +1,50 @@
+################################################################################
+#Purpose: Pick up an active tied off weave near and made by @s
+#Runner: A player going to pick up a weave, via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 execute at @s run playsound minecraft:block.lever.click player @s
 
-execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @s add getting_picked_up
-execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s player_id = Temp reg_1 run tag @a[tag=using,tag=!built, sort=nearest, limit=1] add picking_up
+scoreboard players operation Temp reg_1 = @s player_id
+
+execute at @s as @e[type=armor_stand,scores={weave_remaining_time=1..},distance=..5,sort=nearest,tag=tied_off] if score @s weave_owner_player_id = Temp reg_1 run tag @s add pick_up_within_range_temp
+
+#We only want one
+execute at @s run tag @e[tag=pick_up_within_range_temp,limit=1] add pick_up_me_temp
 
 #Make sure we can pick up something
-scoreboard players operation Temp reg_1 = @s[tag=picking_up] weave_locked_player_id
+execute if entity @e[tag=pick_up_me_temp] run tag @s add pick_up_picking_temp
 
-#execute as @e[tag=getting_picked_up] run say getting_picked_up
-#execute as @s[tag=picking_up] run say picking_up
+scoreboard players operation Temp reg_1 = @s[tag=pick_up_picking_temp] weave_locked_player_id
 
-tag @s[tag=picking_up] add built
-tag @e[tag=getting_picked_up] remove tied_off
-tag @e[tag=getting_picked_up] add actively_held
+#execute as @e[tag=pick_up_me_temp] run say getting_picked_up
+#execute as @s[tag=pick_up_picking_temp] run say picking_up
 
-scoreboard players operation @s[tag=picking_up] stage = @e[tag=getting_picked_up] stage
+tag @s[tag=pick_up_picking_temp] add built
+tag @e[tag=pick_up_me_temp] remove tied_off
+tag @e[tag=pick_up_me_temp] add actively_held
 
-#Want to keep tied off position
-scoreboard players operation @e[tag=getting_picked_up] player_weave_index = @s[tag=picking_up] player_weave_index
+scoreboard players operation @s[tag=pick_up_picking_temp] stage = @e[tag=pick_up_me_temp] stage
 
-#Copy data
-scoreboard players operation @s[tag=picking_up] t_1 = @e[tag=getting_picked_up] t_1
-scoreboard players operation @s[tag=picking_up] t_2 = @e[tag=getting_picked_up] t_2
-scoreboard players operation @s[tag=picking_up] t_3 = @e[tag=getting_picked_up] t_3
-scoreboard players operation @s[tag=picking_up] t_4 = @e[tag=getting_picked_up] t_4
-scoreboard players operation @s[tag=picking_up] t_5 = @e[tag=getting_picked_up] t_5
-scoreboard players operation @s[tag=picking_up] t_6 = @e[tag=getting_picked_up] t_6
-scoreboard players operation @s[tag=picking_up] t_7 = @e[tag=getting_picked_up] t_7
-scoreboard players operation @s[tag=picking_up] t_8 = @e[tag=getting_picked_up] t_8
-scoreboard players operation @s[tag=picking_up] t_9 = @e[tag=getting_picked_up] t_9
-scoreboard players operation @s[tag=picking_up] t_10 = @e[tag=getting_picked_up] t_10
-scoreboard players operation @s[tag=picking_up] t_11 = @e[tag=getting_picked_up] t_11
-scoreboard players operation @s[tag=picking_up] t_12 = @e[tag=getting_picked_up] t_12
-scoreboard players operation @s[tag=picking_up] t_13 = @e[tag=getting_picked_up] t_13
-scoreboard players operation @s[tag=picking_up] t_14 = @e[tag=getting_picked_up] t_14
-scoreboard players operation @s[tag=picking_up] t_15 = @e[tag=getting_picked_up] t_15
-scoreboard players operation @s[tag=picking_up] t_16 = @e[tag=getting_picked_up] t_16
-scoreboard players operation @s[tag=picking_up] t_17 = @e[tag=getting_picked_up] t_17
-scoreboard players operation @s[tag=picking_up] t_18 = @e[tag=getting_picked_up] t_18
-scoreboard players operation @s[tag=picking_up] t_19 = @e[tag=getting_picked_up] t_19
-scoreboard players operation @s[tag=picking_up] t_20 = @e[tag=getting_picked_up] t_20
+scoreboard players operation @s[tag=pick_up_picking_temp] player_weave_index = @e[tag=pick_up_me_temp] player_weave_index
 
-execute as @s[tag=picking_up] run function magic:weave_handling/give_current_weave
+execute store result storage magic:get_weave_length index int 1 run scoreboard players get @s player_weave_index
+function magic:weave_processing/get_weave_length with storage magic:get_weave_length
+data remove storage magic:get_weave_length index
+scoreboard players operation @s weave_length = Temp reg_1
 
-tag @e remove getting_picked_up
-tag @s remove picking_up
+scoreboard players operation Temp reg_1 *= 10 reg_1
+
+scoreboard players operation @s current_drain += Temp reg_1
+
+execute as @s[tag=pick_up_picking_temp] run function magic:weave_handling/give_current_weave
+
+scoreboard players add @s weave_count 1
+
+tag @e remove pick_up_within_range_temp
+tag @e remove pick_up_me_temp
+tag @s remove pick_up_picking_temp
 
 scoreboard players set @s state 0

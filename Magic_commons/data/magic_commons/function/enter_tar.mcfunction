@@ -1,6 +1,16 @@
+execute as @s[tag=using] run tag @s add enter_tar_using_temp
+execute as @s[tag=using] run function magic:inventory/store_weaves
+execute as @s[tag=using] run function magic:inventory/restore_regular
+
+#Key to store
+scoreboard players set Temp reg_2 0
 function magic_commons:tar_store_inventory
 
-execute if dimension minecraft:overworld in minecraft:tar run tp @s ~ ~ ~
+execute as @s[tag=enter_tar_using_temp] run function magic:inventory/restore_magic
+execute as @s[tag=enter_tar_using_temp] run function magic:inventory/load_weaves
+
+tag @s remove enter_tar_using_temp
+
 execute store result score @s reg_1 run data get entity @s Pos[0]
 execute store result score @s reg_2 run data get entity @s Pos[2]
 

@@ -1,3 +1,10 @@
+################################################################################
+#Purpose: Give a cheat book to a player specified by the scoreboard select_player
+#Runner:  magic admin player that sets its give_book to nonzero, ran via tick.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 scoreboard players set @s give_book 0
 scoreboard players enable @s[tag=admin] give_book
 

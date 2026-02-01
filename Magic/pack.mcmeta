@@ -1,6 +1,8 @@
 {
   "pack": {
-    "pack_format": 10,
-    "description": "Magic force"
+    "description": "Magic datapack by Lprogrammer and Boblegrob",
+    "pack_format": 94.1,
+    "min_format": 94.1,
+    "max_format": 94.1
   }
 }

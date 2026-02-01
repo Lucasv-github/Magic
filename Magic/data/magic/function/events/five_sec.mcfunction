@@ -1,18 +1,21 @@
+################################################################################
+#Purpose: Gets run every five seconds
+#Runner: Server, gets run via tick.mcfunction->second.mcfunction->five_sec.mcfunction
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
 #Very faint
 execute at @e[tag=target_point,tag=!inverted] run particle minecraft:glow ~ ~2 ~ 0 0 0 0 1 normal @a[tag=can_see]
 
-#Run tied off
-tag @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..}] add running_tied
-execute as @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..}] run function magic:weaves
-tag @e[type=minecraft:armor_stand,tag=target_point,tag=tied_off, scores={weave_remaining_time=1..}] remove running_tied
+#Non player placed removal
+execute as @e[tag=nonplayer_origin,tag=tied_off,scores={weave_remaining_time=1..}] run function magic:cleanup/remove_no_owner
+execute as @e[tag=nonplayer_origin,tag=actively_held] run function magic:cleanup/remove_no_owner
 
-#Run held
-execute as @e[tag=actively_held,tag=!no_weave] run function magic:pre_weaves
-
-execute as @a[scores={regenerated_strength=1.., shilded=1..,click_counter=10..,break_tied=0}, tag=!using, tag=can_use, tag=!circled,tag=!can_break_free] run function magic:try_break_held
+execute as @a[scores={regenerated_strength=1.., shilded=1..,click_counter=10..,break_tied=0}, tag=!using, tag=can_use, tag=!circled,tag=!can_break_free] run function magic:magic_actions/try_break_held
 
 #Messages
-execute as @a[tag=can_use, tag=using, tag=circle_owner] run function magic:circle_info
+execute as @a[tag=can_use, tag=using, tag=circle_owner] run function magic:display/circle_info
 
 #TODO posible to remove function and put the stuff in here?
 execute as @a[tag=using] run function magic:five_broadcasts

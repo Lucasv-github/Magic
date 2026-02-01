@@ -1,3 +1,11 @@
+################################################################################
+#Purpose: Remove magic interaction items, held weaves, handle angreal/well exits and give back original hotbar items
+#Runner: An entity exiting the power
+#Return values:
+#Authors: Lprogrammer
+################################################################################
+
+
 tag @s add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_exit
 tag @s remove current_player_for_log
@@ -6,28 +14,35 @@ execute as @s[tag=circle_owner] run function magic:power_handling/remove_circle
 execute as @s[tag=angrealed] run function magic:power_handling/remove_angreal
 
 tag @s remove using
+tag @s remove built
 scoreboard players set @s current_held 0
 
 scoreboard players operation Temp reg_1 = @s player_id
 
-function magic:remove_cleanup_player_all
+function magic:cleanup/remove_cleanup_player_all
 
-#Mark bridges made on this run(tied off), can't be destroyed by grabbing power again
-execute as @e[type=minecraft:armor_stand, tag=destroy_bridge] if score Temp reg_1 = @s player_id run tag @s add previous_bridge
+function magic:inventory/clear_magic_items
+clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}]
 
-#Remove bridge builder
-execute as @e[tag=build_bridge] if score @s player_id = Temp reg_1 run kill @s
+function magic:inventory/load_hotbar
 
-function magic:clear_magic_items
-clear @s minecraft:ender_eye[custom_data~{Magic:6}]
-
-function magic:drop_current_hotbar
-#Restore hotbar
-
-function magic:load_hotbar
+#Needs to be after hotbar load
+execute as @s[tag=welled] run function magic:power_handling/remove_well
 
 effect clear @s minecraft:night_vision
 
-#Damage player for every incorrect attached
-execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used,tag=held_executed_once] if score @s player_id = Temp reg_1 as @a if score @s player_id = Temp reg_1 run damage @s 8 minecraft:magic
-execute as @e[type=minecraft:armor_stand,tag=target_point,tag=actively_held,tag=!hold_used,tag=held_executed_once] if score @s player_id = Temp reg_1 as @a if score @s player_id = Temp reg_1 run effect give @s nausea 5
+#Not same sever side effects here, thus doing manually
+execute as @s[tag=next_sever] run tag @s remove can_use
+execute as @s[tag=next_sever] run tag @s add stilled
+tag @s[tag=next_sever] remove next_sever
+
+#Reset halve hold
+scoreboard players operation @s cumulative_halve_amount_hold = @s halve_amount_hold
+
+#Clear player weave cache
+execute store result storage magic:weave_copies_clear player_id int 1 run scoreboard players get @s player_id
+
+function magic:weave_handling/weave_copies_clear with storage magic:weave_copies_clear
+
+data remove storage magic:weave_copies_clear player_id
+

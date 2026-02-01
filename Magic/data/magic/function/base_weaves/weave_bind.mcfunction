@@ -1,3 +1,5 @@
+#say weave bind
+
 scoreboard players set Temp reg_1 1
 function magic:weave_processing/count_weave_single
 

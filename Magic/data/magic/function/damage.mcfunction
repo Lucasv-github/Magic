@@ -1,1 +1,0 @@
-$damage @s $(amount) minecraft:lightning_bolt
