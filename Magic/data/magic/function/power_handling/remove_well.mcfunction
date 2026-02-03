@@ -15,3 +15,4 @@ execute if score @s well_amount matches ..0 run scoreboard players set @s well_a
 
 function magic:magic_actions/set_well_amount
 
+tag @s remove welled
