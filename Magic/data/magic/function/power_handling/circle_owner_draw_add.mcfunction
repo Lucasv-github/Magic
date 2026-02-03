@@ -7,11 +7,11 @@
 scoreboard players operation Temp reg_1 = @e[limit=1,tag=circle_owner_temp] cumulative_halve_amount_hold
 scoreboard players operation Temp reg_1 -= @e[limit=1,tag=circle_owner_temp] current_draw
 
-#Bail if already maxed
-execute if score Temp reg_1 matches ..0 run return 0
+#Bail if already maxed (unless flawed)
+execute unless entity @e[limit=1,tag=circle_owner_temp,tag=angreal_flawed] if score Temp reg_1 matches ..0 run return 0
 
-#Limit to diff if above
-execute if score @s reg_1 > Temp reg_1 run scoreboard players operation @s reg_1 = Temp reg_1
+#Limit to diff if above (unless flawed)
+execute unless entity @e[limit=1,tag=circle_owner_temp,tag=angreal_flawed] if score @s reg_1 > Temp reg_1 run scoreboard players operation @s reg_1 = Temp reg_1
 
 #Add to owner total amount
 scoreboard players operation @e[limit=1,tag=circle_owner_temp] total_draw_amount += @s reg_1
