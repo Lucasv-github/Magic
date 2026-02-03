@@ -46,3 +46,6 @@ function magic:weave_handling/weave_copies_clear with storage magic:weave_copies
 
 data remove storage magic:weave_copies_clear player_id
 
+#Clear bar imidiately
+title @s actionbar ""
+
