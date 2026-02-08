@@ -1,5 +1,21 @@
 #Adjust bar position
-data modify storage magic_commons:actionbar text append value "\uF001\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF001\uF001\uF002\uF002"
+data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003\uF003"
+
+function magic_commons:hooks/get_current_draw
+execute if score Temp reg_1 matches 10.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 100.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 1000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 10000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 100000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 1000000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+
+function magic_commons:hooks/get_current_drain
+execute if score Temp reg_1 matches 10.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 100.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 1000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 10000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 100000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
+execute if score Temp reg_1 matches 1000000.. run data modify storage magic_commons:actionbar text append value "\uF003\uF003\uF003\uF003\uF003\uF003"
 
 function magic_commons:hooks/get_regenerated_strength_percentage
 scoreboard players operation @s reg_1 = Temp reg_1

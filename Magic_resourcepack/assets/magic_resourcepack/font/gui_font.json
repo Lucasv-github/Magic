@@ -1,6 +1,14 @@
 {
     "providers": [
-        {
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:font/grobscii.png",
+            "ascent": -49,
+            "chars": [
+                "\u0030\u0031\u0032\u0033\u0034\u0035\u0036\u0037\u0038\u0039\u2190\u2191\u2192\u2193\u0020\u0000"
+            ]
+        },
+		{
             "type": "bitmap",
             "file": "magic_resourcepack:item/air.png",
             "ascent": 8,
@@ -227,29 +235,272 @@
         },
         {
             "type": "bitmap",
-            "file": "magic_resourcepack:bar/draw_indicator.png",
-            "ascent": 8,
-            "height": 9,
+            "file": "magic_resourcepack:bar/df1.png",
+            "ascent": -48,
+            "height": 12,
             "chars": [
                     "\uE025"
                 ]
         },
-        {
+		{
             "type": "bitmap",
-            "file": "magic_resourcepack:bar/drain_indicator.png",
-            "ascent": 8,
-            "height": 9,
+            "file": "magic_resourcepack:bar/df2.png",
+            "ascent": -48,
+            "height": 12,
             "chars": [
                     "\uE026"
                 ]
         },
-        {
+		{
             "type": "bitmap",
-            "file": "magic_resourcepack:bar/empty_indicator.png",
-            "ascent": 8,
-            "height": 9,
+            "file": "magic_resourcepack:bar/df3.png",
+            "ascent": -48,
+            "height": 12,
             "chars": [
                     "\uE027"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/df4.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE028"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/df5.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE029"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/df6.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE030"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/df7.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE031"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/df8.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE032"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/df9.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE033"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/df10.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE034"
+                ]
+        },
+        {
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd1.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE035"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd2.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE036"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd3.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE037"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd4.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE038"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd5.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE039"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd6.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE040"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd7.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE041"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd8.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE042"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd9.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE043"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/dd10.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE044"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de1.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE045"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de2.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE046"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de3.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE047"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de4.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE048"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de5.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE049"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de6.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE050"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de7.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE051"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de8.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE052"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de9.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE053"
+                ]
+        },
+		{
+            "type": "bitmap",
+            "file": "magic_resourcepack:bar/de10.png",
+            "ascent": -48,
+            "height": 12,
+            "chars": [
+                    "\uE054"
                 ]
         },
         {

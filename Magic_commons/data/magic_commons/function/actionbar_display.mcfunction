@@ -19,7 +19,7 @@ scoreboard players operation @s reg_1 = Temp reg_1
 
 execute as @s[tag=!actionbar_display_circle_temp] run function magic_commons:hooks/get_current_drain
 
-title @s[tag=!actionbar_display_circle_temp] actionbar ["",{nbt:"text",storage:"magic_commons:actionbar",interpret:true,font:"magic_resourcepack:gui_font"},{text:" ↑",color:"dark_red"}, {score:{name:"@s",objective:"reg_1"},color:"dark_red"},{text:" ↓",color:"dark_blue"}, {score:{name:"Temp",objective:"reg_1"},color:"dark_blue"}]
+title @s[tag=!actionbar_display_circle_temp] actionbar ["",{nbt:"text",storage:"magic_commons:actionbar",interpret:true,font:"magic_resourcepack:gui_font"},{text:"     ↑",color:"#50D1E5",font:"magic_resourcepack:gui_font"}, {score:{name:"@s",objective:"reg_1"},color:"#50D1E5",font:"magic_resourcepack:gui_font"},{text:"   ↓",color:"#E20016",font:"magic_resourcepack:gui_font"}, {score:{name:"Temp",objective:"reg_1"},color:"#E20016",font:"magic_resourcepack:gui_font"}]
 
 #Circle member fallback
 title @s[tag=actionbar_display_circle_temp] actionbar {nbt:"text",storage:"magic_commons:actionbar",interpret:true,font:"magic_resourcepack:gui_font"}
