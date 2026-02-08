@@ -27,7 +27,7 @@ scoreboard players set Temp reg_3 0
 
 execute as @e[tag=using] if score @s entity_id = Temp reg_2 if score @s current_draw <= Temp reg_1 run scoreboard players set Temp reg_3 1
 
-execute if score Temp reg_3 matches 1 run say Shield locked
+#execute if score Temp reg_3 matches 1 run say Shield locked
 execute if score Temp reg_3 matches 1 run tag @s add shield_locked
 
 function magic:weave_processing/advance_read_index
@@ -38,7 +38,6 @@ function magic:weave_processing/count_weave_single
 scoreboard players operation Temp reg_1 = @s weave_locked_entity_id
 
 scoreboard players operation @s reg_1 *= 100 reg_1
-execute if score @s reg_1 = @s shield_lower_amount as @e[tag=using] if score @s entity_id = Temp reg_1 run say RIP
 execute if score @s reg_1 = @s shield_lower_amount as @e[tag=using] if score @s entity_id = Temp reg_1 run tag @s add shield_sever
 execute if score @s reg_1 = @s shield_lower_amount run function magic:weave_processing/advance_read_index
 
