@@ -1,13 +1,11 @@
 #Backtrace for next bar
-data modify storage magic_commons:actionbar text append value "\uF002\uF002\uF002\uF002\uF002\uF002\uF002\uF002\uF001\uF001"
+data modify storage magic_commons:actionbar text append value "\uF005\uF001"
 
 function magic_commons:hooks/get_draw_percentage
 scoreboard players operation @s reg_1 = Temp reg_1
 
 function magic_commons:hooks/get_drain_percentage
 scoreboard players operation @s reg_2 = Temp reg_1
-
-data modify storage magic_commons:actionbar text append value "\uF003"
 
 execute unless score @s reg_2 matches 1.. if score @s reg_1 matches 1.. run data modify storage magic_commons:actionbar text append value "\uE025\uF002"
 execute unless score @s reg_2 matches 1.. unless score @s reg_1 matches 1.. run data modify storage magic_commons:actionbar text append value "\uE045\uF002"
