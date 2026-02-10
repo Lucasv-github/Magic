@@ -15,6 +15,8 @@ execute as @s[tag=angrealed] run function magic:power_handling/remove_angreal
 
 tag @s remove using
 tag @s remove built
+scoreboard players set @s current_draw 0
+scoreboard players set @s current_drain 0
 scoreboard players set @s current_held 0
 
 scoreboard players operation Temp reg_1 = @s player_id

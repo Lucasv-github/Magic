@@ -25,7 +25,7 @@ scoreboard players operation Temp reg_1 *= 10 reg_1
 scoreboard players operation Temp reg_2 = @s weave_locked_entity_id
 scoreboard players set Temp reg_3 0
 
-execute as @e[tag=using] if score @s entity_id = Temp reg_2 if score @s current_draw <= Temp reg_1 run scoreboard players set Temp reg_3 1
+execute as @e if score @s entity_id = Temp reg_2 if score @s current_draw <= Temp reg_1 run scoreboard players set Temp reg_3 1
 
 #execute if score Temp reg_3 matches 1 run say Shield locked
 execute if score Temp reg_3 matches 1 run tag @s add shield_locked
