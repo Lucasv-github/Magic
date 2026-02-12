@@ -25,7 +25,7 @@ execute as @s unless score @s reg_1 = @s weave_spirit_count run tag @s remove we
 scoreboard players operation Temp reg_1 = @s weave_locked_player_id
 scoreboard players operation Temp reg_2 = @s weave_spirit_count
 scoreboard players operation Temp reg_2 *= 10 reg_1
-execute as @s[tag=weave_server_temp_works] as @a[tag=can_use,tag=!using] if score @s player_id = Temp reg_1 if score @s halve_amount_hold < Temp reg_2 run function magic:power_handling/sever
+execute as @s[tag=weave_server_temp_works] as @a[tag=can_use,tag=!using,tag=!circled] if score @s player_id = Temp reg_1 if score @s halve_amount_hold < Temp reg_2 run function magic:power_handling/sever
 
 function magic:weave_processing/advance_read_index
 
