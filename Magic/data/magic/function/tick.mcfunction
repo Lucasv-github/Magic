@@ -20,7 +20,7 @@ execute as @e[type=item] if items entity @s contents minecraft:carrot_on_a_stick
 execute as @a run function magic:events/player_tick
 
 #TODO branch into own function
-execute as @e[tag=can_use,scores={build=0..}] run function magic:weave_handling/entire_weave
+execute as @e[type=!player,tag=can_use,scores={build=0..}] run function magic:weave_handling/entire_weave
 
 #Remove interaction items dropped
 execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic_interaction run kill @s
