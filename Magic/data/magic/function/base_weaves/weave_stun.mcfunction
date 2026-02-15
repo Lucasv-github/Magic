@@ -15,3 +15,5 @@ execute as @e[tag=using,tag=can_use] if score @s entity_id = Temp reg_1 run scor
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get Temp reg_4
 
 execute at @s as @e[tag=using] if score @s entity_id = Temp reg_1 run function magic:magic_actions/stun with storage magic:stun
+
+data remove storage magic:stun stun_amount

@@ -18,3 +18,6 @@ execute store result storage magic:weave_launch_throw Motion[2] double 0.002 run
 
 execute anchored eyes run tp @e[tag=launched_throw,limit=1,sort=nearest] ^ ^ ^2
 data modify entity @e[tag=launched_throw,limit=1,sort=nearest] Motion set from storage magic:weave_launch_throw Motion
+
+data remove storage magic:weave_launch_throw Motion
+

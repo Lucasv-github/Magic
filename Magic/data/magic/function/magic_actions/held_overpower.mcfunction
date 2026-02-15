@@ -10,6 +10,8 @@
 execute store result storage magic:stun stun_amount int 1 run scoreboard players get 1 reg_1
 function magic:magic_actions/stun with storage magic:stun
 
+data remove storage magic:stun stun_amount
+
 #Get sum of all tied off draw_amount in Temp reg_2 and sum of all active held rest draw in Temp reg_3
 
 scoreboard players operation Temp reg_1 = @s entity_id
