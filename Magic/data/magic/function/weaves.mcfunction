@@ -116,6 +116,9 @@ execute at @s[scores={weave_dry_count=1..}] run function magic:base_weaves/weave
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_spirit_count
 execute as @s[scores={weave_read_index=1..,weave_spirit_count=6..}] if score @s weave_spirit_count = @s weave_water_count_1 run function magic:base_weaves/weave_heal with storage magic:weave_size
 
+execute store result storage magic:weave_size size int 1 run scoreboard players get @s weave_fire_count
+execute as @s[scores={weave_read_index=1..,weave_fire_count=10..}] if score @s weave_fire_count = @s weave_spirit_count_1 run function magic:base_weaves/weave_heal_stilling with storage magic:weave_size
+
 #Delving
 execute as @s[scores={weave_delve_count=1..}] run function magic:base_weaves/weave_delve
 

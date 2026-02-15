@@ -3,7 +3,7 @@ function magic:weave_processing/advance_read_index
 scoreboard players set Temp reg_1 1
 function magic:weave_processing/count_weave_single
 
-execute as @s if score @s weave_spirit_count = @s reg_1 run tag @s add weave_travel_temp_works
+execute as @s if score @s weave_spirit_count = @s reg_1 run tag @s add weave_heal_temp_works
 
 
 function magic:weave_processing/advance_read_index
@@ -11,20 +11,20 @@ function magic:weave_processing/advance_read_index
 scoreboard players set Temp reg_1 4
 function magic:weave_processing/count_weave_single
 
-execute as @s unless score @s weave_spirit_count = @s reg_1 run tag @s remove weave_travel_temp_works
+execute as @s unless score @s weave_spirit_count = @s reg_1 run tag @s remove weave_heal_temp_works
 
 function magic:weave_processing/advance_read_index
 
 scoreboard players set Temp reg_1 5
 function magic:weave_processing/count_weave_single
 
-execute as @s unless score @s weave_spirit_count = @s reg_1 run tag @s remove weave_travel_temp_works
+execute as @s unless score @s weave_spirit_count = @s reg_1 run tag @s remove weave_heal_temp_works
 
 function magic:weave_processing/advance_read_index
 
 scoreboard players operation Temp reg_1 = @s weave_locked_entity_id
 
-execute as @s[tag=weave_travel_temp_works] as @e if score @s entity_id = Temp reg_1 run tag @s add heal_me
+execute as @s[tag=weave_heal_temp_works] as @e if score @s entity_id = Temp reg_1 run tag @s add heal_me
 
 #Prevent self
 execute if score @a[tag=heal_me,limit=1] player_id = @s weave_owner_player_id run tag @e remove heal_me
@@ -53,4 +53,4 @@ $scoreboard players add Remove_force reg_1 $(size)
 execute as @a[tag=heal_me,tag=using,tag=can_use] run function magic:power_handling/remove_force_amount
 
 tag @e remove heal_me
-tag @s remove weave_travel_temp_works
+tag @s remove weave_heal_temp_works
