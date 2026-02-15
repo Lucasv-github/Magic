@@ -32,17 +32,6 @@ scoreboard players enable @a[tag=admin] set_regenerated
 scoreboard players enable @s[tag=admin] magic_balefire_ban
 scoreboard players enable @s[tag=admin] magic_auto_ability_state
 
-#Reset all these so math works
-scoreboard players add @s regenerated_strength 0
-
-#Level should be one normaly
-scoreboard players add @s angreal_level 0
-execute as @s if score @s angreal_level matches 0 run scoreboard players set @s angreal_level 1
-
-scoreboard players add @s stage 0
-
-scoreboard players add @s disguise 0
-
 execute unless score @s use_items matches -2147483647.. run scoreboard players set @s use_items 1
 execute unless score @s use_items_current matches -2147483647.. run scoreboard players set @s use_items_current 1
 

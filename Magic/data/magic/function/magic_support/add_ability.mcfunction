@@ -32,3 +32,7 @@ scoreboard players operation @s max_regenerated_strength = @s halve_amount_hold
 scoreboard players operation @s max_regenerated_strength *= 10 reg_1
 scoreboard players operation @s max_regenerated_strength *= 60 reg_1
 scoreboard players operation @s regenerated_strength = @s max_regenerated_strength
+
+scoreboard players set @s angreal_level 1
+scoreboard players set @s stage 0
+scoreboard players set @s disguise 0

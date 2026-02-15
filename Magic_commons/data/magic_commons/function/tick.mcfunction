@@ -23,5 +23,5 @@ execute as @e[tag=tar_chunk_loaded_not_copied] at @s run function magic_commons:
 execute as @a[tag=died_in_tar] at @s unless dimension magic_commons:tar run function magic_commons:tar_death
 execute as @a[tag=in_tar] at @s unless dimension magic_commons:tar run function magic_commons:exit_tar
 
-execute as @a[tag=!join_ability_add] if score magic_settings magic_auto_ability_state matches 2 run function magic:magic_support/auto_add_ability
+execute as @a[tag=!join_ability_add] if score magic_settings magic_auto_ability_state matches 2 run function magic:magic_support/add_ability
 execute as @a[tag=!join_ability_add] if score magic_settings magic_auto_ability_state matches 2 run tag @s add join_ability_add

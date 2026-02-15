@@ -18,6 +18,10 @@ execute if score Temp reg_1 > @s current_draw run function magic:power_handling/
 execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run return 0
 
 execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[custom_data~{Magic:6}] 0
+
+#Non player patch
+scoreboard players set @s[type=!player] reg_1 10
+
 function magic:power_handling/calculate_draw
 
 scoreboard players operation @s current_draw = @s reg_1

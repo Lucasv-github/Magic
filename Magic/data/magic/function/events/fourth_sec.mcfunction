@@ -5,4 +5,4 @@
 #Authors: Lprogrammer
 ################################################################################
 
-execute as @a[tag=can_use,tag=using,scores={disguise=0}] run function magic:display/display_player_glow
+execute as @e[tag=using,scores={disguise=0}] run function magic:display/display_player_glow

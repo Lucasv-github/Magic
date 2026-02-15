@@ -5,6 +5,8 @@
 #Authors: Lprogrammer
 ################################################################################
 
+#say remove cleanup
+
 function magic:weave_handling/unregister_rest_draw
 
 #Travel: This is supposed to run as the "main" else everything will fail

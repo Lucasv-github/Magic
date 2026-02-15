@@ -1,4 +1,4 @@
-function magic:magic_support/auto_add_ability
+function magic:magic_support/add_ability
 
 execute store result score @s magic_pve_my_tick run random value 0..20
 
