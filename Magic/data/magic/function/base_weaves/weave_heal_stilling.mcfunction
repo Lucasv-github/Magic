@@ -38,7 +38,7 @@ execute at @s unless entity @e[tag=heal_me,distance=..5] run tag @e remove heal_
 #Remove if not strong enough
 scoreboard players operation Temp reg_1 = @e[tag=heal_me] halve_amount_hold
 scoreboard players operation Temp reg_1 /= 10 reg_1
-$execute unless score Temp reg_1 matches $(size).. run tag @e remove heal_me
+$execute if score Temp reg_1 matches $(size).. run tag @e remove heal_me
 
 tag @e[tag=heal_me] remove stilled
 tag @e[tag=heal_me] add can_use
