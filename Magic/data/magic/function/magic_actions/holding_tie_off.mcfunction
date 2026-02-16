@@ -41,7 +41,7 @@ execute if score Temp reg_3 < Temp reg_4 as @e[type=minecraft:armor_stand,tag=ta
 scoreboard players operation Temp reg_1 = Temp reg_2
 execute store result storage magic:weave_copies_remove_index i int 1 run scoreboard players get 0 reg_1
 execute store result storage magic:weave_copies_remove_index player_id int 1 run scoreboard players get @s player_id
-function magic:weave_handling/weave_copies_remove_index with storage magic:weave_copies_remove_index
+execute as @s[type=player] run function magic:weave_handling/weave_copies_remove_index with storage magic:weave_copies_remove_index
 
 data remove storage magic:weave_copies_remove_index i
 data remove storage magic:weave_copies_remove_index player_id

@@ -12,7 +12,7 @@ scoreboard players add @s weave_count 1
 execute store result storage magic:weave_copies_add_index player_id int 1 run scoreboard players get @s player_id
 execute store result storage magic:weave_copies_add_index player_weave_index int 1 run scoreboard players get @s player_weave_index
 
-function magic:weave_handling/weave_copies_add_index with storage magic:weave_copies_add_index
+execute as @s[type=player] run function magic:weave_handling/weave_copies_add_index with storage magic:weave_copies_add_index
 
 data remove storage magic:weave_copies_add_index player_id
 data remove storage magic:weave_copies_add_index player_weave_index
