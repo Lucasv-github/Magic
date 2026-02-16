@@ -10,3 +10,5 @@ execute at @s[scores={reg_1=1}] run tag @s add weave_bind
 
 #Lock bound
 execute at @s[scores={reg_1=2}] run tag @s add weave_bind
+
+function magic:weave_processing/advance_read_index
