@@ -5,8 +5,8 @@
 #Authors: Lprogrammer
 ################################################################################
 
-execute as @a[tag=can_use, tag=using] run function magic:power_handling/periodic_draw
-execute as @a[tag=can_use, tag=using,tag=circle_owner] run function magic:power_handling/periodic_draw_circle
+execute as @e[tag=can_use, tag=using] run function magic:power_handling/periodic_draw
+execute as @e[tag=can_use, tag=using,tag=circle_owner] run function magic:power_handling/periodic_draw_circle
 
 #Run tied off wards
 tag @e[type=minecraft:armor_stand,tag=target_point, tag=tied_off, scores={weave_remaining_time=1..},tag=weave_ward] add running_tied

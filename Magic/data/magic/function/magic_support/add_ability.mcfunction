@@ -18,6 +18,8 @@ execute store result storage magic:get_normal_distributed_index index int 1 run 
 
 function magic:math/get_normal_distributed with storage magic:get_normal_distributed_index
 
+data remove storage magic:get_normal_distributed_index index
+
 scoreboard players operation @s reg_2 *= @s reg_1
 
 scoreboard players operation @s reg_2 /= 100 reg_1

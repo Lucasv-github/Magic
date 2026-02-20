@@ -38,7 +38,7 @@ scoreboard players operation Temp reg_2 = @s cumulative_halve_amount_hold
 scoreboard players operation Temp reg_2 -= Temp reg_1
 execute if score Temp reg_2 matches ..0 run tag @s add calculate_draw_temp_exit
 
-#execute if score Temp reg_1 matches 1.. run tellraw @a ["",{text:"Draw reduced: ",color:"blue"},{score:{name:"Temp",objective:"reg_2"},color:"blue"}]
+execute if score Temp reg_1 matches 1.. run tellraw @a ["",{text:"Draw reduced: ",color:"blue"},{score:{name:"Temp",objective:"reg_2"},color:"blue"}]
 
 execute as @s[tag=calculate_draw_temp_exit] run function magic:power_handling/exit
 execute as @s[tag=calculate_draw_temp_exit, tag=shield_sever] run function magic:power_handling/sever
