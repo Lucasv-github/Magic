@@ -17,13 +17,23 @@ execute as @e[tag=weave_bind] run function magic:weave_actions/bind_lock
 #Need to be before player tick
 execute as @e[type=item] if items entity @s contents minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] run function magic:cleanup/remove_cleanup_player_single
 
+#Remove interaction items dropped
+#Need to be below weave cleanup
+execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic_interaction run kill @s
+
 execute as @a run function magic:events/player_tick
+
 
 #TODO branch into own function
 execute as @e[type=!player,tag=can_use,scores={build=0..}] run function magic:weave_handling/entire_weave
 
-#Remove interaction items dropped
-execute as @e[type=item] if data entity @s Item.components.minecraft:custom_data.Magic_interaction run kill @s
+execute as @e[type=!player,tag=can_use,tag=need_weave_flush] run function magic:weave_handling/give_current_weave
+
+tag @e remove need_weave_flush
+
+
+execute as @e[type=minecraft:chest_minecart,tag=magic_pve_inventory,predicate=!magic:has_vehicle] run function magic:events/pve_death
+
 
 #Clean old weaves
 kill @e[type=minecraft:armor_stand,tag=target_point, scores={weave_despawn_time=0},tag=!actively_held]

@@ -125,7 +125,8 @@ execute if items entity @s hotbar.8 * unless items entity @s hotbar.8 minecraft:
 execute if items entity @s hotbar.8 * unless items entity @s hotbar.8 minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:8}] at @s run item replace entity @e[tag=move_slot_8,sort=nearest,limit=1] container.0 from entity @s hotbar.8
 kill @e[tag=move_slot_8]
 
-item replace entity @s hotbar.8 from entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0
+item replace entity @s[type=player] hotbar.8 from entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0
+execute as @s[type=!player] on passengers run item replace entity @s container.0 from entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0
 
 #Prevent dropped item which would f remove cleanup player single
 item replace entity @e[sort=nearest, tag=give_current_weave] container.0 with minecraft:air
