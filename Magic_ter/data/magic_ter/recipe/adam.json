@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " b ",
+    " sr",
+    " i "
+  ],
+  "key": {
+    "b": [
+      "minecraft:netherite_block"
+    ],
+    "s": [
+      "minecraft:nether_star"
+    ],
+    "i": [
+      "minecraft:netherite_ingot"
+    ],
+    "r": [
+      "minecraft:iron_chain"
+    ]
+  },
+  "result": {
+    "id": "minecraft:carrot_on_a_stick",
+    "components": {
+      "minecraft:custom_name": "a'dam",
+      "minecraft:item_model": "magic_resourcepack:adam",
+      "minecraft:custom_data": "{Magic_ter_adam:0}"
+    }
+  }
+}
