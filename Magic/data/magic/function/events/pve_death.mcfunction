@@ -5,5 +5,10 @@
 #Authors: Lprogrammer
 ################################################################################
 
-#We want to spill out the weave to destroy it
+say PVE death
+
+#We want to spill out the weaves to clean them up
+scoreboard players operation Temp reg_1 = @s magic_pve_owner_entity_id
+execute as @e[type=minecraft:chest_minecart,tag=magic_pve_inventory] if score @s magic_pve_owner_entity_id = Temp reg_1 run kill @s
+
 kill @s

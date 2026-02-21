@@ -5,6 +5,7 @@
 #Authors: Lprogrammer
 ################################################################################
 
+execute as @s[type=!player] run function magic:power_handling/pve_exit
 
 tag @s add current_player_for_log
 execute if score magic_settings magic_debug_state matches 2 run function magic:debug/console_write_exit

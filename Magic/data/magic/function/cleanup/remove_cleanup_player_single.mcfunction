@@ -30,6 +30,8 @@ execute as @e[tag=remove_cleanup_player_single_temp] run function magic:cleanup/
 execute unless entity @e[tag=remove_cleanup_player_single_temp] store result storage magic:remove_weave_data index int 1 run data get entity @s Item.components.minecraft:custom_data.Player_weave_index
 execute unless entity @e[tag=remove_cleanup_player_single_temp] run function magic:cleanup/remove_weave_data with storage magic:remove_weave_data
 
+data remove storage magic:remove_weave_data index
+
 tag @e remove remove_cleanup_player_single_temp
 
 kill @s

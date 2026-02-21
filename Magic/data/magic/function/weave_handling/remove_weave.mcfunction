@@ -5,6 +5,8 @@
 #Authors: Lprogrammer
 ################################################################################
 
+tellraw @p {score:{name:"Temp",objective:"reg_2"},color:"dark_purple"}
+
 #The player remove weave will only handle player item removal
 scoreboard players operation Temp reg_1 = @s weave_owner_player_id
 scoreboard players operation Temp reg_2 = @s player_weave_index

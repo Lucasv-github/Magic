@@ -32,7 +32,7 @@ execute as @e[type=!player,tag=can_use,tag=need_weave_flush] run function magic:
 tag @e remove need_weave_flush
 
 
-execute as @e[type=minecraft:chest_minecart,tag=magic_pve_inventory,predicate=!magic:has_vehicle] run function magic:events/pve_death
+execute as @e[type=minecraft:armor_stand,tag=magic_pve_death_detect,predicate=!magic:has_vehicle] run function magic:events/pve_death
 
 
 #Clean old weaves
