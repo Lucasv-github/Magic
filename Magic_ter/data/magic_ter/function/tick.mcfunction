@@ -5,7 +5,7 @@ execute as @a[scores={click=1..},tag=can_use] if items entity @s weapon.mainhand
 execute as @a[scores={click=1..},tag=can_use] if items entity @s weapon.mainhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic_ter_adam:1}] at @s run function magic_ter:adam_reopen 
 
 #Detect adam removal sneak time
-execute as @a[scores={sneak_time=100}] at @s as @a[tag=damane,distance=..2] run function magic_ter:adam_exit
+execute as @a[scores={sneak_time=100}] at @s as @a[tag=damane,distance=0.1..2] run function magic_ter:adam_exit
 
 #Detect damane death
 execute as @a[tag=damane,limit=1,scores={magic_ter_death=1}] run function magic_ter:adam_death

@@ -2,7 +2,7 @@
 #Purpose: Removes adam from player and drops adam collar item
 #Runner: collared player (damane)
 #Return values:
-#Authors: Boblegrob
+#Authors: Boblegrob & Lprogrammer
 ################################################################################
 
 item replace entity @s armor.head with air 
@@ -11,6 +11,5 @@ give @n[scores={sneak_time=100},type=player] carrot_on_a_stick[custom_name=[{"te
 scoreboard players operation Temp reg_1 = @s entity_id
 execute as @e[type=minecraft:armor_stand,tag=damane_shield] if score @s weave_locked_entity_id = Temp reg_1 run kill @s
 
-tag @s remove external_tap_blocked
 tag @s remove damane
 
