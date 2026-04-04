@@ -268,4 +268,4 @@ function magic_commons:verify_presence
 execute if score Temp reg_1 matches 0 run tellraw @a ["",{"text":"This datapack needs magic_commons to function, download it from: ","bold":true,"color":"dark_red"},{"text":"https://github.com/Lucasv-github/Magic/","color":"blue","click_event":{"action":"open_url","url":"https://github.com/Lucasv-github/Magic/"}}]
 
 
-tellraw @a {"text":"Magic 1.21.11-6 loaded","bold":true,"color":"gold"}
+tellraw @a {"text":"Magic 26.1-7 loaded","bold":true,"color":"gold"}
