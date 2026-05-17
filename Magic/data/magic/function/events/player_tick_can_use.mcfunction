@@ -6,6 +6,10 @@
 ################################################################################
 
 #Enable triggers
+scoreboard players enable @s x
+scoreboard players enable @s y
+scoreboard players enable @s z
+
 scoreboard players enable @s use_items
 scoreboard players enable @s a
 scoreboard players enable @s e

@@ -101,6 +101,10 @@ scoreboard objectives add disguise dummy
 scoreboard objectives add weave_remaining_time dummy
 scoreboard objectives add weave_despawn_time dummy
 
+scoreboard objectives add x trigger
+scoreboard objectives add y trigger
+scoreboard objectives add z trigger
+
 scoreboard objectives add destination_x dummy
 scoreboard objectives add destination_y dummy
 scoreboard objectives add destination_z dummy
