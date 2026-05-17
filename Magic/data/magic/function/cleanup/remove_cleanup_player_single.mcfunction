@@ -6,8 +6,7 @@
 ################################################################################
 
 #Using entity id here to make it work if a PVE mob somehow drops their weave
-scoreboard players set Temp reg_2 0
-execute at @s run scoreboard players operation Temp reg_2 = @n[tag=using,distance=..2] entity_id
+execute store result score Temp reg_2 run data get entity @s Item.components.minecraft:custom_data.Owner_entity_id
 
 execute store result score Temp reg_3 run data get entity @s Item.components.minecraft:custom_data.Player_weave_index
 

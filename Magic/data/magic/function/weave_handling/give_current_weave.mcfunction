@@ -10,6 +10,7 @@ item replace entity @e[limit=1,sort=nearest, tag=give_current_weave] container.0
 
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.Player_weave_index int 1.0 run scoreboard players get @s player_weave_index
 execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.Magic_session int 1.0 run scoreboard players get @s magic_session
+execute store result entity @e[limit=1,sort=nearest, tag=give_current_weave] Items[0].components.minecraft:custom_data.Owner_entity_id int 1.0 run scoreboard players get @s entity_id
 
 #execute store result score Temp reg_1 run clear @s carrot_on_a_stick[custom_data~{Magic:8}] 0
 #scoreboard players operation Temp reg_1 = @s player_weave_index
