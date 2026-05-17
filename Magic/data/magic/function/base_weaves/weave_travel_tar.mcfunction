@@ -1,5 +1,3 @@
-say wtt
-
 function magic:weave_processing/advance_read_index
 
 scoreboard players set Temp reg_1 5

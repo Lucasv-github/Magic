@@ -5,9 +5,6 @@
 #Authors: Lprogrammer
 ################################################################################
 
-scoreboard players operation @s weave_execute_random_number = #random_id player_id
-scoreboard players add #random_id player_id 1
-
 forceload add ~ ~
 
 setblock ~ ~ ~ minecraft:barrier
@@ -41,7 +38,7 @@ setblock ~2 ~-2 ~ repeating_command_block{auto:1b,conditional:1b,Command:"execut
 summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Invisible:1b,Marker:1b, Tags:["gateway_end_temp"]}
 #summon armor_stand ~ ~ ~ {Invulnerable:1b, NoGravity:1b, NoGravity:1b, Tags:["gateway_end_temp"]}
 
-scoreboard players operation @e[tag=gateway_end_temp,limit=1,sort=nearest] weave_execute_random_number = @s weave_execute_random_number
+scoreboard players operation @e[tag=gateway_end_temp,limit=1,sort=nearest] player_weave_index = @s player_weave_index
 
 
 scoreboard players operation @e[tag=gateway_end_temp,limit=1,sort=nearest] position_x = @s destination_x
