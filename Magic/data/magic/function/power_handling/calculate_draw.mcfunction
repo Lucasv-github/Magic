@@ -40,7 +40,9 @@ execute if score Temp reg_2 matches ..0 run tag @s add calculate_draw_temp_exit
 
 #execute if score Temp reg_1 matches 1.. run tellraw @a ["",{text:"Draw reduced: ",color:"blue"},{score:{name:"Temp",objective:"reg_2"},color:"blue"}]
 
+tag @s add exit_reason_shielded
 execute as @s[tag=calculate_draw_temp_exit] run function magic:power_handling/exit
+tag @s remove exit_reason_shielded
 execute as @s[tag=calculate_draw_temp_exit, tag=shield_sever] run function magic:power_handling/sever
 
 execute as @s[tag=calculate_draw_temp_exit,scores={sneak_time=..20,regenerated_strength=1..}] run function magic:magic_actions/tied_shield_unknot

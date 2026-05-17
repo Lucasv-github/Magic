@@ -13,6 +13,8 @@
 
 function magic:magic_actions/get_total_current_drain
 execute if score Temp reg_1 > @s current_draw run function magic:power_handling/exit
+#Prevents among other things double exit message
+execute as @s[tag=!using] run return 0
 
 #Can't draw more even with one of these
 execute as @s[tag=!welled] if score @s tap_block_percentage matches 1.. run return 0
@@ -23,6 +25,8 @@ execute store result score @s reg_1 run clear @s minecraft:carrot_on_a_stick[cus
 scoreboard players set @s[type=!player] reg_1 10
 
 function magic:power_handling/calculate_draw
+#Bail if shielded
+execute as @s[tag=!using] run return 0
 
 scoreboard players operation @s current_draw = @s reg_1
 

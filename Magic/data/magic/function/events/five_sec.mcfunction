@@ -12,8 +12,6 @@ execute at @e[tag=target_point,tag=!inverted] run particle minecraft:glow ~ ~2 ~
 execute as @e[tag=nonplayer_origin,tag=tied_off,scores={weave_remaining_time=1..}] run function magic:cleanup/remove_no_owner
 execute as @e[tag=nonplayer_origin,tag=actively_held] run function magic:cleanup/remove_no_owner
 
-execute as @a[scores={regenerated_strength=1.., shilded=1..,click_counter=10..,break_tied=0}, tag=!using, tag=can_use, tag=!circled,tag=!can_break_free] run function magic:magic_actions/try_break_held
-
 #Messages
 execute as @a[tag=can_use, tag=using, tag=circle_owner] run function magic:display/circle_info
 
