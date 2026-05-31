@@ -1,7 +1,8 @@
-#TODO random should destabilize
+#Clutter to prevent FFF from making a decent explosing
 
+scoreboard players set @s reg_1 0
 scoreboard players set Temp reg_1 3
-function magic:weave_processing/count_weave_single
+execute if score @s weave_read_index matches 1.. run function magic:weave_processing/count_weave_single
 
 execute store result storage magic:weave_size size int 1 run scoreboard players get @s reg_1
 
