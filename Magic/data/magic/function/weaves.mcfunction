@@ -38,6 +38,11 @@ function magic:weave_processing/match_weave
 execute as @s[scores={reg_1=1}] run function magic:base_weaves/weave_cut_items
 execute as @s[scores={reg_1=1}] run return 0
 
+scoreboard players set Temp reg_1 7
+function magic:weave_processing/match_weave
+execute as @s[scores={reg_1=1}] run function magic:base_weaves/weave_blindess
+execute as @s[scores={reg_1=1}] run return 0
+
 function magic:weave_handling/weave_counters
 
 

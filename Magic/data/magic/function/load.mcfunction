@@ -265,6 +265,9 @@ data merge storage magic:match_weave_5 {Elements:[5,5,1,2,1,5,5]}
 #Cut items
 data merge storage magic:match_weave_6 {Elements:[3,1,3,-1,1,3,1,-1,3,1,3,-1,3,1,3]}
 
+#Blindess
+data merge storage magic:match_weave_7 {Elements:[1,3,3,1,-1,1,1,1,1,-1,1,3,3,1]}
+
 #Make sure we have commons
 scoreboard players set Temp reg_1 0
 function magic_commons:verify_presence
