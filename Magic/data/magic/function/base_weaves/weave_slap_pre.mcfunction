@@ -5,6 +5,7 @@ scoreboard players operation Temp reg_1 = @s weave_owner_entity_id
 execute as @e[tag=using,tag=can_use] if score @s entity_id = Temp reg_1 run tag @s add slapper
 
 scoreboard players operation Temp reg_1 = @s weave_locked_entity_id
+scoreboard players operation @s reg_1 /= 10 reg_1
 execute store result storage magic:damage amount int 1 run scoreboard players get @s reg_1
 execute as @e if score @s entity_id = Temp reg_1 run function magic:base_weaves/weave_slap with storage magic:damage
 

@@ -37,8 +37,14 @@ execute as @s[tag=weave_throw] as @e[tag=weave_thrower] if score @s player_weave
 #Levitate
 execute as @s[tag=weave_levitate] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:levitation
 
+#Slowness
+execute as @s[tag=weave_slow] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:slowness
+
+#Slowfall
+execute as @s[tag=weave_slowfall] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:slow_falling
+
 #Blindess
-execute as @s[tag=weave_blindness] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:blindness
+execute as @s[tag=weave_blind] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:blindness
 
 #Invisibility
 execute as @s[tag=weave_invisibility] as @e if score @s entity_id = Temp reg_3 run effect clear @s minecraft:invisibility

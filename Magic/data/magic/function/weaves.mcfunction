@@ -40,7 +40,7 @@ execute as @s[scores={reg_1=1}] run return 0
 
 scoreboard players set Temp reg_1 7
 function magic:weave_processing/match_weave
-execute as @s[scores={reg_1=1}] run function magic:base_weaves/weave_blindess
+execute as @s[scores={reg_1=1}] run function magic:base_weaves/weave_blind
 execute as @s[scores={reg_1=1}] run return 0
 
 function magic:weave_handling/weave_counters
@@ -143,14 +143,20 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 #Slap
 execute as @s[scores={weave_air_count=2,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0,weave_fire_count_1=0}] run function magic:base_weaves/weave_slap_pre
 
-#Levitate
-execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_levitate_pre
-
-#Throw
-execute as @s[scores={weave_air_count=4,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_throw
+#Slow
+execute as @s[scores={weave_air_count=3,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_slow_pre
 
 #Bind
-execute as @s[scores={weave_air_count=5,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_bind
+execute as @s[scores={weave_air_count=4,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_bind
+
+#Throw
+execute as @s[scores={weave_air_count=5,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_throw
+
+#Slowfall
+execute as @s[scores={weave_air_count=6,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_slowfall_pre
+
+#Levitate
+execute as @s[scores={weave_air_count=7,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0}] run function magic:base_weaves/weave_levitate_pre
 
 
 #Fireball land
