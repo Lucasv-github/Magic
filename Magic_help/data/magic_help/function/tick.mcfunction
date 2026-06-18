@@ -15,7 +15,7 @@ execute as @a[tag=magic_help_interactive_tutorial_wait_drop,tag=!built] run func
 
 execute as @a[tag=magic_help_interactive_tutorial_wait_kill] at @s unless entity @e[distance=..100,type=minecraft:zombie,tag=magic_help_interactive_tutorial_enemy] run function magic_help:interactive_tutorial_stage_5
 
-execute as @a[tag=magic_help_interactive_tutorial_wait_bind] at @s as @e[type=villager,tag=magic_help_interactive_tutorial_villager,sort=nearest,limit=1] if predicate {"condition":"minecraft:entity_properties","entity":"this","predicate":{"vehicle":{"type":"minecraft:armor_stand"}}} as @a[limit=1,sort=nearest] run function magic_help:interactive_tutorial_stage_6
+execute as @a[tag=magic_help_interactive_tutorial_wait_bind] at @s as @e[type=villager,tag=magic_help_interactive_tutorial_villager,sort=nearest,limit=1] if predicate {"condition":"minecraft:entity_properties","entity":"this","predicate":{"minecraft:vehicle":{"minecraft:entity_type":"minecraft:armor_stand"}}} as @a[limit=1,sort=nearest] run function magic_help:interactive_tutorial_stage_6
 
 execute as @a[tag=magic_help_interactive_tutorial_wait_unbind,tag=!built] run function magic_help:interactive_tutorial_stage_7
 
