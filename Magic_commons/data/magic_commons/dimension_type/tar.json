@@ -5,7 +5,7 @@
   "coordinate_scale": 1,
   "ambient_light": 1,
   "logical_height": 320,
-  "infiniburn": "#magic_commons:tar",
+  "infiniburn": [],
   "min_y": -64,
   "height": 320,
   "monster_spawn_light_level": 0,
