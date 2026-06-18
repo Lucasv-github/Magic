@@ -2,7 +2,7 @@
 setlocal enableDelayedExpansion
 
 set "MINECRAFT_TRY_1=%APPDATA%\.minecraft\"
-set PYTHON_FILE=%CD%\Patch_entity_loot.py
+set PYTHON_FILE=%~dp0\Patch_entity_loot.py
 
 if exist %MINECRAFT_TRY_1% (
     set MINECRAFT_FOLDER=%MINECRAFT_TRY_1%
