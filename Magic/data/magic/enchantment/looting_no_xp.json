@@ -2,7 +2,7 @@
   "anvil_cost": 0,
   "description": "looting no xp",
   "effects": {
-    "minecraft:equipment_drops": [
+   "minecraft:equipment_drops": [
       {
         "effect": {
           "type": "minecraft:add",
@@ -17,7 +17,7 @@
           "condition": "minecraft:entity_properties",
           "entity": "attacker",
           "predicate": {
-            "type": "minecraft:player"
+            "minecraft:entity_type": "minecraft:player"
           }
         }
       }
