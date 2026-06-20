@@ -47,11 +47,6 @@ execute as @s[tag=calculate_draw_temp_exit] run function magic:power_handling/ex
 tag @s remove exit_reason_shielded
 execute as @s[tag=calculate_draw_temp_exit, tag=shield_sever] run function magic:power_handling/sever
 
-execute as @s[tag=calculate_draw_temp_exit,scores={sneak_time=..20,regenerated_strength=1..}] run function magic:magic_actions/tied_shield_unknot
-execute as @s[tag=calculate_draw_temp_exit,scores={sneak_time=..100,regenerated_strength=1..}] run function magic:display/display_shields
-execute as @s[tag=calculate_draw_temp_exit,scores={sneak_time=100..,regenerated_strength=1..}] run function magic:display/display_shields_change
-execute as @s[tag=calculate_draw_temp_exit,scores={regenerated_strength=1..}] run function magic:magic_actions/held_overpower
-
 tag @s remove shield_sever
 tag @s remove calculate_draw_temp_exit
 

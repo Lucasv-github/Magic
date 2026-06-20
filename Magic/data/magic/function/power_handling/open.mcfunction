@@ -61,6 +61,11 @@ scoreboard players operation @s total_draw_amount = @s current_held
 #Will exit if we are unable to tap
 function magic:power_handling/tap_power
 
+#Only run if shielded, be it partial or fully obviously
+scoreboard players operation Temp reg_1 = @s entity_id
+function magic_commons:hooks/get_shielded_lower
+execute unless score Temp reg_1 matches 0 run function magic:power_handling/shielded_actions
+
 #Store this to make use easier
 execute as @s[tag=using] run function magic:inventory/store_hotbar
 

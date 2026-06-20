@@ -11,6 +11,8 @@ function magic:weave_handling/get_rest_draw
 scoreboard players operation Temp reg_1 /= 10 reg_1
 scoreboard players operation @s current_sink = Temp reg_1
 
+#Right now it feels best and most accurate this way, with each shield requiring x3 before they snap on and take effect, thus they don't share this amount and I will say it again they need to snap on individually
+
 #Good old 3:1
 scoreboard players operation Temp reg_1 /= 3 reg_1
 
@@ -27,7 +29,9 @@ scoreboard players set Temp reg_3 0
 
 execute as @e if score @s entity_id = Temp reg_2 if score @s current_draw <= Temp reg_1 run scoreboard players set Temp reg_3 1
 
-execute if score Temp reg_3 matches 1 run say Shield locked
+execute if score Temp reg_3 matches 1 as @s[tag=!shield_locked] run function magic:display/tell_shielder_owner
+
+#execute if score Temp reg_3 matches 1 run say Shield locked
 execute if score Temp reg_3 matches 1 run tag @s add shield_locked
 
 function magic:weave_processing/advance_read_index
