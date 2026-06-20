@@ -66,6 +66,9 @@ if not exist "%BUILD_FOLDER%" mkdir "%BUILD_FOLDER%"
 if exist "%BUILD_FOLDER%\Magic\" echo Removing Magic: %BUILD_FOLDER%\Magic\
 if exist "%BUILD_FOLDER%\Magic\" rd /q /s "%BUILD_FOLDER%\Magic\"
 
+::Icon from resourcepack used in datapack
+xcopy /s "%WORKSPACE_RESOURCEPACK_FOLDER%\Magic_resourcepack\pack.png" "%BUILD_FOLDER%\Magic\pack.png"
+
 ::Copy to build folder
 xcopy /s "%WORKSPACE_DATAPACK_FOLDER%\Magic" "%BUILD_FOLDER%\Magic\"
 
