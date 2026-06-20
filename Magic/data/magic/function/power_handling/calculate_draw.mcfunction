@@ -34,7 +34,9 @@ scoreboard players operation Temp reg_1 = @s entity_id
 function magic_commons:hooks/get_shielded_lower
 
 #Calculate new cumulative halve amount hold that takes shield reduction into account
-scoreboard players operation Temp reg_2 = @s cumulative_halve_amount_hold
+scoreboard players operation Temp reg_2 = @s halve_amount_hold
+#Bypass for already using to make angreal have an effect only when already using
+scoreboard players operation Temp reg_2 = @s[tag=using] cumulative_halve_amount_hold
 scoreboard players operation Temp reg_2 -= Temp reg_1
 execute if score Temp reg_2 matches ..0 run tag @s add calculate_draw_temp_exit
 
