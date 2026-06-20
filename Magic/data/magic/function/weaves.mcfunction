@@ -139,6 +139,8 @@ execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,w
 #Shield
 execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=3,weave_spirit_count_1=1}] run function magic:base_weaves/weave_shield
 
+#Shield punish
+execute as @s[scores={weave_air_count=0,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=10..}] run function magic:base_weaves/weave_shielder_punish
 
 #Slap
 execute as @s[scores={weave_air_count=2,weave_earth_count=0,weave_fire_count=0,weave_water_count=0,weave_spirit_count=0,weave_fire_count_1=0}] run function magic:base_weaves/weave_slap_pre
