@@ -36,7 +36,7 @@ scoreboard players operation Temp reg_1 *= 100 reg_1
 scoreboard players operation Temp reg_1 /= Temp reg_2
 
 #Adjust
-scoreboard players operation Temp reg_1 /= 3 reg_1
+scoreboard players operation Temp reg_1 /= 60 reg_1
 
 #tellraw @a ["",{text:"Total hurt: ",color:"light_purple"},{score:{name:"Temp",objective:"reg_1"},color:"light_purple"}]
 
