@@ -11,7 +11,7 @@ execute as @s[scores={use_items=0..}] run function magic:magic_actions/set_mode_
 
 #Exit without eyes
 execute unless items entity @s container.* minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:6}] run function magic:power_handling/exit
-execute unless items entity @s[tag=circle_owner] container.* minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run function magic:power_handling/exit
+execute unless items entity @s[tag=circle_owner] container.* minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] unless items entity @s[tag=circle_owner] weapon.offhand minecraft:carrot_on_a_stick[minecraft:custom_data~{Magic:9}] run function magic:power_handling/exit
 execute as @s[tag=!using] run return 0
 
 #Weave count checking
