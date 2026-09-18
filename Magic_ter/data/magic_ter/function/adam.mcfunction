@@ -20,11 +20,11 @@ scoreboard players operation @n[type=minecraft:armor_stand] shield_lower_amount 
 execute as @n[type=armor_stand,tag=damane_shield] in minecraft:overworld run tp @s 0 -80 0
 
 #Texture change & more tags if succeeded
-execute if score Temp reg_1 matches 1 run item modify entity @s weapon.mainhand {"function":"minecraft:set_components","components":{"minecraft:item_model":"magic_resourcepack:adam_bracelet","minecraft:custom_data":{"Magic_ter_adam":1}}}
+execute if score Temp reg_1 matches 1 run item modify entity @s weapon.mainhand {"type":"minecraft:set_components","components":{"minecraft:item_model":"magic_resourcepack:adam_bracelet","minecraft:custom_data":{"Magic_ter_adam":1}}}
 
 #Bind damane player id to adam
 execute store result storage magic_ter:damane_id player_id int 1 run scoreboard players get @a[tag=damane_temp,limit=1] player_id
-item modify entity @s weapon.mainhand {"function":"minecraft:copy_custom_data","source":{"type":"minecraft:storage","source":"magic_ter:damane_id"},"ops":[{"source":"player_id","target":"player_id","op":"replace"}]}
+item modify entity @s weapon.mainhand {"type":"minecraft:copy_custom_data","source":{"type":"minecraft:storage","source":"magic_ter:damane_id"},"ops":[{"source":"player_id","target":"player_id","op":"replace"}]}
 data remove storage magic_ter:damane_id player_id
 
 execute as @a[tag=damane_temp] run function magic:power_handling/force_circle
