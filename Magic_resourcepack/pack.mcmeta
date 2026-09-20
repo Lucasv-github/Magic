@@ -1,8 +1,14 @@
 {
   "pack": {
     "description": "Textures for Magic! by Lprogrammer and Boblegrob",
-    "pack_format": 88.0,
-    "min_format": 88.0,
-    "max_format": 88.0
+    "pack_format": 97,
+    "min_format": [
+      97,
+      1
+    ],
+    "max_format": [
+      97,
+      1
+    ]
   }
 }

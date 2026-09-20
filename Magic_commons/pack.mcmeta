@@ -1,8 +1,8 @@
 {
   "pack": {
     "description": "Magic commons datapack by Lprogrammer and Boblegrob",
-    "pack_format": 107.1,
-    "min_format": 107.1,
-    "max_format": 107.1 
+    "pack_format": 121,
+    "min_format": 121,
+    "max_format": 121 
   }
 }
